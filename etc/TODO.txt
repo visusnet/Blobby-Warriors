@@ -1,0 +1,55 @@
+v 0.1	(31.03.2008)
+	- 2 waffen					[100%]
+	- waffen drehen (richtungswechsel)		[100%]
+	- monition mehr force an objects		[100%]
+	- neues object: kiste				[100%]
+	- player kommt automatisch bei levelbeginn	[100%]
+	- playerleiste einblenden (statisch)		[100%]
+	- kleines statisches testlevel			[100%]
+	- Maus gedrückt halten				[100%]
+	- Rahmen					[100%]
+	- bug wand stock				[100%]
+	- waffe += ladezeit				[100%]
+	- waffen aufnehmen / ablegen (einfach)		[100%]
+
+
+
+v 0.2
+	- physics scaling
+	- rendering performance
+	- jedes object += collisionsmaske
+	- startmenü verbessern (einblenden)
+	- playerleiste mit einiges anzeigen
+	- blobby mit verschiedenen farben
+	- blobby destroyen
+		- explosion particel ?
+		- in stücke zerfallen !
+	- mehr waffen? (falls imgs vorhanden)
+
+
+
+v 0.3
+	- level in eigene "files" / DB
+		- 2/3 level machen
+	- leveledior einfach
+	- levelfile += Bilder
+	- levelfile += Ebenen
+	- level verbessern
+	- einfache gegner-ki (alle gegen spieler-blobby)
+	- mehr waffen? (falls imgs vorhanden)
+	- sounds
+	- waffen aufnehmen / ablegen richtig
+
+
+
+v 0.4
+	- playerleiste vervollständigen (weapons etc)
+	- startmenü verbessern
+	- einige spielbare level
+	- mehr waffen? (falls imgs vorhanden)
+	- gute gegner-KIs ( Deathmath (& Team Deathmath) )
+		- stärke einstellbar
+
+
+
+
