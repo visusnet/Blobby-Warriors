@@ -1,0 +1,48 @@
+/* LAYER
+
+	...
+	-3 = Hintergrund (noch langsamer...)
+	-2 = Hintergrund (langsamer...)
+
+	-1 = Hauptebene Hintergrund	(Images)
+	 0 = Hauptebene 		(Blobbys... Balls... Grounds...)
+	+1 = Hauptebene Vordergrund 	(Images)
+
+	+2 = Vordergrund (schneller...)
+	+3 = Vordergrund (noch schneller...)
+	...
+
+*/
+
+
+
+<level name="Testlevel" gravity="9.81">
+	<object type="BBlobby" posX="100" posY="200" rotation="0" ki="" content="80,34,255;"></object>
+	<object type="BBall" posX="300" posY="200" rotation="0" ki="" content=""></object>
+	<object type="BCrate" posX="500" posY="200" rotation="0" ki="" content=""></object>
+	<object type="BWeaponGun" posX="600" posY="500" rotation="90" ki="" content=""></object>
+
+
+
+	<image group="palme" posX="700" posY="10" rotation="66" layer="1">
+		<src time="200">test1.png</src>
+		<src time="200">test2.png</src>
+		<src time="100">test3.png</src>
+		<src time="300">test4.png</src>
+	</image>
+
+
+	<image group="steinboden" posX="500" posY="10" rotation="66" layer="1">
+		<src time="">steinboden1.png</src>
+	</image>
+
+
+	<image group="steinboden" posX="900" posY="10" rotation="66" layer="-1">
+		<src time="">steinboden2.png</src>
+	</image>
+
+
+
+	<ground type="circle" posX="550" posY="233" rotation="0" friction="0.5" content="33"></ground>
+	<ground type="polygon" posX="20" posY="563" rotation="40" friction="0.8" content="10,12;20,0;40,500;700,65;></ground>
+</level>
