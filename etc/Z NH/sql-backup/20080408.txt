@@ -1,0 +1,81 @@
+-- phpMyAdmin SQL Dump
+-- version 2.9.1.1
+-- http://www.phpmyadmin.net
+-- 
+-- Host: localhost
+-- Erstellungszeit: 08. April 2008 um 08:58
+-- Server Version: 5.0.26
+-- PHP-Version: 5.2.0
+-- 
+-- Datenbank: `usr_web12_1`
+-- 
+
+-- --------------------------------------------------------
+
+-- 
+-- Tabellenstruktur für Tabelle `tab_content`
+-- 
+
+CREATE TABLE `tab_content` (
+  `type` varchar(20) NOT NULL,
+  `time` datetime NOT NULL,
+  `content` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- 
+-- Daten für Tabelle `tab_content`
+-- 
+
+INSERT INTO `tab_content` VALUES ('about', '2008-04-04 14:27:27', '\r\n        <div class="box">\r\n            <div class="boxhead">\r\n                <h1>BOW - Blob of War</h1>\r\n            </div>\r\n\r\n            <div class="boxbody">\r\n                <p>Bei <b>BOW</b> handelt es sich um ein Jump''n''Run-Game wo es darum geht, sich oder sein Team gegen andere Blobbys zu verteidigen.<br><br>\r\n\r\n		Es sollen später bekannte Match-Typen gespielt werden können wie <i>Deathmath</i>, <i>Teamdeathmatch</i>, <i>Capture the Flag</i> etc...<br><br>\r\n\r\n		Unterstützt wird das Spiel durch die <a href="http://www.box2d.org" target="_blank"> Box2D-Physik-Engine </a> welche durch die <br>\r\n		<a href="http://box2dflash.sourceforge.net/" target="_blank">Portierung zu AS3 (Action Script 3)</a> sehr schön mittels Flash genutzt werden kann.<br><br><br>\r\n		\r\n\r\n		Als Ziel sehen wir ein Jump''n''Run Game, mit welchem es möglich ist ohne Installation<br>\r\n		sofort online gegen andere Spieler zu spielen.\r\n		</p>\r\n                <br class="footinit">\r\n            </div>\r\n\r\n        </div>');
+INSERT INTO `tab_content` VALUES ('contact', '2008-04-04 14:27:27', '        <div class="box">\r\n            <div class="boxhead">\r\n                <h1>Kontaktformular</h1>\r\n            </div>\r\n\r\n            <div class="boxbody">\r\n		<table>\r\n			<tr><td width="100px"><font size="2px">eMail:</font></td><td><input type=text name=from id="contact_from" style="background-color:3C80FA;"></td></tr>\r\n			<tr><td width="100px"><font size="2px">Betreff:</font></td><td><input type=text name=subject id="contact_subject" style="background-color:3C80FA;"></td></tr>\r\n			<tr><td width="100px"><font size="2px">Text:</font></td><td><textarea name=text cols=40 rows=10 id="contact_text" style="background-color:3C80FA;"></textarea></td></tr>\r\n			<tr><td colspan=2 align=center><br><input type=submit value="Abschicken" onclick="runContact( document.getElementById(''contact_from'').value, document.getElementById(''contact_subject'').value, document.getElementById(''contact_text'').value );"></td></tr>\r\n		</table>\r\n            </div>\r\n        </div>');
+INSERT INTO `tab_content` VALUES ('gallery', '2008-04-04 14:28:18', '\r\n        <div class="box">\r\n            <div class="boxhead">\r\n                <h1>Screenshots Level <i>Testlevel 1</i></h1>\r\n            </div>\r\n\r\n            <div class="boxbody">\r\n		<center>\r\n	        	<a href="images/screeny0.png" target="_blanc"><img src="images/screeny0.png" width="145" height="110"></img></a>\r\n                	<a href="images/screeny1.png" target="_blanc"><img src="images/screeny1.png" width="145" height="110"></img></a>\r\n			<a href="images/screeny2.png" target="_blanc"><img src="images/screeny2.png" width="145" height="110"></img></a>\r\n		</center>\r\n            </div>\r\n        </div>');
+INSERT INTO `tab_content` VALUES ('login', '2008-04-04 14:28:18', '        <div class="box">\r\n            <div class="boxhead">\r\n                <h1>Login</h1>\r\n            </div>\r\n\r\n            <div class="boxbody">\r\n		<table>\r\n			<tr><td width="100px"><font size="2px">Username:</font></td><td><input type=text name=user id="login_user" style="background-color:3C80FA;"></td></tr>\r\n			<tr><td width="100px"><font size="2px">Passwort:</font></td><td><input type=password name=pass id="login_pass" style="background-color:3C80FA;"></td></tr>\r\n			\r\n			<tr><td colspan=2 align=left><br><input type=submit value="Login" onclick="runLogin( document.getElementById(''login_user'').value, document.getElementById(''login_pass'').value);"></td></tr>\r\n		</table>\r\n            </div>\r\n        </div>');
+INSERT INTO `tab_content` VALUES ('news', '2008-04-04 14:28:44', '	<div class="box">\r\n            <div class="boxhead">\r\n                <h1><span class="date">31.03.2008</span> BoW - Version 0.1</h1>\r\n            </div>\r\n\r\n            <div class="boxbody">\r\n                <p>Die Version 0.1 ist fertig.<br><br>\r\n		Es ist möglich einen Blobby durch eine Testwelt zu steuern. Diese Version dient dazu die grundlegenen\r\n		Funktionen zu testen / zu verbessern.\r\n		<br></p>\r\n                <br class="footinit">\r\n            </div>\r\n        </div>');
+INSERT INTO `tab_content` VALUES ('news', '2008-04-04 14:28:44', '	<div class="box">\r\n            <div class="boxhead">\r\n                <h1><span class="date">28.03.2008</span> BoW - Version 0.1 in Arbeit</h1>\r\n            </div>\r\n\r\n            <div class="boxbody">\r\n                <p>Das Projekt läuft.<br><br>\r\n		Als Physik-Engine haben wir uns für Box2D entschieden. Nähere Informationen bekommt ihr im Abschnitt "ABOUT".</p>\r\n                <br class="footinit">\r\n            </div>\r\n        </div>');
+INSERT INTO `tab_content` VALUES ('news', '2008-04-04 14:29:09', '        <div class="box">\r\n            <div class="boxhead">\r\n                <h1><span class="date">07.02.2008</span> BoW - Flash Version</h1>\r\n            </div>\r\n\r\n            <div class="boxbody">\r\n                <p>Es wurde geplant das BoW-Projekt neu in Angriff zu nehmen und es als Online-Game mittels Flash, besserer Grafik sowie einer Physik-Engine zu entwickeln.<br><br> Hoffen wir das Beste ;)</p>\r\n                <br class="footinit">\r\n            </div>\r\n        </div>');
+INSERT INTO `tab_content` VALUES ('play', '2008-04-04 14:29:09', '        <div align="center">\r\n		<embed src="content/bow.swf" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="1000" height="600">\r\n		</embed>\r\n        </div>\r\n');
+INSERT INTO `tab_content` VALUES ('register', '2008-04-07 00:00:00', '        <div class="box">\r\n            <div class="boxhead">\r\n                <h1>Login</h1>\r\n            </div>\r\n\r\n            <div class="boxbody">\r\n		<table>\r\n			<tr><td width="100px"><font size="2px">Username:</font></td><td><input type=text name=user id="register_user" style="background-color:3C80FA;"></td></tr>\r\n			<tr><td width="100px"><font size="2px">Passwort:</font></td><td><input type=password name=pass id="register_pass" style="background-color:3C80FA;"></td></tr>\r\n			<tr><td width="100px"><font size="2px">Passwort:</font></td><td><input type=password name=pass id="register_pass2" style="background-color:3C80FA;"></td></tr>\r\n			\r\n			<tr><td colspan=2 align=left><br><input type=submit value="Register" onclick="runRegister();"></td></tr>\r\n		</table>\r\n            </div>\r\n        </div>');
+INSERT INTO `tab_content` VALUES ('register', '2008-04-07 00:00:00', '        <div class="box">\r\n            <div class="boxhead">\r\n                <h1>Login</h1>\r\n            </div>\r\n\r\n            <div class="boxbody">\r\n		<table>\r\n			<tr><td width="100px"><font size="2px">Username:</font></td><td><input type=text name=user id="register_user" style="background-color:3C80FA;"></td></tr>\r\n			<tr><td width="100px"><font size="2px">Passwort:</font></td><td><input type=password name=pass id="register_pass" style="background-color:3C80FA;"></td></tr>\r\n			<tr><td width="100px"><font size="2px">Passwort:</font></td><td><input type=password name=pass id="register_pass2" style="background-color:3C80FA;"></td></tr>\r\n			\r\n			<tr><td colspan=2 align=left><br><input type=submit value="Register" onclick="runRegister();"></td></tr>\r\n		</table>\r\n            </div>\r\n        </div>');
+
+-- --------------------------------------------------------
+
+-- 
+-- Tabellenstruktur für Tabelle `tab_muell`
+-- 
+
+CREATE TABLE `tab_muell` (
+  `user` varchar(20) NOT NULL,
+  `msg` text NOT NULL,
+  `time` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- 
+-- Daten für Tabelle `tab_muell`
+-- 
+
+INSERT INTO `tab_muell` VALUES ('Babelduo', '123TEST', '2008-04-07 16:18:51');
+INSERT INTO `tab_muell` VALUES ('Tobey', 'hehe', '2008-04-05 14:10:05');
+INSERT INTO `tab_muell` VALUES ('Babelduo', 'huhu', '2008-04-07 14:05:58');
+INSERT INTO `tab_muell` VALUES ('Babelduo', 'oh yo! NICE', '2008-04-04 13:52:04');
+INSERT INTO `tab_muell` VALUES ('Babelduo', 'huhu', '2008-04-05 14:08:57');
+INSERT INTO `tab_muell` VALUES ('Tobey', 'hehe', '2008-04-04 14:02:43');
+INSERT INTO `tab_muell` VALUES ('Babelduo', 'naaaa', '2008-04-04 14:02:51');
+
+-- --------------------------------------------------------
+
+-- 
+-- Tabellenstruktur für Tabelle `tab_user`
+-- 
+
+CREATE TABLE `tab_user` (
+  `username` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `lastSeen` int(10) unsigned NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- 
+-- Daten für Tabelle `tab_user`
+-- 
+
+INSERT INTO `tab_user` VALUES ('Babelduo', '123', 1207578055);
+INSERT INTO `tab_user` VALUES ('Tobey', '123', 1207519561);

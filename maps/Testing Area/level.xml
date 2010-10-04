@@ -1,0 +1,20 @@
+<level name='Blue Mystic' gravity='60' width='3000' height='1000'>
+	<ground_line x1='37' y1='873' x2='39' y2='455' friction='1'></ground_line>
+	<ground_line x1='2968' y1='353' x2='2969' y2='773' friction='1'></ground_line>
+	<ground_line x1='2968' y1='468' x2='2968' y2='776' friction='1'></ground_line>
+	<ground_line x1='2861' y1='775' x2='2968' y2='776' friction='1'></ground_line>
+	<ground_line x1='2707' y1='874' x2='2861' y2='775' friction='1'></ground_line>
+	<ground_line x1='2464' y1='873' x2='2707' y2='874' friction='1'></ground_line>
+	<ground_line x1='1863' y1='874' x2='2472' y2='873' friction='1'></ground_line>
+	<ground_line x1='1267' y1='873' x2='1869' y2='873' friction='1'></ground_line>
+	<ground_line x1='672' y1='873' x2='1271' y2='873' friction='1'></ground_line>
+	<ground_line x1='37' y1='874' x2='675' y2='874' friction='1'></ground_line>
+	<object type='BWeaponGun' posx='1000' posy='600' rotation='0' ki='-1' content='255,255,255'></object>
+	<object type='BCrate' posx='2980' posy='600' rotation='0' ki='-1' content=''></object>
+	<object type='BCrate' posx='2800' posy='650' rotation='0' ki='-1' content=''></object>
+	<object type='BCrate' posx='2850' posy='700' rotation='0' ki='-1' content=''></object>
+	<object type='BCrate' posx='2890' posy='600' rotation='0' ki='-1' content=''></object>
+	<object type='BCrate' posx='2910' posy='650' rotation='0' ki='-1' content=''></object>
+	<object type='BCrate' posx='2900' posy='700' rotation='0' ki='-1' content=''></object>
+	<image posx='0' posy='0' src='foreground.gif' rotation='0' layer='1'></image>
+</level>

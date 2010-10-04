@@ -1,0 +1,281 @@
+<level name='Blue Mystic' gravity='60' width='3000' height='1000'>
+	<ground_line x1='2326' y1='232' x2='2361' y2='265' friction='1'></ground_line>
+	<ground_line x1='2322' y1='231' x2='2362' y2='267' friction='1'></ground_line>
+	<ground_line x1='2360' y1='432' x2='2362' y2='267' friction='1'></ground_line>
+	<ground_line x1='2325' y1='469' x2='2360' y2='432' friction='1'></ground_line>
+	<ground_line x1='1768' y1='468' x2='2325' y2='469' friction='1'></ground_line>
+	<ground_line x1='1760' y1='231' x2='2325' y2='230' friction='1'></ground_line>
+	<ground_line x1='1354' y1='468' x2='1771' y2='469' friction='1'></ground_line>
+	<ground_line x1='1166' y1='232' x2='1763' y2='231' friction='1'></ground_line>
+	<ground_line x1='668' y1='467' x2='1357' y2='468' friction='1'></ground_line>
+	<ground_line x1='633' y1='431' x2='667' y2='466' friction='1'></ground_line>
+	<ground_line x1='633' y1='431' x2='633' y2='267' friction='1'></ground_line>
+	<ground_line x1='669' y1='230' x2='1169' y2='232' friction='1'></ground_line>
+	<ground_line x1='633' y1='266' x2='669' y2='230' friction='1'></ground_line>
+	<ground_line x1='602' y1='11' x2='699' y2='13' friction='1'></ground_line>
+	<ground_line x1='683' y1='11' x2='1234' y2='13' friction='1'></ground_line>
+	<ground_line x1='1231' y1='11' x2='1886' y2='12' friction='1'></ground_line>
+	<ground_line x1='1883' y1='11' x2='2453' y2='13' friction='1'></ground_line>
+	<ground_line x1='2453' y1='11' x2='2983' y2='12' friction='1'></ground_line>
+	<ground_line x1='2984' y1='11' x2='2985' y2='63' friction='1'></ground_line>
+	<ground_line x1='2986' y1='11' x2='2986' y2='74' friction='1'></ground_line>
+	<ground_line x1='2986' y1='482' x2='2987' y2='66' friction='1'></ground_line>
+	<ground_line x1='2569' y1='239' x2='2675' y2='407' friction='1'></ground_line>
+	<ground_line x1='2569' y1='239' x2='2575' y2='229' friction='1'></ground_line>
+	<ground_line x1='2575' y1='229' x2='2890' y2='371' friction='1'></ground_line>
+	<ground_line x1='2886' y1='381' x2='2890' y2='371' friction='1'></ground_line>
+	<ground_line x1='2679' y1='408' x2='2886' y2='381' friction='1'></ground_line>
+	<ground_line x1='2986' y1='55' x2='2986' y2='483' friction='1'></ground_line>
+	<ground_line x1='2870' y1='598' x2='2986' y2='483' friction='1'></ground_line>
+	<ground_line x1='2382' y1='598' x2='2870' y2='598' friction='1'></ground_line>
+	<ground_line x1='2349' y1='630' x2='2382' y2='598' friction='1'></ground_line>
+	<ground_line x1='2350' y1='652' x2='2350' y2='630' friction='1'></ground_line>
+	<ground_line x1='2315' y1='685' x2='2351' y2='655' friction='1'></ground_line>
+	<ground_line x1='2314' y1='694' x2='2315' y2='685' friction='1'></ground_line>
+	<ground_line x1='2314' y1='694' x2='2350' y2='718' friction='1'></ground_line>
+	<ground_line x1='2349' y1='781' x2='2350' y2='718' friction='1'></ground_line>
+	<ground_line x1='2320' y1='809' x2='2349' y2='781' friction='1'></ground_line>
+	<ground_line x1='2010' y1='808' x2='2321' y2='809' friction='1'></ground_line>
+	<ground_line x1='1995' y1='763' x2='2010' y2='808' friction='1'></ground_line>
+	<ground_line x1='1992' y1='727' x2='1995' y2='763' friction='1'></ground_line>
+	<ground_line x1='1950' y1='729' x2='1992' y2='729' friction='1'></ground_line>
+	<ground_line x1='1949' y1='769' x2='1950' y2='729' friction='1'></ground_line>
+	<ground_line x1='1935' y1='810' x2='1949' y2='769' friction='1'></ground_line>
+	<ground_line x1='1692' y1='809' x2='1935' y2='810' friction='1'></ground_line>
+	<ground_line x1='1060' y1='809' x2='1692' y2='808' friction='1'></ground_line>
+	<ground_line x1='1048' y1='763' x2='1060' y2='807' friction='1'></ground_line>
+	<ground_line x1='1047' y1='730' x2='1048' y2='763' friction='1'></ground_line>
+	<ground_line x1='1003' y1='730' x2='1047' y2='730' friction='1'></ground_line>
+	<ground_line x1='1002' y1='769' x2='1003' y2='730' friction='1'></ground_line>
+	<ground_line x1='986' y1='810' x2='1002' y2='769' friction='1'></ground_line>
+	<ground_line x1='674' y1='809' x2='986' y2='810' friction='1'></ground_line>
+	<ground_line x1='646' y1='780' x2='674' y2='809' friction='1'></ground_line>
+	<ground_line x1='646' y1='780' x2='646' y2='717' friction='1'></ground_line>
+	<ground_line x1='647' y1='717' x2='682' y2='693' friction='1'></ground_line>
+	<ground_line x1='646' y1='657' x2='681' y2='683' friction='1'></ground_line>
+	<ground_line x1='644' y1='628' x2='646' y2='657' friction='1'></ground_line>
+	<ground_line x1='611' y1='598' x2='644' y2='628' friction='1'></ground_line>
+	<ground_line x1='125' y1='597' x2='614' y2='598' friction='1'></ground_line>
+	<ground_line x1='11' y1='483' x2='124' y2='597' friction='1'></ground_line>
+	<ground_line x1='9' y1='142' x2='9' y2='480' friction='1'></ground_line>
+	<ground_line x1='104' y1='370' x2='419' y2='229' friction='1'></ground_line>
+	<ground_line x1='419' y1='229' x2='425' y2='235' friction='1'></ground_line>
+	<ground_line x1='320' y1='407' x2='425' y2='235' friction='1'></ground_line>
+	<ground_line x1='110' y1='381' x2='320' y2='407' friction='1'></ground_line>
+	<ground_line x1='103' y1='372' x2='110' y2='381' friction='1'></ground_line>
+	<ground_line x1='10' y1='143' x2='11' y2='481' friction='1'></ground_line>
+	<ground_line x1='10' y1='11' x2='10' y2='144' friction='1'></ground_line>
+	<ground_line x1='10' y1='11' x2='607' y2='11' friction='1'></ground_line>
+	<ground_line x1='11' y1='143' x2='12' y2='11' friction='1'></ground_line>
+	<image posx='0' posy='0' src='vorne1.gif' rotation='0' layer='1'></image>
+	<waypoint id='0' posx='739' posy='766'>
+	<waypoint_con_id id='1' length='10'></waypoint_con_id>
+	<waypoint_con_id id='6' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='1' posx='723' posy='639'>
+	<waypoint_con_id id='0' length='10'></waypoint_con_id>
+	<waypoint_con_id id='2' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='2' posx='662' posy='554'>
+	<waypoint_con_id id='1' length='10'></waypoint_con_id>
+	<waypoint_con_id id='3' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='3' posx='547' posy='546'>
+	<waypoint_con_id id='2' length='10'></waypoint_con_id>
+	<waypoint_con_id id='4' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='4' posx='383' posy='551'>
+	<waypoint_con_id id='3' length='10'></waypoint_con_id>
+	<waypoint_con_id id='5' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='5' posx='189' posy='546'>
+	<waypoint_con_id id='4' length='10'></waypoint_con_id>
+	<waypoint_con_id id='54' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='6' posx='955' posy='770'>
+	<waypoint_con_id id='0' length='10'></waypoint_con_id>
+	<waypoint_con_id id='7' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='7' posx='977' posy='684'>
+	<waypoint_con_id id='6' length='10'></waypoint_con_id>
+	<waypoint_con_id id='8' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='8' posx='1024' posy='683'>
+	<waypoint_con_id id='7' length='10'></waypoint_con_id>
+	<waypoint_con_id id='9' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='9' posx='1082' posy='683'>
+	<waypoint_con_id id='8' length='10'></waypoint_con_id>
+	<waypoint_con_id id='10' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='10' posx='1100' posy='769'>
+	<waypoint_con_id id='9' length='10'></waypoint_con_id>
+	<waypoint_con_id id='11' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='11' posx='1303' posy='769'>
+	<waypoint_con_id id='10' length='10'></waypoint_con_id>
+	<waypoint_con_id id='12' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='12' posx='1416' posy='770'>
+	<waypoint_con_id id='11' length='10'></waypoint_con_id>
+	<waypoint_con_id id='13' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='13' posx='1565' posy='769'>
+	<waypoint_con_id id='12' length='10'></waypoint_con_id>
+	<waypoint_con_id id='14' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='14' posx='1694' posy='771'>
+	<waypoint_con_id id='13' length='10'></waypoint_con_id>
+	<waypoint_con_id id='15' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='15' posx='1853' posy='768'>
+	<waypoint_con_id id='14' length='10'></waypoint_con_id>
+	<waypoint_con_id id='16' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='16' posx='1907' posy='768'>
+	<waypoint_con_id id='15' length='10'></waypoint_con_id>
+	<waypoint_con_id id='17' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='17' posx='1928' posy='691'>
+	<waypoint_con_id id='16' length='10'></waypoint_con_id>
+	<waypoint_con_id id='18' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='18' posx='1973' posy='689'>
+	<waypoint_con_id id='17' length='10'></waypoint_con_id>
+	<waypoint_con_id id='19' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='19' posx='2038' posy='689'>
+	<waypoint_con_id id='18' length='10'></waypoint_con_id>
+	<waypoint_con_id id='20' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='20' posx='2057' posy='769'>
+	<waypoint_con_id id='19' length='10'></waypoint_con_id>
+	<waypoint_con_id id='21' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='21' posx='2170' posy='770'>
+	<waypoint_con_id id='20' length='10'></waypoint_con_id>
+	<waypoint_con_id id='22' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='22' posx='2250' posy='770'>
+	<waypoint_con_id id='21' length='10'></waypoint_con_id>
+	<waypoint_con_id id='23' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='23' posx='2263' posy='672'>
+	<waypoint_con_id id='22' length='10'></waypoint_con_id>
+	<waypoint_con_id id='24' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='24' posx='2309' posy='623'>
+	<waypoint_con_id id='23' length='10'></waypoint_con_id>
+	<waypoint_con_id id='25' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='25' posx='2321' posy='549'>
+	<waypoint_con_id id='24' length='10'></waypoint_con_id>
+	<waypoint_con_id id='26' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='26' posx='2382' posy='540'>
+	<waypoint_con_id id='25' length='10'></waypoint_con_id>
+	<waypoint_con_id id='27' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='27' posx='2517' posy='540'>
+	<waypoint_con_id id='26' length='10'></waypoint_con_id>
+	<waypoint_con_id id='28' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='28' posx='2709' posy='541'>
+	<waypoint_con_id id='27' length='10'></waypoint_con_id>
+	<waypoint_con_id id='29' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='29' posx='2832' posy='539'>
+	<waypoint_con_id id='28' length='10'></waypoint_con_id>
+	<waypoint_con_id id='30' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='30' posx='2896' posy='522'>
+	<waypoint_con_id id='29' length='10'></waypoint_con_id>
+	<waypoint_con_id id='31' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='31' posx='2960' posy='480'>
+	<waypoint_con_id id='30' length='10'></waypoint_con_id>
+	<waypoint_con_id id='32' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='32' posx='2962' posy='340'>
+	<waypoint_con_id id='31' length='10'></waypoint_con_id>
+	<waypoint_con_id id='33' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='33' posx='2910' posy='298'>
+	<waypoint_con_id id='32' length='10'></waypoint_con_id>
+	<waypoint_con_id id='34' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='34' posx='2810' posy='273'>
+	<waypoint_con_id id='33' length='10'></waypoint_con_id>
+	<waypoint_con_id id='35' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='35' posx='2725' posy='232'>
+	<waypoint_con_id id='34' length='10'></waypoint_con_id>
+	<waypoint_con_id id='36' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='36' posx='2626' posy='202'>
+	<waypoint_con_id id='35' length='10'></waypoint_con_id>
+	<waypoint_con_id id='37' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='37' posx='2579' posy='182'>
+	<waypoint_con_id id='36' length='10'></waypoint_con_id>
+	<waypoint_con_id id='38' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='38' posx='2548' posy='103'>
+	<waypoint_con_id id='37' length='10'></waypoint_con_id>
+	<waypoint_con_id id='39' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='39' posx='2454' posy='79'>
+	<waypoint_con_id id='38' length='10'></waypoint_con_id>
+	<waypoint_con_id id='40' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='40' posx='2360' posy='99'>
+	<waypoint_con_id id='39' length='10'></waypoint_con_id>
+	<waypoint_con_id id='41' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='41' posx='2306' posy='134'>
+	<waypoint_con_id id='40' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='54' posx='114' posy='525'>
+	<waypoint_con_id id='5' length='10'></waypoint_con_id>
+	<waypoint_con_id id='55' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='55' posx='49' posy='470'>
+	<waypoint_con_id id='54' length='10'></waypoint_con_id>
+	<waypoint_con_id id='56' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='56' posx='42' posy='324'>
+	<waypoint_con_id id='55' length='10'></waypoint_con_id>
+	<waypoint_con_id id='57' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='57' posx='74' posy='297'>
+	<waypoint_con_id id='56' length='10'></waypoint_con_id>
+	<waypoint_con_id id='58' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='58' posx='148' posy='271'>
+	<waypoint_con_id id='57' length='10'></waypoint_con_id>
+	<waypoint_con_id id='59' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='59' posx='274' posy='238'>
+	<waypoint_con_id id='58' length='10'></waypoint_con_id>
+	<waypoint_con_id id='60' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='60' posx='381' posy='206'>
+	<waypoint_con_id id='59' length='10'></waypoint_con_id>
+	<waypoint_con_id id='61' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='61' posx='433' posy='142'>
+	<waypoint_con_id id='60' length='10'></waypoint_con_id>
+	<waypoint_con_id id='62' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='62' posx='528' posy='89'>
+	<waypoint_con_id id='61' length='10'></waypoint_con_id>
+	<waypoint_con_id id='63' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='63' posx='670' posy='77'>
+	<waypoint_con_id id='62' length='10'></waypoint_con_id>
+	<waypoint_con_id id='64' length='10'></waypoint_con_id>
+</waypoint>
+	<waypoint id='64' posx='731' posy='97'>
+	<waypoint_con_id id='63' length='10'></waypoint_con_id>
+</waypoint>
+</level>

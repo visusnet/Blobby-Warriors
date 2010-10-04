@@ -1,0 +1,35 @@
+<level name='Diamond Mine' gravity='60' width='4500' height='4500'>
+	<ground_line x1='4469' y1='1434' x2='4471' y2='1664' friction='1'></ground_line>
+	<ground_line x1='4443' y1='1926' x2='4472' y2='1655' friction='1'></ground_line>
+	<ground_line x1='4243' y1='1937' x2='4439' y2='1921' friction='1'></ground_line>
+	<ground_line x1='4101' y1='2087' x2='4250' y2='1935' friction='1'></ground_line>
+	<ground_line x1='4076' y1='2399' x2='4106' y2='2081' friction='1'></ground_line>
+	<ground_line x1='3952' y1='2544' x2='4070' y2='2394' friction='1'></ground_line>
+	<ground_line x1='3767' y1='2531' x2='3956' y2='2540' friction='1'></ground_line>
+	<ground_line x1='3772' y1='2646' x2='3776' y2='2525' friction='1'></ground_line>
+	<ground_line x1='3759' y1='3055' x2='3772' y2='2638' friction='1'></ground_line>
+	<ground_line x1='3746' y1='3437' x2='3761' y2='3044' friction='1'></ground_line>
+	<ground_line x1='3621' y1='3585' x2='3740' y2='3435' friction='1'></ground_line>
+	<ground_line x1='3381' y1='3576' x2='3625' y2='3581' friction='1'></ground_line>
+	<ground_line x1='3333' y1='3803' x2='3392' y2='3565' friction='1'></ground_line>
+	<ground_line x1='3223' y1='3937' x2='3324' y2='3799' friction='1'></ground_line>
+	<ground_line x1='3006' y1='3923' x2='3227' y2='3930' friction='1'></ground_line>
+	<ground_line x1='2988' y1='4087' x2='2993' y2='3913' friction='1'></ground_line>
+	<ground_line x1='2849' y1='4150' x2='2989' y2='4080' friction='1'></ground_line>
+	<ground_line x1='2729' y1='4148' x2='2856' y2='4147' friction='1'></ground_line>
+	<ground_line x1='2150' y1='4177' x2='2731' y2='4150' friction='1'></ground_line>
+	<ground_line x1='2125' y1='4182' x2='2158' y2='4174' friction='1'></ground_line>
+	<ground_line x1='2018' y1='4211' x2='2132' y2='4180' friction='1'></ground_line>
+	<ground_line x1='1783' y1='4281' x2='2026' y2='4211' friction='1'></ground_line>
+	<ground_line x1='1665' y1='4356' x2='1787' y2='4279' friction='1'></ground_line>
+	<ground_line x1='1628' y1='4355' x2='1670' y2='4350' friction='1'></ground_line>
+	<ground_line x1='1520' y1='4306' x2='1634' y2='4350' friction='1'></ground_line>
+	<ground_line x1='1498' y1='4264' x2='1522' y2='4308' friction='1'></ground_line>
+	<ground_line x1='1389' y1='4150' x2='1503' y2='4274' friction='1'></ground_line>
+	<ground_line x1='758' y1='4156' x2='1396' y2='4148' friction='1'></ground_line>
+	<ground_line x1='470' y1='4088' x2='765' y2='4156' friction='1'></ground_line>
+	<ground_line x1='-1' y1='4069' x2='478' y2='4080' friction='1'></ground_line>
+	<ground_line x1='3' y1='4066' x2='4' y2='3771' friction='1'></ground_line>
+	<ground_line x1='1' y1='3763' x2='1' y2='4065' friction='1'></ground_line>
+	<image posx='0' posy='0' src='1.gif' rotation='0' layer='1'></image>
+</level>
