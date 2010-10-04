@@ -1,0 +1,26 @@
+Menü (Buttons etc)
+Playerleiste
+
+
+Waffen
+	- Messer
+		- norm messer	  0%
+
+	- sec
+		- Pistol	  0%
+
+	- prim
+		- Laser Green	100%
+		- Rifle		100%
+		- Shotgun	  0%
+		- Rocket	  0%
+		- Flammenwe	  0%
+
+	- Graneten
+		- Explo		  0%
+		- Flash		  0%
+		- Rauch		  0%
+
+
+
+Hintergründe
