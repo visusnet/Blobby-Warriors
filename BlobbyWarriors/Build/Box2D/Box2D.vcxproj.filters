@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\Box2D\Dynamics\Joints\b2DistanceJoint.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Dynamics\Joints\b2FrictionJoint.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Dynamics\Joints\b2GearJoint.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Dynamics\Joints\b2Joint.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Dynamics\Joints\b2LineJoint.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Dynamics\Joints\b2MouseJoint.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Dynamics\Joints\b2PrismaticJoint.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Dynamics\Joints\b2PulleyJoint.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Dynamics\Joints\b2RevoluteJoint.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Dynamics\Joints\b2WeldJoint.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Dynamics\Contacts\b2CircleContact.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Dynamics\Contacts\b2Contact.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Dynamics\Contacts\b2ContactSolver.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Dynamics\Contacts\b2PolygonAndCircleContact.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Dynamics\Contacts\b2PolygonContact.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Dynamics\Contacts\b2TOISolver.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Dynamics\b2Body.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Dynamics\b2ContactManager.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Dynamics\b2Fixture.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Dynamics\b2Island.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Dynamics\b2World.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Dynamics\b2WorldCallbacks.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Common\b2BlockAllocator.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Common\b2Math.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Common\b2Settings.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Common\b2StackAllocator.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Collision\Shapes\b2CircleShape.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Collision\Shapes\b2PolygonShape.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Collision\b2BroadPhase.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Collision\b2CollideCircle.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Collision\b2CollidePolygon.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Collision\b2Collision.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Collision\b2Distance.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Collision\b2DynamicTree.cpp" />
+    <ClCompile Include="..\..\Source\Box2D\Collision\b2TimeOfImpact.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\Box2D\Box2D.h" />
+    <ClInclude Include="..\..\Source\Box2D\Dynamics\Joints\b2DistanceJoint.h" />
+    <ClInclude Include="..\..\Source\Box2D\Dynamics\Joints\b2FrictionJoint.h" />
+    <ClInclude Include="..\..\Source\Box2D\Dynamics\Joints\b2GearJoint.h" />
+    <ClInclude Include="..\..\Source\Box2D\Dynamics\Joints\b2Joint.h" />
+    <ClInclude Include="..\..\Source\Box2D\Dynamics\Joints\b2LineJoint.h" />
+    <ClInclude Include="..\..\Source\Box2D\Dynamics\Joints\b2MouseJoint.h" />
+    <ClInclude Include="..\..\Source\Box2D\Dynamics\Joints\b2PrismaticJoint.h" />
+    <ClInclude Include="..\..\Source\Box2D\Dynamics\Joints\b2PulleyJoint.h" />
+    <ClInclude Include="..\..\Source\Box2D\Dynamics\Joints\b2RevoluteJoint.h" />
+    <ClInclude Include="..\..\Source\Box2D\Dynamics\Joints\b2WeldJoint.h" />
+    <ClInclude Include="..\..\Source\Box2D\Dynamics\Contacts\b2CircleContact.h" />
+    <ClInclude Include="..\..\Source\Box2D\Dynamics\Contacts\b2Contact.h" />
+    <ClInclude Include="..\..\Source\Box2D\Dynamics\Contacts\b2ContactSolver.h" />
+    <ClInclude Include="..\..\Source\Box2D\Dynamics\Contacts\b2PolygonAndCircleContact.h" />
+    <ClInclude Include="..\..\Source\Box2D\Dynamics\Contacts\b2PolygonContact.h" />
+    <ClInclude Include="..\..\Source\Box2D\Dynamics\Contacts\b2TOISolver.h" />
+    <ClInclude Include="..\..\Source\Box2D\Dynamics\b2Body.h" />
+    <ClInclude Include="..\..\Source\Box2D\Dynamics\b2ContactManager.h" />
+    <ClInclude Include="..\..\Source\Box2D\Dynamics\b2Fixture.h" />
+    <ClInclude Include="..\..\Source\Box2D\Dynamics\b2Island.h" />
+    <ClInclude Include="..\..\Source\Box2D\Dynamics\b2TimeStep.h" />
+    <ClInclude Include="..\..\Source\Box2D\Dynamics\b2World.h" />
+    <ClInclude Include="..\..\Source\Box2D\Dynamics\b2WorldCallbacks.h" />
+    <ClInclude Include="..\..\Source\Box2D\Common\b2BlockAllocator.h" />
+    <ClInclude Include="..\..\Source\Box2D\Common\b2Math.h" />
+    <ClInclude Include="..\..\Source\Box2D\Common\b2Settings.h" />
+    <ClInclude Include="..\..\Source\Box2D\Common\b2StackAllocator.h" />
+    <ClInclude Include="..\..\Source\Box2D\Collision\Shapes\b2CircleShape.h" />
+    <ClInclude Include="..\..\Source\Box2D\Collision\Shapes\b2PolygonShape.h" />
+    <ClInclude Include="..\..\Source\Box2D\Collision\Shapes\b2Shape.h" />
+    <ClInclude Include="..\..\Source\Box2D\Collision\b2BroadPhase.h" />
+    <ClInclude Include="..\..\Source\Box2D\Collision\b2Collision.h" />
+    <ClInclude Include="..\..\Source\Box2D\Collision\b2Distance.h" />
+    <ClInclude Include="..\..\Source\Box2D\Collision\b2DynamicTree.h" />
+    <ClInclude Include="..\..\Source\Box2D\Collision\b2TimeOfImpact.h" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Dynamics\Contacts">
+      <UniqueIdentifier>{5442B5C8-5D48-4424-A5B1-0C495B2B6152}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dynamics\Joints">
+      <UniqueIdentifier>{EF59A0AA-1959-4253-B19F-CB76FF1797AA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collision\Shapes">
+      <UniqueIdentifier>{46BB048A-192E-4D02-9674-F44729514E84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collision">
+      <UniqueIdentifier>{8ACDD655-4A3C-490B-AAC7-FD5C21A611CE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{FBDAECCB-2FF7-4C99-B455-4DDE4D4278EE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dynamics">
+      <UniqueIdentifier>{C60FA70F-C101-42D4-A2C1-5416429058BB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{969EBBA6-4C81-4A0C-8CD7-62197F913C45}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
