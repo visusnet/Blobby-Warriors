@@ -10,8 +10,8 @@ namespace BlobbyWarriors
 {
     class Main : OpenTK.GameWindow
     {
-        public Main()
-            : base(800, 600)
+        public Main(int width, int height)
+            : base(width, height)
         {
             GL.ClearColor(Color.Red);
         }

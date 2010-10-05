@@ -12,3 +12,17 @@ C:\Users\visus\Desktop\BlobbyWarriors\BlobbyWarriors\bin\Debug\OpenTK.Compatibil
 C:\Users\visus\Desktop\BlobbyWarriors\BlobbyWarriors\bin\Debug\OpenTK.GLControl.xml
 C:\Users\visus\Desktop\BlobbyWarriors\BlobbyWarriors\obj\x86\Debug\BlobbyWarriors.exe
 C:\Users\visus\Desktop\BlobbyWarriors\BlobbyWarriors\obj\x86\Debug\BlobbyWarriors.pdb
+C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\BlobbyWarriors\obj\x86\Debug\BlobbyWarriors.exe
+C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\BlobbyWarriors\obj\x86\Debug\BlobbyWarriors.pdb
+C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\BlobbyWarriors\bin\Debug\BlobbyWarriors.exe
+C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\BlobbyWarriors\bin\Debug\BlobbyWarriors.pdb
+C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\BlobbyWarriors\bin\Debug\OpenTK.Compatibility.dll
+C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\BlobbyWarriors\bin\Debug\OpenTK.dll
+C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\BlobbyWarriors\bin\Debug\OpenTK.GLControl.dll
+C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\BlobbyWarriors\bin\Debug\OpenTK.xml
+C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\BlobbyWarriors\bin\Debug\OpenTK.Compatibility.xml
+C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\BlobbyWarriors\bin\Debug\OpenTK.GLControl.xml
+C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\BlobbyWarriors\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\BlobbyWarriors\obj\x86\Debug\BlobbyWarriors.Properties.Resources.resources
+C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\BlobbyWarriors\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\BlobbyWarriors\obj\x86\Debug\GenerateResource.write.1.tlog

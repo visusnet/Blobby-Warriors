@@ -12,7 +12,7 @@ namespace BlobbyWarriors
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Main m = new Main();
+            Main m = new Main(800, 600);
             m.Run();
         }
     }

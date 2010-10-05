@@ -19,6 +19,11 @@ namespace BlobbyWarriors.Graphics
             this.id = id;
         }
 
+        public void Bind(TextureTarget target)
+        {
+            GL.BindTexture(target, this.id);
+        }
+
         public void Dispose()
         {
             GL.DeleteTexture(this.id);
