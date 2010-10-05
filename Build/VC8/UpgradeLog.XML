@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Box2D">
+</Property><Property Name="Projektmappendatei" Value="C:\Users\visus\Desktop\Blobby\branches\BOW_cpp\Build\VC8\Box2D.sln">
+</Property><Property Name="Benutzeroptionendatei" Value="C:\Users\visus\Desktop\Blobby\branches\BOW_cpp\Build\VC8\Box2D.suo">
+</Property><Property Name="Date" Value="Dienstag, 5. Oktober 2010">
+</Property><Property Name="Time" Value="13:30">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="Box2D.sln" Description="Datei wurde erfolgreich als &quot;C:\Users\visus\Desktop\Blobby\branches\BOW_cpp\Build\VC8\Box2D.sln.old&quot; gesichert">
+</Event><Event ErrorLevel="0" Project="" Source="Box2D.suo" Description="Datei wurde erfolgreich als &quot;C:\Users\visus\Desktop\Blobby\branches\BOW_cpp\Build\VC8\Box2D.suo.old&quot; gesichert">
+</Event><Event ErrorLevel="0" Project="Box2D" Source="Box2D.vcproj" Description="Converting project file 'C:\Users\visus\Desktop\Blobby\branches\BOW_cpp\Build\VC8\Box2D.vcproj'.">
+</Event><Event ErrorLevel="1" Project="Box2D" Source="Box2D.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="Box2D" Source="Box2D.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="Box2D" Source="Box2D.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="Box2D" Source="Box2D.vcproj" Description="MSB8012: $(TargetName) ('Box2D') does not match the Librarian's OutputFile property value '../../Library\box2d_d.lib' ('box2d_d') in project configuration 'Debug|Win32'. This may cause your project to build incorrectly. To correct this, please make sure that $(TargetName) property value matches the value specified in %(Lib.OutputFile).">
+</Event><Event ErrorLevel="1" Project="Box2D" Source="Box2D.vcproj" Description="MSB8012: $(TargetPath) ('C:\Users\visus\Desktop\Blobby\branches\BOW_cpp\Build\VC8\../../Library\Box2D.lib') does not match the Librarian's OutputFile property value '../../Library\box2d_d.lib' ('C:\Users\visus\Desktop\Blobby\branches\BOW_cpp\Build\VC8\../../Library\box2d_d.lib') in project configuration 'Debug|Win32'. This may cause your project to build incorrectly. To correct this, please make sure that $(TargetPath) property value matches the value specified in %(Lib.OutputFile).">
+</Event><Event ErrorLevel="0" Project="Box2D" Source="Box2D.vcproj" Description="Done converting to new project file 'C:\Users\visus\Desktop\Blobby\branches\BOW_cpp\Build\VC8\Box2D.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="Box2D" Source="Box2D.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="freeglut" Source="freeglut.vcproj" Description="Converting project file 'C:\Users\visus\Desktop\Blobby\branches\BOW_cpp\Build\VC8\freeglut.vcproj'.">
+</Event><Event ErrorLevel="1" Project="freeglut" Source="freeglut.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="freeglut" Source="freeglut.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="freeglut" Source="freeglut.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="freeglut" Source="freeglut.vcproj" Description="MSB8012: $(TargetPath) ('C:\Users\visus\Desktop\Blobby\branches\BOW_cpp\Build\VC8\..\..\Library\freeglut.lib') does not match the Librarian's OutputFile property value '..\..\Library\freeglut.lib' ('C:\Users\visus\Desktop\Blobby\branches\BOW_cpp\Library\freeglut.lib') in project configuration 'Debug|Win32'. This may cause your project to build incorrectly. To correct this, please make sure that $(TargetPath) property value matches the value specified in %(Lib.OutputFile).">
+</Event><Event ErrorLevel="0" Project="freeglut" Source="freeglut.vcproj" Description="Done converting to new project file 'C:\Users\visus\Desktop\Blobby\branches\BOW_cpp\Build\VC8\freeglut.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="freeglut" Source="freeglut.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="glui" Source="glui.vcproj" Description="Converting project file 'C:\Users\visus\Desktop\Blobby\branches\BOW_cpp\Build\VC8\glui.vcproj'.">
+</Event><Event ErrorLevel="1" Project="glui" Source="glui.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="glui" Source="glui.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="glui" Source="glui.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="0" Project="glui" Source="glui.vcproj" Description="Done converting to new project file 'C:\Users\visus\Desktop\Blobby\branches\BOW_cpp\Build\VC8\glui.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="glui" Source="glui.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Blobby Warriors" Source="Blobby Warriors.vcproj" Description="Converting project file 'C:\Users\visus\Desktop\Blobby\branches\BOW_cpp\Build\VC8\Blobby Warriors.vcproj'.">
+</Event><Event ErrorLevel="1" Project="Blobby Warriors" Source="Blobby Warriors.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="Blobby Warriors" Source="Blobby Warriors.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="Blobby Warriors" Source="Blobby Warriors.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="0" Project="Blobby Warriors" Source="Blobby Warriors.vcproj" Description="Done converting to new project file 'C:\Users\visus\Desktop\Blobby\branches\BOW_cpp\Build\VC8\Blobby Warriors.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="Blobby Warriors" Source="Blobby Warriors.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Box2D.sln" Description="Die Projektmappe wurde erfolgreich konvertiert.">
+</Event><Event ErrorLevel="3" Project="" Source="Box2D.sln" Description="Converted">
+</Event></UpgradeLog>

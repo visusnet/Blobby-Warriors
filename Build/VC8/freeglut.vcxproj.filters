@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="GL">
+      <UniqueIdentifier>{26bc52b7-b3ee-46f2-82e8-a0ff6b25cfe0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Contrib\freeglut\GL\freeglut.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Contrib\freeglut\GL\freeglut_ext.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Contrib\freeglut\GL\freeglut_std.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Contrib\freeglut\GL\glut.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Contrib\freeglut\freeglut_internal.h" />
+    <ClInclude Include="..\..\Contrib\freeglut\freeglut_teapot_data.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Contrib\freeglut\COPYING" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Contrib\freeglut\freeglut_callbacks.c" />
+    <ClCompile Include="..\..\Contrib\freeglut\freeglut_cursor.c" />
+    <ClCompile Include="..\..\Contrib\freeglut\freeglut_display.c" />
+    <ClCompile Include="..\..\Contrib\freeglut\freeglut_ext.c" />
+    <ClCompile Include="..\..\Contrib\freeglut\freeglut_font.c" />
+    <ClCompile Include="..\..\Contrib\freeglut\freeglut_font_data.c" />
+    <ClCompile Include="..\..\Contrib\freeglut\freeglut_gamemode.c" />
+    <ClCompile Include="..\..\Contrib\freeglut\freeglut_geometry.c" />
+    <ClCompile Include="..\..\Contrib\freeglut\freeglut_glutfont_definitions.c" />
+    <ClCompile Include="..\..\Contrib\freeglut\freeglut_init.c" />
+    <ClCompile Include="..\..\Contrib\freeglut\freeglut_joystick.c" />
+    <ClCompile Include="..\..\Contrib\freeglut\freeglut_main.c" />
+    <ClCompile Include="..\..\Contrib\freeglut\freeglut_menu.c" />
+    <ClCompile Include="..\..\Contrib\freeglut\freeglut_misc.c" />
+    <ClCompile Include="..\..\Contrib\freeglut\freeglut_overlay.c" />
+    <ClCompile Include="..\..\Contrib\freeglut\freeglut_state.c" />
+    <ClCompile Include="..\..\Contrib\freeglut\freeglut_stroke_mono_roman.c" />
+    <ClCompile Include="..\..\Contrib\freeglut\freeglut_stroke_roman.c" />
+    <ClCompile Include="..\..\Contrib\freeglut\freeglut_structure.c" />
+    <ClCompile Include="..\..\Contrib\freeglut\freeglut_teapot.c" />
+    <ClCompile Include="..\..\Contrib\freeglut\freeglut_videoresize.c" />
+    <ClCompile Include="..\..\Contrib\freeglut\freeglut_window.c" />
+  </ItemGroup>
+</Project>
