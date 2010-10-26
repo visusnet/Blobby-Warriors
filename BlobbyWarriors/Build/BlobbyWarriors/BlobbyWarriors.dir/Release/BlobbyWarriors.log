@@ -1,0 +1,31 @@
+﻿Der Buildvorgang wurde am 25.10.2010 22:43:56 gestartet.
+     1>Projekt "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\BlobbyWarriors\BlobbyWarriors.vcxproj" auf Knoten "2", build Ziel(e).
+     1>InitializeBuildStatus:
+         Aktualisieren des Timestamps von "BlobbyWarriors.dir\Release\BlobbyWarriors.unsuccessfulbuild".
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D FREEGLUT_STATIC /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"BlobbyWarriors.dir\Release\\" /Fd"BlobbyWarriors.dir\Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\BlobbyWarriors\Main.cpp
+         Main.cpp
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\Release\BlobbyWarriors.exe" /INCREMENTAL:NO /NOLOGO Box2D.lib freeglut_static.lib glui.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"BlobbyWarriors.dir\Release\BlobbyWarriors.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Release\BlobbyWarriors.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\..\Release\BlobbyWarriors.lib" /MACHINE:X86 BlobbyWarriors.dir\Release\GraphicsEngine.obj
+         BlobbyWarriors.dir\Release\BotController.obj
+         BlobbyWarriors.dir\Release\IController.obj
+         BlobbyWarriors.dir\Release\NetworkController.obj
+         BlobbyWarriors.dir\Release\PlayerController.obj
+         BlobbyWarriors.dir\Release\Simulator.obj
+         BlobbyWarriors.dir\Release\Main.obj
+         BlobbyWarriors.dir\Release\AbstractEntity.obj
+         BlobbyWarriors.dir\Release\Blobby.obj
+         BlobbyWarriors.dir\Release\IEntity.obj
+         Code wird generiert.
+         Codegenerierung ist abgeschlossen.
+         BlobbyWarriors.vcxproj -> C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\BlobbyWarriors\..\..\Release\BlobbyWarriors.exe
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"..\..\Release\BlobbyWarriors.exe;#1" /manifest BlobbyWarriors.dir\Release\BlobbyWarriors.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Die Datei "BlobbyWarriors.dir\Release\BlobbyWarriors.unsuccessfulbuild" wird gelöscht.
+         Aktualisieren des Timestamps von "BlobbyWarriors.dir\Release\BlobbyWarriors.lastbuildstate".
+     1>Die Erstellung des Projekts "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\BlobbyWarriors\BlobbyWarriors.vcxproj" ist abgeschlossen, build Ziel(e).
+
+Das Erstellen war erfolgreich.
+
+Verstrichene Zeit 00:00:01.46

@@ -29,9 +29,22 @@
   <ItemGroup>
     <ClInclude Include="..\..\Source\freeglut\freeglut_internal.h" />
     <ClInclude Include="..\..\Source\freeglut\freeglut_teapot_data.h" />
-    <ClInclude Include="..\..\Source\freeglut\GL\freeglut.h" />
-    <ClInclude Include="..\..\Source\freeglut\GL\freeglut_ext.h" />
-    <ClInclude Include="..\..\Source\freeglut\GL\freeglut_std.h" />
-    <ClInclude Include="..\..\Source\freeglut\GL\glut.h" />
+    <ClInclude Include="..\..\Source\freeglut\GL\freeglut.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\freeglut\GL\freeglut_ext.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\freeglut\GL\freeglut_std.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\freeglut\GL\glut.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="GL">
+      <UniqueIdentifier>{164d56fb-eebf-4c35-b75d-33ab361c7588}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

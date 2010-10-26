@@ -44,7 +44,7 @@
     <TargetName>BlobbyWarriors</TargetName>
     <LibraryPath>..\..\Debug;$(LibraryPath)</LibraryPath>
     <SourcePath>..\..\Source\BlobbyWarriors;$(SourcePath)</SourcePath>
-    <IncludePath>.\Source\glui;.\Source\freeglut;.\Source\Box2D\;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\Source\glui;..\..\Source\freeglut;..\..\Source\Box2D\;..\..\Source\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -53,13 +53,14 @@
     <TargetName>BlobbyWarriors</TargetName>
     <LibraryPath>..\..\Release;$(LibraryPath)</LibraryPath>
     <SourcePath>..\..\Source\BlobbyWarriors;$(SourcePath)</SourcePath>
+    <IncludePath>..\..\Source\glui;..\..\Source\freeglut;..\..\Source\Box2D\;..\..\Source\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;FREEGLUT_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>NotSet</SubSystem>
@@ -74,7 +75,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;FREEGLUT_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>NotSet</SubSystem>
@@ -85,7 +86,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Debug.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\GraphicsEngine.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\BotController.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\IController.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\NetworkController.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\PlayerController.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Simulator.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Main.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\AbstractEntity.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Blobby.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\IEntity.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Debug.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\GraphicsEngine.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\BotController.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\IController.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\NetworkController.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\PlayerController.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Simulator.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Main.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\AbstractEntity.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Blobby.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\IEntity.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,10 +1,10 @@
-#include <iostream>
-
-using namespace std;
+#include "Main.h"
 
 int main(int argc, char **argv)
 {
-	cout << "Yes" << endl;
+	GraphicsEngine *graphicsEngine = GraphicsEngine::getInstance();
+	graphicsEngine->initialize(argc, argv);
+	graphicsEngine->start();
 
 	return 0;
 }

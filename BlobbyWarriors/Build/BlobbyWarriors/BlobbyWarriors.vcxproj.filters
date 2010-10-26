@@ -2,5 +2,81 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="..\..\Source\BlobbyWarriors\Main.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\AbstractEntity.cpp">
+      <Filter>Model\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Blobby.cpp">
+      <Filter>Model\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\IEntity.cpp">
+      <Filter>Model\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\BotController.cpp">
+      <Filter>Logic\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\IController.cpp">
+      <Filter>Logic\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\NetworkController.cpp">
+      <Filter>Logic\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\PlayerController.cpp">
+      <Filter>Logic\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Simulator.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\GraphicsEngine.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Debug.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{c67a211e-4e70-4620-b70b-0505897fc396}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logic">
+      <UniqueIdentifier>{4f48a7a4-705e-4a62-956a-e70f77924e5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model">
+      <UniqueIdentifier>{1dbb0c4f-e171-4612-b70d-cf1d6009d0ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\Entity">
+      <UniqueIdentifier>{ed74a1c7-a52e-4690-89f2-b33fd587628e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logic\Controller">
+      <UniqueIdentifier>{6add4de7-05bd-4a37-a12b-6e9e0602166f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\AbstractEntity.h">
+      <Filter>Model\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Blobby.h">
+      <Filter>Model\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\IEntity.h">
+      <Filter>Model\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\BotController.h">
+      <Filter>Logic\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\IController.h">
+      <Filter>Logic\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\NetworkController.h">
+      <Filter>Logic\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\PlayerController.h">
+      <Filter>Logic\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Simulator.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\GraphicsEngine.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Main.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Debug.h" />
   </ItemGroup>
 </Project>
