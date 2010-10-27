@@ -21,7 +21,7 @@ struct WindowInfo
 	int height;
 };
 
-class GraphicsEngine : public Subscriber
+class GraphicsEngine : public Publisher, public Subscriber
 {
 public:
 	static GraphicsEngine* getInstance();

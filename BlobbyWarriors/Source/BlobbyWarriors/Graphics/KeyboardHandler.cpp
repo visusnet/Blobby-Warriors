@@ -32,6 +32,8 @@ void KeyboardHandler::setKeyDown(unsigned char keyCode)
 	key.ticks = glutGet(GLUT_ELAPSED_TIME);
 	key.hasChanged = true;
 	this->keys.push_back(key);
+
+	this->notify();
 }
 
 void KeyboardHandler::setKeyUp(unsigned char keyCode)
@@ -56,6 +58,8 @@ void KeyboardHandler::setKeyUp(unsigned char keyCode)
 	key.ticks = 0;
 	key.hasChanged = true;
 	this->keys.push_back(key);
+
+	this->notify();
 }
 
 bool KeyboardHandler::isKeyDown(unsigned char keyCode)

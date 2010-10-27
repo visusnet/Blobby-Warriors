@@ -8,9 +8,6 @@
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Blobby.cpp">
       <Filter>Model\Entity</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\IEntity.cpp">
-      <Filter>Model\Entity</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\BotController.cpp">
       <Filter>Logic\Controller</Filter>
     </ClCompile>
@@ -40,6 +37,21 @@
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Level.cpp">
       <Filter>Logic</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Ground.cpp">
+      <Filter>Model\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\EntityFactory.cpp">
+      <Filter>Model\Entity\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\GroundFactory.cpp">
+      <Filter>Model\Entity\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\GameWorld.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\BlobbyFactory.cpp">
+      <Filter>Model\Entity\Factory</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Graphics">
@@ -56,6 +68,9 @@
     </Filter>
     <Filter Include="Logic\Controller">
       <UniqueIdentifier>{6add4de7-05bd-4a37-a12b-6e9e0602166f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\Entity\Factory">
+      <UniqueIdentifier>{9aafa868-10af-4865-91c7-896a22ed1e4f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -98,8 +113,23 @@
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Level.h">
       <Filter>Logic</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\PhysicsUtils.h">
-      <Filter>Logic</Filter>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Ground.h">
+      <Filter>Model\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\EntityFactory.h">
+      <Filter>Model\Entity\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\GroundFactory.h">
+      <Filter>Model\Entity\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\PhysicsUtils.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\GameWorld.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\BlobbyFactory.h">
+      <Filter>Model\Entity\Factory</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

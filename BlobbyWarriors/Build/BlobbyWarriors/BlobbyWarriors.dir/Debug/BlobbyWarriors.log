@@ -1,11 +1,10 @@
-﻿Der Buildvorgang wurde am 27.10.2010 01:18:48 gestartet.
+﻿Der Buildvorgang wurde am 28.10.2010 00:03:01 gestartet.
      1>Projekt "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\BlobbyWarriors\BlobbyWarriors.vcxproj" auf Knoten "2", build Ziel(e).
      1>InitializeBuildStatus:
          "BlobbyWarriors.dir\Debug\BlobbyWarriors.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
        ClCompile:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D FREEGLUT_STATIC /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"BlobbyWarriors.dir\Debug\\" /Fd"BlobbyWarriors.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\BlobbyWarriors\Logic\Simulator.cpp
-         Simulator.cpp
-     1>c:\users\visus\desktop\blobby\trunk\blobbywarriors\source\blobbywarriors\logic\simulator.cpp(17): warning C4482: Nicht dem Standard entsprechende Erweiterung: Enumeration "b2BodyType" wird im qualifizierten Namen verwendet.
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D FREEGLUT_STATIC /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"BlobbyWarriors.dir\Debug\\" /Fd"BlobbyWarriors.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\BlobbyWarriors\Model\Entity\Blobby.cpp
+         Blobby.cpp
        ManifestResourceCompile:
          Alle Ausgaben sind aktuell.
        Link:
@@ -23,7 +22,11 @@
          BlobbyWarriors.dir\Debug\Main.obj
          BlobbyWarriors.dir\Debug\AbstractEntity.obj
          BlobbyWarriors.dir\Debug\Blobby.obj
-         BlobbyWarriors.dir\Debug\IEntity.obj
+         BlobbyWarriors.dir\Debug\BlobbyFactory.obj
+         BlobbyWarriors.dir\Debug\EntityFactory.obj
+         BlobbyWarriors.dir\Debug\GroundFactory.obj
+         BlobbyWarriors.dir\Debug\Ground.obj
+         BlobbyWarriors.dir\Debug\GameWorld.obj
          BlobbyWarriors.dir\Debug\PublishSubscribe.obj
        Manifest:
          C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"BlobbyWarriors.dir\Debug\BlobbyWarriors.exe.embed.manifest" /manifest BlobbyWarriors.dir\Debug\BlobbyWarriors.exe.intermediate.manifest
@@ -38,4 +41,4 @@
 
 Das Erstellen war erfolgreich.
 
-Verstrichene Zeit 00:00:01.74
+Verstrichene Zeit 00:00:02.64

@@ -299,23 +299,6 @@ void GraphicsEngine::onDraw()
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	if (KeyboardHandler::getInstance()->isKeyDown('w')) {
-		this->viewCenter.y += 0.5f;
-		this->onReshape();
-	} 
-	if (KeyboardHandler::getInstance()->isKeyDown('s')) {
-		this->viewCenter.y -= 0.5f;
-		this->onReshape();
-	} 
-	if (KeyboardHandler::getInstance()->isKeyDown('a')) {
-		this->viewCenter.x -= 0.5f;
-		this->onReshape();
-	} 
-	if (KeyboardHandler::getInstance()->isKeyDown('d')) {
-		this->viewCenter.x += 0.5f;
-		this->onReshape();
-	}
-
 	// TODO: Draw everything
 	drawPolygonAt(0, 0);
 	drawPolygonAt(790, 590);
@@ -323,13 +306,13 @@ void GraphicsEngine::onDraw()
 	drawPolygonAt(790, 0);
 	drawPolygonAt(395, 295);
 
+	this->notify();
+
 	glutSwapBuffers();
 }
 
 void GraphicsEngine::onTimerTick()
 {
-	this->simulator->step();
-
 	glutSetWindow(this->mainWindow);
 	glutPostRedisplay();
 	glutTimerFunc(FRAME_PERIOD, onTimerTickCallback, 0);

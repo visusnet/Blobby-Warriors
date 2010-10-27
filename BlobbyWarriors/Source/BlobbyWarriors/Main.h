@@ -13,4 +13,13 @@
 
 using namespace std;
 
+class Main : public Subscriber
+{
+public:
+	Main(int argc, char **argv);
+	void update(Publisher *who, UpdateData *what = 0);
+private:
+	Simulator *simulator;
+};
+
 #endif

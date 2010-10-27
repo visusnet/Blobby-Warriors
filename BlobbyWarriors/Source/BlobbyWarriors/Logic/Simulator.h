@@ -7,7 +7,10 @@
 
 #include "../Debug.h"
 #include "Level.h"
-#include "PhysicsUtils.h"
+#include "Controller\PlayerController.h"
+#include "../Model/GameWorld.h"
+#include "../Model/PhysicsUtils.h"
+#include "../Model/Entity/Factory/BlobbyFactory.h"
 
 class Simulator
 {
@@ -17,8 +20,8 @@ public:
 	void step();
 private:
 	Level *level;
-	b2World *world;
-	b2Body *mainBody;
+	GameWorld *gameWorld;
+	Blobby *playerBlobby;
 };
 
 #endif

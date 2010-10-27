@@ -99,7 +99,11 @@
     <ClCompile Include="..\..\Source\BlobbyWarriors\Main.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\AbstractEntity.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Blobby.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\IEntity.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\BlobbyFactory.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\EntityFactory.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\GroundFactory.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Ground.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\GameWorld.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\PublishSubscribe.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -112,12 +116,17 @@
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\NetworkController.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\PlayerController.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Level.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\PhysicsUtils.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Simulator.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Main.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\AbstractEntity.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Blobby.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\BlobbyFactory.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\EntityFactory.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\GroundFactory.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Ground.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\IEntity.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\GameWorld.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\PhysicsUtils.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\PublishSubscribe.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

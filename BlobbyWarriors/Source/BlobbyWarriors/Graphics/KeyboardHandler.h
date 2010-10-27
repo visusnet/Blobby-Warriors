@@ -5,6 +5,8 @@
 
 #include <GL/glut.h>
 
+#include "../PublishSubscribe.h"
+
 using namespace std;
 
 struct Key
@@ -15,7 +17,7 @@ struct Key
 	bool hasChanged;
 };
 
-class KeyboardHandler
+class KeyboardHandler : public Publisher
 {
 public:
 	static KeyboardHandler* getInstance();
