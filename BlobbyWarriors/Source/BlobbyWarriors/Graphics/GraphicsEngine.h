@@ -6,6 +6,12 @@
 #include <Box2D.h>
 
 #include "../Debug.h"
+#include "../PublishSubscribe.h"
+#include "KeyboardHandler.h"
+#include "MouseHandler.h"
+
+// TODO: Remove me. Just for debugging purposes.
+#include "../Logic/Simulator.h"
 
 struct WindowInfo
 {
@@ -15,13 +21,15 @@ struct WindowInfo
 	int height;
 };
 
-class GraphicsEngine
+class GraphicsEngine : public Subscriber
 {
 public:
 	static GraphicsEngine* getInstance();
 
 	void initialize(int argc, char **argv);
 	void start();
+	void update(Publisher *who, UpdateData *what = 0);
+	void setSize(int width, int height);
 
 	static void onKeyDownCallback(unsigned char key, int x, int y);
 	static void onKeyUpCallback(unsigned char key, int x, int y);
@@ -50,7 +58,8 @@ private:
 	void onMouseMove(int x, int y);
 	void onDraw();
 	void onTimerTick();
-	void onReshape(int width, int height);
+	void onReshape();
+	b2Vec2 convertScreenToWorld(int x, int y);
 
 	static GraphicsEngine *instance;
 
@@ -59,6 +68,9 @@ private:
 	b2Vec2 viewCenter;
 	bool isFullScreen;
 	WindowInfo windowInfo;
+
+	// TODO: Remove me. Just for debugging purposes!
+	Simulator *simulator;
 
 	class Guard
 	{

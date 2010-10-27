@@ -88,28 +88,37 @@
   <ItemGroup>
     <ClCompile Include="..\..\Source\BlobbyWarriors\Debug.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\GraphicsEngine.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\KeyboardHandler.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\MouseHandler.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\BotController.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\IController.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\NetworkController.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\PlayerController.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Level.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Simulator.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Main.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\AbstractEntity.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Blobby.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\IEntity.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\PublishSubscribe.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\BlobbyWarriors\Debug.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\GraphicsEngine.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\KeyboardHandler.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\MouseHandler.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\BotController.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\IController.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\NetworkController.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\PlayerController.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Level.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\PhysicsUtils.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Simulator.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Main.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\AbstractEntity.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Blobby.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\IEntity.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\PublishSubscribe.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

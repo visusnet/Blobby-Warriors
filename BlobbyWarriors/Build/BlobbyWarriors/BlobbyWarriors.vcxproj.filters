@@ -30,6 +30,16 @@
       <Filter>Graphics</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BlobbyWarriors\Debug.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\KeyboardHandler.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\MouseHandler.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\PublishSubscribe.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Level.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Graphics">
@@ -78,5 +88,18 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\BlobbyWarriors\Main.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Debug.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\KeyboardHandler.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\MouseHandler.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\PublishSubscribe.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Level.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\PhysicsUtils.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
