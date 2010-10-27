@@ -22,6 +22,7 @@ void KeyboardHandler::setKeyDown(unsigned char keyCode)
 				this->keys.at(i).ticks = glutGet(GLUT_ELAPSED_TIME);
 				this->keys.at(i).hasChanged = true;
 			}
+			this->notify();
 			return;
 		}
 	}
@@ -49,6 +50,7 @@ void KeyboardHandler::setKeyUp(unsigned char keyCode)
 			}
 			this->keys.at(i).isPressed = false;
 			this->keys.at(i).ticks = 0;
+			this->notify();
 			return;
 		}
 	}

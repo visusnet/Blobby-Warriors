@@ -120,8 +120,6 @@ void DrawShape(b2Fixture* fixture, const b2Transform& xf)
 
 void Blobby::draw()
 {
-	debug("Blobby position: %f %f", this->body->GetPosition().x, this->body->GetPosition().y);
-
 	const b2Transform& xf = this->body->GetTransform();
 	b2Fixture *fixture = this->body->GetFixtureList();
 

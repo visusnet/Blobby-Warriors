@@ -68,7 +68,7 @@ void GraphicsEngine::update(Publisher *who, UpdateData *what)
 		return;
 	}
 
-	debug("YES %d %d", eventArgs->x, eventArgs->y);
+//	debug("YES %d %d", eventArgs->x, eventArgs->y);
 
 	switch(eventArgs->type) {
 	case MOUSE_BUTTON_STATE_CHANGED:

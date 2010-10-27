@@ -16,7 +16,7 @@ b2World* GameWorld::getPhysicsWorld()
 
 void GameWorld::step()
 {
-	debug("World step");
+//	debug("World step");
 	this->world->Step(1.0f / 62.5f, 10, 10);
 }
 
