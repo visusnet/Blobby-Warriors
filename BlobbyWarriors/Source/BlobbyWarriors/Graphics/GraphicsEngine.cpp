@@ -50,9 +50,6 @@ void GraphicsEngine::initialize(int argc, char **argv)
 	//glutGameModeString("800x600:16@60");
 
 	MouseHandler::getInstance()->subscribe(this);
-
-	// TODO: Remove me. Just for debugging purposes.
-	this->simulator = new Simulator();
 }
 
 void GraphicsEngine::start()

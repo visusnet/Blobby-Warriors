@@ -17,6 +17,12 @@ struct Key
 	bool hasChanged;
 };
 
+class KeyEventArgs : public UpdateData
+{
+public:
+	Key key;
+};
+
 class KeyboardHandler : public Publisher
 {
 public:

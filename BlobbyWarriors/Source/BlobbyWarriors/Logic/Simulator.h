@@ -11,6 +11,7 @@
 #include "../Model/GameWorld.h"
 #include "../Model/PhysicsUtils.h"
 #include "../Model/Entity/Factory/BlobbyFactory.h"
+#include "../Model/Entity/Factory/GroundFactory.h"
 
 class Simulator
 {

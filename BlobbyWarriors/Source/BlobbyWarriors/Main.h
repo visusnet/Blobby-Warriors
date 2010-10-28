@@ -10,6 +10,7 @@
 #include <iostream>
 
 #include "Graphics\GraphicsEngine.h"
+#include "Logic\Simulator.h"
 
 using namespace std;
 

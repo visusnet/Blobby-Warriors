@@ -11,6 +11,7 @@ KeyboardHandler* KeyboardHandler::getInstance()
 
 void KeyboardHandler::setKeyDown(unsigned char keyCode)
 {
+	KeyEventArgs *eventArgs = new KeyEventArgs();
 	for (unsigned int i = 0; i < this->keys.size(); i++) {
 		// Is the key already there?
 		if (this->keys.at(i).code == keyCode) {
@@ -22,7 +23,9 @@ void KeyboardHandler::setKeyDown(unsigned char keyCode)
 				this->keys.at(i).ticks = glutGet(GLUT_ELAPSED_TIME);
 				this->keys.at(i).hasChanged = true;
 			}
-			this->notify();
+			eventArgs->key = this->keys.at(i);
+			this->notify(eventArgs);
+			delete eventArgs;
 			return;
 		}
 	}
@@ -34,7 +37,9 @@ void KeyboardHandler::setKeyDown(unsigned char keyCode)
 	key.hasChanged = true;
 	this->keys.push_back(key);
 
-	this->notify();
+	eventArgs->key = key;
+	this->notify(eventArgs);
+	delete eventArgs;
 }
 
 void KeyboardHandler::setKeyUp(unsigned char keyCode)

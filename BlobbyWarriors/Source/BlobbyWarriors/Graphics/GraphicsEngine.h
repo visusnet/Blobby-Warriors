@@ -10,9 +10,6 @@
 #include "KeyboardHandler.h"
 #include "MouseHandler.h"
 
-// TODO: Remove me. Just for debugging purposes.
-#include "../Logic/Simulator.h"
-
 struct WindowInfo
 {
 	int x;
@@ -68,9 +65,6 @@ private:
 	b2Vec2 viewCenter;
 	bool isFullScreen;
 	WindowInfo windowInfo;
-
-	// TODO: Remove me. Just for debugging purposes!
-	Simulator *simulator;
 
 	class Guard
 	{

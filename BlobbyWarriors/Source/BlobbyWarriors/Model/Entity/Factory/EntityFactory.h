@@ -23,6 +23,7 @@ struct EntityProperties
 class EntityFactory
 {
 public:
+	IEntity* create();
 	virtual IEntity* create(const EntityProperties& properties) = 0;
 	virtual EntityProperties& getDefaultProperties() = 0;
 };

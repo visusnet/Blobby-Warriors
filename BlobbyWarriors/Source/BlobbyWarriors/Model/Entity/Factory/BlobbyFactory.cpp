@@ -3,7 +3,7 @@
 IEntity* BlobbyFactory::create(const EntityProperties& properties)
 {
 	b2BodyDef bodyDef;
-	bodyDef.position.Set(properties.x, properties.y);
+	bodyDef.position.Set(pixel2meter(properties.x), pixel2meter(properties.y));
 	bodyDef.angle = properties.angle;
 	bodyDef.fixedRotation = true;
 	bodyDef.bullet = true;
@@ -35,7 +35,7 @@ IEntity* BlobbyFactory::create(const EntityProperties& properties)
 	body->ResetMassData();
 
 	Blobby *blobby = new Blobby();
-	blobby->setBody(body);
+	blobby->addBody(body);
 
 	return blobby;
 }

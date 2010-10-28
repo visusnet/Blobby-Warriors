@@ -3,14 +3,14 @@
 IEntity* GroundFactory::create(const EntityProperties& properties)
 {
 	b2BodyDef bodyDef = b2BodyDef();
-	bodyDef.position = pixel2meter(b2Vec2(properties.x, properties.y));
+	bodyDef.position.Set(pixel2meter(properties.x), pixel2meter(properties.y));
 	bodyDef.angle = radian2degree(properties.angle);
-	bodyDef.type = b2BodyType::b2_dynamicBody;
+	bodyDef.type = b2_staticBody;
 
 	b2Body *body = GameWorld::getInstance()->getPhysicsWorld()->CreateBody(&bodyDef);
 
 	b2PolygonShape polygonShape;
-	polygonShape.SetAsBox(pixel2meter(properties.width), pixel2meter(properties.height));
+	polygonShape.SetAsBox(pixel2meter(properties.width / 2), pixel2meter(properties.height / 2));
 
 	b2FixtureDef fixtureDef;
 	fixtureDef.shape = &polygonShape;
@@ -22,7 +22,7 @@ IEntity* GroundFactory::create(const EntityProperties& properties)
 	body->ResetMassData();
 
 	Ground *ground = new Ground();
-	ground->setBody(body);
+	ground->addBody(body);
 
 	return ground;
 }
