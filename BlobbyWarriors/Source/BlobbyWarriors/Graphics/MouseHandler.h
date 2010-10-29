@@ -5,6 +5,9 @@
 
 #include "../PublishSubscribe.h"
 
+#define MOUSE_STATE_PRESSED 0
+#define MOUSE_STATE_RELEASED 1
+
 #define MOUSE_BUTTON_LEFT 0
 #define MOUSE_BUTTON_MIDDLE 1
 #define MOUSE_BUTTON_RIGHT 2
@@ -28,6 +31,8 @@ public:
 	static MouseHandler* getInstance();
 	void onMouseButton(int button, int state, int x, int y);
 	void onMouseMove(int x, int y);
+	bool isButtonPressed(int button);
+	b2Vec2 getPosition();
 private:
 	MouseHandler();
 	MouseHandler(const MouseHandler&);

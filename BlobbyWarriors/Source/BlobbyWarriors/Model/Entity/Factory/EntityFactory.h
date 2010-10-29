@@ -18,6 +18,7 @@ struct EntityProperties
 	float density;
 	float friction;
 	float restitution;
+	bool special;
 };
 
 class EntityFactory

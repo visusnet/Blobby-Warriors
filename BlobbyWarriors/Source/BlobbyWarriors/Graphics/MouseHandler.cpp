@@ -11,6 +11,7 @@ MouseHandler* MouseHandler::getInstance()
 
 void MouseHandler::onMouseButton(int button, int state, int x, int y)
 {
+	this->buttonStates[button] = state == 0;
 	MouseEventArgs *eventArgs = new MouseEventArgs();
 	eventArgs->type = MOUSE_BUTTON_STATE_CHANGED;
 	eventArgs->button = button;
@@ -23,6 +24,7 @@ void MouseHandler::onMouseButton(int button, int state, int x, int y)
 
 void MouseHandler::onMouseMove(int x, int y)
 {
+	this->position.Set(x, y);
 	MouseEventArgs *eventArgs = new MouseEventArgs();
 	eventArgs->type = MOUSE_POSITION_CHANGED;
 	eventArgs->button = -1;
@@ -31,6 +33,16 @@ void MouseHandler::onMouseMove(int x, int y)
 	eventArgs->y = y;
 	this->notify(static_cast<UpdateData*>(eventArgs));
 	delete eventArgs;
+}
+
+bool MouseHandler::isButtonPressed(int button)
+{
+	return this->buttonStates[button];
+}
+
+b2Vec2 MouseHandler::getPosition()
+{
+	return this->position;
 }
 
 MouseHandler::MouseHandler()

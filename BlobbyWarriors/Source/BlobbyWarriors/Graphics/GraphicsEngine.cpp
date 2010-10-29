@@ -67,13 +67,13 @@ void GraphicsEngine::update(Publisher *who, UpdateData *what)
 
 //	debug("YES %d %d", eventArgs->x, eventArgs->y);
 
-	switch(eventArgs->type) {
+/*	switch(eventArgs->type) {
 	case MOUSE_BUTTON_STATE_CHANGED:
 	case MOUSE_POSITION_CHANGED:
 		this->viewCenter = b2Vec2(float(this->windowInfo.width - eventArgs->x), float(eventArgs->y));
-			this->onReshape();
+		this->onReshape();
 		break;
-	}
+	}*/
 }
 
 void GraphicsEngine::setSize(int width, int height)
@@ -231,22 +231,22 @@ void GraphicsEngine::onSpecialKeyDown(int key, int x, int y)
 
 void GraphicsEngine::onSpecialKeyUp(int key, int x, int y)
 {
-	debug("%i %i %i", key, x, y);
+//	debug("%i %i %i", key, x, y);
 
 	KeyboardHandler::getInstance()->setKeyUp(static_cast<unsigned char>(key));
 }
 
 void GraphicsEngine::onMouseButton(int button, int state, int x, int y)
 {
-	debug("%i %i %i %i", button, state, x, y);	
+//	debug("%i %i %i %i", button, state, x, y);	
 
 //	b2Vec2 position = this->convertScreenToWorld(x, y);
-	MouseHandler::getInstance()->onMouseButton(button, state, x, y);
+	MouseHandler::getInstance()->onMouseButton(button, state, x, this->windowInfo.height - y);
 }
 
 void GraphicsEngine::onMouseWheel(int wheel, int direction, int x, int y)
 {
-	debug("%i %i %i %i", wheel, direction, x, y);
+//	debug("%i %i %i %i", wheel, direction, x, y);
 
 	if (direction > 0)
 	{
@@ -275,7 +275,7 @@ void GraphicsEngine::onMouseMove(int x, int y)
 	debug("%i %i", x, y);
 	
 //	b2Vec2 position = this->convertScreenToWorld(x, y);
-	MouseHandler::getInstance()->onMouseMove(x, y);
+	MouseHandler::getInstance()->onMouseMove(x, this->windowInfo.height - y);
 }
 
 // TODO: Remove me! This is just for debugging purposes

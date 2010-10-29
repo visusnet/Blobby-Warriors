@@ -12,6 +12,7 @@
 #include "../Model/PhysicsUtils.h"
 #include "../Model/Entity/Factory/BlobbyFactory.h"
 #include "../Model/Entity/Factory/GroundFactory.h"
+#include "../Model/Entity/Factory/MachineGunFactory.h"
 
 class Simulator
 {

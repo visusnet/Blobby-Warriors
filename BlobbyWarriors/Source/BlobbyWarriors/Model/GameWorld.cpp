@@ -16,6 +16,16 @@ b2World* GameWorld::getPhysicsWorld()
 
 void GameWorld::step()
 {
+	// Kill some old entities first.
+	for (list<IEntity*>::iterator dit = this->destroyableEntities.begin(); dit != this->destroyableEntities.end(); ++dit) {
+		for (unsigned int i = 0; i < (*dit)->getBodyCount(); i++) {
+			this->world->DestroyBody((*dit)->getBody(i));
+		}
+		this->entities.remove(*dit);
+		delete (*dit);
+	}
+	this->destroyableEntities.clear();
+
 //	debug("World step");
 	this->world->Step(1.0f / 62.5f, 10, 10);
 }
@@ -28,7 +38,12 @@ void GameWorld::addEntity(IEntity *entity)
 IEntity* GameWorld::getEntity(unsigned int i)
 {
 	if (0 <= i && i <= this->entities.size()) {
-		return this->entities.at(i);
+		unsigned int j = 0;
+		for (list<IEntity*>::iterator it = this->entities.begin(); it != this->entities.end(); ++it, ++j) {
+			if (i == j) {
+				return *it;
+			}
+		}
 	}
 	return 0;
 }
@@ -38,11 +53,17 @@ unsigned int GameWorld::getEntityCount()
 	return this->entities.size();
 }
 
+void GameWorld::destroyEntity(IEntity *entity)
+{
+	this->destroyableEntities.push_back(entity);
+}
+
 GameWorld::GameWorld()
 {
 	b2Vec2 gravity = b2Vec2(0.0f, -9.81f);
-	bool doSleep = false;
+	bool doSleep = true;
 	this->world = new b2World(gravity, doSleep);
+	this->world->SetContactListener(ContactListener::getInstance());
 }
 
 GameWorld::~GameWorld()

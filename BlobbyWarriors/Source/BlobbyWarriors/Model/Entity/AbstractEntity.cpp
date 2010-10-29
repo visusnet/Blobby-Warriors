@@ -5,19 +5,26 @@ AbstractEntity::AbstractEntity()
 	GameWorld::getInstance()->addEntity(this);
 }
 
+void AbstractEntity::destroy()
+{
+	GameWorld::getInstance()->destroyEntity(this);
+}
+
 void DrawSolidPolygon(b2Vec2 *vertices, int vertexCount)
 {
 	b2Color color;
-	color.r = 0.5f;
+	color.r = 1.0f;
+	color.g = 1.0f;
+	color.b = 1.0f;
+	/*	color.r = 0.5f;
 	color.g = 0.5f;
-	color.b = 0.3f;
+	color.b = 0.3f;*/
 	glEnable(GL_BLEND);
 	glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glColor4f(0.5f * color.r, 0.5f * color.g, 0.5f * color.b, 0.5f);
 	glBegin(GL_TRIANGLE_FAN);
 	for (int32 i = 0; i < vertexCount; ++i)
 	{
-		debug("%f %f", vertices[i].x * SCALING_FACTOR, vertices[i].y * SCALING_FACTOR);
 		glVertex3f(vertices[i].x * SCALING_FACTOR, vertices[i].y * SCALING_FACTOR, 0.0f);
 	}
 	glEnd();
@@ -35,9 +42,12 @@ void DrawSolidPolygon(b2Vec2 *vertices, int vertexCount)
 void DrawSolidCircle(const b2Vec2& center, float32 radius, const b2Vec2& axis)
 {
 	b2Color color;
-	color.r = 0.5f;
+	color.r = 1.0f;
+	color.g = 1.0f;
+	color.b = 1.0f;
+/*	color.r = 0.5f;
 	color.g = 0.5f;
-	color.b = 0.3f;
+	color.b = 0.3f;*/
 	const float32 k_segments = 16.0f;
 	const float32 k_increment = 2.0f * b2_pi / k_segments;
 	float32 theta = 0.0f;

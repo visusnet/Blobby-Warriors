@@ -8,14 +8,19 @@ Simulator::Simulator()
 	EntityProperties& properties = entityFactory->getDefaultProperties();
 	properties.x = 400;
 	properties.y = 600;
+	properties.special = true;
 	this->playerBlobby = static_cast<Blobby*>(entityFactory->create(properties));
 	this->playerBlobby->setController(new PlayerController());
 
-	entityFactory = new GroundFactory();
+	entityFactory = new MachineGunFactory();
+	MachineGun *machineGun = (MachineGun*)entityFactory->create();
+	this->playerBlobby->addWearable(machineGun);
+	this->playerBlobby->setWeapon(machineGun);
 
+	entityFactory = new GroundFactory();
 	properties = entityFactory->getDefaultProperties();
 	properties.x = 400;
-	properties.y = 10;
+	properties.y = 100;
 	properties.width = 800;
 	properties.height = 20;
 

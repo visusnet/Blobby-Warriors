@@ -17,6 +17,8 @@ IEntity* GroundFactory::create(const EntityProperties& properties)
 	fixtureDef.density = properties.density;
 	fixtureDef.friction = properties.friction;
 	fixtureDef.restitution = properties.restitution;
+	fixtureDef.filter.categoryBits = COLLISION_BIT_GROUND;
+	fixtureDef.filter.maskBits = COLLISION_BIT_BLOBBY | COLLISION_BIT_WEAPON | COLLISION_BIT_GROUND | COLLISION_BIT_OBJECT | COLLISION_BIT_BULLET;
 
 	body->CreateFixture(&fixtureDef);
 	body->ResetMassData();
@@ -31,10 +33,10 @@ EntityProperties& GroundFactory::getDefaultProperties()
 {
 	EntityProperties *properties = new EntityProperties();
 	properties->density = 1.0f;
-	properties->friction = 0.2f;
+	properties->friction = 1.0f;
 	properties->restitution = 0.0f;
 	properties->angle = 0.0f;
-	properties->radius = //ENTITY_PROPERTY_UNUSED;
+	properties->radius = 0.0f; //ENTITY_PROPERTY_UNUSED;
 	properties->width = 10.0f; //ENTITY_PROPERTY_UNUSED;
 	properties->height = 10.0f; //ENTITY_PROPERTY_UNUSED;
 	properties->x = 0;

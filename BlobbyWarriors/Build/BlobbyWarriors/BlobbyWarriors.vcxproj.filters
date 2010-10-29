@@ -52,6 +52,27 @@
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\BlobbyFactory.cpp">
       <Filter>Model\Entity\Factory</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\IWearable.cpp">
+      <Filter>Model\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\AbstractWeapon.cpp">
+      <Filter>Model\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\MachineGunFactory.cpp">
+      <Filter>Model\Entity\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\MachineGun.cpp">
+      <Filter>Model\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\ContactListener.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\MachineGunBullet.cpp">
+      <Filter>Model\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\MachineGunBulletFactory.cpp">
+      <Filter>Model\Entity\Factory</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Graphics">
@@ -129,6 +150,27 @@
       <Filter>Model</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\BlobbyFactory.h">
+      <Filter>Model\Entity\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\IWearable.h">
+      <Filter>Model\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\AbstractWeapon.h">
+      <Filter>Model\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\MachineGunFactory.h">
+      <Filter>Model\Entity\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\MachineGun.h">
+      <Filter>Model\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\ContactListener.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\MachineGunBullet.h">
+      <Filter>Model\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\MachineGunBulletFactory.h">
       <Filter>Model\Entity\Factory</Filter>
     </ClInclude>
   </ItemGroup>

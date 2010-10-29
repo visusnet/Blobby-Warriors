@@ -18,6 +18,7 @@ class AbstractEntity : public IEntity
 public:
 	AbstractEntity();
 	virtual void draw();
+	void destroy();
 	void addBody(b2Body *body);
 	b2Body* getBody(unsigned int i);
 	unsigned int getBodyCount();

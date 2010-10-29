@@ -19,6 +19,12 @@ IEntity* BlobbyFactory::create(const EntityProperties& properties)
 	lowerOuterFixture.density = properties.density;
 	lowerOuterFixture.friction = properties.friction;
 	lowerOuterFixture.restitution = properties.restitution;
+	if (properties.special) {
+		lowerOuterFixture.filter.categoryBits = COLLISION_BIT_BLOBBY | COLLISION_BIT_PLAYER;
+	} else {
+		lowerOuterFixture.filter.categoryBits = COLLISION_BIT_BLOBBY;
+	}
+	lowerOuterFixture.filter.maskBits = COLLISION_BIT_GROUND | COLLISION_BIT_OBJECT | COLLISION_BIT_BULLET;
 
 	b2CircleShape upperOuterShape;
 	upperOuterShape.m_radius = 0.3068f;
@@ -29,6 +35,8 @@ IEntity* BlobbyFactory::create(const EntityProperties& properties)
 	upperOuterFixture.density = properties.density;
 	upperOuterFixture.friction = properties.friction;
 	upperOuterFixture.restitution = properties.restitution;
+	upperOuterFixture.filter.categoryBits = COLLISION_BIT_BLOBBY;
+	upperOuterFixture.filter.maskBits = COLLISION_BIT_GROUND | COLLISION_BIT_OBJECT;
 
 	body->CreateFixture(&lowerOuterFixture);
 	body->CreateFixture(&upperOuterFixture);
@@ -44,7 +52,7 @@ EntityProperties& BlobbyFactory::getDefaultProperties()
 {
 	EntityProperties *properties = new EntityProperties();
 	properties->density = 1.0f;
-	properties->friction = 0.2f;
+	properties->friction = 1.0f;
 	properties->restitution = 0.0f;
 	properties->angle = 0;
 	properties->radius = -1;

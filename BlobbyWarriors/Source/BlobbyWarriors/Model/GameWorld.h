@@ -1,11 +1,12 @@
 #ifndef GAMEWORLD_H
 #define GAMEWORLD_H
 
-#include <vector>
+#include <list>
 
 #include <Box2D.h>
 
 #include "Entity\Factory\EntityFactory.h"
+#include "..\Logic\ContactListener.h"
 #include "..\Debug.h"
 
 using namespace std;
@@ -22,6 +23,7 @@ public:
 	void addEntity(IEntity *entity);
 	IEntity* getEntity(unsigned int i);
 	unsigned int getEntityCount();
+	void destroyEntity(IEntity *entity);
 private:
 	GameWorld();
 	GameWorld(const GameWorld&);
@@ -30,7 +32,8 @@ private:
 	static GameWorld *instance;
 
 	b2World *world;
-	vector<IEntity*> entities;
+	list<IEntity*> entities;
+	list<IEntity*> destroyableEntities;
 
 	class Guard
 	{

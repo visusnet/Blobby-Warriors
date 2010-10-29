@@ -26,6 +26,7 @@ public:
 	void notify(UpdateData *what = 0);
 private:
 	list<Subscriber*> subscribers;
+	list<Subscriber*> removableSubscribers;
 };
 
 #endif
