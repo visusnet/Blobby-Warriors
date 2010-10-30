@@ -1,6 +1,8 @@
 #ifndef IENTITY_H
 #define IENTITY_H
 
+class IEntity;
+
 #include <Box2D.h>
 
 #define COLLISION_GROUP_BLOBBY -8
@@ -15,6 +17,7 @@
 class IEntity
 {
 public:
+	virtual void step() = 0;
 	virtual void draw() = 0;
 	virtual void destroy() = 0;
 	virtual void addBody(b2Body *body) = 0;

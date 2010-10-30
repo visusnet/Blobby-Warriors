@@ -1,17 +1,17 @@
 #ifndef GAMEWORLD_H
 #define GAMEWORLD_H
 
+class GameWorld;
+
 #include <list>
 
 #include <Box2D.h>
 
-#include "Entity\Factory\EntityFactory.h"
-#include "..\Logic\ContactListener.h"
-#include "..\Debug.h"
+#include "Entity/Factory/EntityFactory.h"
+#include "../Logic/ContactListener.h"
+#include "../Debug.h"
 
 using namespace std;
-
-class GameWorld;
 
 class GameWorld
 {

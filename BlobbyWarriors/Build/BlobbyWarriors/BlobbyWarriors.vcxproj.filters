@@ -11,9 +11,6 @@
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\BotController.cpp">
       <Filter>Logic\Controller</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\IController.cpp">
-      <Filter>Logic\Controller</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\NetworkController.cpp">
       <Filter>Logic\Controller</Filter>
     </ClCompile>
@@ -72,6 +69,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\MachineGunBulletFactory.cpp">
       <Filter>Model\Entity\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\AbstractController.cpp">
+      <Filter>Logic\Controller</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +172,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\MachineGunBulletFactory.h">
       <Filter>Model\Entity\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\AbstractController.h">
+      <Filter>Logic\Controller</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

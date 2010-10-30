@@ -1,6 +1,8 @@
 #ifndef ABSTRACTENTITY_H
 #define ABSTRACTENTITY_H
 
+class AbstractEntity;
+
 #include <vector>
 
 #include <GL/glut.h>
@@ -17,6 +19,7 @@ class AbstractEntity : public IEntity
 {
 public:
 	AbstractEntity();
+	virtual void step();
 	virtual void draw();
 	void destroy();
 	void addBody(b2Body *body);

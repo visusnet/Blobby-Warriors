@@ -10,7 +10,22 @@ IEntity* BlobbyFactory::create(const EntityProperties& properties)
 	bodyDef.type = b2_dynamicBody;
 
 	b2Body *body = GameWorld::getInstance()->getPhysicsWorld()->CreateBody(&bodyDef);
-	
+
+	b2CircleShape upperOuterShape;
+	upperOuterShape.m_radius = 0.3068f;
+	upperOuterShape.m_p.Set(0.0f, 0.3856f);
+
+	b2FixtureDef upperOuterFixture;
+	upperOuterFixture.shape = &upperOuterShape;
+	upperOuterFixture.density = properties.density;
+	upperOuterFixture.friction = properties.friction;
+	upperOuterFixture.restitution = properties.restitution;
+	if (properties.special) {
+		upperOuterFixture.filter.groupIndex = -1;
+	}
+	upperOuterFixture.filter.categoryBits = COLLISION_BIT_BLOBBY;
+	upperOuterFixture.filter.maskBits = COLLISION_BIT_GROUND | COLLISION_BIT_OBJECT | COLLISION_BIT_BULLET;	
+
 	b2CircleShape lowerOuterShape;
 	lowerOuterShape.m_radius = 0.386f;
 
@@ -25,20 +40,16 @@ IEntity* BlobbyFactory::create(const EntityProperties& properties)
 	lowerOuterFixture.filter.categoryBits = COLLISION_BIT_BLOBBY;
 	lowerOuterFixture.filter.maskBits = COLLISION_BIT_GROUND | COLLISION_BIT_OBJECT | COLLISION_BIT_BULLET;
 
-	b2CircleShape upperOuterShape;
-	upperOuterShape.m_radius = 0.3068f;
-	upperOuterShape.m_p.Set(0.0f, 0.3856f);
+	b2PolygonShape lowerInnerShape;
+	lowerInnerShape.SetAsEdge(b2Vec2(-0.386f + 0.3f, -0.386f), b2Vec2(0.386f - 0.3f, -0.386f));
 
-	b2FixtureDef upperOuterFixture;
-	upperOuterFixture.shape = &upperOuterShape;
-	upperOuterFixture.density = properties.density;
-	upperOuterFixture.friction = properties.friction;
-	upperOuterFixture.restitution = properties.restitution;
-	upperOuterFixture.filter.categoryBits = COLLISION_BIT_BLOBBY;
-	upperOuterFixture.filter.maskBits = COLLISION_BIT_GROUND | COLLISION_BIT_OBJECT;
+	b2FixtureDef lowerInnerFixture;
+	lowerInnerFixture.shape = &lowerInnerShape;
+	lowerInnerFixture.isSensor = true;
 
 	body->CreateFixture(&lowerOuterFixture);
 	body->CreateFixture(&upperOuterFixture);
+	body->CreateFixture(&lowerInnerFixture);
 	body->ResetMassData();
 
 	Blobby *blobby = new Blobby();

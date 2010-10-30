@@ -1,6 +1,8 @@
 #ifndef MACHINEGUN_H
 #define MACHINEGUN_H
 
+class MachineGun;
+
 #include "AbstractWeapon.h"
 #include "Factory\MachineGunBulletFactory.h"
 #include "../../Debug.h"

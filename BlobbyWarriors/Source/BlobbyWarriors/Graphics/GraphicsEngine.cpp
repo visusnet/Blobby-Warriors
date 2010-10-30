@@ -378,7 +378,7 @@ b2Vec2 GraphicsEngine::convertScreenToWorld(int x, int y)
 	float u = float(x) / float(this->windowInfo.width);
 	float v = float(this->windowInfo.height - y) / float(this->windowInfo.height);
 
-	b2Vec2 extents(this->windowInfo.width / 2, this->windowInfo.height / 2);
+	b2Vec2 extents(float(this->windowInfo.width / 2), float(this->windowInfo.height / 2));
 	extents *= this->viewZoom;
 
 	b2Vec2 lower = this->viewCenter - extents;

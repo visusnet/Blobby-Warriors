@@ -17,14 +17,18 @@ b2World* GameWorld::getPhysicsWorld()
 void GameWorld::step()
 {
 	// Kill some old entities first.
-	for (list<IEntity*>::iterator dit = this->destroyableEntities.begin(); dit != this->destroyableEntities.end(); ++dit) {
-		for (unsigned int i = 0; i < (*dit)->getBodyCount(); i++) {
-			this->world->DestroyBody((*dit)->getBody(i));
+	for (list<IEntity*>::iterator it = this->destroyableEntities.begin(); it != this->destroyableEntities.end(); ++it) {
+		for (unsigned int i = 0; i < (*it)->getBodyCount(); i++) {
+			this->world->DestroyBody((*it)->getBody(i));
 		}
-		this->entities.remove(*dit);
-		delete (*dit);
+		this->entities.remove(*it);
+		delete (*it);
 	}
 	this->destroyableEntities.clear();
+
+	for (list<IEntity*>::iterator it = this->entities.begin(); it != this->entities.end(); ++it) {
+		(*it)->step();
+	}
 
 //	debug("World step");
 	this->world->Step(1.0f / 62.5f, 10, 10);

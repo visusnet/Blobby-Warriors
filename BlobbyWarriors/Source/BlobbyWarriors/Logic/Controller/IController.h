@@ -1,9 +1,7 @@
 #ifndef ICONTROLLER_H
 #define ICONTROLLER_H
 
-class IController;
-
-#include "../../Model/Entity/Blobby.h"
+class Blobby;
 
 class IController
 {

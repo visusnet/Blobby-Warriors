@@ -10,6 +10,10 @@ void AbstractEntity::destroy()
 	GameWorld::getInstance()->destroyEntity(this);
 }
 
+void AbstractEntity::step()
+{
+}
+
 void DrawSolidPolygon(b2Vec2 *vertices, int vertexCount)
 {
 	b2Color color;

@@ -1,6 +1,8 @@
 #ifndef MACHINEGUNBULLET_H
 #define MACHINEGUNBULLET_H
 
+class MachineGunBullet;
+
 #include "AbstractEntity.h"
 #include "..\..\PublishSubscribe.h"
 #include "..\..\Debug.h"

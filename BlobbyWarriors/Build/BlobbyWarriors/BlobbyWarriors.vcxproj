@@ -91,8 +91,8 @@
     <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\KeyboardHandler.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\MouseHandler.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\ContactListener.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\AbstractController.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\BotController.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\IController.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\NetworkController.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\PlayerController.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Level.cpp" />
@@ -119,6 +119,7 @@
     <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\KeyboardHandler.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\MouseHandler.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\ContactListener.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\AbstractController.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\BotController.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\IController.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\NetworkController.h" />

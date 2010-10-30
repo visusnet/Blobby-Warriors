@@ -1,14 +1,10 @@
-﻿Der Buildvorgang wurde am 29.10.2010 17:13:33 gestartet.
+﻿Der Buildvorgang wurde am 30.10.2010 21:03:16 gestartet.
      1>Projekt "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\BlobbyWarriors\BlobbyWarriors.vcxproj" auf Knoten "2", build Ziel(e).
      1>InitializeBuildStatus:
          "BlobbyWarriors.dir\Debug\BlobbyWarriors.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
        ClCompile:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D FREEGLUT_STATIC /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"BlobbyWarriors.dir\Debug\\" /Fd"BlobbyWarriors.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\BlobbyWarriors\Graphics\GraphicsEngine.cpp
-         GraphicsEngine.cpp
-     1>c:\users\visus\desktop\blobby\trunk\blobbywarriors\source\blobbywarriors\graphics\graphicsengine.cpp(91): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(371): Siehe Deklaration von 'vsprintf'
-     1>c:\users\visus\desktop\blobby\trunk\blobbywarriors\source\blobbywarriors\graphics\graphicsengine.cpp(381): warning C4244: 'Argument': Konvertierung von 'int' in 'float32', möglicher Datenverlust
-     1>c:\users\visus\desktop\blobby\trunk\blobbywarriors\source\blobbywarriors\graphics\graphicsengine.cpp(381): warning C4244: 'Argument': Konvertierung von 'int' in 'float32', möglicher Datenverlust
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D FREEGLUT_STATIC /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"BlobbyWarriors.dir\Debug\\" /Fd"BlobbyWarriors.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\BlobbyWarriors\Model\Entity\Blobby.cpp
+         Blobby.cpp
        ManifestResourceCompile:
          Alle Ausgaben sind aktuell.
        Link:
@@ -18,8 +14,8 @@
          BlobbyWarriors.dir\Debug\KeyboardHandler.obj
          BlobbyWarriors.dir\Debug\MouseHandler.obj
          BlobbyWarriors.dir\Debug\ContactListener.obj
+         BlobbyWarriors.dir\Debug\AbstractController.obj
          BlobbyWarriors.dir\Debug\BotController.obj
-         BlobbyWarriors.dir\Debug\IController.obj
          BlobbyWarriors.dir\Debug\NetworkController.obj
          BlobbyWarriors.dir\Debug\PlayerController.obj
          BlobbyWarriors.dir\Debug\Level.obj
@@ -52,4 +48,4 @@
 
 Das Erstellen war erfolgreich.
 
-Verstrichene Zeit 00:00:01.80
+Verstrichene Zeit 00:00:01.86

@@ -22,22 +22,28 @@ Simulator::Simulator()
 	properties.x = 400;
 	properties.y = 100;
 	properties.width = 800;
-	properties.height = 20;
+	properties.height = 10;
 	entityFactory->create(properties);
 	properties.x = 10;
 	properties.y = 300;
-	properties.width = 20;
+	properties.width = 10;
 	properties.height = 600;
 	entityFactory->create(properties);
 	properties.x = 790;
 	properties.y = 300;
-	properties.width = 20;
+	properties.width = 10;
 	properties.height = 600;
 	entityFactory->create(properties);
 	properties.x = 400;
 	properties.y = 590;
 	properties.width = 800;
-	properties.height = 20;
+	properties.height = 10;
+	entityFactory->create(properties);
+	properties.x = 400;
+	properties.y = 100;
+	properties.width = 800;
+	properties.height = 10;
+	properties.angle = 30;
 	entityFactory->create(properties);
 
 	// TODO: Level setup, etc.
