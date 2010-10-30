@@ -12,6 +12,13 @@ void Blobby::draw()
 		this->weapon->getBody(0)->SetTransform(this->bodies.at(0)->GetTransform().position, this->weapon->getBody(0)->GetTransform().GetAngle());
 	}
 
+	PlayerController *playerController = dynamic_cast<PlayerController*>(this->controller);
+	if (playerController != 0) {
+		GraphicsEngine::drawString(35, 40, "isOnGround = %s", playerController->getIsOnGround() ? "true" : "false");
+		GraphicsEngine::drawString(35, 55, "inJumping  = %s", playerController->getIsJumping() ? "true" : "false");
+		GraphicsEngine::drawString(35, 70, "isRotating = %s", playerController->getIsRotating() ? "true" : "false");
+	}
+
 	AbstractEntity::draw();
 }
 

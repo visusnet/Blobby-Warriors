@@ -18,6 +18,9 @@ IEntity* MachineGunBulletFactory::create(const EntityProperties& properties)
 	fixtureDef.density = properties.density;
 	fixtureDef.friction = properties.friction;
 	fixtureDef.restitution = properties.restitution;
+	if (properties.special) {
+		fixtureDef.filter.groupIndex = -1;
+	}
 	fixtureDef.filter.categoryBits = COLLISION_BIT_BULLET;
 	fixtureDef.filter.maskBits = COLLISION_BIT_OBJECT | COLLISION_BIT_GROUND | COLLISION_BIT_BLOBBY;
 

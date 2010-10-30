@@ -30,9 +30,24 @@ void PlayerController::update(Publisher *who, UpdateData *what)
 		return;
 	}
 
-	// If the blobby is rotating (i.e. doubly jumping), the angle has to
-	// be incremented.
-	if (this->isJumping && this->isRotating) {
+	ContactEventArgs *contactEventArgs = dynamic_cast<ContactEventArgs*>(what);
+	if (!this->handleContactEvent(contactEventArgs)) {
+		return;
+	}
+	
+	KeyEventArgs *keyEventArgs = dynamic_cast<KeyEventArgs*>(what);
+	if (!this->handleKeyEvent(keyEventArgs)) {
+		return;
+	}
+
+	MouseEventArgs *mouseEventArgs = dynamic_cast<MouseEventArgs*>(what);
+	if (!this->handleMouseEvent(mouseEventArgs)) {
+		return;
+	}
+
+	if (this->isJumping && this->isRotating) {		
+		// If the blobby is rotating (i.e. doubly jumping), the angle has to
+		// be incremented.
 		if (this->angle == 360) {
 			this->angle = 0;
 			this->isJumping = false;
@@ -40,39 +55,22 @@ void PlayerController::update(Publisher *who, UpdateData *what)
 		}
 		this->angle = this->angle + 4;
 	} else {
+		// Otherwise, the angle has to be reset.
 		this->angle = 0;
 	}
 
+	// Rotate the body.
 	b2Body *body = this->blobby->getBody(0);
+	body->SetTransform(body->GetTransform().position, degree2radian(direction == DIRECTION_LEFT ? this->angle : 360 - this->angle));
 
-	ContactEventArgs *contactEventArgs = dynamic_cast<ContactEventArgs*>(what);
-	if (contactEventArgs != 0) {
-		// Did we hit or cease to hit the ground?
-		b2Body *contactBody = 0;
-		if (contactEventArgs->contact->GetFixtureA()->GetBody() == body) {
-			contactBody = contactEventArgs->contact->GetFixtureB()->GetBody();
-		} else if (contactEventArgs->contact->GetFixtureB()->GetBody() == body) {
-			contactBody = contactEventArgs->contact->GetFixtureA()->GetBody();
-		}
-		if (contactBody != 0) {
-			// Yes, we did!
-			Ground *ground = dynamic_cast<Ground*>((IEntity*)contactBody->GetUserData());
-			if (ground != 0) {
-				if (contactEventArgs->type == CONTACT_TYPE_BEGIN) {
-					this->isOnGround = true;
-					this->isJumping = false;
-					this->isRotating = false;
-				} else if (contactEventArgs->type == CONTACT_TYPE_END) {
-					this->isOnGround = false;
-				}
-			}
-		}
-		// We have to return, since it is not allowed
-		// to modify physics within a timestep.
-		return;
-	}
-	
-	KeyEventArgs *keyEventArgs = dynamic_cast<KeyEventArgs*>(what);
+/*	if (body->GetLinearVelocity().y == 0) {
+		this->isRotating = false;
+	}*/
+}
+
+bool PlayerController::handleKeyEvent(KeyEventArgs *keyEventArgs)
+{
+	b2Body *body = this->blobby->getBody(0);
 	if (keyEventArgs != 0) {
 		if (keyEventArgs->key.code == 'w' && keyEventArgs->key.hasChanged) {
 			debug("is on ground? %i", this->isOnGround ? 1 : 0);
@@ -85,7 +83,7 @@ void PlayerController::update(Publisher *who, UpdateData *what)
 					this->isJumping = true;
 					this->isOnGround = false;
 				}
-			} else {
+			} else if (!this->isRotating) {
 				// Enable rotation on double jump (+ boost).
 				body->ApplyForce(b2Vec2(0.0f, 200.0f), body->GetPosition());
 				this->isRotating = true;
@@ -93,19 +91,10 @@ void PlayerController::update(Publisher *who, UpdateData *what)
 		}
 	}
 
-	// Rotate the body.
-	body->SetTransform(body->GetTransform().position, degree2radian(direction == DIRECTION_LEFT ? this->angle : 360 - this->angle));
-
-	if (body->GetLinearVelocity().y == 0) {
-		this->isRotating = false;
-	}
-
 	if (KeyboardHandler::getInstance()->isKeyDown('a')) {
-		debug("applying force (a)");
 		body->SetLinearVelocity(b2Vec2(-10.0f, body->GetLinearVelocity().y));
 		this->direction = DIRECTION_LEFT;
 	} else if (KeyboardHandler::getInstance()->isKeyDown('d')) {
-		debug("applying force (d)");
 		body->SetLinearVelocity(b2Vec2(10.0f, body->GetLinearVelocity().y));
 		this->direction = DIRECTION_RIGHT;
 	} else if (this->isOnGround) {
@@ -119,9 +108,12 @@ void PlayerController::update(Publisher *who, UpdateData *what)
 			break;
 		}
 	}
-	
 
-	MouseEventArgs *mouseEventArgs = dynamic_cast<MouseEventArgs*>(what);
+	return true;
+}
+
+bool PlayerController::handleMouseEvent(MouseEventArgs *mouseEventArgs)
+{
 	b2Vec2 mousePosition;
 	bool fire = false;
 	if (mouseEventArgs != 0) {
@@ -148,11 +140,45 @@ void PlayerController::update(Publisher *who, UpdateData *what)
 
 		if (fire) {
 			weapon->fire(a, false, true);
-			debug("SINGLE FIRE!");
 		} else if (MouseHandler::getInstance()->isButtonPressed(MOUSE_BUTTON_LEFT)) {
 			weapon->fire(a, false, true);
 		}
 
 		weapon->getBody(0)->SetTransform(weapon->getBody(0)->GetPosition(), angle);
+	}
+	return true;
+}
+
+bool PlayerController::handleContactEvent(ContactEventArgs *contactEventArgs)
+{
+	if (contactEventArgs != 0) {
+		b2Body *body = this->blobby->getBody(0);
+		// Did we hit or cease to hit the ground?
+		b2Body *contactBody = 0;
+		if (contactEventArgs->contact->GetFixtureA()->GetBody() == body) {
+			contactBody = contactEventArgs->contact->GetFixtureB()->GetBody();
+		} else if (contactEventArgs->contact->GetFixtureB()->GetBody() == body) {
+			contactBody = contactEventArgs->contact->GetFixtureA()->GetBody();
+		}
+		if (contactBody != 0) {
+			Ground *ground = dynamic_cast<Ground*>((IEntity*)contactBody->GetUserData());
+			if (ground != 0) {
+				// Yes, we did!
+				if (contactEventArgs->type == CONTACT_TYPE_BEGIN) {
+					debug("hitting ground");
+					this->isOnGround = true;
+					this->isJumping = false;
+					this->isRotating = false;
+				} else if (contactEventArgs->type == CONTACT_TYPE_END) {
+					debug("leaving ground");
+					this->isOnGround = false;
+				}
+			}
+		}
+		// We have to return, since it is not allowed
+		// to modify physics within a timestep.
+		return false;
+	} else {
+		return true;
 	}
 }

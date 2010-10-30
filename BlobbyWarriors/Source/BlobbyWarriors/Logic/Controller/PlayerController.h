@@ -20,6 +20,12 @@ public:
 	void setBlobby(Blobby *blobby);
 	void step();
 	void update(Publisher *who, UpdateData *what = 0);
+	bool handleKeyEvent(KeyEventArgs *keyEventArgs);
+	bool handleMouseEvent(MouseEventArgs *mouseEventArgs);
+	bool handleContactEvent(ContactEventArgs *contactEventArgs);
+	bool getIsOnGround() { return this->isOnGround; }
+	bool getIsJumping() { return this->isJumping; }
+	bool getIsRotating() { return this->isRotating; }
 private:
 	Blobby *blobby;
 	bool isOnGround;

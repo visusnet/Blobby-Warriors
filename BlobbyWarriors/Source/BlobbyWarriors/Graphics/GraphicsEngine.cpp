@@ -82,6 +82,39 @@ void GraphicsEngine::setSize(int width, int height)
 	this->windowInfo.height = height;
 }
 
+void GraphicsEngine::drawString(int x, int y, const char *string, ...)
+{
+	char buffer[128];
+
+	va_list arg;
+	va_start(arg, string);
+	vsprintf(buffer, string, arg);
+	va_end(arg);
+
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+	glLoadIdentity();
+	int w = glutGet(GLUT_WINDOW_WIDTH);
+	int h = glutGet(GLUT_WINDOW_HEIGHT);
+	gluOrtho2D(0, w, h, 0);
+	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix();
+	glLoadIdentity();
+
+	glColor3f(0.9f, 0.6f, 0.6f);
+	glRasterPos2i(x, y);
+	int32 length = (int32)strlen(buffer);
+	for (int32 i = 0; i < length; ++i)
+	{
+		glutBitmapCharacter(GLUT_BITMAP_8_BY_13, buffer[i]);
+	}
+
+	glPopMatrix();
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+	glMatrixMode(GL_MODELVIEW);
+}
+
 void GraphicsEngine::onKeyDownCallback(unsigned char key, int x, int y)
 {
 	GraphicsEngine::getInstance()->onKeyDown(key, x, y);
@@ -149,6 +182,7 @@ GraphicsEngine::GraphicsEngine()
 	this->isFullScreen = false;
 	this->windowInfo.width = WIDTH;
 	this->windowInfo.height = HEIGHT;
+	this->previousTicks = glutGet(GLUT_ELAPSED_TIME);
 }
 
 GraphicsEngine::~GraphicsEngine()
@@ -157,7 +191,7 @@ GraphicsEngine::~GraphicsEngine()
 
 void GraphicsEngine::onKeyDown(unsigned char key, int x, int y)
 {
-	debug("%c %i %i", key, x, y);
+//	debug("%c %i %i", key, x, y);
 
 	KeyboardHandler::getInstance()->setKeyDown(key);
 
@@ -187,20 +221,19 @@ void GraphicsEngine::onKeyDown(unsigned char key, int x, int y)
 
 void GraphicsEngine::onKeyUp(unsigned char key, int x, int y)
 {
-	debug("%c %i %i", key, x, y);
+//	debug("%c %i %i", key, x, y);
 	
 	KeyboardHandler::getInstance()->setKeyUp(key);
 }
 
 void GraphicsEngine::onSpecialKeyDown(int key, int x, int y)
 {
-	debug("%i %i %i", key, x, y);
+//	debug("%i %i %i", key, x, y);
 
 	KeyboardHandler::getInstance()->setKeyDown(static_cast<unsigned char>(key));
 
 	switch (key)
 	{
-	case GLUT_ACTIVE_SHIFT:
 	case GLUT_KEY_LEFT:
 		this->viewCenter.x -= 0.5f;
 		this->onReshape();
@@ -272,7 +305,7 @@ void GraphicsEngine::onMousePassiveMotion(int x, int y)
 
 void GraphicsEngine::onMouseMove(int x, int y)
 {
-	debug("%i %i", x, y);
+//	debug("%i %i", x, y);
 	
 //	b2Vec2 position = this->convertScreenToWorld(x, y);
 	MouseHandler::getInstance()->onMouseMove(x, this->windowInfo.height - y);
@@ -281,6 +314,7 @@ void GraphicsEngine::onMouseMove(int x, int y)
 // TODO: Remove me! This is just for debugging purposes
 inline void drawPolygonAt(int x, int y)
 {
+	glColor3f(1.0f, 1.0f, 1.0f);
 	glBegin(GL_POLYGON);
 		glVertex3f(x +  0.0f, y +  0.0f, 0.0f);
 		glVertex3f(x + 10.0f, y +  0.0f, 0.0f);
@@ -291,10 +325,17 @@ inline void drawPolygonAt(int x, int y)
 
 void GraphicsEngine::onDraw()
 {
+	float fps = 1000.0f / (glutGet(GLUT_ELAPSED_TIME) - this->previousTicks);
+	this->previousTicks = glutGet(GLUT_ELAPSED_TIME);
+
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
+
+	drawString(610, 40, "FPS:       %f", fps);
+	drawString(610, 55, "Bodies:    %i", GameWorld::getInstance()->getPhysicsWorld()->GetBodyCount());
+	drawString(610, 70, "Entities:  %i", GameWorld::getInstance()->getEntityCount());
 
 	// TODO: Draw everything
 	drawPolygonAt(0, 0);
@@ -304,6 +345,8 @@ void GraphicsEngine::onDraw()
 	drawPolygonAt(395, 295);
 
 	this->notify();
+
+	drawString(610, 85, "Gen. Time: %i ms", glutGet(GLUT_ELAPSED_TIME) - this->previousTicks);
 
 	glutSwapBuffers();
 }

@@ -17,12 +17,11 @@ IEntity* MachineGunFactory::create(const EntityProperties& properties)
 	fixtureDef.density = properties.density;
 	fixtureDef.friction = properties.friction;
 	fixtureDef.restitution = properties.restitution;
-	fixtureDef.filter.categoryBits = COLLISION_BIT_WEAPON;
 	if (properties.special) {
-		fixtureDef.filter.maskBits = COLLISION_BIT_OBJECT | COLLISION_BIT_PLAYER;
-	} else {
-		fixtureDef.filter.maskBits = COLLISION_BIT_OBJECT;
+		fixtureDef.filter.groupIndex = -1;
 	}
+	fixtureDef.filter.categoryBits = COLLISION_BIT_WEAPON;
+	fixtureDef.filter.maskBits = COLLISION_BIT_OBJECT;
 
 	body->CreateFixture(&fixtureDef);
 	body->ResetMassData();

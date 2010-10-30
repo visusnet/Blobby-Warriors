@@ -7,7 +7,7 @@ Simulator::Simulator()
 	EntityFactory *entityFactory = new BlobbyFactory();
 	EntityProperties& properties = entityFactory->getDefaultProperties();
 	properties.x = 400;
-	properties.y = 600;
+	properties.y = 400;
 	properties.special = true;
 	this->playerBlobby = static_cast<Blobby*>(entityFactory->create(properties));
 	this->playerBlobby->setController(new PlayerController());
@@ -23,7 +23,21 @@ Simulator::Simulator()
 	properties.y = 100;
 	properties.width = 800;
 	properties.height = 20;
-
+	entityFactory->create(properties);
+	properties.x = 10;
+	properties.y = 300;
+	properties.width = 20;
+	properties.height = 600;
+	entityFactory->create(properties);
+	properties.x = 790;
+	properties.y = 300;
+	properties.width = 20;
+	properties.height = 600;
+	entityFactory->create(properties);
+	properties.x = 400;
+	properties.y = 590;
+	properties.width = 800;
+	properties.height = 20;
 	entityFactory->create(properties);
 
 	// TODO: Level setup, etc.
@@ -40,6 +54,7 @@ void Simulator::step()
 	this->gameWorld->step();
 
 	for (unsigned int i = 0; i < this->gameWorld->getEntityCount(); i++) {
-		this->gameWorld->getEntity(i)->draw();
+		IEntity *entity = this->gameWorld->getEntity(i);
+		entity->draw();
 	}
 }

@@ -9,6 +9,7 @@
 #include "../PublishSubscribe.h"
 #include "KeyboardHandler.h"
 #include "MouseHandler.h"
+#include "../Model/GameWorld.h"
 
 struct WindowInfo
 {
@@ -28,6 +29,7 @@ public:
 	void update(Publisher *who, UpdateData *what = 0);
 	void setSize(int width, int height);
 
+	static void drawString(int x, int y, const char *string, ...);
 	static void onKeyDownCallback(unsigned char key, int x, int y);
 	static void onKeyUpCallback(unsigned char key, int x, int y);
 	static void onSpecialKeyDownCallback(int key, int x, int y);
@@ -65,6 +67,7 @@ private:
 	b2Vec2 viewCenter;
 	bool isFullScreen;
 	WindowInfo windowInfo;
+	int previousTicks;
 
 	class Guard
 	{

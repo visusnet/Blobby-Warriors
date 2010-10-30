@@ -20,6 +20,7 @@ public:
 	Simulator();
 	~Simulator();
 	void step();
+	void destroyEntities(list<IEntity*> entities);
 private:
 	Level *level;
 	GameWorld *gameWorld;

@@ -20,10 +20,9 @@ IEntity* BlobbyFactory::create(const EntityProperties& properties)
 	lowerOuterFixture.friction = properties.friction;
 	lowerOuterFixture.restitution = properties.restitution;
 	if (properties.special) {
-		lowerOuterFixture.filter.categoryBits = COLLISION_BIT_BLOBBY | COLLISION_BIT_PLAYER;
-	} else {
-		lowerOuterFixture.filter.categoryBits = COLLISION_BIT_BLOBBY;
+		lowerOuterFixture.filter.groupIndex = -1;
 	}
+	lowerOuterFixture.filter.categoryBits = COLLISION_BIT_BLOBBY;
 	lowerOuterFixture.filter.maskBits = COLLISION_BIT_GROUND | COLLISION_BIT_OBJECT | COLLISION_BIT_BULLET;
 
 	b2CircleShape upperOuterShape;

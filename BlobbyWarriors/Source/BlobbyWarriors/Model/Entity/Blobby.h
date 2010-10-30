@@ -9,7 +9,9 @@ class Blobby;
 
 #include "AbstractEntity.h"
 #include "AbstractWeapon.h"
+#include "../../Graphics/GraphicsEngine.h"
 #include "../../Logic/Controller/IController.h"
+#include "../../Logic/Controller/PlayerController.h"
 #include "../../Debug.h"
 
 using namespace std;
