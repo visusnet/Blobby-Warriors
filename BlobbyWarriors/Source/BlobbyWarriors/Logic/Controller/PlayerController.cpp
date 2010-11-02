@@ -41,6 +41,12 @@ bool PlayerController::handleKeyEvent(KeyEventArgs *keyEventArgs)
 		this->blobby->stopWalk();
 	}
 
+	if (KeyboardHandler::getInstance()->isKeyDown('s')) {
+		this->blobby->duck();
+	} else {
+		this->blobby->standUp();
+	}
+
 	return true;
 }
 

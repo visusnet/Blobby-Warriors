@@ -1,4 +1,4 @@
-﻿Der Buildvorgang wurde am 30.10.2010 21:03:16 gestartet.
+﻿Der Buildvorgang wurde am 02.11.2010 02:19:50 gestartet.
      1>Projekt "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\BlobbyWarriors\BlobbyWarriors.vcxproj" auf Knoten "2", build Ziel(e).
      1>InitializeBuildStatus:
          "BlobbyWarriors.dir\Debug\BlobbyWarriors.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
@@ -48,4 +48,4 @@
 
 Das Erstellen war erfolgreich.
 
-Verstrichene Zeit 00:00:01.86
+Verstrichene Zeit 00:00:02.17

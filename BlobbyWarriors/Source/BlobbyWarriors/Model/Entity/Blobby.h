@@ -22,6 +22,14 @@ using namespace std;
 #define DIRECTION_LEFT 1
 #define DIRECTION_RIGHT 2
 
+#define GROUND_ANGLE 160
+
+struct ContactPoint
+{
+	b2Fixture *fixture;
+	float angle;
+};
+
 class Blobby : public AbstractEntity, public Subscriber
 {
 public:
@@ -39,16 +47,23 @@ public:
 	void walkLeft();
 	void walkRight();
 	void stopWalk();
+	void duck();
+	void standUp();
 private:
+	bool isOnGround();
+	bool isTouchingWall(int *wallDirection);
+
 	IController *controller;
 	vector<IWearable*> wearables;
 	AbstractWeapon *weapon;
-	bool isOnGround;
 	bool isJumping;
 	bool isRotating;
 	bool isWalking;
+	bool isDucking;
+	bool isStandingUp;
 	float angle;
 	int direction;
+	list<ContactPoint*> contactPoints;
 };
 
 #endif

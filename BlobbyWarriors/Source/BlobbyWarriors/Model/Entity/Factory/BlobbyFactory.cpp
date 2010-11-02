@@ -1,5 +1,20 @@
 #include "BlobbyFactory.h"
 
+void createTriangleSensor(b2Body *body, b2Vec2 a, b2Vec2 b, b2Vec2 c)
+{
+	b2PolygonShape polygonShape;
+	polygonShape.m_vertexCount = 3;
+	polygonShape.m_vertices[0].Set(a.x, a.y);
+	polygonShape.m_vertices[1].Set(b.x, b.y);
+	polygonShape.m_vertices[2].Set(c.x, c.y);
+
+	b2FixtureDef fixtureDef;
+	fixtureDef.shape = &polygonShape;
+	fixtureDef.isSensor = true;
+
+	body->CreateFixture(&fixtureDef);
+}
+
 IEntity* BlobbyFactory::create(const EntityProperties& properties)
 {
 	b2BodyDef bodyDef;
@@ -40,16 +55,21 @@ IEntity* BlobbyFactory::create(const EntityProperties& properties)
 	lowerOuterFixture.filter.categoryBits = COLLISION_BIT_BLOBBY;
 	lowerOuterFixture.filter.maskBits = COLLISION_BIT_GROUND | COLLISION_BIT_OBJECT | COLLISION_BIT_BULLET;
 
-	b2PolygonShape lowerInnerShape;
-	lowerInnerShape.SetAsEdge(b2Vec2(-0.386f + 0.3f, -0.386f), b2Vec2(0.386f - 0.3f, -0.386f));
-
-	b2FixtureDef lowerInnerFixture;
-	lowerInnerFixture.shape = &lowerInnerShape;
-	lowerInnerFixture.isSensor = true;
-
-	body->CreateFixture(&lowerOuterFixture);
+//	b2PolygonShape lowerInnerShape;
+//	lowerInnerShape.SetAsEdge(b2Vec2(-0.386f + 0.3f, -0.386f), b2Vec2(0.386f - 0.3f, -0.386f));
+	
+//	b2FixtureDef lowerInnerFixture;
+//	lowerInnerFixture.shape = &lowerInnerShape;
+//	lowerInnerFixture.isSensor = true;
+	
 	body->CreateFixture(&upperOuterFixture);
-	body->CreateFixture(&lowerInnerFixture);
+	body->CreateFixture(&lowerOuterFixture);
+//	body->CreateFixture(&lowerInnerFixture);
+	
+//	createTriangleSensor(body, b2Vec2(0, 0), b2Vec2(-0.386f, 0.386f), b2Vec2(-0.386f, -0.386f));
+//	createTriangleSensor(body, b2Vec2(0, 0), b2Vec2(0.386f, -0.386f), b2Vec2(0.386f, 0.386f));
+//	createTriangleSensor(body, b2Vec2(0, 0), b2Vec2(-0.386f, -0.386f), b2Vec2(0.386f, -0.386f));
+
 	body->ResetMassData();
 
 	Blobby *blobby = new Blobby();

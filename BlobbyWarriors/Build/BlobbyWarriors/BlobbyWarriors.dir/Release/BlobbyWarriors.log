@@ -1,33 +1,10 @@
-﻿Der Buildvorgang wurde am 30.10.2010 21:04:42 gestartet.
+﻿Der Buildvorgang wurde am 01.11.2010 17:34:02 gestartet.
      1>Projekt "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\BlobbyWarriors\BlobbyWarriors.vcxproj" auf Knoten "2", build Ziel(e).
      1>InitializeBuildStatus:
-         "BlobbyWarriors.dir\Release\BlobbyWarriors.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
+         Aktualisieren des Timestamps von "BlobbyWarriors.dir\Release\BlobbyWarriors.unsuccessfulbuild".
        ClCompile:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D FREEGLUT_STATIC /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"BlobbyWarriors.dir\Release\\" /Fd"BlobbyWarriors.dir\Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\BlobbyWarriors\Graphics\GraphicsEngine.cpp ..\..\Source\BlobbyWarriors\Graphics\KeyboardHandler.cpp ..\..\Source\BlobbyWarriors\Graphics\MouseHandler.cpp ..\..\Source\BlobbyWarriors\Logic\ContactListener.cpp ..\..\Source\BlobbyWarriors\Logic\Controller\AbstractController.cpp ..\..\Source\BlobbyWarriors\Logic\Controller\PlayerController.cpp ..\..\Source\BlobbyWarriors\Logic\Simulator.cpp ..\..\Source\BlobbyWarriors\Main.cpp ..\..\Source\BlobbyWarriors\Model\Entity\AbstractEntity.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Blobby.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\BlobbyFactory.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\EntityFactory.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\GroundFactory.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\MachineGunBulletFactory.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\MachineGunFactory.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Ground.cpp ..\..\Source\BlobbyWarriors\Model\Entity\MachineGun.cpp ..\..\Source\BlobbyWarriors\Model\Entity\MachineGunBullet.cpp ..\..\Source\BlobbyWarriors\Model\GameWorld.cpp ..\..\Source\BlobbyWarriors\PublishSubscribe.cpp
-         GraphicsEngine.cpp
-     1>..\..\Source\BlobbyWarriors\Graphics\GraphicsEngine.cpp(91): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): Siehe Deklaration von 'vsprintf'
-         KeyboardHandler.cpp
-         MouseHandler.cpp
-     1>..\..\Source\BlobbyWarriors\Graphics\MouseHandler.cpp(27): warning C4244: 'Argument': Konvertierung von 'int' in 'float32', möglicher Datenverlust
-     1>..\..\Source\BlobbyWarriors\Graphics\MouseHandler.cpp(27): warning C4244: 'Argument': Konvertierung von 'int' in 'float32', möglicher Datenverlust
-         ContactListener.cpp
-         AbstractController.cpp
-         PlayerController.cpp
-         Simulator.cpp
-         Main.cpp
-         AbstractEntity.cpp
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D FREEGLUT_STATIC /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"BlobbyWarriors.dir\Release\\" /Fd"BlobbyWarriors.dir\Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\BlobbyWarriors\Model\Entity\Blobby.cpp
          Blobby.cpp
-         BlobbyFactory.cpp
-         EntityFactory.cpp
-         GroundFactory.cpp
-         MachineGunBulletFactory.cpp
-         MachineGunFactory.cpp
-         Ground.cpp
-         MachineGun.cpp
-         MachineGunBullet.cpp
-         GameWorld.cpp
-         PublishSubscribe.cpp
        Link:
          C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\Release\BlobbyWarriors.exe" /INCREMENTAL:NO /NOLOGO Box2D.lib freeglut_static.lib glui.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"BlobbyWarriors.dir\Release\BlobbyWarriors.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Release\BlobbyWarriors.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\..\Release\BlobbyWarriors.lib" /MACHINE:X86 BlobbyWarriors.dir\Release\Debug.obj
          BlobbyWarriors.dir\Release\GraphicsEngine.obj
@@ -67,4 +44,4 @@
 
 Das Erstellen war erfolgreich.
 
-Verstrichene Zeit 00:00:13.89
+Verstrichene Zeit 00:00:06.91
