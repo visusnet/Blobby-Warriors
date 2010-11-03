@@ -9,6 +9,7 @@ class Blobby;
 
 #include "AbstractEntity.h"
 #include "AbstractWeapon.h"
+#include "Factory/BlobbyFactory.h"
 #include "../../PublishSubscribe.h"
 #include "../../Graphics/GraphicsEngine.h"
 #include "../../Logic/ContactListener.h"
@@ -67,6 +68,11 @@ private:
 	int direction;
 	int wallDirection;
 	list<ContactPoint*> contactPoints;
+
+	b2Fixture *upperFixture;
+	b2Fixture *lowerFixture;
+
+	friend class BlobbyFactory;
 };
 
 #endif

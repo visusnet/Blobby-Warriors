@@ -76,12 +76,6 @@ void GraphicsEngine::update(Publisher *who, UpdateData *what)
 	}*/
 }
 
-void GraphicsEngine::setSize(int width, int height)
-{
-	this->windowInfo.width = width;
-	this->windowInfo.height = height;
-}
-
 void GraphicsEngine::drawString(int x, int y, const char *string, ...)
 {
 	char buffer[128];
@@ -169,38 +163,15 @@ void GraphicsEngine::onTimerTickCallback(int)
 
 void GraphicsEngine::onReshapeCallback(int width, int height)
 {
-	GraphicsEngine::getInstance()->setSize(width, height);
+	Camera::getInstance()->setWindowSize(width, height);
 	GraphicsEngine::getInstance()->onReshape();
 }
-
-b2Vec2 GraphicsEngine::convertWorldToScreen(float x, float y)
-{
-	static GLint viewport[4];
-	static GLdouble modelview[16];
-	static GLdouble projection[16];
-	static GLfloat winX, winY, winZ;
-	double worldX, worldY, worldZ;
-
-	glGetDoublev(GL_MODELVIEW_MATRIX, modelview);
-	glGetDoublev(GL_PROJECTION_MATRIX, projection);
-	glGetIntegerv(GL_VIEWPORT, viewport);
-
-	winX = (GLfloat)x;
-	winY = (GLfloat)y;
-	winZ = (GLfloat)0;
-
-	gluProject(winX, winY, winZ, modelview, projection, viewport, &worldX, &worldY, &worldZ);
-
-	return b2Vec2((GLfloat)worldX, (GLfloat)viewport[3] - (GLfloat)worldY);
-}
-
 
 GraphicsEngine::GraphicsEngine()
 {
 	this->mainWindow = 0;
 	this->isFullScreen = false;
-	this->windowInfo.width = WIDTH;
-	this->windowInfo.height = HEIGHT;
+	Camera::getInstance()->setWindowSize(WIDTH, HEIGHT);
 	this->previousTicks = glutGet(GLUT_ELAPSED_TIME);
 }
 
@@ -222,15 +193,13 @@ void GraphicsEngine::onKeyDown(unsigned char key, int x, int y)
 	case 'f':
 		this->isFullScreen = !this->isFullScreen;
 		if (this->isFullScreen) {
-			this->windowInfo.x = glutGet(GLUT_WINDOW_X);
-			this->windowInfo.y = glutGet(GLUT_WINDOW_Y);
-			this->windowInfo.width = glutGet(GLUT_WINDOW_WIDTH);
-			this->windowInfo.height = glutGet(GLUT_WINDOW_HEIGHT);
+			Camera::getInstance()->setWindowPosition(glutGet(GLUT_WINDOW_X), glutGet(GLUT_WINDOW_Y));
+			Camera::getInstance()->setWindowSize(glutGet(GLUT_WINDOW_WIDTH), glutGet(GLUT_WINDOW_HEIGHT));
 			glutFullScreen();
 		} else {
 			// Switch into windowed mode and repostion top-left corner.
-			glutReshapeWindow(this->windowInfo.width, this->windowInfo.height);
-			glutPositionWindow(this->windowInfo.x, this->windowInfo.y);
+			glutReshapeWindow(Camera::getInstance()->getWindowSize().width, Camera::getInstance()->getWindowSize().height);
+			glutPositionWindow(int(Camera::getInstance()->getWindowPosition().x), int(Camera::getInstance()->getWindowPosition().y));
 		}
 		glutFullScreen();
 		this->onReshape();
@@ -291,8 +260,8 @@ void GraphicsEngine::onMouseButton(int button, int state, int x, int y)
 {
 //	debug("%i %i %i %i", button, state, x, y);	
 
-//	b2Vec2 position = this->convertScreenToWorld(x, y);
-	MouseHandler::getInstance()->onMouseButton(button, state, x, this->windowInfo.height - y);
+	b2Vec2 position = Camera::convertScreenToWorld(x, y);
+	MouseHandler::getInstance()->onMouseButton(button, state, x, y);
 }
 
 void GraphicsEngine::onMouseWheel(int wheel, int direction, int x, int y)
@@ -324,9 +293,8 @@ void GraphicsEngine::onMousePassiveMotion(int x, int y)
 void GraphicsEngine::onMouseMove(int x, int y)
 {
 //	debug("%i %i", x, y);
-	
-//	b2Vec2 position = this->convertScreenToWorld(x, y);
-	MouseHandler::getInstance()->onMouseMove(x, this->windowInfo.height - y);
+
+	MouseHandler::getInstance()->onMouseMove(x, y);
 }
 
 // TODO: Remove me! This is just for debugging purposes
@@ -378,35 +346,20 @@ void GraphicsEngine::onTimerTick()
 
 void GraphicsEngine::onReshape()
 {
-	glViewport(0, 0, this->windowInfo.width, this->windowInfo.height);
+	Size windowSize = Camera::getInstance()->getWindowSize();
+	b2Vec2 viewCenter = Camera::getInstance()->getViewCenter();
+
+	glViewport(0, 0, int(windowSize.width), int(windowSize.height));
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	b2Vec2 extents(float(this->windowInfo.width / 2), float(this->windowInfo.height / 2));
+	b2Vec2 extents(windowSize.width / 2.0f, windowSize.height / 2.0f);
 	extents *= Camera::getInstance()->getZoom();
 	
-	b2Vec2 lower = Camera::getInstance()->getViewCenter() - extents;
-	b2Vec2 upper = Camera::getInstance()->getViewCenter() + extents;
+	b2Vec2 lower = viewCenter - extents;
+	b2Vec2 upper = viewCenter + extents;
 
 	gluOrtho2D(lower.x, upper.x, lower.y, upper.y);
-}
-
-b2Vec2 GraphicsEngine::convertScreenToWorld(int x, int y)
-{
-	float u = float(x) / float(this->windowInfo.width);
-	float v = float(this->windowInfo.height - y) / float(this->windowInfo.height);
-
-	b2Vec2 extents(float(this->windowInfo.width / 2), float(this->windowInfo.height / 2));
-	extents *= Camera::getInstance()->getZoom();
-
-	b2Vec2 lower = Camera::getInstance()->getViewCenter() - extents;
-	b2Vec2 upper = Camera::getInstance()->getViewCenter() + extents;
-
-	b2Vec2 p;
-	p.x = (1.0f - u) * lower.x + u * upper.x;
-	p.y = (1.0f - v) * lower.y + v * upper.y;
-
-	return p;
 }
 
 GraphicsEngine *GraphicsEngine::instance = 0;

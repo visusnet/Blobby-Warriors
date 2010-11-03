@@ -55,12 +55,13 @@ bool PlayerController::handleMouseEvent(MouseEventArgs *mouseEventArgs)
 	b2Vec2 mousePosition;
 	bool fire = false;
 	if (mouseEventArgs != 0) {
-		mousePosition = pixel2meter(b2Vec2(float(mouseEventArgs->x), float(mouseEventArgs->y)));
+		mousePosition = pixel2meter(Camera::convertScreenToWorld(mouseEventArgs->x, mouseEventArgs->y));
 		if (mouseEventArgs->type == MOUSE_BUTTON_STATE_CHANGED && mouseEventArgs->state == MOUSE_STATE_PRESSED && mouseEventArgs->button == MOUSE_BUTTON_LEFT) {
 			fire = true;
 		}
 	} else {
-		mousePosition = pixel2meter(MouseHandler::getInstance()->getPosition());
+		b2Vec2 absoluteMousePosition = MouseHandler::getInstance()->getPosition();
+		mousePosition = pixel2meter(Camera::convertScreenToWorld(int(absoluteMousePosition.x), int(absoluteMousePosition.y)));
 	}
 	if (this->blobby->getWeapon() != 0) {
 		AbstractWeapon *weapon = this->blobby->getWeapon();

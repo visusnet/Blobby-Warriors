@@ -12,14 +12,6 @@
 #include "MouseHandler.h"
 #include "../Model/GameWorld.h"
 
-struct WindowInfo
-{
-	int x;
-	int y;
-	int width;
-	int height;
-};
-
 class GraphicsEngine : public Publisher, public Subscriber
 {
 public:
@@ -28,7 +20,6 @@ public:
 	void initialize(int argc, char **argv);
 	void start();
 	void update(Publisher *who, UpdateData *what = 0);
-	void setSize(int width, int height);
 
 	static void drawString(int x, int y, const char *string, ...);
 	static void onKeyDownCallback(unsigned char key, int x, int y);
@@ -42,7 +33,6 @@ public:
 	static void onDrawCallback();
 	static void onTimerTickCallback(int);
 	static void onReshapeCallback(int width, int height);
-	static b2Vec2 convertWorldToScreen(float x, float y);
 private:
 	GraphicsEngine();
 	GraphicsEngine(const GraphicsEngine&);
@@ -60,13 +50,11 @@ private:
 	void onDraw();
 	void onTimerTick();
 	void onReshape();
-	b2Vec2 convertScreenToWorld(int x, int y);
 
 	static GraphicsEngine *instance;
 
 	int mainWindow;
 	bool isFullScreen;
-	WindowInfo windowInfo;
 	int previousTicks;
 
 	class Guard

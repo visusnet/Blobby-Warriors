@@ -1,10 +1,12 @@
-﻿Der Buildvorgang wurde am 03.11.2010 01:35:12 gestartet.
+﻿Der Buildvorgang wurde am 03.11.2010 23:38:28 gestartet.
      1>Projekt "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\BlobbyWarriors\BlobbyWarriors.vcxproj" auf Knoten "2", build Ziel(e).
      1>InitializeBuildStatus:
          "BlobbyWarriors.dir\Debug\BlobbyWarriors.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
        ClCompile:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D FREEGLUT_STATIC /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"BlobbyWarriors.dir\Debug\\" /Fd"BlobbyWarriors.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\BlobbyWarriors\Model\Entity\Blobby.cpp
-         Blobby.cpp
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D FREEGLUT_STATIC /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"BlobbyWarriors.dir\Debug\\" /Fd"BlobbyWarriors.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\BlobbyWarriors\Logic\Simulator.cpp
+         Simulator.cpp
+     1>c:\users\visus\desktop\blobby\trunk\blobbywarriors\source\blobbywarriors\logic\simulator.cpp(64): warning C4244: 'Argument': Konvertierung von 'float32' in 'int', möglicher Datenverlust
+     1>c:\users\visus\desktop\blobby\trunk\blobbywarriors\source\blobbywarriors\logic\simulator.cpp(66): warning C4244: 'Argument': Konvertierung von 'float32' in 'int', möglicher Datenverlust
        ManifestResourceCompile:
          Alle Ausgaben sind aktuell.
        Link:
@@ -49,4 +51,4 @@
 
 Das Erstellen war erfolgreich.
 
-Verstrichene Zeit 00:00:02.28
+Verstrichene Zeit 00:00:01.80

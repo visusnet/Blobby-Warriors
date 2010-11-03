@@ -114,57 +114,67 @@ void Blobby::update(Publisher *who, UpdateData *what)
 			// There is a fixture which might be a ground.
 			Ground *ground = dynamic_cast<Ground*>((IEntity*)groundFixture->GetBody()->GetUserData());
 			if (ground != 0) {
-				// Yes, it is really a ground.
-				const b2Manifold* manifold = contactEventArgs->contact->GetManifold();
-				if (contactEventArgs->type == CONTACT_TYPE_BEGIN && manifold->pointCount != 0) {
-					// The contact has begun and there are contact points.
+				if (blobbyFixture == this->lowerFixture) {
+					// It is the lower shape, so we need to cope with the
+					// contact point angle.
+					// Yes, it is really a ground.
+					const b2Manifold* manifold = contactEventArgs->contact->GetManifold();
+					if (contactEventArgs->type == CONTACT_TYPE_BEGIN && manifold->pointCount != 0) {
+						// The contact has begun and there are contact points.
 
-					// Every hit with a ground forces the blobby to stop
-					// rotating and jumping.
-					this->isRotating = false;
-					this->isJumping = false;
+						// Every hit with a ground forces the blobby to stop
+						// rotating and jumping.
+						this->isRotating = false;
+						this->isJumping = false;
 
-					// Calculate the contact point in world coordinates.
-					b2PointState state1[b2_maxManifoldPoints], state2[b2_maxManifoldPoints];
-					b2GetPointStates(state1, state2, manifold, manifold);
-					b2WorldManifold worldManifold;
-					contactEventArgs->contact->GetWorldManifold(&worldManifold);
+						// Calculate the contact point in world coordinates.
+						b2PointState state1[b2_maxManifoldPoints], state2[b2_maxManifoldPoints];
+						b2GetPointStates(state1, state2, manifold, manifold);
+						b2WorldManifold worldManifold;
+						contactEventArgs->contact->GetWorldManifold(&worldManifold);
 
-					for (int i = 0; i < manifold->pointCount; ++i)
-					{
-						b2Vec2 a = blobbyFixture->GetBody()->GetLocalPoint(worldManifold.points[i]);
-						b2Vec2 b = b2Vec2(1, 0);
-						a.Normalize();
-						b.Normalize();
-						float angle = acosf(a.x * b.x + a.y * b.y);
+						for (int i = 0; i < manifold->pointCount; ++i)
+						{
+							b2Vec2 a = blobbyFixture->GetBody()->GetLocalPoint(worldManifold.points[i]);
+							b2Vec2 b = b2Vec2(1, 0);
+							a.Normalize();
+							b.Normalize();
+							float angle = acosf(a.x * b.x + a.y * b.y);
 
-						if (a.y > b.y) {
-							angle = b2_pi - angle;
+							if (a.y > b.y) {
+								angle = b2_pi - angle;
+							}
+
+							// If the contact point is real, i.e. the shapes are
+							// really touching.
+							if (contactEventArgs->contact->IsTouching()) {
+								// Create a new ContactPoint that represents a contact
+								// to a ground with a specific angle which can is used
+								// to distinguish between wall and ground.
+								ContactPoint *contactPoint = new ContactPoint();
+								contactPoint->fixture = groundFixture;
+								contactPoint->angle = radian2degree(angle);
+								this->contactPoints.push_back(contactPoint);
+							}
 						}
-
-						// If the contact point is real, i.e. the shapes are
-						// really touching.
-						if (contactEventArgs->contact->IsTouching()) {
-							// Create a new ContactPoint that represents a contact
-							// to a ground with a specific angle which can is used
-							// to distinguish between wall and ground.
-							ContactPoint *contactPoint = new ContactPoint();
-							contactPoint->fixture = groundFixture;
-							contactPoint->angle = radian2degree(angle);
-							this->contactPoints.push_back(contactPoint);
+					} else if (contactEventArgs->type == CONTACT_TYPE_END) {
+						// The contact has ended. We need to remove the ContactPoint.
+						list<ContactPoint*> destroyableContactPoints;
+						for (list<ContactPoint*>::iterator it = this->contactPoints.begin(); it != this->contactPoints.end(); ++it) {
+							ContactPoint *cp = *it;
+							if (cp->fixture == groundFixture) {
+								destroyableContactPoints.push_back(cp);
+							}
+						}
+						for (list<ContactPoint*>::iterator it = destroyableContactPoints.begin(); it != destroyableContactPoints.end(); ++it) {
+							this->contactPoints.remove(*it);
 						}
 					}
-				} else if (contactEventArgs->type == CONTACT_TYPE_END) {
-					// The contact has ended. We need to remove the ContactPoint.
-					list<ContactPoint*> destroyableContactPoints;
-					for (list<ContactPoint*>::iterator it = this->contactPoints.begin(); it != this->contactPoints.end(); ++it) {
-						ContactPoint *cp = *it;
-						if (cp->fixture == groundFixture) {
-							destroyableContactPoints.push_back(cp);
-						}
-					}
-					for (list<ContactPoint*>::iterator it = destroyableContactPoints.begin(); it != destroyableContactPoints.end(); ++it) {
-						this->contactPoints.remove(*it);
+				} else if (blobbyFixture == this->upperFixture) {
+					// It is the upper shape, so we just stop jumping.
+					if (contactEventArgs->type == CONTACT_TYPE_BEGIN) {
+						this->isJumping = false;
+						this->isRotating = false;
 					}
 				}
 			}
@@ -227,7 +237,7 @@ void Blobby::jump()
 			body->ApplyForce(b2Vec2(0.0f, 440.0f), body->GetPosition());
 			this->isJumping = true;
 		}
-	} else if (!this->isOnGround && !this->isRotating) {
+	} else if (!this->isOnGround && this->isJumping && !this->isRotating) {
 		// Enable rotation on double jump (+ boost).
 		body->ApplyForce(b2Vec2(0.0f, 200.0f), body->GetPosition());
 		this->isRotating = true;

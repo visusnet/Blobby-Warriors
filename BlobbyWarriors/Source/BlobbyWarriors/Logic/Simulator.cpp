@@ -59,12 +59,14 @@ void Simulator::step()
 {
 	this->gameWorld->step();
 
-/*	b2Vec2 p = GraphicsEngine::convertWorldToScreen(meter2pixel(this->cameraBlobby->getBody(0)->GetPosition().x), 300.0f);
-	if ((int)p.x < 300 || (int)p.x > 500) {
-		Camera::getInstance()->setViewCenter(b2Vec2(p.x, 300));
-	}*/
+	b2Vec2 p = Camera::convertWorldToScreen(meter2pixel(this->cameraBlobby->getBody(0)->GetPosition().x), 300.0f);
+	if (p.x < 300) {
+		Camera::getInstance()->setViewCenter(Camera::convertScreenToWorld(400 - (300 - p.x), 300));
+	} else if (p.x > 500) {
+		Camera::getInstance()->setViewCenter(Camera::convertScreenToWorld(400 + (p.x - 500), 300));
+	}
 
-	Camera::getInstance()->setViewCenter(b2Vec2(meter2pixel(this->cameraBlobby->getBody(0)->GetPosition().x), 300.0f));
+	//Camera::getInstance()->setViewCenter(b2Vec2(meter2pixel(this->cameraBlobby->getBody(0)->GetPosition().x), 300.0f));
 
 	for (unsigned int i = 0; i < this->gameWorld->getEntityCount(); i++) {
 		IEntity *entity = this->gameWorld->getEntity(i);
