@@ -11,10 +11,10 @@ Main::Main(int argc, char **argv)
 {
 	this->simulator = new Simulator();
 
-	GraphicsEngine *graphicsEngine = GraphicsEngine::getInstance();
-	graphicsEngine->subscribe(this);
-	graphicsEngine->initialize(argc, argv);
-	graphicsEngine->start();
+	this->graphicsEngine = GraphicsEngine::getInstance();
+	this->graphicsEngine->subscribe(this);
+	this->graphicsEngine->initialize(argc, argv);
+	this->graphicsEngine->start();
 }
 
 void Main::update(Publisher *who, UpdateData *what)

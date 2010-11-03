@@ -49,7 +49,7 @@ void GraphicsEngine::initialize(int argc, char **argv)
 	//glutFullScreen();
 	//glutGameModeString("800x600:16@60");
 
-	MouseHandler::getInstance()->subscribe(this);
+	Camera::getInstance()->subscribe(this);
 }
 
 void GraphicsEngine::start()
@@ -60,9 +60,9 @@ void GraphicsEngine::start()
 
 void GraphicsEngine::update(Publisher *who, UpdateData *what)
 {
-	MouseEventArgs *eventArgs = dynamic_cast<MouseEventArgs*>(what);
-	if (eventArgs == 0) {
-		return;
+	CameraEventArgs *cameraEventArgs = dynamic_cast<CameraEventArgs*>(what);
+	if (cameraEventArgs != 0) {
+		this->onReshape();
 	}
 
 //	debug("YES %d %d", eventArgs->x, eventArgs->y);
@@ -173,12 +173,31 @@ void GraphicsEngine::onReshapeCallback(int width, int height)
 	GraphicsEngine::getInstance()->onReshape();
 }
 
+b2Vec2 GraphicsEngine::convertWorldToScreen(float x, float y)
+{
+	static GLint viewport[4];
+	static GLdouble modelview[16];
+	static GLdouble projection[16];
+	static GLfloat winX, winY, winZ;
+	double worldX, worldY, worldZ;
+
+	glGetDoublev(GL_MODELVIEW_MATRIX, modelview);
+	glGetDoublev(GL_PROJECTION_MATRIX, projection);
+	glGetIntegerv(GL_VIEWPORT, viewport);
+
+	winX = (GLfloat)x;
+	winY = (GLfloat)y;
+	winZ = (GLfloat)0;
+
+	gluProject(winX, winY, winZ, modelview, projection, viewport, &worldX, &worldY, &worldZ);
+
+	return b2Vec2((GLfloat)worldX, (GLfloat)viewport[3] - (GLfloat)worldY);
+}
+
+
 GraphicsEngine::GraphicsEngine()
 {
 	this->mainWindow = 0;
-	this->viewZoom = 1.0f;
-	this->viewCenter = b2Vec2(400.0f, 300.0f);
-//	this->viewCenter = b2Vec2(0.0f, 20.0f);
 	this->isFullScreen = false;
 	this->windowInfo.width = WIDTH;
 	this->windowInfo.height = HEIGHT;
@@ -235,28 +254,27 @@ void GraphicsEngine::onSpecialKeyDown(int key, int x, int y)
 	switch (key)
 	{
 	case GLUT_KEY_LEFT:
-		this->viewCenter.x -= 0.5f;
+		(*Camera::getInstance()) -= b2Vec2(0, 0);
 		this->onReshape();
 		break;
 
 	case GLUT_KEY_RIGHT:
-		this->viewCenter.x += 0.5f;
+		(*Camera::getInstance()) += b2Vec2(0.5f, 0.0f);
 		this->onReshape();
 		break;
 
 	case GLUT_KEY_DOWN:
-		this->viewCenter.y -= 0.5f;
+		(*Camera::getInstance()) -= b2Vec2(0.0f, 0.5f);
 		this->onReshape();
 		break;
 
 	case GLUT_KEY_UP:
-		this->viewCenter.y += 0.5f;
+		(*Camera::getInstance()) += b2Vec2(0.0f, 0.5f);
 		this->onReshape();
 		break;
 
 	case GLUT_KEY_HOME:
-		this->viewZoom = 1.0f;
-		this->viewCenter.Set(0.0f, 20.0f);
+		Camera::getInstance()->reset();
 		this->onReshape();
 		break;
 	}
@@ -283,13 +301,13 @@ void GraphicsEngine::onMouseWheel(int wheel, int direction, int x, int y)
 
 	if (direction > 0)
 	{
-		viewZoom /= 1.1f;
+		(*Camera::getInstance()) /= 1.1f;
 	}
 	else
 	{
-		viewZoom *= 1.1f;
+		(*Camera::getInstance()) *= 1.1f;
 	}
-	debug("%f", viewZoom);
+	debug("%f", Camera::getInstance()->getZoom());
 	this->onReshape();
 }
 
@@ -365,10 +383,10 @@ void GraphicsEngine::onReshape()
 	glLoadIdentity();
 
 	b2Vec2 extents(float(this->windowInfo.width / 2), float(this->windowInfo.height / 2));
-	extents *= this->viewZoom;
+	extents *= Camera::getInstance()->getZoom();
 	
-	b2Vec2 lower = this->viewCenter - extents;
-	b2Vec2 upper = this->viewCenter + extents;
+	b2Vec2 lower = Camera::getInstance()->getViewCenter() - extents;
+	b2Vec2 upper = Camera::getInstance()->getViewCenter() + extents;
 
 	gluOrtho2D(lower.x, upper.x, lower.y, upper.y);
 }
@@ -379,10 +397,10 @@ b2Vec2 GraphicsEngine::convertScreenToWorld(int x, int y)
 	float v = float(this->windowInfo.height - y) / float(this->windowInfo.height);
 
 	b2Vec2 extents(float(this->windowInfo.width / 2), float(this->windowInfo.height / 2));
-	extents *= this->viewZoom;
+	extents *= Camera::getInstance()->getZoom();
 
-	b2Vec2 lower = this->viewCenter - extents;
-	b2Vec2 upper = this->viewCenter + extents;
+	b2Vec2 lower = Camera::getInstance()->getViewCenter() - extents;
+	b2Vec2 upper = Camera::getInstance()->getViewCenter() + extents;
 
 	b2Vec2 p;
 	p.x = (1.0f - u) * lower.x + u * upper.x;

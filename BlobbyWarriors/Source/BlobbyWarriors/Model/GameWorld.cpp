@@ -26,12 +26,11 @@ void GameWorld::step()
 	}
 	this->destroyableEntities.clear();
 
+	this->world->Step(1.0f / 62.5f, 10, 10);
+
 	for (list<IEntity*>::iterator it = this->entities.begin(); it != this->entities.end(); ++it) {
 		(*it)->step();
 	}
-
-//	debug("World step");
-	this->world->Step(1.0f / 62.5f, 10, 10);
 }
 
 void GameWorld::addEntity(IEntity *entity)

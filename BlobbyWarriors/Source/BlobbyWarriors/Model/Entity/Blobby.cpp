@@ -7,14 +7,20 @@ Blobby::Blobby()
 	this->isWalking = false;
 	this->isDucking = false;
 	this->isStandingUp = false;
+	this->isOnGround = false;
+	this->isTouchingWall = false;
 	this->angle = 0;
 	this->direction = DIRECTION_UNKNOWN;
+	this->wallDirection = DIRECTION_UNKNOWN;
 
 	ContactListener::getInstance()->subscribe(this);
 }
 
 void Blobby::step()
 {
+	this->isOnGround = this->checkIsOnGround();
+	this->isTouchingWall = this->checkIsTouchingWall(&this->wallDirection);
+
 	// Reposition the weapon.
 	if (this->weapon != 0) {
 		this->weapon->getBody(0)->SetTransform(this->bodies.at(0)->GetTransform().position, this->weapon->getBody(0)->GetTransform().GetAngle());
@@ -43,16 +49,13 @@ void Blobby::step()
 	b2Body *body = this->bodies.at(0);
 	body->SetTransform(body->GetTransform().position, degree2radian(direction == DIRECTION_LEFT ? this->angle : 360 - this->angle));
 
-	// Check whether the body is touching a wall.
-	int wallDirection = DIRECTION_UNKNOWN;
-	bool isTouchingWall = this->isTouchingWall(&wallDirection);
 	// Move the body if it is not touching a wall or is
 	// touching a wall but the movement points into the opposite
 	// direction.
 	if (this->isWalking && this->direction != DIRECTION_UNKNOWN) {
-		if (this->direction == DIRECTION_LEFT && (!isTouchingWall || isTouchingWall && wallDirection != DIRECTION_LEFT)) {
+		if (this->direction == DIRECTION_LEFT && (!this->isTouchingWall || this->isTouchingWall && this->wallDirection != DIRECTION_LEFT)) {
 			body->SetLinearVelocity(b2Vec2(-10.0f, body->GetLinearVelocity().y));
-		} else if (this->direction == DIRECTION_RIGHT && (!isTouchingWall || isTouchingWall && wallDirection != DIRECTION_RIGHT)) {
+		} else if (this->direction == DIRECTION_RIGHT && (!this->isTouchingWall || this->isTouchingWall && this->wallDirection != DIRECTION_RIGHT)) {
 			body->SetLinearVelocity(b2Vec2(10.0f, body->GetLinearVelocity().y));
 		}
 	}
@@ -172,10 +175,10 @@ void Blobby::update(Publisher *who, UpdateData *what)
 void Blobby::draw()
 {
 	int wallDirection = 0;
-	GraphicsEngine::drawString(35, 40, "isOnGround     = %s", this->isOnGround() ? "true" : "false");
+	GraphicsEngine::drawString(35, 40, "isOnGround     = %s", this->isOnGround ? "true" : "false");
 	GraphicsEngine::drawString(35, 55, "inJumping      = %s", this->isJumping ? "true" : "false");
 	GraphicsEngine::drawString(35, 70, "isRotating     = %s", this->isRotating ? "true" : "false");
-	GraphicsEngine::drawString(35, 85, "isTouchingWall = %s (%s)", this->isTouchingWall(&wallDirection) ? "true" : "false", wallDirection == DIRECTION_LEFT ? "left" : wallDirection == DIRECTION_RIGHT ? "right" : "unknown");
+	GraphicsEngine::drawString(35, 85, "isTouchingWall = %s (%i)", this->isTouchingWall ? "true" : "false", this->wallDirection);
 
 	AbstractEntity::draw();
 }
@@ -217,14 +220,14 @@ AbstractWeapon* Blobby::getWeapon()
 void Blobby::jump()
 {
 	b2Body *body = this->bodies.at(0);
-	if (!this->isJumping) {
+	if (this->isOnGround && !this->isJumping) {
 		// The blobby is not jumping yet.
-		if (this->isOnGround()) {
+		if (this->isOnGround) {
 			// The blobby is on the ground, i.e. jump!
 			body->ApplyForce(b2Vec2(0.0f, 440.0f), body->GetPosition());
 			this->isJumping = true;
 		}
-	} else if (!this->isRotating) {
+	} else if (!this->isOnGround && !this->isRotating) {
 		// Enable rotation on double jump (+ boost).
 		body->ApplyForce(b2Vec2(0.0f, 200.0f), body->GetPosition());
 		this->isRotating = true;
@@ -245,7 +248,7 @@ void Blobby::walkRight()
 
 void Blobby::stopWalk()
 {
-	if (this->isWalking && this->isOnGround()) {
+	if (this->isWalking && this->isOnGround) {
 		// The blobby is walking on ground, so we stop it and apply
 		// a low linear force to make it smooth.
 		b2Body *body = this->bodies.at(0);
@@ -276,7 +279,12 @@ void Blobby::standUp()
 	this->isStandingUp = true;
 }
 
-bool Blobby::isOnGround()
+inline float correctAngle(float angle, float rotation)
+{
+	return angle;// - rotation;
+}
+
+bool Blobby::checkIsOnGround()
 {
 	// A blobby is on ground if the contact point is in a GROUND_ANGLE
 	// wide angle that is equally spanned around the vector pointing
@@ -284,14 +292,15 @@ bool Blobby::isOnGround()
 	// (negative y-axis direction).
 	for (list<ContactPoint*>::iterator it = this->contactPoints.begin(); it != this->contactPoints.end(); ++it) {
 		ContactPoint *contactPoint = *it;
-		if (90 - GROUND_ANGLE / 2 <= contactPoint->angle && contactPoint->angle <= 90 + GROUND_ANGLE / 2) {
+		float angle = correctAngle(contactPoint->angle, radian2degree(this->bodies.at(0)->GetTransform().GetAngle()));
+		if (90 - GROUND_ANGLE / 2 <= angle && angle <= 90 + GROUND_ANGLE / 2) {
 			return true;
 		}
 	}
 	return false;
 }
 
-bool Blobby::isTouchingWall(int *wallDirection)
+bool Blobby::checkIsTouchingWall(int *wallDirection)
 {
 	// A blobby touches a wall if the contact point is outside of a
 	// GROUND_ANGLE wide angle that is equally spanned around the
@@ -299,8 +308,9 @@ bool Blobby::isTouchingWall(int *wallDirection)
 	// its bottom (negative y-axis direction).
 	for (list<ContactPoint*>::iterator it = this->contactPoints.begin(); it != this->contactPoints.end(); ++it) {
 		ContactPoint *contactPoint = *it;
-		if (contactPoint->angle < 90 - GROUND_ANGLE / 2 || 90 + GROUND_ANGLE / 2 < contactPoint->angle) {
-			*wallDirection = contactPoint->angle > 90 + GROUND_ANGLE / 2 && contactPoint->angle < 270 ? DIRECTION_LEFT : DIRECTION_RIGHT;
+		float angle = correctAngle(contactPoint->angle, radian2degree(this->bodies.at(0)->GetTransform().GetAngle()));
+		if (angle < 90 - GROUND_ANGLE / 2 || 90 + GROUND_ANGLE / 2 < angle) {
+			*wallDirection = angle > 90 + GROUND_ANGLE / 2 && angle < 270 ? DIRECTION_LEFT : DIRECTION_RIGHT;
 			return true;
 		}
 	}

@@ -21,10 +21,11 @@ public:
 	~Simulator();
 	void step();
 	void destroyEntities(list<IEntity*> entities);
+	b2Vec2 getActorPosition();
 private:
 	Level *level;
 	GameWorld *gameWorld;
-	Blobby *playerBlobby;
+	Blobby *cameraBlobby;
 };
 
 #endif

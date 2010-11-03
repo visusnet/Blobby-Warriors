@@ -21,6 +21,7 @@ public:
 	void update(Publisher *who, UpdateData *what = 0);
 private:
 	Simulator *simulator;
+	GraphicsEngine *graphicsEngine;
 };
 
 #endif

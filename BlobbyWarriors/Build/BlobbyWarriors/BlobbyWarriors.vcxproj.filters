@@ -73,6 +73,9 @@
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\AbstractController.cpp">
       <Filter>Logic\Controller</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\Camera.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Graphics">
@@ -175,6 +178,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\AbstractController.h">
       <Filter>Logic\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\Camera.h">
+      <Filter>Graphics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

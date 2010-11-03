@@ -50,8 +50,8 @@ public:
 	void duck();
 	void standUp();
 private:
-	bool isOnGround();
-	bool isTouchingWall(int *wallDirection);
+	bool checkIsOnGround();
+	bool checkIsTouchingWall(int *wallDirection);
 
 	IController *controller;
 	vector<IWearable*> wearables;
@@ -61,8 +61,11 @@ private:
 	bool isWalking;
 	bool isDucking;
 	bool isStandingUp;
+	bool isOnGround;
+	bool isTouchingWall;
 	float angle;
 	int direction;
+	int wallDirection;
 	list<ContactPoint*> contactPoints;
 };
 

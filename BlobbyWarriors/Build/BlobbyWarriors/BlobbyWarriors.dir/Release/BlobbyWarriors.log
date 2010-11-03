@@ -1,12 +1,15 @@
-﻿Der Buildvorgang wurde am 01.11.2010 17:34:02 gestartet.
+﻿Der Buildvorgang wurde am 03.11.2010 01:00:26 gestartet.
      1>Projekt "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\BlobbyWarriors\BlobbyWarriors.vcxproj" auf Knoten "2", build Ziel(e).
      1>InitializeBuildStatus:
          Aktualisieren des Timestamps von "BlobbyWarriors.dir\Release\BlobbyWarriors.unsuccessfulbuild".
        ClCompile:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D FREEGLUT_STATIC /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"BlobbyWarriors.dir\Release\\" /Fd"BlobbyWarriors.dir\Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\BlobbyWarriors\Model\Entity\Blobby.cpp
-         Blobby.cpp
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D FREEGLUT_STATIC /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"BlobbyWarriors.dir\Release\\" /Fd"BlobbyWarriors.dir\Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\BlobbyWarriors\Logic\Simulator.cpp
+         Simulator.cpp
+     1>..\..\Source\BlobbyWarriors\Logic\Simulator.cpp(62): warning C4244: 'Argument': Konvertierung von 'float' in 'int', möglicher Datenverlust
+     1>..\..\Source\BlobbyWarriors\Logic\Simulator.cpp(62): warning C4244: 'Argument': Konvertierung von 'const float32' in 'int', möglicher Datenverlust
        Link:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\Release\BlobbyWarriors.exe" /INCREMENTAL:NO /NOLOGO Box2D.lib freeglut_static.lib glui.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"BlobbyWarriors.dir\Release\BlobbyWarriors.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Release\BlobbyWarriors.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\..\Release\BlobbyWarriors.lib" /MACHINE:X86 BlobbyWarriors.dir\Release\Debug.obj
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\Release\BlobbyWarriors.exe" /INCREMENTAL:NO /NOLOGO Box2D.lib freeglut_static.lib glui.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"BlobbyWarriors.dir\Release\BlobbyWarriors.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Release\BlobbyWarriors.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\..\Release\BlobbyWarriors.lib" /MACHINE:X86 /PROFILE BlobbyWarriors.dir\Release\Debug.obj
+         BlobbyWarriors.dir\Release\Camera.obj
          BlobbyWarriors.dir\Release\GraphicsEngine.obj
          BlobbyWarriors.dir\Release\KeyboardHandler.obj
          BlobbyWarriors.dir\Release\MouseHandler.obj
@@ -44,4 +47,4 @@
 
 Das Erstellen war erfolgreich.
 
-Verstrichene Zeit 00:00:06.91
+Verstrichene Zeit 00:00:02.18

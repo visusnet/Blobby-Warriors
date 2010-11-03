@@ -7,6 +7,7 @@
 
 #include "../Debug.h"
 #include "../PublishSubscribe.h"
+#include "Camera.h"
 #include "KeyboardHandler.h"
 #include "MouseHandler.h"
 #include "../Model/GameWorld.h"
@@ -41,6 +42,7 @@ public:
 	static void onDrawCallback();
 	static void onTimerTickCallback(int);
 	static void onReshapeCallback(int width, int height);
+	static b2Vec2 convertWorldToScreen(float x, float y);
 private:
 	GraphicsEngine();
 	GraphicsEngine(const GraphicsEngine&);
@@ -63,8 +65,6 @@ private:
 	static GraphicsEngine *instance;
 
 	int mainWindow;
-	float viewZoom;
-	b2Vec2 viewCenter;
 	bool isFullScreen;
 	WindowInfo windowInfo;
 	int previousTicks;

@@ -9,34 +9,34 @@ Simulator::Simulator()
 	properties.x = 400;
 	properties.y = 400;
 	properties.special = true;
-	this->playerBlobby = static_cast<Blobby*>(entityFactory->create(properties));
-	this->playerBlobby->setController(new PlayerController());
+	this->cameraBlobby = static_cast<Blobby*>(entityFactory->create(properties));
+	this->cameraBlobby->setController(new PlayerController());
 
 	entityFactory = new MachineGunFactory();
 	MachineGun *machineGun = (MachineGun*)entityFactory->create();
-	this->playerBlobby->addWearable(machineGun);
-	this->playerBlobby->setWeapon(machineGun);
+	this->cameraBlobby->addWearable(machineGun);
+	this->cameraBlobby->setWeapon(machineGun);
 
 	entityFactory = new GroundFactory();
 	properties = entityFactory->getDefaultProperties();
 	properties.x = 400;
 	properties.y = 100;
-	properties.width = 800;
+	properties.width = 1600;
 	properties.height = 10;
 	entityFactory->create(properties);
-	properties.x = 10;
+	properties.x = -395;
 	properties.y = 300;
 	properties.width = 10;
 	properties.height = 600;
 	entityFactory->create(properties);
-	properties.x = 790;
+	properties.x = 1195;
 	properties.y = 300;
 	properties.width = 10;
 	properties.height = 600;
 	entityFactory->create(properties);
 	properties.x = 400;
 	properties.y = 590;
-	properties.width = 800;
+	properties.width = 1600;
 	properties.height = 10;
 	entityFactory->create(properties);
 	properties.x = 400;
@@ -59,8 +59,20 @@ void Simulator::step()
 {
 	this->gameWorld->step();
 
+/*	b2Vec2 p = GraphicsEngine::convertWorldToScreen(meter2pixel(this->cameraBlobby->getBody(0)->GetPosition().x), 300.0f);
+	if ((int)p.x < 300 || (int)p.x > 500) {
+		Camera::getInstance()->setViewCenter(b2Vec2(p.x, 300));
+	}*/
+
+	Camera::getInstance()->setViewCenter(b2Vec2(meter2pixel(this->cameraBlobby->getBody(0)->GetPosition().x), 300.0f));
+
 	for (unsigned int i = 0; i < this->gameWorld->getEntityCount(); i++) {
 		IEntity *entity = this->gameWorld->getEntity(i);
 		entity->draw();
 	}
+}
+
+b2Vec2 Simulator::getActorPosition()
+{
+	return meter2pixel(this->cameraBlobby->getBody(0)->GetPosition());
 }
