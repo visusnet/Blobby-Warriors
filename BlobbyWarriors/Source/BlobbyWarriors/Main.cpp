@@ -9,11 +9,12 @@ int main(int argc, char **argv)
 
 Main::Main(int argc, char **argv)
 {
-	this->simulator = new Simulator();
-
 	this->graphicsEngine = GraphicsEngine::getInstance();
 	this->graphicsEngine->subscribe(this);
 	this->graphicsEngine->initialize(argc, argv);
+
+	this->simulator = new Simulator();
+
 	this->graphicsEngine->start();
 }
 

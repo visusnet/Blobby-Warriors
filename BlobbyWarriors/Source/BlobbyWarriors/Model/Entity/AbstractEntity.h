@@ -12,6 +12,7 @@ class AbstractEntity;
 #include "../PhysicsUtils.h"
 #include "IEntity.h"
 #include "../../Debug.h"
+#include "../../Graphics/Texture.h"
 
 using namespace std;
 

@@ -13,6 +13,9 @@ Blobby::Blobby()
 	this->direction = DIRECTION_UNKNOWN;
 	this->wallDirection = DIRECTION_UNKNOWN;
 
+	// Create a red blobby texture.
+	this->texture = TextureLoader::createTexture(L"D:/01.png", new Color(255, 0, 0));
+
 	ContactListener::getInstance()->subscribe(this);
 }
 
@@ -54,9 +57,9 @@ void Blobby::step()
 	// direction.
 	if (this->isWalking && this->direction != DIRECTION_UNKNOWN) {
 		if (this->direction == DIRECTION_LEFT && (!this->isTouchingWall || this->isTouchingWall && this->wallDirection != DIRECTION_LEFT)) {
-			body->SetLinearVelocity(b2Vec2(-10.0f, body->GetLinearVelocity().y));
+			body->SetLinearVelocity(b2Vec2(-BLOBBY_MOVE_VELOCITY, body->GetLinearVelocity().y));
 		} else if (this->direction == DIRECTION_RIGHT && (!this->isTouchingWall || this->isTouchingWall && this->wallDirection != DIRECTION_RIGHT)) {
-			body->SetLinearVelocity(b2Vec2(10.0f, body->GetLinearVelocity().y));
+			body->SetLinearVelocity(b2Vec2(BLOBBY_MOVE_VELOCITY, body->GetLinearVelocity().y));
 		}
 	}
 
@@ -64,35 +67,17 @@ void Blobby::step()
 	if (this->isDucking || this->isStandingUp) {
 		b2CircleShape *shape = (b2CircleShape*)this->bodies.at(0)->GetFixtureList()->GetNext()->GetShape();
 		if (this->isDucking) {
-			shape->m_p.Set(shape->m_p.x, max(0.1856f, shape->m_p.y - 0.02f));
-			if (shape->m_p.y == 0.1856f) {
+			shape->m_p.Set(shape->m_p.x, max(BLOBBY_CENTER_DISTANCE / 2.0f, shape->m_p.y - 0.02f));
+			if (shape->m_p.y == BLOBBY_CENTER_DISTANCE / 2.0f) {
 				this->isDucking = false;
 			}
 		} else {
-			shape->m_p.Set(shape->m_p.x, min(0.3856f, shape->m_p.y + 0.02f));
-			if (shape->m_p.y == 0.3856f) {
+			shape->m_p.Set(shape->m_p.x, min(BLOBBY_CENTER_DISTANCE, shape->m_p.y + 0.02f));
+			if (shape->m_p.y == BLOBBY_CENTER_DISTANCE) {
 				this->isStandingUp = false;
 			}
 		}
 	}
-}
-
-bool isLeftSensor(b2Fixture *fixture)
-{
-	bool isSensor = fixture->IsSensor();
-	bool isPolygon = fixture->GetShape()->GetType() == b2Shape::e_polygon;
-
-	if (isSensor && isPolygon) {
-		b2PolygonShape *polygonShape = (b2PolygonShape*)fixture->GetShape();
-
-		if (polygonShape->m_vertices[0] == b2Vec2(0, 0) && polygonShape->m_vertices[1] == b2Vec2(-0.386f, 0.386f) && polygonShape->m_vertices[2] == b2Vec2(-0.386f, -0.386f)) {
-			return true;
-		}
-
-		return true;
-	}
-
-	return false;
 }
 
 void Blobby::update(Publisher *who, UpdateData *what)
@@ -190,6 +175,9 @@ void Blobby::draw()
 	GraphicsEngine::drawString(35, 70, "isRotating     = %s", this->isRotating ? "true" : "false");
 	GraphicsEngine::drawString(35, 85, "isTouchingWall = %s (%i)", this->isTouchingWall ? "true" : "false", this->wallDirection);
 
+	Texturizer::draw(this->texture, this->getBody(0)->GetPosition().x, this->getBody(0)->GetPosition().y, this->getBody(0)->GetAngle());
+//	this->texture->draw(meter2pixel(this->getBody(0)->GetPosition().x - BLOBBY_LOWER_RADIUS), meter2pixel(this->getBody(0)->GetPosition().y - BLOBBY_LOWER_RADIUS));
+
 	AbstractEntity::draw();
 }
 
@@ -234,12 +222,12 @@ void Blobby::jump()
 		// The blobby is not jumping yet.
 		if (this->isOnGround) {
 			// The blobby is on the ground, i.e. jump!
-			body->ApplyForce(b2Vec2(0.0f, 440.0f), body->GetPosition());
+			body->ApplyForce(b2Vec2(0.0f, BLOBBY_JUMP_FORCE), body->GetPosition());
 			this->isJumping = true;
 		}
 	} else if (!this->isOnGround && this->isJumping && !this->isRotating) {
 		// Enable rotation on double jump (+ boost).
-		body->ApplyForce(b2Vec2(0.0f, 200.0f), body->GetPosition());
+		body->ApplyForce(b2Vec2(0.0f, BLOBBY_JUMP_BOOST_FORCE), body->GetPosition());
 		this->isRotating = true;
 	}
 }
@@ -266,11 +254,11 @@ void Blobby::stopWalk()
 		switch (this->direction) {
 		case DIRECTION_RIGHT:
 			debug("stopping smooth");
-			body->ApplyForce(b2Vec2(250.0f, 0.0f), body->GetWorldCenter());
+			body->ApplyForce(b2Vec2(BLOBBY_MOVE_STOP_FORCE, 0.0f), body->GetWorldCenter());
 			break;
 		case DIRECTION_LEFT:
 			debug("stopping smooth");
-			body->ApplyForce(b2Vec2(-250.0f, 0.0f), body->GetWorldCenter());
+			body->ApplyForce(b2Vec2(-BLOBBY_MOVE_STOP_FORCE, 0.0f), body->GetWorldCenter());
 			break;
 		}
 	}

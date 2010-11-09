@@ -22,6 +22,9 @@ void GraphicsEngine::initialize(int argc, char **argv)
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
 	glutInitWindowSize(WIDTH, HEIGHT);
 	
+	// Set shading model.
+	glShadeModel(GL_SMOOTH);
+
 	// Create the window.
 	this->mainWindow = glutCreateWindow(TITLE);
 
@@ -46,10 +49,13 @@ void GraphicsEngine::initialize(int argc, char **argv)
 	// Set a timer to control the frame rate.
 	glutTimerFunc(FRAME_PERIOD, onTimerTickCallback, 0);
 
-	//glutFullScreen();
-	//glutGameModeString("800x600:16@60");
+	// Set clear color.
+	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 
 	Camera::getInstance()->subscribe(this);
+
+	// Initialize texture loader.
+	TextureLoader::initialize();
 }
 
 void GraphicsEngine::start()

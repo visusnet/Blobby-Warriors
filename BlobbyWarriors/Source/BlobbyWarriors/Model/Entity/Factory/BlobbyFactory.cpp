@@ -27,8 +27,10 @@ IEntity* BlobbyFactory::create(const EntityProperties& properties)
 	b2Body *body = GameWorld::getInstance()->getPhysicsWorld()->CreateBody(&bodyDef);
 
 	b2CircleShape upperOuterShape;
-	upperOuterShape.m_radius = 0.3068f;
-	upperOuterShape.m_p.Set(0.0f, 0.3856f);
+	upperOuterShape.m_radius = BLOBBY_UPPER_RADIUS;
+	upperOuterShape.m_p.Set(0.0f, BLOBBY_CENTER_DISTANCE);
+//	upperOuterShape.m_radius = 0.3068f;
+//	upperOuterShape.m_p.Set(0.0f, 0.3856f);
 
 	b2FixtureDef upperFixtureDef;
 	upperFixtureDef.shape = &upperOuterShape;
@@ -42,7 +44,7 @@ IEntity* BlobbyFactory::create(const EntityProperties& properties)
 	upperFixtureDef.filter.maskBits = COLLISION_BIT_GROUND | COLLISION_BIT_OBJECT | COLLISION_BIT_BULLET;	
 
 	b2CircleShape lowerOuterShape;
-	lowerOuterShape.m_radius = 0.386f;
+	lowerOuterShape.m_radius = BLOBBY_LOWER_RADIUS;
 
 	b2FixtureDef lowerFixtureDef;
 	lowerFixtureDef.shape = &lowerOuterShape;

@@ -10,6 +10,7 @@
 #include "Camera.h"
 #include "KeyboardHandler.h"
 #include "MouseHandler.h"
+#include "TextureLoader.h"
 #include "../Model/GameWorld.h"
 
 class GraphicsEngine : public Publisher, public Subscriber

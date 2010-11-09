@@ -46,6 +46,20 @@ Simulator::Simulator()
 	properties.angle = 30;
 	entityFactory->create(properties);
 
+	// Skateboard experiment... Something for the future...
+/*	entityFactory = new SkateboardFactory();
+	properties = entityFactory->getDefaultProperties();
+	properties.x = 400;
+	properties.y = 220;
+	Skateboard *skateboard = (Skateboard*)entityFactory->create(properties);
+
+	b2WeldJointDef jointDef;
+	jointDef.Initialize(this->cameraBlobby->getBody(0), skateboard->getBody(0), b2Vec2(0.0f, -0.386f));
+	jointDef.collideConnected = false;
+	jointDef.localAnchorA.Set(0.0f, -0.386f);
+	jointDef.localAnchorB.Set(0.0f, 0.0f);
+	GameWorld::getInstance()->getPhysicsWorld()->CreateJoint(&jointDef);*/
+
 	// TODO: Level setup, etc.
 	this->level = new Level();
 }
@@ -61,9 +75,9 @@ void Simulator::step()
 
 	b2Vec2 p = Camera::convertWorldToScreen(meter2pixel(this->cameraBlobby->getBody(0)->GetPosition().x), 300.0f);
 	if (p.x < 300) {
-		Camera::getInstance()->setViewCenter(Camera::convertScreenToWorld(400 - (300 - p.x), 300));
+		Camera::getInstance()->setViewCenter(Camera::convertScreenToWorld(400 - (300 - int(p.x)), 300));
 	} else if (p.x > 500) {
-		Camera::getInstance()->setViewCenter(Camera::convertScreenToWorld(400 + (p.x - 500), 300));
+		Camera::getInstance()->setViewCenter(Camera::convertScreenToWorld(400 + (int(p.x) - 500), 300));
 	}
 
 	//Camera::getInstance()->setViewCenter(b2Vec2(meter2pixel(this->cameraBlobby->getBody(0)->GetPosition().x), 300.0f));

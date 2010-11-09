@@ -23,7 +23,16 @@ using namespace std;
 #define DIRECTION_LEFT 1
 #define DIRECTION_RIGHT 2
 
-#define GROUND_ANGLE 160
+#define BLOBBY_UPPER_RADIUS pixel2meter(14.0f /* px */)
+#define BLOBBY_LOWER_RADIUS pixel2meter(17.0f /* px */)
+#define BLOBBY_CENTER_DISTANCE pixel2meter(16.0f /* px */)
+
+#define BLOBBY_JUMP_FORCE 920.0f
+#define BLOBBY_JUMP_BOOST_FORCE 480.0f
+#define BLOBBY_MOVE_VELOCITY 14.0f
+#define BLOBBY_MOVE_STOP_FORCE 400.0f
+
+#define GROUND_ANGLE 160 /* degrees */
 
 struct ContactPoint
 {
@@ -71,6 +80,8 @@ private:
 
 	b2Fixture *upperFixture;
 	b2Fixture *lowerFixture;
+
+	Texture *texture;
 
 	friend class BlobbyFactory;
 };

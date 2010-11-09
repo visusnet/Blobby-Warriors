@@ -1,85 +1,9 @@
-﻿Der Buildvorgang wurde am 02.11.2010 22:40:38 gestartet.
-     1>Projekt "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\glui\glui.vcxproj" auf Knoten "2", rebuild Ziel(e).
+﻿Der Buildvorgang wurde am 09.11.2010 02:40:20 gestartet.
+     1>Projekt "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\glui\glui.vcxproj" auf Knoten "3", clean Ziel(e).
      1>_PrepareForClean:
          Die Datei "glui.dir\Debug\glui.lastbuildstate" wird gelöscht.
-       InitializeBuildStatus:
-         "glui.dir\Debug\glui.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
-       ClCompile:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\..\Source\freeglut /Zi /nologo /W1 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D FREEGLUT_STATIC /D _CRT_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"glui.dir\Debug\\" /Fd"glui.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\glui\algebra3.cpp ..\..\Source\glui\arcball.cpp ..\..\Source\glui\glui_add_controls.cpp ..\..\Source\glui\glui_bitmap_img_data.cpp ..\..\Source\glui\glui_bitmaps.cpp ..\..\Source\glui\glui_button.cpp ..\..\Source\glui\glui_checkbox.cpp ..\..\Source\glui\glui_column.cpp ..\..\Source\glui\glui_commandline.cpp ..\..\Source\glui\glui_control.cpp ..\..\Source\glui\glui_edittext.cpp ..\..\Source\glui\glui_filebrowser.cpp ..\..\Source\glui\glui_list.cpp ..\..\Source\glui\glui_listbox.cpp ..\..\Source\glui\glui_mouse_iaction.cpp ..\..\Source\glui\glui_node.cpp ..\..\Source\glui\glui_panel.cpp ..\..\Source\glui\glui_radio.cpp ..\..\Source\glui\glui_rollout.cpp ..\..\Source\glui\glui_rotation.cpp ..\..\Source\glui\glui_scrollbar.cpp ..\..\Source\glui\glui_separator.cpp ..\..\Source\glui\glui_spinner.cpp ..\..\Source\glui\glui_statictext.cpp ..\..\Source\glui\glui_string.cpp ..\..\Source\glui\glui_textbox.cpp ..\..\Source\glui\glui_translation.cpp ..\..\Source\glui\glui_tree.cpp ..\..\Source\glui\glui_treepanel.cpp ..\..\Source\glui\glui_window.cpp ..\..\Source\glui\glui.cpp ..\..\Source\glui\quaternion.cpp  /Zm1000 
-         algebra3.cpp
-         arcball.cpp
-         glui_add_controls.cpp
-         glui_bitmap_img_data.cpp
-         glui_bitmaps.cpp
-         glui_button.cpp
-         glui_checkbox.cpp
-         glui_column.cpp
-         glui_commandline.cpp
-         glui_control.cpp
-         glui_edittext.cpp
-         glui_filebrowser.cpp
-         glui_list.cpp
-         glui_listbox.cpp
-         glui_mouse_iaction.cpp
-         glui_node.cpp
-         glui_panel.cpp
-         glui_radio.cpp
-         glui_rollout.cpp
-         glui_rotation.cpp
-         Code wird generiert...
-         Kompilieren...
-         glui_scrollbar.cpp
-         glui_separator.cpp
-         glui_spinner.cpp
-         glui_statictext.cpp
-         glui_string.cpp
-         glui_textbox.cpp
-         glui_translation.cpp
-         glui_tree.cpp
-         glui_treepanel.cpp
-         glui_window.cpp
-         glui.cpp
-         quaternion.cpp
-         Code wird generiert...
-       Lib:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"..\..\Debug\glui.lib" /NOLOGO glui.dir\Debug\algebra3.obj
-         glui.dir\Debug\arcball.obj
-         glui.dir\Debug\glui_add_controls.obj
-         glui.dir\Debug\glui_bitmap_img_data.obj
-         glui.dir\Debug\glui_bitmaps.obj
-         glui.dir\Debug\glui_button.obj
-         glui.dir\Debug\glui_checkbox.obj
-         glui.dir\Debug\glui_column.obj
-         glui.dir\Debug\glui_commandline.obj
-         glui.dir\Debug\glui_control.obj
-         glui.dir\Debug\glui_edittext.obj
-         glui.dir\Debug\glui_filebrowser.obj
-         glui.dir\Debug\glui_list.obj
-         glui.dir\Debug\glui_listbox.obj
-         glui.dir\Debug\glui_mouse_iaction.obj
-         glui.dir\Debug\glui_node.obj
-         glui.dir\Debug\glui_panel.obj
-         glui.dir\Debug\glui_radio.obj
-         glui.dir\Debug\glui_rollout.obj
-         glui.dir\Debug\glui_rotation.obj
-         glui.dir\Debug\glui_scrollbar.obj
-         glui.dir\Debug\glui_separator.obj
-         glui.dir\Debug\glui_spinner.obj
-         glui.dir\Debug\glui_statictext.obj
-         glui.dir\Debug\glui_string.obj
-         glui.dir\Debug\glui_textbox.obj
-         glui.dir\Debug\glui_translation.obj
-         glui.dir\Debug\glui_tree.obj
-         glui.dir\Debug\glui_treepanel.obj
-         glui.dir\Debug\glui_window.obj
-         glui.dir\Debug\glui.obj
-         glui.dir\Debug\quaternion.obj
-         glui.vcxproj -> C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\glui\..\..\Debug\glui.lib
-       FinalizeBuildStatus:
-         Die Datei "glui.dir\Debug\glui.unsuccessfulbuild" wird gelöscht.
-         Aktualisieren des Timestamps von "glui.dir\Debug\glui.lastbuildstate".
-     1>Die Erstellung des Projekts "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\glui\glui.vcxproj" ist abgeschlossen, rebuild Ziel(e).
+     1>Die Erstellung des Projekts "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\glui\glui.vcxproj" ist abgeschlossen, clean Ziel(e).
 
 Das Erstellen war erfolgreich.
 
-Verstrichene Zeit 00:00:22.95
+Verstrichene Zeit 00:00:00.02

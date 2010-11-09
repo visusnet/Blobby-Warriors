@@ -76,6 +76,24 @@
     <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\Camera.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Skateboard.cpp">
+      <Filter>Model\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\SkateboardFactory.cpp">
+      <Filter>Model\Entity\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\Texturizer.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\Texture.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\TextureLoader.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\Image.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Graphics">
@@ -180,6 +198,27 @@
       <Filter>Logic\Controller</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\Camera.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Skateboard.h">
+      <Filter>Model\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\SkateboardFactory.h">
+      <Filter>Model\Entity\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\Texturizer.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\Texture.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\TextureLoader.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\Image.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\GraphicsUtils.h">
       <Filter>Graphics</Filter>
     </ClInclude>
   </ItemGroup>
