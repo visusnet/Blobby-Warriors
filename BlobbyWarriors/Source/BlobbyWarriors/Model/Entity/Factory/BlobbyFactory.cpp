@@ -56,14 +56,21 @@ IEntity* BlobbyFactory::create(const EntityProperties& properties)
 	}
 	lowerFixtureDef.filter.categoryBits = COLLISION_BIT_BLOBBY;
 	lowerFixtureDef.filter.maskBits = COLLISION_BIT_GROUND | COLLISION_BIT_OBJECT | COLLISION_BIT_BULLET;
-	
+
+	body->ResetMassData();
+
 	Blobby *blobby = new Blobby();
 	blobby->addBody(body);
 
 	blobby->upperFixture = body->CreateFixture(&upperFixtureDef);
 	blobby->lowerFixture = body->CreateFixture(&lowerFixtureDef);
 
-	body->ResetMassData();
+	// Create the blobby textures.
+	blobby->addTexture(TextureManager::getInstance()->loadTexture(L"data/images/blobby/blobbym1.bmp", properties.color, new Color(0, 0, 0)));
+	blobby->addTexture(TextureManager::getInstance()->loadTexture(L"data/images/blobby/blobbym2.bmp", properties.color, new Color(0, 0, 0)));
+	blobby->addTexture(TextureManager::getInstance()->loadTexture(L"data/images/blobby/blobbym3.bmp", properties.color, new Color(0, 0, 0)));
+	blobby->addTexture(TextureManager::getInstance()->loadTexture(L"data/images/blobby/blobbym4.bmp", properties.color, new Color(0, 0, 0)));
+	blobby->addTexture(TextureManager::getInstance()->loadTexture(L"data/images/blobby/blobbym5.bmp", properties.color, new Color(0, 0, 0)));
 
 	return blobby;
 }

@@ -2,12 +2,16 @@
 
 AbstractEntity::AbstractEntity()
 {
+	this->isDestroyed = false;
 	GameWorld::getInstance()->addEntity(this);
 }
 
 void AbstractEntity::destroy()
 {
-	GameWorld::getInstance()->destroyEntity(this);
+	if (!this->isDestroyed) {
+		this->isDestroyed = true;
+		GameWorld::getInstance()->destroyEntity(this);
+	}
 }
 
 void AbstractEntity::step()
@@ -94,7 +98,7 @@ void DrawShape(b2Fixture* fixture, const b2Transform& xf)
 		{
 			b2CircleShape* circle = (b2CircleShape*)fixture->GetShape();
 			b2Transform xf2 = xf;
-			xf2.position = SCALING_FACTOR * xf2.position;
+			xf2.position = meter2pixel(xf2.position);
 			b2Vec2 center = b2Mul(xf2, SCALING_FACTOR * circle->m_p);
 			float32 radius = circle->m_radius;
 			b2Vec2 axis = xf.R.col1;
@@ -151,4 +155,22 @@ b2Body* AbstractEntity::getBody(unsigned int i)
 unsigned int AbstractEntity::getBodyCount()
 {
 	return this->bodies.size();
+}
+
+void AbstractEntity::addTexture(Texture *texture)
+{
+	this->textures.push_back(texture);
+}
+
+Texture* AbstractEntity::getTexture(unsigned int i)
+{
+	if (0 <= i && i < this->textures.size()) {
+		return this->textures.at(i);
+	}
+	return 0;
+}
+
+unsigned int AbstractEntity::getTextureCount()
+{
+	return this->textures.size();
 }

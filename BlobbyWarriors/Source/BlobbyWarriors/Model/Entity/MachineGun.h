@@ -10,8 +10,11 @@ class MachineGun;
 class MachineGun : public AbstractWeapon
 {
 public:
+	MachineGun();
 	void draw();
 	void fire(b2Vec2 direction, bool constantFire, bool isPlayer = false);
+private:
+	Texture *texture;
 };
 
 #endif

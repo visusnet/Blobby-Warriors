@@ -2,12 +2,15 @@
 
 MachineGunBullet::MachineGunBullet()
 {
+	this->texture = TextureManager::getInstance()->loadTexture(L"data/images/machinegun/bullet.png");
+
 	ContactListener::getInstance()->subscribe(this);
 }
 
 void MachineGunBullet::draw()
 {
-	AbstractEntity::draw();
+//	AbstractEntity::draw();
+	Texturizer::draw(this->texture, this->getBody(0)->GetPosition().x, this->getBody(0)->GetPosition().y, this->getBody(0)->GetTransform().GetAngle());
 }
 
 void MachineGunBullet::update(Publisher *who, UpdateData *what)

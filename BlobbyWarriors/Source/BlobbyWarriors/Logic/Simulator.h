@@ -13,6 +13,7 @@
 #include "../Model/Entity/Factory/BlobbyFactory.h"
 #include "../Model/Entity/Factory/GroundFactory.h"
 #include "../Model/Entity/Factory/MachineGunFactory.h"
+#include "../Model/Entity/Factory/FlamethrowerFactory.h"
 #include "../Model/Entity/Factory/SkateboardFactory.h"
 
 class Simulator
@@ -27,6 +28,7 @@ private:
 	Level *level;
 	GameWorld *gameWorld;
 	Blobby *cameraBlobby;
+	Texture *texture; // shouldn't be here
 };
 
 #endif

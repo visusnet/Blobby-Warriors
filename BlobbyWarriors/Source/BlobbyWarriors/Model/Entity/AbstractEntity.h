@@ -12,7 +12,7 @@ class AbstractEntity;
 #include "../PhysicsUtils.h"
 #include "IEntity.h"
 #include "../../Debug.h"
-#include "../../Graphics/Texture.h"
+#include "../../UI/Graphics/TextureManager.h"
 
 using namespace std;
 
@@ -26,8 +26,14 @@ public:
 	void addBody(b2Body *body);
 	b2Body* getBody(unsigned int i);
 	unsigned int getBodyCount();
+	void addTexture(Texture *texture);
+	Texture* getTexture(unsigned int i);
+	unsigned int getTextureCount();
 protected:
 	vector<b2Body*> bodies;
+	vector<Texture*> textures;
+private:
+	bool isDestroyed;
 };
 
 #endif

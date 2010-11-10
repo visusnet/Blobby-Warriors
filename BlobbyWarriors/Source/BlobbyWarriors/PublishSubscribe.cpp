@@ -13,14 +13,19 @@ void Publisher::unsubscribe(Subscriber *s)
 void Publisher::notify(UpdateData *what)
 {
 	// Kill old subscribers first.
-	for(list<Subscriber*>::iterator it = this->removableSubscribers.begin(); it != this->removableSubscribers.end(); ++it) {
-		this->subscribers.remove(*it);
+	if (this->level == 0) {
+		for(vector<Subscriber*>::iterator it = this->removableSubscribers.begin(); it != this->removableSubscribers.end(); it++) {
+			this->subscribers.remove(*it);
+		}
+		this->removableSubscribers.clear();
 	}
-	this->removableSubscribers.clear();
 	// Notify the rest!
-	for(list<Subscriber*>::iterator it = this->subscribers.begin(); it != this->subscribers.end(); ++it) {
-		if (*it != 0) {
-			(*it)->update(this, what);
+	this->level++;
+	for(list<Subscriber*>::iterator it = this->subscribers.begin(); it != this->subscribers.end(); it++) {
+		Subscriber *subscriber = *it;
+		if (subscriber != 0) {
+			subscriber->update(this, what);
 		}
 	}
+	this->level--;
 }

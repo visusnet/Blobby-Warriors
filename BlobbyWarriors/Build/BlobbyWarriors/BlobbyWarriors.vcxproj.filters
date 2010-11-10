@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Main.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\AbstractEntity.cpp">
       <Filter>Model\Entity</Filter>
     </ClCompile>
@@ -20,17 +19,6 @@
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Simulator.cpp">
       <Filter>Logic</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\GraphicsEngine.cpp">
-      <Filter>Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Debug.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\KeyboardHandler.cpp">
-      <Filter>Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\MouseHandler.cpp">
-      <Filter>Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\BlobbyWarriors\PublishSubscribe.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Level.cpp">
       <Filter>Logic</Filter>
     </ClCompile>
@@ -73,32 +61,71 @@
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\AbstractController.cpp">
       <Filter>Logic\Controller</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\Camera.cpp">
-      <Filter>Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Skateboard.cpp">
       <Filter>Model\Entity</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\SkateboardFactory.cpp">
       <Filter>Model\Entity\Factory</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\Texturizer.cpp">
-      <Filter>Graphics</Filter>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\FlamethrowerFactory.cpp">
+      <Filter>Model\Entity\Factory</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\Texture.cpp">
-      <Filter>Graphics</Filter>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Flamethrower.cpp">
+      <Filter>Model\Entity</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\TextureLoader.cpp">
-      <Filter>Graphics</Filter>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\FlamethrowerBullet.cpp">
+      <Filter>Model\Entity</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\Image.cpp">
-      <Filter>Graphics</Filter>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\FlamethrowerBulletFactory.cpp">
+      <Filter>Model\Entity\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\Camera.cpp">
+      <Filter>UI\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Debug.cpp">
+      <Filter>UI\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\GraphicsEngine.cpp">
+      <Filter>UI\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\Image.cpp">
+      <Filter>UI\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\KeyboardHandler.cpp">
+      <Filter>UI\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Main.cpp">
+      <Filter>UI\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\MouseHandler.cpp">
+      <Filter>UI\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\PublishSubscribe.cpp">
+      <Filter>UI\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\Texture.cpp">
+      <Filter>UI\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\TextureLoader.cpp">
+      <Filter>UI\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\TextureManager.cpp">
+      <Filter>UI\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\Texturizer.cpp">
+      <Filter>UI\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Sound\SoundEngine.cpp">
+      <Filter>UI\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Sound\Sound.cpp">
+      <Filter>UI\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Sound\SoundManager.cpp">
+      <Filter>UI\Sound</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Graphics">
-      <UniqueIdentifier>{c67a211e-4e70-4620-b70b-0505897fc396}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Logic">
       <UniqueIdentifier>{4f48a7a4-705e-4a62-956a-e70f77924e5a}</UniqueIdentifier>
     </Filter>
@@ -113,6 +140,15 @@
     </Filter>
     <Filter Include="Model\Entity\Factory">
       <UniqueIdentifier>{9aafa868-10af-4865-91c7-896a22ed1e4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{c67a211e-4e70-4620-b70b-0505897fc396}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Graphics">
+      <UniqueIdentifier>{036c1427-156b-4503-979f-8be603d233aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Sound">
+      <UniqueIdentifier>{c4b1b392-c18c-493c-ba7c-b615246d2b8f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -140,18 +176,6 @@
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Simulator.h">
       <Filter>Logic</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\GraphicsEngine.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Main.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Debug.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\KeyboardHandler.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\MouseHandler.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\BlobbyWarriors\PublishSubscribe.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Level.h">
       <Filter>Logic</Filter>
     </ClInclude>
@@ -197,29 +221,74 @@
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\AbstractController.h">
       <Filter>Logic\Controller</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\Camera.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Skateboard.h">
       <Filter>Model\Entity</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\SkateboardFactory.h">
       <Filter>Model\Entity\Factory</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\Texturizer.h">
-      <Filter>Graphics</Filter>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\FlamethrowerFactory.h">
+      <Filter>Model\Entity\Factory</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\Texture.h">
-      <Filter>Graphics</Filter>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Flamethrower.h">
+      <Filter>Model\Entity</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\TextureLoader.h">
-      <Filter>Graphics</Filter>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\FlamethrowerBullet.h">
+      <Filter>Model\Entity</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\Image.h">
-      <Filter>Graphics</Filter>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\FlamethrowerBulletFactory.h">
+      <Filter>Model\Entity\Factory</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\GraphicsUtils.h">
-      <Filter>Graphics</Filter>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\Texturizer.h">
+      <Filter>UI\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\Camera.h">
+      <Filter>UI\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\Color.h">
+      <Filter>UI\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Debug.h">
+      <Filter>UI\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\GraphicsEngine.h">
+      <Filter>UI\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\GraphicsUtils.h">
+      <Filter>UI\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\Image.h">
+      <Filter>UI\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\KeyboardHandler.h">
+      <Filter>UI\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Main.h">
+      <Filter>UI\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\MouseHandler.h">
+      <Filter>UI\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\PublishSubscribe.h">
+      <Filter>UI\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\Texture.h">
+      <Filter>UI\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\TextureLoader.h">
+      <Filter>UI\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\TextureManager.h">
+      <Filter>UI\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Sound\SoundEngine.h">
+      <Filter>UI\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Sound\Sound.h">
+      <Filter>UI\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Sound\SoundManager.h">
+      <Filter>UI\Sound</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

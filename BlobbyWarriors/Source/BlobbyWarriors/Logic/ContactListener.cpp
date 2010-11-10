@@ -15,7 +15,9 @@ void ContactListener::BeginContact(b2Contact *contact)
 	eventArgs->type = CONTACT_TYPE_BEGIN;
 	eventArgs->contact = contact;
 	this->notify(eventArgs);
-	delete eventArgs;
+	if (eventArgs != 0) {
+		delete eventArgs;
+	}
 }
 
 void ContactListener::EndContact(b2Contact *contact)
@@ -24,7 +26,9 @@ void ContactListener::EndContact(b2Contact *contact)
 	eventArgs->type = CONTACT_TYPE_END;
 	eventArgs->contact = contact;
 	this->notify(eventArgs);
-	delete eventArgs;
+	if (eventArgs != 0) {
+		delete eventArgs;
+	}
 }
 
 void ContactListener::PreSolve(b2Contact *contact, const b2Manifold *oldManifold)
@@ -34,7 +38,9 @@ void ContactListener::PreSolve(b2Contact *contact, const b2Manifold *oldManifold
 	eventArgs->contact = contact;
 	eventArgs->oldManifold = new b2Manifold(*oldManifold);
 	this->notify(eventArgs);
-	delete eventArgs;
+	if (eventArgs != 0) {
+		delete eventArgs;
+	}
 }
 
 void ContactListener::PostSolve(b2Contact *contact, const b2ContactImpulse *impulse)
@@ -44,7 +50,9 @@ void ContactListener::PostSolve(b2Contact *contact, const b2ContactImpulse *impu
 	eventArgs->contact = contact;
 	eventArgs->impulse = new b2ContactImpulse(*impulse);
 	this->notify(eventArgs);
-	delete eventArgs;
+	if (eventArgs != 0) {
+		delete eventArgs;
+	}
 }
 
 ContactListener::ContactListener()

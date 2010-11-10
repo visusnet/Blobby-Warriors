@@ -2,6 +2,7 @@
 
 Blobby::Blobby()
 {
+	this->weapon = 0;
 	this->isJumping = false;
 	this->isRotating = false;
 	this->isWalking = false;
@@ -12,21 +13,34 @@ Blobby::Blobby()
 	this->angle = 0;
 	this->direction = DIRECTION_UNKNOWN;
 	this->wallDirection = DIRECTION_UNKNOWN;
-
-	// Create a red blobby texture.
-	this->texture = TextureLoader::createTexture(L"D:/01.png", new Color(255, 0, 0));
+	this->health = BLOBBY_DEFAULT_INITIAL_HEALTH;
+	this->maxHealth = BLOBBY_DEFAULT_MAX_HEALTH;
+	this->isDead = false;
+	this->activeTexture = 0;
+	this->previousTicks = glutGet(GLUT_ELAPSED_TIME);
 
 	ContactListener::getInstance()->subscribe(this);
 }
 
+// Magic. Do not touch.
 void Blobby::step()
 {
 	this->isOnGround = this->checkIsOnGround();
 	this->isTouchingWall = this->checkIsTouchingWall(&this->wallDirection);
 
+	if (this->health <= 0) {
+		this->health = 0;
+		ContactListener::getInstance()->unsubscribe(this);
+		this->getBody(0)->SetFixedRotation(false);
+		this->getBody(0)->ApplyTorque(0.01f);
+		this->isDead = true;
+		//this->destroy();
+		return;
+	}
+
 	// Reposition the weapon.
 	if (this->weapon != 0) {
-		this->weapon->getBody(0)->SetTransform(this->bodies.at(0)->GetTransform().position, this->weapon->getBody(0)->GetTransform().GetAngle());
+		this->weapon->getBody(0)->SetTransform(this->bodies.at(0)->GetTransform().position - b2Vec2(0, 0.1f), this->weapon->getBody(0)->GetTransform().GetAngle());
 	}
 
 	if (this->isJumping && this->isRotating) {		
@@ -61,6 +75,21 @@ void Blobby::step()
 		} else if (this->direction == DIRECTION_RIGHT && (!this->isTouchingWall || this->isTouchingWall && this->wallDirection != DIRECTION_RIGHT)) {
 			body->SetLinearVelocity(b2Vec2(BLOBBY_MOVE_VELOCITY, body->GetLinearVelocity().y));
 		}
+	} 
+	
+	// Go to the next texture if enough time has elapsed.
+	if (this->isOnGround && this->isWalking && glutGet(GLUT_ELAPSED_TIME) - this->previousTicks > BLOBBY_TEXTURE_CHANGE_FREQUENCY) {
+		this->activeTexture++;
+		if (this->activeTexture == 5) {
+			this->activeTexture = 0;
+		}
+		this->previousTicks = glutGet(GLUT_ELAPSED_TIME);
+	} else if (this->isDucking && glutGet(GLUT_ELAPSED_TIME) - this->previousTicks > BLOBBY_TEXTURE_CHANGE_FREQUENCY) {
+		if (this->activeTexture < 4) {
+			this->activeTexture++;
+		}
+	} else if (!this->isDucking && (!this->isOnGround || !this->isWalking)) {
+		this->activeTexture = 0;
 	}
 
 	// Duck and cover. ;-)
@@ -82,6 +111,10 @@ void Blobby::step()
 
 void Blobby::update(Publisher *who, UpdateData *what)
 {
+	if (this->isDead) {
+		return;
+	}
+
 	ContactEventArgs *contactEventArgs = dynamic_cast<ContactEventArgs*>(what);
 	if (contactEventArgs != 0) {
 		// Did we hit or cease to hit the ground?
@@ -170,15 +203,22 @@ void Blobby::update(Publisher *who, UpdateData *what)
 void Blobby::draw()
 {
 	int wallDirection = 0;
-	GraphicsEngine::drawString(35, 40, "isOnGround     = %s", this->isOnGround ? "true" : "false");
-	GraphicsEngine::drawString(35, 55, "inJumping      = %s", this->isJumping ? "true" : "false");
-	GraphicsEngine::drawString(35, 70, "isRotating     = %s", this->isRotating ? "true" : "false");
-	GraphicsEngine::drawString(35, 85, "isTouchingWall = %s (%i)", this->isTouchingWall ? "true" : "false", this->wallDirection);
+	GraphicsEngine::drawString(35,  40, "isOnGround     = %s", this->isOnGround ? "true" : "false");
+	GraphicsEngine::drawString(35,  55, "inJumping      = %s", this->isJumping ? "true" : "false");
+	GraphicsEngine::drawString(35,  70, "isRotating     = %s", this->isRotating ? "true" : "false");
+	GraphicsEngine::drawString(35,  85, "isTouchingWall = %s (%i)", this->isTouchingWall ? "true" : "false", this->wallDirection);
+	GraphicsEngine::drawString(35, 100, "isWalking      = %s", this->isWalking ? "true" : "false");
+	GraphicsEngine::drawString(35, 115, "activeTexture  = %i", this->activeTexture);
+	GraphicsEngine::drawString(35, 130, "health         = %i / %i", this->health, this->maxHealth);
 
-	Texturizer::draw(this->texture, this->getBody(0)->GetPosition().x, this->getBody(0)->GetPosition().y, this->getBody(0)->GetAngle());
-//	this->texture->draw(meter2pixel(this->getBody(0)->GetPosition().x - BLOBBY_LOWER_RADIUS), meter2pixel(this->getBody(0)->GetPosition().y - BLOBBY_LOWER_RADIUS));
+	float x = this->getBody(0)->GetPosition().x;
+	float y = this->getBody(0)->GetPosition().y;
+	float angle = this->getBody(0)->GetAngle();
+	int width = 0; // proportional scaling!
+	int height = int(meter2pixel(BLOBBY_CENTER_DISTANCE + BLOBBY_UPPER_RADIUS + BLOBBY_LOWER_RADIUS));
+	Texturizer::draw(this->getTexture(this->activeTexture), x, y + BLOBBY_UPPER_RADIUS / 2, angle, width, height, true);
 
-	AbstractEntity::draw();
+//	AbstractEntity::draw();
 }
 
 void Blobby::setController(IController *controller)
@@ -275,6 +315,26 @@ void Blobby::standUp()
 {
 	this->isDucking = false;
 	this->isStandingUp = true;
+}
+
+void Blobby::setHealth(int health)
+{
+	this->health = health;
+}
+
+int Blobby::getHealth()
+{
+	return this->health;
+}
+
+void Blobby::setMaxHealth(int maxHealth)
+{
+	this->maxHealth = maxHealth;
+}
+
+int Blobby::getMaxHealth()
+{
+	return this->maxHealth;
 }
 
 inline float correctAngle(float angle, float rotation)

@@ -1,6 +1,7 @@
 #ifndef PUBLISHSUBSCRIBE_H
 #define PUBLISHSUBSCRIBE_H
 
+#include <vector>
 #include <list>
 
 using namespace std;
@@ -21,12 +22,14 @@ public:
 class Publisher
 {
 public:
+	Publisher() { this->level = 0; }
 	void subscribe(Subscriber *s);
 	void unsubscribe(Subscriber *s);
 	void notify(UpdateData *what = 0);
 private:
 	list<Subscriber*> subscribers;
-	list<Subscriber*> removableSubscribers;
+	vector<Subscriber*> removableSubscribers;
+	int level;
 };
 
 #endif

@@ -4,9 +4,9 @@
 #include "AbstractController.h"
 #include "../../Model/Entity/Blobby.h"
 #include "../../Model/Entity/Ground.h"
-#include "../../Graphics/GraphicsEngine.h"
-#include "../../Graphics/KeyboardHandler.h"
-#include "../../Graphics/MouseHandler.h"
+#include "../../UI/Graphics/GraphicsEngine.h"
+#include "../../UI/Graphics/KeyboardHandler.h"
+#include "../../UI/Graphics/MouseHandler.h"
 
 class PlayerController : public AbstractController, public Subscriber
 {

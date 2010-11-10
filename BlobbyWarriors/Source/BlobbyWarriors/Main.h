@@ -9,8 +9,9 @@
 
 #include <iostream>
 
-#include "Graphics\GraphicsEngine.h"
-#include "Logic\Simulator.h"
+#include "UI/Graphics/GraphicsEngine.h"
+#include "UI/Sound/SoundEngine.h"
+#include "Logic/Simulator.h"
 
 using namespace std;
 

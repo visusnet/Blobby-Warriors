@@ -2,6 +2,9 @@
 
 Simulator::Simulator()
 {
+	// shouldn't be here
+	this->texture = TextureLoader::createTexture(L"data/images/background/wall.jpg");
+
 	this->gameWorld = GameWorld::getInstance();
 
 	EntityFactory *entityFactory = new BlobbyFactory();
@@ -9,13 +12,19 @@ Simulator::Simulator()
 	properties.x = 400;
 	properties.y = 400;
 	properties.special = true;
+	properties.color = new Color(255, 0, 0);
 	this->cameraBlobby = static_cast<Blobby*>(entityFactory->create(properties));
 	this->cameraBlobby->setController(new PlayerController());
 
-	entityFactory = new MachineGunFactory();
-	MachineGun *machineGun = (MachineGun*)entityFactory->create();
-	this->cameraBlobby->addWearable(machineGun);
-	this->cameraBlobby->setWeapon(machineGun);
+	properties.special = false;
+	properties.x += 150;
+	properties.color = new Color(0, 0, 255);
+	entityFactory->create(properties);
+
+	entityFactory = new FlamethrowerFactory();
+	Flamethrower *flamethrower = (Flamethrower*)entityFactory->create();
+	this->cameraBlobby->addWearable(flamethrower);
+	this->cameraBlobby->setWeapon(flamethrower);
 
 	entityFactory = new GroundFactory();
 	properties = entityFactory->getDefaultProperties();
@@ -81,6 +90,8 @@ void Simulator::step()
 	}
 
 	//Camera::getInstance()->setViewCenter(b2Vec2(meter2pixel(this->cameraBlobby->getBody(0)->GetPosition().x), 300.0f));
+
+	Texturizer::draw(this->texture, pixel2meter(Camera::getInstance()->getViewCenter().x), pixel2meter(300), 0);
 
 	for (unsigned int i = 0; i < this->gameWorld->getEntityCount(); i++) {
 		IEntity *entity = this->gameWorld->getEntity(i);

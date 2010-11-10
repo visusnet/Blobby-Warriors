@@ -71,36 +71,36 @@
     <OutDir>..\..\Debug\</OutDir>
     <IntDir>BlobbyWarriors.dir\Debug\</IntDir>
     <TargetName>BlobbyWarriors</TargetName>
-    <LibraryPath>..\..\Contrib\DevIL\lib\unicode;..\..\Debug;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\..\Contrib\irrKlang\lib;..\..\Contrib\DevIL\lib\unicode;..\..\Debug;$(LibraryPath)</LibraryPath>
     <SourcePath>..\..\Source\BlobbyWarriors;$(SourcePath)</SourcePath>
-    <IncludePath>..\..\Contrib\DevIL\include;..\..\Source\glui;..\..\Source\freeglut;..\..\Source\Box2D\;..\..\Source\;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\Contrib\irrKlang\include;..\..\Contrib\DevIL\include;..\..\Source\glui;..\..\Source\freeglut;..\..\Source\Box2D\;..\..\Source\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-static|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>..\..\Debug\</OutDir>
     <IntDir>BlobbyWarriors.dir\Debug\</IntDir>
     <TargetName>BlobbyWarriors</TargetName>
-    <LibraryPath>..\..\Contrib\DevIL\lib\unicode;..\..\Debug;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\..\Contrib\irrKlang\lib;..\..\Contrib\DevIL\lib\unicode;..\..\Debug;$(LibraryPath)</LibraryPath>
     <SourcePath>..\..\Source\BlobbyWarriors;$(SourcePath)</SourcePath>
-    <IncludePath>..\..\Contrib\DevIL\include;..\..\Source\glui;..\..\Source\freeglut;..\..\Source\Box2D\;..\..\Source\;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\Contrib\irrKlang\include;..\..\Contrib\DevIL\include;..\..\Source\glui;..\..\Source\freeglut;..\..\Source\Box2D\;..\..\Source\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>..\..\Release\</OutDir>
     <IntDir>BlobbyWarriors.dir\Release\</IntDir>
     <TargetName>BlobbyWarriors</TargetName>
-    <LibraryPath>..\..\Contrib\DevIL\lib\unicode;..\..\Release;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\..\Contrib\irrKlang\lib;..\..\Contrib\DevIL\lib\unicode;..\..\Release;$(LibraryPath)</LibraryPath>
     <SourcePath>..\..\Source\BlobbyWarriors;$(SourcePath)</SourcePath>
-    <IncludePath>..\..\Contrib\DevIL\include;..\..\Source\glui;..\..\Source\freeglut;..\..\Source\Box2D\;..\..\Source\;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\Contrib\irrKlang\include;..\..\Contrib\DevIL\include;..\..\Source\glui;..\..\Source\freeglut;..\..\Source\Box2D\;..\..\Source\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-static|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>..\..\Release\</OutDir>
     <IntDir>BlobbyWarriors.dir\Release\</IntDir>
     <TargetName>BlobbyWarriors</TargetName>
-    <LibraryPath>..\..\Contrib\DevIL\lib\unicode;..\..\Release;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\..\Contrib\irrKlang\lib;..\..\Contrib\DevIL\lib\unicode;..\..\Release;$(LibraryPath)</LibraryPath>
     <SourcePath>..\..\Source\BlobbyWarriors;$(SourcePath)</SourcePath>
-    <IncludePath>..\..\Contrib\DevIL\include;..\..\Source\glui;..\..\Source\freeglut;..\..\Source\Box2D\;..\..\Source\;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\Contrib\irrKlang\include;..\..\Contrib\DevIL\include;..\..\Source\glui;..\..\Source\freeglut;..\..\Source\Box2D\;..\..\Source\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -113,13 +113,16 @@
     <Link>
       <SubSystem>NotSet</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>DevIL.lib;ILU.lib;ILUT.lib;Box2D.lib;freeglut_static.lib;glui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>irrKlang.lib;DevIL.lib;ILU.lib;ILUT.lib;Box2D.lib;freeglut_static.lib;glui.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Profile>false</Profile>
     </Link>
     <PostBuildEvent>
       <Command>copy ..\..\Contrib\DevIL\lib\unicode\DevIL.dll $(OutDir)
 copy ..\..\Contrib\DevIL\lib\unicode\ILU.dll $(OutDir)
-copy ..\..\Contrib\DevIL\lib\unicode\ILUT.dll $(OutDir)</Command>
+copy ..\..\Contrib\DevIL\lib\unicode\ILUT.dll $(OutDir)
+copy ..\..\Contrib\irrKlang\lib\irrKlang.dll $(OutDir)
+copy ..\..\Contrib\irrKlang\lib\ikpMP3.dll $(OutDir)
+copy ..\..\Contrib\irrKlang\lib\ikpFlac.dll $(OutDir)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-static|Win32'">
@@ -192,14 +195,15 @@ copy ..\..\Contrib\DevIL\lib\unicode\ILUT.dll $(OutDir)</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\BlobbyWarriors\Debug.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\Camera.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\GraphicsEngine.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\Image.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\KeyboardHandler.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\MouseHandler.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\Texture.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\TextureLoader.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Graphics\Texturizer.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\Camera.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\GraphicsEngine.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\Image.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\KeyboardHandler.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\MouseHandler.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\Texture.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\TextureLoader.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\TextureManager.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\Texturizer.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\ContactListener.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\AbstractController.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\BotController.cpp" />
@@ -213,10 +217,14 @@ copy ..\..\Contrib\DevIL\lib\unicode\ILUT.dll $(OutDir)</Command>
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Blobby.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\BlobbyFactory.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\EntityFactory.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\FlamethrowerBulletFactory.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\FlamethrowerFactory.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\GroundFactory.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\MachineGunBulletFactory.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\MachineGunFactory.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\SkateboardFactory.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Flamethrower.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\FlamethrowerBullet.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Ground.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\IWearable.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\MachineGun.cpp" />
@@ -224,18 +232,23 @@ copy ..\..\Contrib\DevIL\lib\unicode\ILUT.dll $(OutDir)</Command>
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Skateboard.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\GameWorld.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\PublishSubscribe.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Sound\Sound.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Sound\SoundEngine.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Sound\SoundManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\BlobbyWarriors\Debug.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\Camera.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\GraphicsEngine.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\GraphicsUtils.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\Image.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\KeyboardHandler.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\MouseHandler.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\Texture.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\TextureLoader.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Graphics\Texturizer.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\Camera.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\Color.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\GraphicsEngine.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\GraphicsUtils.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\Image.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\KeyboardHandler.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\MouseHandler.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\Texture.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\TextureLoader.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\TextureManager.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\Texturizer.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\ContactListener.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\AbstractController.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\BotController.h" />
@@ -250,10 +263,14 @@ copy ..\..\Contrib\DevIL\lib\unicode\ILUT.dll $(OutDir)</Command>
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Blobby.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\BlobbyFactory.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\EntityFactory.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\FlamethrowerBulletFactory.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\FlamethrowerFactory.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\GroundFactory.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\MachineGunBulletFactory.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\MachineGunFactory.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\SkateboardFactory.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Flamethrower.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\FlamethrowerBullet.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Ground.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\IEntity.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\IWearable.h" />
@@ -263,6 +280,9 @@ copy ..\..\Contrib\DevIL\lib\unicode\ILUT.dll $(OutDir)</Command>
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\GameWorld.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\PhysicsUtils.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\PublishSubscribe.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Sound\Sound.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Sound\SoundEngine.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Sound\SoundManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

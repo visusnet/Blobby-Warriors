@@ -15,6 +15,10 @@ Main::Main(int argc, char **argv)
 
 	this->simulator = new Simulator();
 
+	SoundEngine *soundEngine = SoundEngine::getInstance();
+	Sound *sound = SoundManager::getInstance()->loadSound("data/sound/getout.ogg");
+	soundEngine->play(sound);
+
 	this->graphicsEngine->start();
 }
 

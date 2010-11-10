@@ -64,7 +64,7 @@ void GameWorld::destroyEntity(IEntity *entity)
 GameWorld::GameWorld()
 {
 	b2Vec2 gravity = b2Vec2(0.0f, -9.81f);
-	bool doSleep = true;
+	bool doSleep = false;
 	this->world = new b2World(gravity, doSleep);
 	this->world->SetContactListener(ContactListener::getInstance());
 }

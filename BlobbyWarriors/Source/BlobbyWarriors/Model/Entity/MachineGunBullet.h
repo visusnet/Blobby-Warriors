@@ -13,6 +13,8 @@ public:
 	MachineGunBullet();
 	void draw();
 	void update(Publisher *who, UpdateData *what = 0);
+private:
+	Texture *texture;
 };
 
 #endif
