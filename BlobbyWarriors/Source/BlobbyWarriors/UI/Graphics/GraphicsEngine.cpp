@@ -90,16 +90,15 @@ void GraphicsEngine::update(Publisher *who, UpdateData *what)
 	if (cameraEventArgs != 0) {
 		this->onReshape();
 	}
+}
 
-//	debug("YES %d %d", eventArgs->x, eventArgs->y);
-
-/*	switch(eventArgs->type) {
-	case MOUSE_BUTTON_STATE_CHANGED:
-	case MOUSE_POSITION_CHANGED:
-		this->viewCenter = b2Vec2(float(this->windowInfo.width - eventArgs->x), float(eventArgs->y));
-		this->onReshape();
-		break;
-	}*/
+float GraphicsEngine::getFps()
+{
+	float sum = 0;
+	for (list<float>::iterator it = this->fpsValues.begin(); it != this->fpsValues.end(); it++) {
+		sum += *it;
+	}
+	return sum / this->fpsValues.size();
 }
 
 void GraphicsEngine::drawString(int x, int y, const char *string, ...)
@@ -341,6 +340,11 @@ void GraphicsEngine::onDraw()
 	float fps = 1000.0f / (glutGet(GLUT_ELAPSED_TIME) - this->previousTicks);
 	this->previousTicks = glutGet(GLUT_ELAPSED_TIME);
 
+	this->fpsValues.push_back(fps);
+	if (this->fpsValues.size() > 10) {
+		this->fpsValues.pop_front();
+	}
+
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glMatrixMode(GL_MODELVIEW);
@@ -348,18 +352,21 @@ void GraphicsEngine::onDraw()
 
 	this->notify();
 
-	drawString(610, 40, "FPS:       %f", fps);
-	drawString(610, 55, "Bodies:    %i", GameWorld::getInstance()->getPhysicsWorld()->GetBodyCount());
-	drawString(610, 70, "Entities:  %i", GameWorld::getInstance()->getEntityCount());
+	drawString(20, 540, "1 = Flamethrower | 2 = Machine Gun | B = Create Blobby | N = Create Box");
+	drawString(20, 555, "W,A,S,D = Move | Mouse = Aim and Fire");
+
+//	drawString(610, 40, "FPS:       %f", fps);
+//	drawString(610, 55, "Bodies:    %i", GameWorld::getInstance()->getPhysicsWorld()->GetBodyCount());
+//	drawString(610, 70, "Entities:  %i", GameWorld::getInstance()->getEntityCount());
 
 	// TODO: Draw everything
-	drawPolygonAt(0, 0);
+/*	drawPolygonAt(0, 0);
 	drawPolygonAt(790, 590);
 	drawPolygonAt(0, 590);
 	drawPolygonAt(790, 0);
-	drawPolygonAt(395, 295);
-
-	drawString(610, 85, "Gen. Time: %i ms", glutGet(GLUT_ELAPSED_TIME) - this->previousTicks);
+	drawPolygonAt(395, 295);*/
+//	debug("FPS %f Ticks %i Entities %i", fps, glutGet(GLUT_ELAPSED_TIME) - this->previousTicks, GameWorld::getInstance()->getEntityCount());
+//	drawString(610, 85, "Gen. Time: %i ms", glutGet(GLUT_ELAPSED_TIME) - this->previousTicks);
 
 	glutSwapBuffers();
 }

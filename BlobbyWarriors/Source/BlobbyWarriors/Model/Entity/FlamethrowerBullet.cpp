@@ -50,7 +50,7 @@ void FlamethrowerBullet::update(Publisher *who, UpdateData *what)
 
 			Blobby *blobby = dynamic_cast<Blobby*>((IEntity*)contactBody->GetUserData());
 			if (blobby != 0) {
-				blobby->setHealth(blobby->getHealth() - 1);
+				blobby->setHealth(blobby->getHealth() - 2);
 			}
 		}
 	}

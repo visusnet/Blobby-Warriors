@@ -4,8 +4,9 @@
 class MachineGunBullet;
 
 #include "AbstractEntity.h"
-#include "..\..\PublishSubscribe.h"
-#include "..\..\Debug.h"
+#include "../../PublishSubscribe.h"
+#include "../../Debug.h"
+#include "Blobby.h"
 
 class MachineGunBullet : public AbstractEntity, public Subscriber
 {

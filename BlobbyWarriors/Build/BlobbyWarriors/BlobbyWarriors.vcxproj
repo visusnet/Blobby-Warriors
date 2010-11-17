@@ -77,8 +77,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-static|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>..\..\Debug\</OutDir>
-    <IntDir>BlobbyWarriors.dir\Debug\</IntDir>
+    <OutDir>..\..\Debug-static\</OutDir>
+    <IntDir>BlobbyWarriors.dir\Debug-static\</IntDir>
     <TargetName>BlobbyWarriors</TargetName>
     <LibraryPath>..\..\Contrib\irrKlang\lib;..\..\Contrib\DevIL\lib\unicode;..\..\Debug;$(LibraryPath)</LibraryPath>
     <SourcePath>..\..\Source\BlobbyWarriors;$(SourcePath)</SourcePath>
@@ -95,8 +95,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-static|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>..\..\Release\</OutDir>
-    <IntDir>BlobbyWarriors.dir\Release\</IntDir>
+    <OutDir>..\..\Release-static\</OutDir>
+    <IntDir>BlobbyWarriors.dir\Release-static\</IntDir>
     <TargetName>BlobbyWarriors</TargetName>
     <LibraryPath>..\..\Contrib\irrKlang\lib;..\..\Contrib\DevIL\lib\unicode;..\..\Release;$(LibraryPath)</LibraryPath>
     <SourcePath>..\..\Source\BlobbyWarriors;$(SourcePath)</SourcePath>
@@ -114,7 +114,7 @@
       <SubSystem>NotSet</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>irrKlang.lib;DevIL.lib;ILU.lib;ILUT.lib;Box2D.lib;freeglut_static.lib;glui.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <Profile>false</Profile>
+      <Profile>true</Profile>
     </Link>
     <PostBuildEvent>
       <Command>copy ..\..\Contrib\DevIL\lib\unicode\DevIL.dll $(OutDir)
@@ -122,7 +122,9 @@ copy ..\..\Contrib\DevIL\lib\unicode\ILU.dll $(OutDir)
 copy ..\..\Contrib\DevIL\lib\unicode\ILUT.dll $(OutDir)
 copy ..\..\Contrib\irrKlang\lib\irrKlang.dll $(OutDir)
 copy ..\..\Contrib\irrKlang\lib\ikpMP3.dll $(OutDir)
-copy ..\..\Contrib\irrKlang\lib\ikpFlac.dll $(OutDir)</Command>
+copy ..\..\Contrib\irrKlang\lib\ikpFlac.dll $(OutDir)
+IF NOT EXIST $(OutDir)data mkdir $(OutDir)data
+xcopy ..\..\data $(OutDir)data /E /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-static|Win32'">
@@ -136,13 +138,18 @@ copy ..\..\Contrib\irrKlang\lib\ikpFlac.dll $(OutDir)</Command>
     <Link>
       <SubSystem>NotSet</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>DevIL.lib;ILU.lib;ILUT.lib;Box2D.lib;freeglut_static.lib;glui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>irrKlang.lib;DevIL.lib;ILU.lib;ILUT.lib;Box2D.lib;freeglut_static.lib;glui.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Profile>false</Profile>
     </Link>
     <PostBuildEvent>
       <Command>copy ..\..\Contrib\DevIL\lib\unicode\DevIL.dll $(OutDir)
 copy ..\..\Contrib\DevIL\lib\unicode\ILU.dll $(OutDir)
-copy ..\..\Contrib\DevIL\lib\unicode\ILUT.dll $(OutDir)</Command>
+copy ..\..\Contrib\DevIL\lib\unicode\ILUT.dll $(OutDir)
+copy ..\..\Contrib\irrKlang\lib\irrKlang.dll $(OutDir)
+copy ..\..\Contrib\irrKlang\lib\ikpMP3.dll $(OutDir)
+copy ..\..\Contrib\irrKlang\lib\ikpFlac.dll $(OutDir)
+IF NOT EXIST $(OutDir)data mkdir $(OutDir)data
+xcopy ..\..\data $(OutDir)data /E /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -160,13 +167,18 @@ copy ..\..\Contrib\DevIL\lib\unicode\ILUT.dll $(OutDir)</Command>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>DevIL.lib;ILU.lib;ILUT.lib;Box2D.lib;freeglut_static.lib;glui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>irrKlang.lib;DevIL.lib;ILU.lib;ILUT.lib;Box2D.lib;freeglut_static.lib;glui.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Profile>true</Profile>
     </Link>
     <PostBuildEvent>
       <Command>copy ..\..\Contrib\DevIL\lib\unicode\DevIL.dll $(OutDir)
 copy ..\..\Contrib\DevIL\lib\unicode\ILU.dll $(OutDir)
-copy ..\..\Contrib\DevIL\lib\unicode\ILUT.dll $(OutDir)</Command>
+copy ..\..\Contrib\DevIL\lib\unicode\ILUT.dll $(OutDir)
+copy ..\..\Contrib\irrKlang\lib\irrKlang.dll $(OutDir)
+copy ..\..\Contrib\irrKlang\lib\ikpMP3.dll $(OutDir)
+copy ..\..\Contrib\irrKlang\lib\ikpFlac.dll $(OutDir)
+IF NOT EXIST $(OutDir)data mkdir $(OutDir)data
+xcopy ..\..\data $(OutDir)data /E /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-static|Win32'">
@@ -184,17 +196,31 @@ copy ..\..\Contrib\DevIL\lib\unicode\ILUT.dll $(OutDir)</Command>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>DevIL.lib;ILU.lib;ILUT.lib;Box2D.lib;freeglut_static.lib;glui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>irrKlang.lib;DevIL.lib;ILU.lib;ILUT.lib;Box2D.lib;freeglut_static.lib;glui.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Profile>false</Profile>
     </Link>
     <PostBuildEvent>
       <Command>copy ..\..\Contrib\DevIL\lib\unicode\DevIL.dll $(OutDir)
 copy ..\..\Contrib\DevIL\lib\unicode\ILU.dll $(OutDir)
-copy ..\..\Contrib\DevIL\lib\unicode\ILUT.dll $(OutDir)</Command>
+copy ..\..\Contrib\DevIL\lib\unicode\ILUT.dll $(OutDir)
+copy ..\..\Contrib\irrKlang\lib\irrKlang.dll $(OutDir)
+copy ..\..\Contrib\irrKlang\lib\ikpMP3.dll $(OutDir)
+copy ..\..\Contrib\irrKlang\lib\ikpFlac.dll $(OutDir)
+IF NOT EXIST $(OutDir)data mkdir $(OutDir)data
+xcopy ..\..\data $(OutDir)data /E /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\BlobbyWarriors\Debug.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Drawer.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Main.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Box.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\BoxFactory.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\System\Lock.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\System\Mutex.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\System\Runnable.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\System\Thread.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\System\Timeable.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\Camera.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\GraphicsEngine.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\Image.cpp" />
@@ -211,7 +237,6 @@ copy ..\..\Contrib\DevIL\lib\unicode\ILUT.dll $(OutDir)</Command>
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\PlayerController.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Level.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Simulator.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Main.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\AbstractEntity.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\AbstractWeapon.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Blobby.cpp" />
@@ -232,12 +257,19 @@ copy ..\..\Contrib\DevIL\lib\unicode\ILUT.dll $(OutDir)</Command>
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Skateboard.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\GameWorld.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\PublishSubscribe.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Sound\Sound.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Sound\SoundEngine.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Sound\SoundManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\BlobbyWarriors\Debug.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Drawer.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Main.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Box.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\BoxFactory.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\System\Lock.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\System\Mutex.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\System\Runnable.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\System\Thread.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\System\Timeable.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\Camera.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\Color.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\GraphicsEngine.h" />
@@ -257,7 +289,6 @@ copy ..\..\Contrib\DevIL\lib\unicode\ILUT.dll $(OutDir)</Command>
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\PlayerController.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Level.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Simulator.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Main.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\AbstractEntity.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\AbstractWeapon.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Blobby.h" />
@@ -280,8 +311,6 @@ copy ..\..\Contrib\DevIL\lib\unicode\ILUT.dll $(OutDir)</Command>
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\GameWorld.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\PhysicsUtils.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\PublishSubscribe.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Sound\Sound.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Sound\SoundEngine.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Sound\SoundManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

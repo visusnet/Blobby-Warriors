@@ -15,9 +15,7 @@ Main::Main(int argc, char **argv)
 
 	this->simulator = new Simulator();
 
-	SoundEngine *soundEngine = SoundEngine::getInstance();
-	Sound *sound = SoundManager::getInstance()->loadSound("data/sound/getout.ogg");
-	soundEngine->play(sound);
+	SoundManager::getInstance()->getEngine()->play2D("data/sound/vaporrush.ogg", true);
 
 	this->graphicsEngine->start();
 }

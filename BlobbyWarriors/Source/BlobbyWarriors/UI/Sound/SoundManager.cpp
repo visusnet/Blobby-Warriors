@@ -9,23 +9,18 @@ SoundManager* SoundManager::getInstance()
 	return SoundManager::instance;
 }
 
-Sound* SoundManager::loadSound(char *filename)
+ISoundEngine* SoundManager::getEngine()
 {
-	for (list<Sound*>::iterator it = this->sounds.begin(); it != this->sounds.end(); ++it) {
-		Sound *sound = *it;
-		if (strncmp(sound->filename, filename, sizeof(sound->filename)) == 0) {
-			return sound;
-		}
-	}
-	Sound *sound = new Sound();
-	sound->filename = filename;
-	sound->loop = false; // for now...
-	this->sounds.push_back(sound);
-	return sound;
+	return this->engine;
 }
 
 SoundManager::SoundManager()
 {
+	this->engine = createIrrKlangDevice();
+
+	if (!this->engine) {
+		debug("Could not start sound engine.");
+	}
 }
 
 SoundManager::~SoundManager()

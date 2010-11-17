@@ -58,13 +58,10 @@ Texture* TextureLoader::createTexture(wchar_t *filename, Color *color, Color *co
 	ILubyte *imageData = image->getData();
 
 	int size = image->getWidth() * image->getHeight();
-	debug("format: %i", format);
 	if (colorKey != 0) {
-		debug("Setting color key.");
 		TextureLoader::setColorKey(imageData, size, colorKey);
 	}
 	if (color != 0) {
-		debug("Colorizing.");
 		TextureLoader::colorize(imageData, size, color);
 	}
 	

@@ -3,6 +3,7 @@
 Blobby::Blobby()
 {
 	this->weapon = 0;
+	this->nextWeapon = 0;
 	this->isJumping = false;
 	this->isRotating = false;
 	this->isWalking = false;
@@ -17,7 +18,9 @@ Blobby::Blobby()
 	this->maxHealth = BLOBBY_DEFAULT_MAX_HEALTH;
 	this->isDead = false;
 	this->activeTexture = 0;
+	this->opacity = 255;
 	this->previousTicks = glutGet(GLUT_ELAPSED_TIME);
+	this->controller = 0;
 
 	ContactListener::getInstance()->subscribe(this);
 }
@@ -25,17 +28,38 @@ Blobby::Blobby()
 // Magic. Do not touch.
 void Blobby::step()
 {
-	this->isOnGround = this->checkIsOnGround();
-	this->isTouchingWall = this->checkIsTouchingWall(&this->wallDirection);
-
-	if (this->health <= 0) {
+	if (!this->isDead && this->health <= 0) {
 		this->health = 0;
 		ContactListener::getInstance()->unsubscribe(this);
 		this->getBody(0)->SetFixedRotation(false);
-		this->getBody(0)->ApplyTorque(0.01f);
 		this->isDead = true;
+		this->activeTexture = 0;
 		//this->destroy();
 		return;
+	}
+	if (this->isDead) {
+		if (this->health <= -this->getMaxHealth()) {
+			this->destroy();
+		}
+		if (this->opacity > 70) {
+			this->opacity--;
+		}
+	}
+
+	if (this->controller == 0) {
+		return;
+	}
+
+	this->isOnGround = this->checkIsOnGround();
+	this->isTouchingWall = this->checkIsTouchingWall(&this->wallDirection);
+
+	if (this->nextWeapon != 0) {
+		if (this->weapon != 0) {
+			this->weapon->setActive(false);
+		}
+		this->weapon = this->nextWeapon;
+		this->weapon->setActive(true);
+		this->nextWeapon = 0;
 	}
 
 	// Reposition the weapon.
@@ -71,9 +95,17 @@ void Blobby::step()
 	// direction.
 	if (this->isWalking && this->direction != DIRECTION_UNKNOWN) {
 		if (this->direction == DIRECTION_LEFT && (!this->isTouchingWall || this->isTouchingWall && this->wallDirection != DIRECTION_LEFT)) {
-			body->SetLinearVelocity(b2Vec2(-BLOBBY_MOVE_VELOCITY, body->GetLinearVelocity().y));
+			if (this->isOnGround) {
+				body->SetLinearVelocity(b2Vec2(-BLOBBY_MOVE_VELOCITY, body->GetLinearVelocity().y));
+			} else {
+				body->ApplyForce(b2Vec2(-BLOBBY_MOVE_VELOCITY, 0), body->GetPosition());
+			}
 		} else if (this->direction == DIRECTION_RIGHT && (!this->isTouchingWall || this->isTouchingWall && this->wallDirection != DIRECTION_RIGHT)) {
-			body->SetLinearVelocity(b2Vec2(BLOBBY_MOVE_VELOCITY, body->GetLinearVelocity().y));
+			if (this->isOnGround) {
+				body->SetLinearVelocity(b2Vec2(BLOBBY_MOVE_VELOCITY, body->GetLinearVelocity().y));
+			} else {
+				body->ApplyForce(b2Vec2(BLOBBY_MOVE_VELOCITY, 0), body->GetPosition());
+			}
 		}
 	} 
 	
@@ -111,7 +143,7 @@ void Blobby::step()
 
 void Blobby::update(Publisher *who, UpdateData *what)
 {
-	if (this->isDead) {
+	if (this->isDead || this->controller == 0) {
 		return;
 	}
 
@@ -119,19 +151,19 @@ void Blobby::update(Publisher *who, UpdateData *what)
 	if (contactEventArgs != 0) {
 		// Did we hit or cease to hit the ground?
 		b2Fixture *blobbyFixture = 0;
-		b2Fixture *groundFixture = 0;
+		b2Fixture *contactFixture = 0;
 		// Sort the fixtures.
 		if (contactEventArgs->contact->GetFixtureA()->GetBody() == this->bodies.at(0)) {
 			blobbyFixture = contactEventArgs->contact->GetFixtureA();
-			groundFixture = contactEventArgs->contact->GetFixtureB();
+			contactFixture = contactEventArgs->contact->GetFixtureB();
 		} else if (contactEventArgs->contact->GetFixtureB()->GetBody() == this->bodies.at(0)) {
-			groundFixture = contactEventArgs->contact->GetFixtureA();
+			contactFixture = contactEventArgs->contact->GetFixtureA();
 			blobbyFixture = contactEventArgs->contact->GetFixtureB();
 		}
-		if (groundFixture != 0) {
+		if (contactFixture != 0) {
 			// There is a fixture which might be a ground.
-			Ground *ground = dynamic_cast<Ground*>((IEntity*)groundFixture->GetBody()->GetUserData());
-			if (ground != 0) {
+			IEntity *entity = (IEntity*)contactFixture->GetBody()->GetUserData();
+			if (entity != 0) {
 				if (blobbyFixture == this->lowerFixture) {
 					// It is the lower shape, so we need to cope with the
 					// contact point angle.
@@ -170,7 +202,7 @@ void Blobby::update(Publisher *who, UpdateData *what)
 								// to a ground with a specific angle which can is used
 								// to distinguish between wall and ground.
 								ContactPoint *contactPoint = new ContactPoint();
-								contactPoint->fixture = groundFixture;
+								contactPoint->fixture = contactFixture;
 								contactPoint->angle = radian2degree(angle);
 								this->contactPoints.push_back(contactPoint);
 							}
@@ -180,7 +212,7 @@ void Blobby::update(Publisher *who, UpdateData *what)
 						list<ContactPoint*> destroyableContactPoints;
 						for (list<ContactPoint*>::iterator it = this->contactPoints.begin(); it != this->contactPoints.end(); ++it) {
 							ContactPoint *cp = *it;
-							if (cp->fixture == groundFixture) {
+							if (cp->fixture == contactFixture) {
 								destroyableContactPoints.push_back(cp);
 							}
 						}
@@ -202,7 +234,7 @@ void Blobby::update(Publisher *who, UpdateData *what)
 
 void Blobby::draw()
 {
-	int wallDirection = 0;
+/*	int wallDirection = 0;
 	GraphicsEngine::drawString(35,  40, "isOnGround     = %s", this->isOnGround ? "true" : "false");
 	GraphicsEngine::drawString(35,  55, "inJumping      = %s", this->isJumping ? "true" : "false");
 	GraphicsEngine::drawString(35,  70, "isRotating     = %s", this->isRotating ? "true" : "false");
@@ -210,15 +242,48 @@ void Blobby::draw()
 	GraphicsEngine::drawString(35, 100, "isWalking      = %s", this->isWalking ? "true" : "false");
 	GraphicsEngine::drawString(35, 115, "activeTexture  = %i", this->activeTexture);
 	GraphicsEngine::drawString(35, 130, "health         = %i / %i", this->health, this->maxHealth);
-
+	GraphicsEngine::drawString(35, 145, "isAwake        = %s", this->getBody(0)->IsAwake() ? "true" : "false");
+	GraphicsEngine::drawString(35, 160, "isActive       = %s", this->getBody(0)->IsActive() ? "true" : "false");
+	GraphicsEngine::drawString(35, 175, "isSleepingAll'd= %s", this->getBody(0)->IsSleepingAllowed() ? "true" : "false");
+	*/
 	float x = this->getBody(0)->GetPosition().x;
 	float y = this->getBody(0)->GetPosition().y;
 	float angle = this->getBody(0)->GetAngle();
 	int width = 0; // proportional scaling!
 	int height = int(meter2pixel(BLOBBY_CENTER_DISTANCE + BLOBBY_UPPER_RADIUS + BLOBBY_LOWER_RADIUS));
-	Texturizer::draw(this->getTexture(this->activeTexture), x, y + BLOBBY_UPPER_RADIUS / 2, angle, width, height, true);
+	if (this->isDead) {
+		Texturizer::draw(this->getTexture(this->activeTexture), x, y + BLOBBY_UPPER_RADIUS / 2, angle, width, height, true, 0, new Color(255, 255, 255, this->opacity));
+	} else {
+		Texturizer::draw(this->getTexture(this->activeTexture), x, y + BLOBBY_UPPER_RADIUS / 2, angle, width, height, true);
+	}
 
-//	AbstractEntity::draw();
+	if (!this->isDead && this->getHealth() < this->getMaxHealth()) {
+		b2Vec2 pos = meter2pixel(this->getBody(0)->GetPosition()) + b2Vec2(0.0f, height - 4.0f);
+		x = pos.x;
+		y = pos.y;
+
+		float offset = float(this->getHealth()) / float(this->getMaxHealth());
+		glEnable(GL_BLEND);
+		glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glColor4f(1.0f - offset, offset, 0.0f, 0.8f);
+		glBegin(GL_TRIANGLE_FAN);
+			glVertex2f(x - 12.0f, y + 0.0f);
+			glVertex2f(x - 12.0f + 24.0f * offset, y + 0.0f);
+			glVertex2f(x - 12.0f + 24.0f * offset, y + 4.0f);
+			glVertex2f(x - 12.0f, y + 4.0f);
+		glEnd();
+		glDisable(GL_BLEND);
+
+		glColor4f(1.0f, 1.0f, 1.0f, 0.2f);
+		glBegin(GL_LINE_LOOP);
+			glVertex2f(x - 12.0f, y + 0.0f);
+			glVertex2f(x + 12.0f, y + 0.0f);
+			glVertex2f(x + 12.0f, y + 4.0f);
+			glVertex2f(x - 12.0f, y + 4.0f);
+		glEnd();
+	}
+
+	//	AbstractEntity::draw();
 }
 
 void Blobby::setController(IController *controller)
@@ -247,7 +312,7 @@ unsigned int Blobby::getWearableCount()
 
 void Blobby::setWeapon(AbstractWeapon *weapon)
 {
-	this->weapon = weapon;
+	this->nextWeapon = weapon;
 }
 
 AbstractWeapon* Blobby::getWeapon()
@@ -262,7 +327,9 @@ void Blobby::jump()
 		// The blobby is not jumping yet.
 		if (this->isOnGround) {
 			// The blobby is on the ground, i.e. jump!
-			body->ApplyForce(b2Vec2(0.0f, BLOBBY_JUMP_FORCE), body->GetPosition());
+			float x = body->GetLinearVelocity().x;
+			body->SetLinearVelocity(b2Vec2(0, 0));
+			body->ApplyForce(b2Vec2(x / 2, BLOBBY_JUMP_FORCE), body->GetPosition());
 			this->isJumping = true;
 		}
 	} else if (!this->isOnGround && this->isJumping && !this->isRotating) {

@@ -54,10 +54,13 @@ bool PlayerController::handleMouseEvent(MouseEventArgs *mouseEventArgs)
 {
 	b2Vec2 mousePosition;
 	bool fire = false;
+	bool stopFire = false;
 	if (mouseEventArgs != 0) {
 		mousePosition = pixel2meter(Camera::convertScreenToWorld(mouseEventArgs->x, mouseEventArgs->y));
 		if (mouseEventArgs->type == MOUSE_BUTTON_STATE_CHANGED && mouseEventArgs->state == MOUSE_STATE_PRESSED && mouseEventArgs->button == MOUSE_BUTTON_LEFT) {
 			fire = true;
+		} else if (mouseEventArgs->type == MOUSE_BUTTON_STATE_CHANGED && mouseEventArgs->state == MOUSE_STATE_RELEASED && mouseEventArgs->button == MOUSE_BUTTON_LEFT) {
+			stopFire = true;
 		}
 	} else {
 		b2Vec2 absoluteMousePosition = MouseHandler::getInstance()->getPosition();
@@ -81,6 +84,8 @@ bool PlayerController::handleMouseEvent(MouseEventArgs *mouseEventArgs)
 			weapon->fire(a, false, true);
 		} else if (MouseHandler::getInstance()->isButtonPressed(MOUSE_BUTTON_LEFT)) {
 			weapon->fire(a, false, true);
+		} else if (stopFire) {
+			weapon->stopFire();
 		}
 
 		weapon->getBody(0)->SetTransform(weapon->getBody(0)->GetPosition(), angle);

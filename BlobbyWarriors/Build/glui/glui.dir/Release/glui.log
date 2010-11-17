@@ -1,8 +1,6 @@
-﻿Der Buildvorgang wurde am 02.11.2010 22:55:06 gestartet.
+﻿Der Buildvorgang wurde am 10.11.2010 20:28:24 gestartet.
      1>Projekt "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\glui\glui.vcxproj" auf Knoten "2", rebuild Ziel(e).
-     1>_PrepareForClean:
-         Die Datei "glui.dir\Release\glui.lastbuildstate" wird gelöscht.
-       InitializeBuildStatus:
+     1>InitializeBuildStatus:
          "glui.dir\Release\glui.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
        ClCompile:
          C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\..\Source\freeglut /Zi /nologo /W1 /WX- /O2 /Ob2 /Oy- /D WIN32 /D _WINDOWS /D NDEBUG /D FREEGLUT_STATIC /D _CRT_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Release\"" /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"glui.dir\Release\\" /Fd"glui.dir\Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\glui\algebra3.cpp ..\..\Source\glui\arcball.cpp ..\..\Source\glui\glui_add_controls.cpp ..\..\Source\glui\glui_bitmap_img_data.cpp ..\..\Source\glui\glui_bitmaps.cpp ..\..\Source\glui\glui_button.cpp ..\..\Source\glui\glui_checkbox.cpp ..\..\Source\glui\glui_column.cpp ..\..\Source\glui\glui_commandline.cpp ..\..\Source\glui\glui_control.cpp ..\..\Source\glui\glui_edittext.cpp ..\..\Source\glui\glui_filebrowser.cpp ..\..\Source\glui\glui_list.cpp ..\..\Source\glui\glui_listbox.cpp ..\..\Source\glui\glui_mouse_iaction.cpp ..\..\Source\glui\glui_node.cpp ..\..\Source\glui\glui_panel.cpp ..\..\Source\glui\glui_radio.cpp ..\..\Source\glui\glui_rollout.cpp ..\..\Source\glui\glui_rotation.cpp ..\..\Source\glui\glui_scrollbar.cpp ..\..\Source\glui\glui_separator.cpp ..\..\Source\glui\glui_spinner.cpp ..\..\Source\glui\glui_statictext.cpp ..\..\Source\glui\glui_string.cpp ..\..\Source\glui\glui_textbox.cpp ..\..\Source\glui\glui_translation.cpp ..\..\Source\glui\glui_tree.cpp ..\..\Source\glui\glui_treepanel.cpp ..\..\Source\glui\glui_window.cpp ..\..\Source\glui\glui.cpp ..\..\Source\glui\quaternion.cpp  /Zm1000 
@@ -82,4 +80,4 @@
 
 Das Erstellen war erfolgreich.
 
-Verstrichene Zeit 00:00:23.29
+Verstrichene Zeit 00:00:25.16

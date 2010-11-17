@@ -1,6 +1,8 @@
-﻿Der Buildvorgang wurde am 09.11.2010 18:16:22 gestartet.
-     1>Projekt "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\Box2D\Box2D.vcxproj" auf Knoten "2", build Ziel(e).
-     1>InitializeBuildStatus:
+﻿Der Buildvorgang wurde am 10.11.2010 21:44:02 gestartet.
+     1>Projekt "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\Box2D\Box2D.vcxproj" auf Knoten "3", rebuild Ziel(e).
+     1>_PrepareForClean:
+         Die Datei "Box2D.dir\Debug\Box2D.lastbuildstate" wird gelöscht.
+       InitializeBuildStatus:
          "Box2D.dir\Debug\Box2D.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
        ClCompile:
          C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\..\Source\Box2D\.. /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Box2D.dir\Debug\\" /Fd"Box2D.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\Box2D\Dynamics\Joints\b2DistanceJoint.cpp ..\..\Source\Box2D\Dynamics\Joints\b2FrictionJoint.cpp ..\..\Source\Box2D\Dynamics\Joints\b2GearJoint.cpp ..\..\Source\Box2D\Dynamics\Joints\b2Joint.cpp ..\..\Source\Box2D\Dynamics\Joints\b2LineJoint.cpp ..\..\Source\Box2D\Dynamics\Joints\b2MouseJoint.cpp ..\..\Source\Box2D\Dynamics\Joints\b2PrismaticJoint.cpp ..\..\Source\Box2D\Dynamics\Joints\b2PulleyJoint.cpp ..\..\Source\Box2D\Dynamics\Joints\b2RevoluteJoint.cpp ..\..\Source\Box2D\Dynamics\Joints\b2WeldJoint.cpp ..\..\Source\Box2D\Dynamics\Contacts\b2CircleContact.cpp ..\..\Source\Box2D\Dynamics\Contacts\b2Contact.cpp ..\..\Source\Box2D\Dynamics\Contacts\b2ContactSolver.cpp ..\..\Source\Box2D\Dynamics\Contacts\b2PolygonAndCircleContact.cpp ..\..\Source\Box2D\Dynamics\Contacts\b2PolygonContact.cpp ..\..\Source\Box2D\Dynamics\Contacts\b2TOISolver.cpp ..\..\Source\Box2D\Dynamics\b2Body.cpp ..\..\Source\Box2D\Dynamics\b2ContactManager.cpp ..\..\Source\Box2D\Dynamics\b2Fixture.cpp ..\..\Source\Box2D\Dynamics\b2Island.cpp ..\..\Source\Box2D\Dynamics\b2World.cpp ..\..\Source\Box2D\Dynamics\b2WorldCallbacks.cpp ..\..\Source\Box2D\Common\b2BlockAllocator.cpp ..\..\Source\Box2D\Common\b2Math.cpp ..\..\Source\Box2D\Common\b2Settings.cpp ..\..\Source\Box2D\Common\b2StackAllocator.cpp ..\..\Source\Box2D\Collision\Shapes\b2CircleShape.cpp ..\..\Source\Box2D\Collision\Shapes\b2PolygonShape.cpp ..\..\Source\Box2D\Collision\b2BroadPhase.cpp ..\..\Source\Box2D\Collision\b2CollideCircle.cpp ..\..\Source\Box2D\Collision\b2CollidePolygon.cpp ..\..\Source\Box2D\Collision\b2Collision.cpp ..\..\Source\Box2D\Collision\b2Distance.cpp ..\..\Source\Box2D\Collision\b2DynamicTree.cpp ..\..\Source\Box2D\Collision\b2TimeOfImpact.cpp  /Zm1000 
@@ -82,8 +84,8 @@
        FinalizeBuildStatus:
          Die Datei "Box2D.dir\Debug\Box2D.unsuccessfulbuild" wird gelöscht.
          Aktualisieren des Timestamps von "Box2D.dir\Debug\Box2D.lastbuildstate".
-     1>Die Erstellung des Projekts "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\Box2D\Box2D.vcxproj" ist abgeschlossen, build Ziel(e).
+     1>Die Erstellung des Projekts "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\Box2D\Box2D.vcxproj" ist abgeschlossen, rebuild Ziel(e).
 
 Das Erstellen war erfolgreich.
 
-Verstrichene Zeit 00:00:13.62
+Verstrichene Zeit 00:00:09.66

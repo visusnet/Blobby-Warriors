@@ -11,10 +11,7 @@ class MachineGun : public AbstractWeapon
 {
 public:
 	MachineGun();
-	void draw();
-	void fire(b2Vec2 direction, bool constantFire, bool isPlayer = false);
-private:
-	Texture *texture;
+	void onFire(b2Vec2 direction, bool constantFire, bool isPlayer = false);
 };
 
 #endif

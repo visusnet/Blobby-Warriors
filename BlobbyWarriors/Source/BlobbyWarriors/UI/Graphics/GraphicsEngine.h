@@ -21,6 +21,7 @@ public:
 	void initialize(int argc, char **argv);
 	void start();
 	void update(Publisher *who, UpdateData *what = 0);
+	float getFps();
 
 	static void drawString(int x, int y, const char *string, ...);
 	static void onKeyDownCallback(unsigned char key, int x, int y);
@@ -57,6 +58,7 @@ private:
 	int mainWindow;
 	bool isFullScreen;
 	int previousTicks;
+	list<float> fpsValues;
 
 	class Guard
 	{

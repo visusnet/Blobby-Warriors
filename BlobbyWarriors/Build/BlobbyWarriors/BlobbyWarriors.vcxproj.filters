@@ -82,9 +82,6 @@
     <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\Camera.cpp">
       <Filter>UI\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Debug.cpp">
-      <Filter>UI\Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\GraphicsEngine.cpp">
       <Filter>UI\Graphics</Filter>
     </ClCompile>
@@ -94,13 +91,7 @@
     <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\KeyboardHandler.cpp">
       <Filter>UI\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Main.cpp">
-      <Filter>UI\Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\MouseHandler.cpp">
-      <Filter>UI\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\BlobbyWarriors\PublishSubscribe.cpp">
       <Filter>UI\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\Texture.cpp">
@@ -115,14 +106,35 @@
     <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\Texturizer.cpp">
       <Filter>UI\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Sound\SoundEngine.cpp">
-      <Filter>UI\Sound</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Sound\Sound.cpp">
-      <Filter>UI\Sound</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Sound\SoundManager.cpp">
       <Filter>UI\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Box.cpp">
+      <Filter>Model\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\BoxFactory.cpp">
+      <Filter>Model\Entity\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Main.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Debug.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\PublishSubscribe.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\System\Lock.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\System\Mutex.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\System\Runnable.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\System\Thread.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\System\Timeable.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Drawer.cpp">
+      <Filter>Logic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -149,6 +161,9 @@
     </Filter>
     <Filter Include="UI\Sound">
       <UniqueIdentifier>{c4b1b392-c18c-493c-ba7c-b615246d2b8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{3dd3ae93-05b9-4784-b608-0109aeb3ab3d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -248,9 +263,6 @@
     <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\Color.h">
       <Filter>UI\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Debug.h">
-      <Filter>UI\Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\GraphicsEngine.h">
       <Filter>UI\Graphics</Filter>
     </ClInclude>
@@ -263,13 +275,7 @@
     <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\KeyboardHandler.h">
       <Filter>UI\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Main.h">
-      <Filter>UI\Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\MouseHandler.h">
-      <Filter>UI\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\BlobbyWarriors\PublishSubscribe.h">
       <Filter>UI\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\Texture.h">
@@ -281,14 +287,35 @@
     <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\TextureManager.h">
       <Filter>UI\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Sound\SoundEngine.h">
-      <Filter>UI\Sound</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Sound\Sound.h">
-      <Filter>UI\Sound</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Sound\SoundManager.h">
       <Filter>UI\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Box.h">
+      <Filter>Model\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\BoxFactory.h">
+      <Filter>Model\Entity\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Main.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Debug.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\PublishSubscribe.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\System\Lock.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\System\Mutex.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\System\Runnable.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\System\Thread.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\System\Timeable.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Drawer.h">
+      <Filter>Logic</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

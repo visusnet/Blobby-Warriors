@@ -41,7 +41,7 @@ IEntity* BlobbyFactory::create(const EntityProperties& properties)
 		upperFixtureDef.filter.groupIndex = -1;
 	}
 	upperFixtureDef.filter.categoryBits = COLLISION_BIT_BLOBBY;
-	upperFixtureDef.filter.maskBits = COLLISION_BIT_GROUND | COLLISION_BIT_OBJECT | COLLISION_BIT_BULLET;	
+	upperFixtureDef.filter.maskBits = COLLISION_BIT_GROUND | COLLISION_BIT_OBJECT | COLLISION_BIT_BULLET | COLLISION_BIT_BLOBBY;	
 
 	b2CircleShape lowerOuterShape;
 	lowerOuterShape.m_radius = BLOBBY_LOWER_RADIUS;
@@ -55,7 +55,7 @@ IEntity* BlobbyFactory::create(const EntityProperties& properties)
 		lowerFixtureDef.filter.groupIndex = -1;
 	}
 	lowerFixtureDef.filter.categoryBits = COLLISION_BIT_BLOBBY;
-	lowerFixtureDef.filter.maskBits = COLLISION_BIT_GROUND | COLLISION_BIT_OBJECT | COLLISION_BIT_BULLET;
+	lowerFixtureDef.filter.maskBits = COLLISION_BIT_GROUND | COLLISION_BIT_OBJECT | COLLISION_BIT_BULLET | COLLISION_BIT_BLOBBY;
 
 	body->ResetMassData();
 

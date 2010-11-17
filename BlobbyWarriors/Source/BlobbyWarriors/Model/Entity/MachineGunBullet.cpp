@@ -26,6 +26,11 @@ void MachineGunBullet::update(Publisher *who, UpdateData *what)
 		if (contactBody != 0) {
 			ContactListener::getInstance()->unsubscribe(this);
 			this->destroy();
+
+			Blobby *blobby = dynamic_cast<Blobby*>((IEntity*)contactBody->GetUserData());
+			if (blobby != 0) {
+				blobby->setHealth(blobby->getHealth() - 2);
+			}
 		}
 	}
 }

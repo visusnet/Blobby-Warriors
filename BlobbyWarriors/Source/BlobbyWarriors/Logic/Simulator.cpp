@@ -5,6 +5,8 @@ Simulator::Simulator()
 	// shouldn't be here
 	this->texture = TextureLoader::createTexture(L"data/images/background/wall.jpg");
 
+	KeyboardHandler::getInstance()->subscribe(this);
+
 	this->gameWorld = GameWorld::getInstance();
 
 	EntityFactory *entityFactory = new BlobbyFactory();
@@ -25,6 +27,16 @@ Simulator::Simulator()
 	Flamethrower *flamethrower = (Flamethrower*)entityFactory->create();
 	this->cameraBlobby->addWearable(flamethrower);
 	this->cameraBlobby->setWeapon(flamethrower);
+	
+	entityFactory = new MachineGunFactory();
+	MachineGun *machineGun = (MachineGun*)entityFactory->create();
+	this->cameraBlobby->addWearable(machineGun);
+
+	entityFactory = new BoxFactory();
+	properties = entityFactory->getDefaultProperties();
+	properties.x = 300;
+	properties.y = 500;
+	entityFactory->create(properties);
 
 	entityFactory = new GroundFactory();
 	properties = entityFactory->getDefaultProperties();
@@ -89,7 +101,7 @@ void Simulator::step()
 		Camera::getInstance()->setViewCenter(Camera::convertScreenToWorld(400 + (int(p.x) - 500), 300));
 	}
 
-	//Camera::getInstance()->setViewCenter(b2Vec2(meter2pixel(this->cameraBlobby->getBody(0)->GetPosition().x), 300.0f));
+	Camera::getInstance()->setViewCenter(b2Vec2(meter2pixel(this->cameraBlobby->getBody(0)->GetPosition().x), 300.0f));
 
 	Texturizer::draw(this->texture, pixel2meter(Camera::getInstance()->getViewCenter().x), pixel2meter(300), 0);
 
@@ -102,4 +114,29 @@ void Simulator::step()
 b2Vec2 Simulator::getActorPosition()
 {
 	return meter2pixel(this->cameraBlobby->getBody(0)->GetPosition());
+}
+
+void Simulator::update(Publisher *who, UpdateData *what)
+{
+	KeyEventArgs *keyEventArgs = dynamic_cast<KeyEventArgs*>(what);
+	if (keyEventArgs != 0) {
+		if (keyEventArgs->key.code == 'b' && keyEventArgs->key.hasChanged && keyEventArgs->key.isPressed) {
+			EntityFactory *entityFactory = new BlobbyFactory();
+			EntityProperties properties = entityFactory->getDefaultProperties();
+			properties.x = float(rand() % 800);
+			properties.y = float(400);
+			properties.color = new Color(rand() % 255, rand() % 255, rand() % 255);
+			entityFactory->create(properties);
+		} else if (keyEventArgs->key.code == 'n' && keyEventArgs->key.hasChanged && keyEventArgs->key.isPressed) {
+			EntityFactory *entityFactory = new BoxFactory();
+			EntityProperties properties = entityFactory->getDefaultProperties();
+			properties.x = float(rand() % 800);
+			properties.y = float(500);
+			entityFactory->create(properties);
+		} else if (keyEventArgs->key.code == '1' && keyEventArgs->key.hasChanged && keyEventArgs->key.isPressed) {
+			this->cameraBlobby->setWeapon((AbstractWeapon*)this->cameraBlobby->getWearable(0));
+		} else if (keyEventArgs->key.code == '2' && keyEventArgs->key.hasChanged && keyEventArgs->key.isPressed) {
+			this->cameraBlobby->setWeapon((AbstractWeapon*)this->cameraBlobby->getWearable(1));
+		}
+	}
 }

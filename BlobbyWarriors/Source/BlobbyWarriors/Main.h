@@ -10,7 +10,7 @@
 #include <iostream>
 
 #include "UI/Graphics/GraphicsEngine.h"
-#include "UI/Sound/SoundEngine.h"
+#include "UI/Sound/SoundManager.h"
 #include "Logic/Simulator.h"
 
 using namespace std;

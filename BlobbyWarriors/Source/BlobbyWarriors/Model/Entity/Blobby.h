@@ -75,6 +75,7 @@ private:
 	IController *controller;
 	vector<IWearable*> wearables;
 	AbstractWeapon *weapon;
+	AbstractWeapon *nextWeapon;
 	bool isJumping;
 	bool isRotating;
 	bool isWalking;
@@ -89,6 +90,7 @@ private:
 	int health;
 	int maxHealth;
 	bool isDead;
+	int opacity;
 
 	b2Fixture *upperFixture;
 	b2Fixture *lowerFixture;

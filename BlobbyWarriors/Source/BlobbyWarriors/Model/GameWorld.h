@@ -7,6 +7,7 @@ class GameWorld;
 
 #include <Box2D.h>
 
+#include "../UI/Graphics/GraphicsEngine.h"
 #include "Entity/Factory/EntityFactory.h"
 #include "../Logic/ContactListener.h"
 #include "../Debug.h"

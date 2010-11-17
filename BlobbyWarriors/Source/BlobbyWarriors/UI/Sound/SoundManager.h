@@ -1,25 +1,26 @@
 #ifndef SOUNDMANAGER_H
 #define SOUNDMANAGER_H
 
-#include <list>
+#include <irrklang.h>
+#include <iostream>
 
-#include "Sound.h"
+#include "../../Debug.h"
 
-using namespace std;
+using namespace irrklang;
 
 class SoundManager
 {
 public:
 	static SoundManager* getInstance();
-	Sound* loadSound(char *filename);
+	ISoundEngine* getEngine();
 private:
 	SoundManager();
 	SoundManager(const SoundManager&);
 	~SoundManager();
 
-	static SoundManager *instance;
+	ISoundEngine *engine;
 
-	list<Sound*> sounds;
+	static SoundManager *instance;
 
 	class Guard
 	{

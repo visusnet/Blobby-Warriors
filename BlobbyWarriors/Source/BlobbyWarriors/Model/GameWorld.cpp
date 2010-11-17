@@ -26,7 +26,8 @@ void GameWorld::step()
 	}
 	this->destroyableEntities.clear();
 
-	this->world->Step(1.0f / 62.5f, 10, 10);
+//	this->world->Step(62.5f, 10, 10);
+	this->world->Step(1.0f / GraphicsEngine::getInstance()->getFps(), 10, 10);
 
 	for (list<IEntity*>::iterator it = this->entities.begin(); it != this->entities.end(); ++it) {
 		(*it)->step();
@@ -60,7 +61,6 @@ void GameWorld::destroyEntity(IEntity *entity)
 {
 	this->destroyableEntities.push_back(entity);
 }
-
 GameWorld::GameWorld()
 {
 	b2Vec2 gravity = b2Vec2(0.0f, -9.81f);
