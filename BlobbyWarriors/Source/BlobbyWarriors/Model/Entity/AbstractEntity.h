@@ -1,14 +1,11 @@
 #ifndef ABSTRACTENTITY_H
 #define ABSTRACTENTITY_H
 
-class AbstractEntity;
-
 #include <vector>
 
 #include <GL/glut.h>
 #include <Box2D.h>
 
-#include "../GameWorld.h"
 #include "../PhysicsUtils.h"
 #include "IEntity.h"
 #include "../../Debug.h"
@@ -35,5 +32,7 @@ protected:
 private:
 	bool isDestroyed;
 };
+
+#include "../GameWorld.h"
 
 #endif

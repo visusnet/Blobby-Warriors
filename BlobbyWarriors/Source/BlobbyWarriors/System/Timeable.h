@@ -3,6 +3,8 @@
 
 #include <GL/glut.h>
 
+class Timeable;
+
 #include "Runnable.h"
 
 #define TIMEABLE_DEFAULT_INTERVAL 1000

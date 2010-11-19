@@ -14,6 +14,8 @@ Main::Main(int argc, char **argv)
 	this->graphicsEngine->initialize(argc, argv);
 
 	this->simulator = new Simulator();
+	this->simulator->setInterval(16);
+	this->simulator->start();
 
 	SoundManager::getInstance()->getEngine()->play2D("data/sound/vaporrush.ogg", true);
 
@@ -22,5 +24,7 @@ Main::Main(int argc, char **argv)
 
 void Main::update(Publisher *who, UpdateData *what)
 {
-	this->simulator->step();
+	// old:
+	//	this->simulator->step();
+	Drawer::getInstance()->draw();
 }

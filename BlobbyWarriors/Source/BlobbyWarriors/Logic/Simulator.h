@@ -5,6 +5,8 @@
 
 #include <Box2D.h>
 
+class Simulator;
+
 #include "../Debug.h"
 #include "Level.h"
 #include "Controller\PlayerController.h"
@@ -16,20 +18,21 @@
 #include "../Model/Entity/Factory/FlamethrowerFactory.h"
 #include "../Model/Entity/Factory/BoxFactory.h"
 #include "../UI/Graphics/KeyboardHandler.h"
+#include "../System/Timeable.h"
 
-class Simulator : public Subscriber
+class Simulator : public Subscriber, public Timeable
 {
 public:
 	Simulator();
 	~Simulator();
 	void step();
 	void destroyEntities(list<IEntity*> entities);
-	b2Vec2 getActorPosition();
+//	b2Vec2 getActorPosition();
 	void update(Publisher *who, UpdateData *what);
+	void tick();
 private:
 	Level *level;
 	GameWorld *gameWorld;
-	Blobby *cameraBlobby;
 	Texture *texture; // shouldn't be here
 };
 

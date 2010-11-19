@@ -7,6 +7,7 @@ class Blobby;
 
 #include <GL/glut.h>
 
+#include "IWearable.h"
 #include "AbstractEntity.h"
 #include "AbstractWeapon.h"
 #include "Factory/BlobbyFactory.h"

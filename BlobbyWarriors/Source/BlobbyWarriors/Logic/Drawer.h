@@ -1,6 +1,8 @@
 #ifndef DRAWER_H
 #define DRAWER_H
 
+class Drawer;
+
 #include "../Model/GameWorld.h"
 
 class Drawer

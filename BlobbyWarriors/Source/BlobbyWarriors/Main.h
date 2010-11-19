@@ -12,6 +12,7 @@
 #include "UI/Graphics/GraphicsEngine.h"
 #include "UI/Sound/SoundManager.h"
 #include "Logic/Simulator.h"
+#include "Logic/Drawer.h"
 
 using namespace std;
 

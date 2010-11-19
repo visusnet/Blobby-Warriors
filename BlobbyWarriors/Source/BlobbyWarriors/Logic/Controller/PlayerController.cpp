@@ -2,13 +2,16 @@
 
 PlayerController::PlayerController()
 {
-	GraphicsEngine::getInstance()->subscribe(this);
-	KeyboardHandler::getInstance()->subscribe(this);
-	MouseHandler::getInstance()->subscribe(this);
+//	GraphicsEngine::getInstance()->subscribe(this);
+//	KeyboardHandler::getInstance()->subscribe(this);
+//	MouseHandler::getInstance()->subscribe(this);
 }
 
 void PlayerController::update(Publisher *who, UpdateData *what)
 {
+	Mutex *mutex = GameWorld::getInstance()->getMutex();
+	Lock *lock = new Lock(*mutex);
+
 	if (this->blobby == 0) {
 		return;
 	}
@@ -22,6 +25,8 @@ void PlayerController::update(Publisher *who, UpdateData *what)
 	if (!this->handleMouseEvent(mouseEventArgs)) {
 		return;
 	}
+
+	delete lock;
 }
 
 bool PlayerController::handleKeyEvent(KeyEventArgs *keyEventArgs)

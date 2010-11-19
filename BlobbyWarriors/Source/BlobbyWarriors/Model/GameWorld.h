@@ -9,8 +9,10 @@ class GameWorld;
 
 #include "../UI/Graphics/GraphicsEngine.h"
 #include "Entity/Factory/EntityFactory.h"
+#include "Entity/Blobby.h"
 #include "../Logic/ContactListener.h"
 #include "../Debug.h"
+#include "../System/Mutex.h"
 
 using namespace std;
 
@@ -25,6 +27,9 @@ public:
 	IEntity* getEntity(unsigned int i);
 	unsigned int getEntityCount();
 	void destroyEntity(IEntity *entity);
+	void setCameraBlobby(Blobby *blobby);
+	Blobby* getCameraBlobby();
+	Mutex* getMutex();
 private:
 	GameWorld();
 	GameWorld(const GameWorld&);
@@ -35,6 +40,8 @@ private:
 	b2World *world;
 	list<IEntity*> entities;
 	list<IEntity*> destroyableEntities;
+	Blobby *cameraBlobby;
+	Mutex *mutex;
 
 	class Guard
 	{

@@ -11,7 +11,7 @@ Drawer* Drawer::getInstance()
 
 void Drawer::draw()
 {
-/*	GameWorld *gameWorld = GameWorld::getInstance();
+	GameWorld *gameWorld = GameWorld::getInstance();
 	Blobby *cameraBlobby = gameWorld->getCameraBlobby();
 
 	if (cameraBlobby != 0) {
@@ -30,7 +30,7 @@ void Drawer::draw()
 	for (unsigned int i = 0; i < gameWorld->getEntityCount(); i++) {
 		IEntity *entity = gameWorld->getEntity(i);
 		entity->draw();
-	}*/
+	}
 }
 
 Drawer::Drawer()

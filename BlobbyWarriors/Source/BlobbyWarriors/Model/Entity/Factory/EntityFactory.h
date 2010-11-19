@@ -2,7 +2,6 @@
 #define ENTITYFACTORY_H
 
 #include "../IEntity.h"
-#include "../../GameWorld.h"
 #include "../../PhysicsUtils.h"
 #include "../../../UI/Graphics/Color.h"
 
@@ -42,5 +41,7 @@ public:
 	virtual IEntity* create(const EntityProperties& properties) = 0;
 	virtual EntityProperties& getDefaultProperties() = 0;
 };
+
+#include "../../GameWorld.h"
 
 #endif

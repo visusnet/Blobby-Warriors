@@ -1,10 +1,62 @@
-﻿Der Buildvorgang wurde am 17.11.2010 11:09:17 gestartet.
+﻿Der Buildvorgang wurde am 19.11.2010 23:57:53 gestartet.
      1>Projekt "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\BlobbyWarriors\BlobbyWarriors.vcxproj" auf Knoten "2", build Ziel(e).
      1>InitializeBuildStatus:
          "BlobbyWarriors.dir\Debug\BlobbyWarriors.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
        ClCompile:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D FREEGLUT_STATIC /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"BlobbyWarriors.dir\Debug\\" /Fd"BlobbyWarriors.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\BlobbyWarriors\Model\Entity\Blobby.cpp
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D XML_OPTIONAL_WIN32 /D _DEBUG /D _WINDOWS /D FREEGLUT_STATIC /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"BlobbyWarriors.dir\Debug\\" /Fd"BlobbyWarriors.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\BlobbyWarriors\Debug.cpp ..\..\Source\BlobbyWarriors\Logic\Drawer.cpp ..\..\Source\BlobbyWarriors\Main.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Box.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\BoxFactory.cpp ..\..\Source\BlobbyWarriors\System\Lock.cpp ..\..\Source\BlobbyWarriors\System\Mutex.cpp ..\..\Source\BlobbyWarriors\System\Runnable.cpp ..\..\Source\BlobbyWarriors\System\Thread.cpp ..\..\Source\BlobbyWarriors\System\Timeable.cpp ..\..\Source\BlobbyWarriors\System\xml.cpp ..\..\Source\BlobbyWarriors\UI\Graphics\Camera.cpp ..\..\Source\BlobbyWarriors\UI\Graphics\GraphicsEngine.cpp ..\..\Source\BlobbyWarriors\UI\Graphics\Image.cpp ..\..\Source\BlobbyWarriors\UI\Graphics\KeyboardHandler.cpp ..\..\Source\BlobbyWarriors\UI\Graphics\MouseHandler.cpp ..\..\Source\BlobbyWarriors\UI\Graphics\Texture.cpp ..\..\Source\BlobbyWarriors\UI\Graphics\TextureLoader.cpp ..\..\Source\BlobbyWarriors\UI\Graphics\TextureManager.cpp ..\..\Source\BlobbyWarriors\UI\Graphics\Texturizer.cpp ..\..\Source\BlobbyWarriors\Logic\ContactListener.cpp ..\..\Source\BlobbyWarriors\Logic\Controller\AbstractController.cpp ..\..\Source\BlobbyWarriors\Logic\Controller\BotController.cpp ..\..\Source\BlobbyWarriors\Logic\Controller\NetworkController.cpp ..\..\Source\BlobbyWarriors\Logic\Controller\PlayerController.cpp ..\..\Source\BlobbyWarriors\Logic\Level.cpp ..\..\Source\BlobbyWarriors\Logic\Simulator.cpp ..\..\Source\BlobbyWarriors\Model\Entity\AbstractEntity.cpp ..\..\Source\BlobbyWarriors\Model\Entity\AbstractWeapon.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Blobby.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\BlobbyFactory.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\EntityFactory.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\FlamethrowerBulletFactory.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\FlamethrowerFactory.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\GroundFactory.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\MachineGunBulletFactory.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\MachineGunFactory.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\SkateboardFactory.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Flamethrower.cpp ..\..\Source\BlobbyWarriors\Model\Entity\FlamethrowerBullet.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Ground.cpp ..\..\Source\BlobbyWarriors\Model\Entity\IWearable.cpp ..\..\Source\BlobbyWarriors\Model\Entity\MachineGun.cpp ..\..\Source\BlobbyWarriors\Model\Entity\MachineGunBullet.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Skateboard.cpp ..\..\Source\BlobbyWarriors\Model\GameWorld.cpp ..\..\Source\BlobbyWarriors\PublishSubscribe.cpp ..\..\Source\BlobbyWarriors\UI\Sound\SoundManager.cpp
+         SoundManager.cpp
+         PublishSubscribe.cpp
+         GameWorld.cpp
+         Skateboard.cpp
+         MachineGunBullet.cpp
+         MachineGun.cpp
+         IWearable.cpp
+         Ground.cpp
+         FlamethrowerBullet.cpp
+         Flamethrower.cpp
+         SkateboardFactory.cpp
+         MachineGunFactory.cpp
+         MachineGunBulletFactory.cpp
+         GroundFactory.cpp
+         FlamethrowerFactory.cpp
+         FlamethrowerBulletFactory.cpp
+         EntityFactory.cpp
+         BlobbyFactory.cpp
          Blobby.cpp
+         AbstractWeapon.cpp
+         Code wird generiert...
+         Kompilieren...
+         AbstractEntity.cpp
+         Simulator.cpp
+         Level.cpp
+         PlayerController.cpp
+         NetworkController.cpp
+         BotController.cpp
+         AbstractController.cpp
+         ContactListener.cpp
+         Texturizer.cpp
+         TextureManager.cpp
+         TextureLoader.cpp
+         Texture.cpp
+         MouseHandler.cpp
+         KeyboardHandler.cpp
+         Image.cpp
+         GraphicsEngine.cpp
+         Camera.cpp
+         xml.cpp
+         Timeable.cpp
+         Thread.cpp
+         Code wird generiert...
+         Kompilieren...
+         Runnable.cpp
+         Mutex.cpp
+         Lock.cpp
+         BoxFactory.cpp
+         Box.cpp
+         Main.cpp
+         Drawer.cpp
+         Debug.cpp
+         Code wird generiert...
        ManifestResourceCompile:
          Alle Ausgaben sind aktuell.
        Link:
@@ -19,6 +71,7 @@
          BlobbyWarriors.dir\Debug\Runnable.obj
          BlobbyWarriors.dir\Debug\Thread.obj
          BlobbyWarriors.dir\Debug\Timeable.obj
+         BlobbyWarriors.dir\Debug\xml.obj
          BlobbyWarriors.dir\Debug\Camera.obj
          BlobbyWarriors.dir\Debug\GraphicsEngine.obj
          BlobbyWarriors.dir\Debug\Image.obj
@@ -120,4 +173,4 @@
 
 Das Erstellen war erfolgreich.
 
-Verstrichene Zeit 00:00:03.18
+Verstrichene Zeit 00:00:41.87

@@ -136,6 +136,9 @@
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Drawer.cpp">
       <Filter>Logic</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BlobbyWarriors\System\xml.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Logic">
@@ -316,6 +319,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Drawer.h">
       <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\System\xml.h">
+      <Filter>System</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

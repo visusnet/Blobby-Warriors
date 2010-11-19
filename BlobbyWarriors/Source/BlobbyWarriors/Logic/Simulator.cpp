@@ -15,8 +15,8 @@ Simulator::Simulator()
 	properties.y = 400;
 	properties.special = true;
 	properties.color = new Color(255, 0, 0);
-	this->cameraBlobby = static_cast<Blobby*>(entityFactory->create(properties));
-	this->cameraBlobby->setController(new PlayerController());
+	Blobby *cameraBlobby = static_cast<Blobby*>(entityFactory->create(properties));
+	cameraBlobby->setController(new PlayerController());
 
 	properties.special = false;
 	properties.x += 150;
@@ -25,12 +25,12 @@ Simulator::Simulator()
 
 	entityFactory = new FlamethrowerFactory();
 	Flamethrower *flamethrower = (Flamethrower*)entityFactory->create();
-	this->cameraBlobby->addWearable(flamethrower);
-	this->cameraBlobby->setWeapon(flamethrower);
+	cameraBlobby->addWearable(flamethrower);
+	cameraBlobby->setWeapon(flamethrower);
 	
 	entityFactory = new MachineGunFactory();
 	MachineGun *machineGun = (MachineGun*)entityFactory->create();
-	this->cameraBlobby->addWearable(machineGun);
+	cameraBlobby->addWearable(machineGun);
 
 	entityFactory = new BoxFactory();
 	properties = entityFactory->getDefaultProperties();
@@ -81,6 +81,8 @@ Simulator::Simulator()
 	jointDef.localAnchorB.Set(0.0f, 0.0f);
 	GameWorld::getInstance()->getPhysicsWorld()->CreateJoint(&jointDef);*/
 
+	this->gameWorld->setCameraBlobby(cameraBlobby);
+
 	// TODO: Level setup, etc.
 	this->level = new Level();
 }
@@ -94,7 +96,7 @@ void Simulator::step()
 {
 	this->gameWorld->step();
 
-	b2Vec2 p = Camera::convertWorldToScreen(meter2pixel(this->cameraBlobby->getBody(0)->GetPosition().x), 300.0f);
+/*	b2Vec2 p = Camera::convertWorldToScreen(meter2pixel(this->cameraBlobby->getBody(0)->GetPosition().x), 300.0f);
 	if (p.x < 300) {
 		Camera::getInstance()->setViewCenter(Camera::convertScreenToWorld(400 - (300 - int(p.x)), 300));
 	} else if (p.x > 500) {
@@ -108,17 +110,17 @@ void Simulator::step()
 	for (unsigned int i = 0; i < this->gameWorld->getEntityCount(); i++) {
 		IEntity *entity = this->gameWorld->getEntity(i);
 		entity->draw();
-	}
+	}*/
 }
 
-b2Vec2 Simulator::getActorPosition()
+/*b2Vec2 Simulator::getActorPosition()
 {
 	return meter2pixel(this->cameraBlobby->getBody(0)->GetPosition());
-}
+}*/
 
 void Simulator::update(Publisher *who, UpdateData *what)
 {
-	KeyEventArgs *keyEventArgs = dynamic_cast<KeyEventArgs*>(what);
+/*	KeyEventArgs *keyEventArgs = dynamic_cast<KeyEventArgs*>(what);
 	if (keyEventArgs != 0) {
 		if (keyEventArgs->key.code == 'b' && keyEventArgs->key.hasChanged && keyEventArgs->key.isPressed) {
 			EntityFactory *entityFactory = new BlobbyFactory();
@@ -138,5 +140,11 @@ void Simulator::update(Publisher *who, UpdateData *what)
 		} else if (keyEventArgs->key.code == '2' && keyEventArgs->key.hasChanged && keyEventArgs->key.isPressed) {
 			this->cameraBlobby->setWeapon((AbstractWeapon*)this->cameraBlobby->getWearable(1));
 		}
-	}
+	}*/
+}
+
+void Simulator::tick()
+{
+	debug("tick");
+	this->step();
 }
