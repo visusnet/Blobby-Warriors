@@ -1,17 +1,60 @@
+<<<<<<< .mine
+﻿Der Buildvorgang wurde am 20.11.2010 04:55:13 gestartet.
+     1>Projekt "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\Box2D\Box2D.vcxproj" auf Knoten "2", build Ziel(e).
+=======
 ﻿Der Buildvorgang wurde am 20.11.2010 04:56:13 gestartet.
      1>Projekt "D:\Babeltech\Projects\BoW\trunk\BlobbyWarriors\Build\Box2D\Box2D.vcxproj" auf Knoten "2", build Ziel(e).
+>>>>>>> .r30
      1>InitializeBuildStatus:
          "Box2D.dir\Debug\Box2D.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
        ClCompile:
          Alle Ausgaben sind aktuell.
        Lib:
-         Alle Ausgaben sind aktuell.
-         Box2D.vcxproj -> D:\Babeltech\Projects\BoW\trunk\BlobbyWarriors\Build\Box2D\..\..\Debug\Box2D.lib
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"..\..\Debug\Box2D.lib" /NOLOGO Box2D.dir\Debug\b2DistanceJoint.obj
+         Box2D.dir\Debug\b2FrictionJoint.obj
+         Box2D.dir\Debug\b2GearJoint.obj
+         Box2D.dir\Debug\b2Joint.obj
+         Box2D.dir\Debug\b2LineJoint.obj
+         Box2D.dir\Debug\b2MouseJoint.obj
+         Box2D.dir\Debug\b2PrismaticJoint.obj
+         Box2D.dir\Debug\b2PulleyJoint.obj
+         Box2D.dir\Debug\b2RevoluteJoint.obj
+         Box2D.dir\Debug\b2WeldJoint.obj
+         Box2D.dir\Debug\b2CircleContact.obj
+         Box2D.dir\Debug\b2Contact.obj
+         Box2D.dir\Debug\b2ContactSolver.obj
+         Box2D.dir\Debug\b2PolygonAndCircleContact.obj
+         Box2D.dir\Debug\b2PolygonContact.obj
+         Box2D.dir\Debug\b2TOISolver.obj
+         Box2D.dir\Debug\b2Body.obj
+         Box2D.dir\Debug\b2ContactManager.obj
+         Box2D.dir\Debug\b2Fixture.obj
+         Box2D.dir\Debug\b2Island.obj
+         Box2D.dir\Debug\b2World.obj
+         Box2D.dir\Debug\b2WorldCallbacks.obj
+         Box2D.dir\Debug\b2BlockAllocator.obj
+         Box2D.dir\Debug\b2Math.obj
+         Box2D.dir\Debug\b2Settings.obj
+         Box2D.dir\Debug\b2StackAllocator.obj
+         Box2D.dir\Debug\b2CircleShape.obj
+         Box2D.dir\Debug\b2PolygonShape.obj
+         Box2D.dir\Debug\b2BroadPhase.obj
+         Box2D.dir\Debug\b2CollideCircle.obj
+         Box2D.dir\Debug\b2CollidePolygon.obj
+         Box2D.dir\Debug\b2Collision.obj
+         Box2D.dir\Debug\b2Distance.obj
+         Box2D.dir\Debug\b2DynamicTree.obj
+         Box2D.dir\Debug\b2TimeOfImpact.obj
+         Box2D.vcxproj -> C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\Box2D\..\..\Debug\Box2D.lib
        FinalizeBuildStatus:
          Die Datei "Box2D.dir\Debug\Box2D.unsuccessfulbuild" wird gelöscht.
          Aktualisieren des Timestamps von "Box2D.dir\Debug\Box2D.lastbuildstate".
-     1>Die Erstellung des Projekts "D:\Babeltech\Projects\BoW\trunk\BlobbyWarriors\Build\Box2D\Box2D.vcxproj" ist abgeschlossen, build Ziel(e).
+     1>Die Erstellung des Projekts "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\Box2D\Box2D.vcxproj" ist abgeschlossen, build Ziel(e).
 
 Das Erstellen war erfolgreich.
 
+<<<<<<< .mine
+Verstrichene Zeit 00:00:05.78
+=======
 Verstrichene Zeit 00:00:01.12
+>>>>>>> .r30

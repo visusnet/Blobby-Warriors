@@ -1,17 +1,57 @@
+<<<<<<< .mine
+﻿Der Buildvorgang wurde am 20.11.2010 04:55:13 gestartet.
+     1>Projekt "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\glui\glui.vcxproj" auf Knoten "3", build Ziel(e).
+=======
 ﻿Der Buildvorgang wurde am 20.11.2010 04:56:13 gestartet.
      1>Projekt "D:\Babeltech\Projects\BoW\trunk\BlobbyWarriors\Build\glui\glui.vcxproj" auf Knoten "3", build Ziel(e).
+>>>>>>> .r30
      1>InitializeBuildStatus:
          "glui.dir\Debug\glui.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
        ClCompile:
          Alle Ausgaben sind aktuell.
        Lib:
-         Alle Ausgaben sind aktuell.
-         glui.vcxproj -> D:\Babeltech\Projects\BoW\trunk\BlobbyWarriors\Build\glui\..\..\Debug\glui.lib
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"..\..\Debug\glui.lib" /NOLOGO glui.dir\Debug\algebra3.obj
+         glui.dir\Debug\arcball.obj
+         glui.dir\Debug\glui_add_controls.obj
+         glui.dir\Debug\glui_bitmap_img_data.obj
+         glui.dir\Debug\glui_bitmaps.obj
+         glui.dir\Debug\glui_button.obj
+         glui.dir\Debug\glui_checkbox.obj
+         glui.dir\Debug\glui_column.obj
+         glui.dir\Debug\glui_commandline.obj
+         glui.dir\Debug\glui_control.obj
+         glui.dir\Debug\glui_edittext.obj
+         glui.dir\Debug\glui_filebrowser.obj
+         glui.dir\Debug\glui_list.obj
+         glui.dir\Debug\glui_listbox.obj
+         glui.dir\Debug\glui_mouse_iaction.obj
+         glui.dir\Debug\glui_node.obj
+         glui.dir\Debug\glui_panel.obj
+         glui.dir\Debug\glui_radio.obj
+         glui.dir\Debug\glui_rollout.obj
+         glui.dir\Debug\glui_rotation.obj
+         glui.dir\Debug\glui_scrollbar.obj
+         glui.dir\Debug\glui_separator.obj
+         glui.dir\Debug\glui_spinner.obj
+         glui.dir\Debug\glui_statictext.obj
+         glui.dir\Debug\glui_string.obj
+         glui.dir\Debug\glui_textbox.obj
+         glui.dir\Debug\glui_translation.obj
+         glui.dir\Debug\glui_tree.obj
+         glui.dir\Debug\glui_treepanel.obj
+         glui.dir\Debug\glui_window.obj
+         glui.dir\Debug\glui.obj
+         glui.dir\Debug\quaternion.obj
+         glui.vcxproj -> C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\glui\..\..\Debug\glui.lib
        FinalizeBuildStatus:
          Die Datei "glui.dir\Debug\glui.unsuccessfulbuild" wird gelöscht.
          Aktualisieren des Timestamps von "glui.dir\Debug\glui.lastbuildstate".
-     1>Die Erstellung des Projekts "D:\Babeltech\Projects\BoW\trunk\BlobbyWarriors\Build\glui\glui.vcxproj" ist abgeschlossen, build Ziel(e).
+     1>Die Erstellung des Projekts "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\glui\glui.vcxproj" ist abgeschlossen, build Ziel(e).
 
 Das Erstellen war erfolgreich.
 
+<<<<<<< .mine
+Verstrichene Zeit 00:00:05.95
+=======
 Verstrichene Zeit 00:00:00.95
+>>>>>>> .r30
