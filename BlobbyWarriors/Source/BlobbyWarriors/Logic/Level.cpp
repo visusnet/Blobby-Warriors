@@ -4,7 +4,8 @@
 Level::Level()
 {
 	 OleInitialize(0);
- char* f1 = "data/levels/test/level.xml";
+ //char* f1 = "data/levels/test/level.xml";
+ char* f1 = "data/levels/Diamond Mine/level.xml";
  //char* f2 = ".\\sample2.xml";
 
  XML* x = 0;

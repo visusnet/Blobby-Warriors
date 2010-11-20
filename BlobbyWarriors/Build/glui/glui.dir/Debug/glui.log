@@ -1,4 +1,4 @@
-﻿Der Buildvorgang wurde am 20.11.2010 03:07:15 gestartet.
+﻿Der Buildvorgang wurde am 20.11.2010 04:22:36 gestartet.
      1>Projekt "D:\Babeltech\Projects\BoW\trunk\BlobbyWarriors\Build\glui\glui.vcxproj" auf Knoten "3", build Ziel(e).
      1>InitializeBuildStatus:
          "glui.dir\Debug\glui.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
@@ -14,4 +14,4 @@
 
 Das Erstellen war erfolgreich.
 
-Verstrichene Zeit 00:00:00.15
+Verstrichene Zeit 00:00:00.07

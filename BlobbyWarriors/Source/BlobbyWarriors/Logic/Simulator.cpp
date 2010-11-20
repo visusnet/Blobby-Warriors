@@ -18,7 +18,7 @@ Simulator::Simulator()
 	properties.special = true;
 	properties.color = new Color(255, 0, 0);
 	Blobby *cameraBlobby = static_cast<Blobby*>(entityFactory->create(properties));
-	cameraBlobby->setController(new PlayerController());
+	//cameraBlobby->setController(new PlayerController());
 
 	properties.special = false;
 	properties.x += 150;
