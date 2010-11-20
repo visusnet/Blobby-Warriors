@@ -1,4 +1,5 @@
 #include "Level.h"
+#include <math.h>
 
 Level::Level()
 {
@@ -68,28 +69,61 @@ Level::Level()
 		char* n = new char[nMaxElName + 1];
 		ch->GetElementName(n);
 
-		 //XMLElement* el = ch->FindElementZ("x1");
-
-		 char y[100] = {0};
-
-		r->GetChildren()[i]->FindVariableZ("x1", true)->GetValue(y);
-
-
-		XMLVariable v = r->GetChildren()[i]->FindVariableZ("x1")[0];
-
-		XMLElement* ch2 = r->GetChildren()[i];
-		int nValueLen = ch2->FindVariableZ("TEXT")->GetValue(0, 0);
-		char* pValueBuf = new char[nValueLen + 1];
-		ch2->FindVariableZ("TEXT")->GetValue(pValueBuf, 0);
-
-
-
-
 		// check for the specific element
-		if(strncmp(n,"ground_line",sizeof(n))==0)
+		if(strncmp(n,"GroundLine",sizeof(n))==0)
 		{
 			// ground
 			fprintf(stdout,"\t Ground %u: Variables: %u , Params: %u , Name: %s\r\n",i,nV,nP,n);
+
+			// get all attributes/variables
+			XMLVariable** vari = ch->GetVariables();
+			int x1 = vari[0][0].GetValueInt();
+			int y1 = vari[1][0].GetValueInt();
+			int x2 = vari[2][0].GetValueInt();
+			int y2 = vari[3][0].GetValueInt();
+			int friction = vari[4][0].GetValueInt();
+
+
+			double xOffset = x2 - x1;
+			double yOffset = y2 - y1;
+
+			double length = sqrt( (xOffset * xOffset) + (yOffset * yOffset) * 0.5 );
+			double angle = atan2(yOffset, xOffset);
+
+
+
+			//polygonDef.SetAsBox(length, 1/parent.config.phy_scaling);
+
+			float pos_x;
+			float pos_y; 
+			
+			if (x1 <x2 && y1 < y2)
+			{
+				//bodyDef.position = new b2Vec2(p1.x - Math.cos(angle) * length + Math.abs(p2.x-p1.x), p1.y - Math.sin(angle) * length + Math.abs(p2.y-p1.y));
+
+				pos_x = x1 - cos(angle) * length + abs(x2-x1);
+				pos_y = y1 - sin(angle) * length + abs(y2-y1);
+			}
+			else
+			{
+				//bodyDef.position = new b2Vec2(p1.x - Math.cos(angle) * length + Math.abs(p2.x-p1.x), p1.y - Math.sin(angle) * length - Math.abs(p2.y-p1.y));
+			
+				pos_x = x1 - cos(angle) * length + abs(x2-x1);
+				pos_y = y1 - sin(angle) * length - abs(y2-y1);
+			}
+
+
+
+
+			EntityFactory *entityFactory =  new GroundFactory();
+			EntityProperties& properties = entityFactory->getDefaultProperties();
+
+			properties.x = pos_x;
+			properties.y = pos_y;
+			properties.width = length;
+			properties.height = 10;
+			properties.angle = angle;
+			entityFactory->create(properties);
 		}
 		else
 		{
@@ -213,37 +247,41 @@ Level::Level()
 
 
 
- EntityFactory *entityFactory =  new GroundFactory();
+ /*EntityFactory *entityFactory =  new GroundFactory();
 	EntityProperties& properties = entityFactory->getDefaultProperties();
 
- entityFactory = new GroundFactory();
+	entityFactory = new GroundFactory();
 	properties = entityFactory->getDefaultProperties();
 	properties.x = 400;
 	properties.y = 100;
 	properties.width = 1600;
 	properties.height = 10;
 	entityFactory->create(properties);
+
 	properties.x = -395;
 	properties.y = 300;
 	properties.width = 10;
 	properties.height = 600;
 	entityFactory->create(properties);
+
 	properties.x = 1195;
 	properties.y = 300;
 	properties.width = 10;
 	properties.height = 600;
 	entityFactory->create(properties);
+
 	properties.x = 400;
 	properties.y = 590;
 	properties.width = 1600;
 	properties.height = 10;
 	entityFactory->create(properties);
+
 	properties.x = 400;
 	properties.y = 100;
 	properties.width = 800;
 	properties.height = 10;
 	properties.angle = 30;
-	entityFactory->create(properties);
+	entityFactory->create(properties);*/
 }
 
 void Level::initialize()
