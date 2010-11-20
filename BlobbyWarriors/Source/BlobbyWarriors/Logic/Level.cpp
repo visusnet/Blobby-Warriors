@@ -3,7 +3,7 @@
 Level::Level()
 {
 	 OleInitialize(0);
- char* f1 = "D:/Babeltech/Projects/Bow/branches/BOW_as/maps/Diamond Mine/level.xml";
+ char* f1 = "data/levels/test/level.xml";
  //char* f2 = ".\\sample2.xml";
 
  XML* x = 0;
