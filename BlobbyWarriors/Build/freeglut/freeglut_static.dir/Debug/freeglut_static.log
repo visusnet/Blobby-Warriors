@@ -1,49 +1,17 @@
-<<<<<<< .mine
-﻿Der Buildvorgang wurde am 20.11.2010 04:55:19 gestartet.
-     1>Projekt "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\freeglut\freeglut_static.vcxproj" auf Knoten "2", build Ziel(e).
-=======
-﻿Der Buildvorgang wurde am 20.11.2010 04:56:14 gestartet.
-     1>Projekt "D:\Babeltech\Projects\BoW\trunk\BlobbyWarriors\Build\freeglut\freeglut_static.vcxproj" auf Knoten "2", build Ziel(e).
->>>>>>> .r30
+﻿Der Buildvorgang wurde am 20.11.2010 05:23:45 gestartet.
+     1>Projekt "D:\Babeltech\Projects\BoW\trunk\BlobbyWarriors\Build\freeglut\freeglut_static.vcxproj" auf Knoten "3", build Ziel(e).
      1>InitializeBuildStatus:
          "freeglut_static.dir\Debug\freeglut_static.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
        ClCompile:
          Alle Ausgaben sind aktuell.
        Lib:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"..\..\Debug\freeglut_static.lib" /NOLOGO freeglut_static.dir\Debug\freeglut_callbacks.obj
-         freeglut_static.dir\Debug\freeglut_cursor.obj
-         freeglut_static.dir\Debug\freeglut_display.obj
-         freeglut_static.dir\Debug\freeglut_ext.obj
-         freeglut_static.dir\Debug\freeglut_font_data.obj
-         freeglut_static.dir\Debug\freeglut_font.obj
-         freeglut_static.dir\Debug\freeglut_gamemode.obj
-         freeglut_static.dir\Debug\freeglut_geometry.obj
-         freeglut_static.dir\Debug\freeglut_glutfont_definitions.obj
-         freeglut_static.dir\Debug\freeglut_init.obj
-         freeglut_static.dir\Debug\freeglut_input_devices.obj
-         freeglut_static.dir\Debug\freeglut_joystick.obj
-         freeglut_static.dir\Debug\freeglut_main.obj
-         freeglut_static.dir\Debug\freeglut_menu.obj
-         freeglut_static.dir\Debug\freeglut_misc.obj
-         freeglut_static.dir\Debug\freeglut_overlay.obj
-         freeglut_static.dir\Debug\freeglut_spaceball.obj
-         freeglut_static.dir\Debug\freeglut_state.obj
-         freeglut_static.dir\Debug\freeglut_stroke_mono_roman.obj
-         freeglut_static.dir\Debug\freeglut_stroke_roman.obj
-         freeglut_static.dir\Debug\freeglut_structure.obj
-         freeglut_static.dir\Debug\freeglut_teapot.obj
-         freeglut_static.dir\Debug\freeglut_videoresize.obj
-         freeglut_static.dir\Debug\freeglut_window.obj
-         freeglut_static.vcxproj -> C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\freeglut\..\..\Debug\freeglut_static.lib
+         Alle Ausgaben sind aktuell.
+         freeglut_static.vcxproj -> D:\Babeltech\Projects\BoW\trunk\BlobbyWarriors\Build\freeglut\..\..\Debug\freeglut_static.lib
        FinalizeBuildStatus:
          Die Datei "freeglut_static.dir\Debug\freeglut_static.unsuccessfulbuild" wird gelöscht.
          Aktualisieren des Timestamps von "freeglut_static.dir\Debug\freeglut_static.lastbuildstate".
-     1>Die Erstellung des Projekts "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\freeglut\freeglut_static.vcxproj" ist abgeschlossen, build Ziel(e).
+     1>Die Erstellung des Projekts "D:\Babeltech\Projects\BoW\trunk\BlobbyWarriors\Build\freeglut\freeglut_static.vcxproj" ist abgeschlossen, build Ziel(e).
 
 Das Erstellen war erfolgreich.
 
-<<<<<<< .mine
-Verstrichene Zeit 00:00:01.97
-=======
-Verstrichene Zeit 00:00:00.36
->>>>>>> .r30
+Verstrichene Zeit 00:00:00.13
