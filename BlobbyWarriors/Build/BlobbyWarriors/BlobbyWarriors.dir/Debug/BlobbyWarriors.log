@@ -1,4 +1,8 @@
 <<<<<<< .mine
+﻿Der Buildvorgang wurde am 20.11.2010 04:56:14 gestartet.
+     1>Projekt "D:\Babeltech\Projects\BoW\trunk\BlobbyWarriors\Build\BlobbyWarriors\BlobbyWarriors.vcxproj" auf Knoten "3", build Ziel(e).
+=======
+<<<<<<< .mine
 <<<<<<< .mine
 ﻿Der Buildvorgang wurde am 20.11.2010 04:21:51 gestartet.
      1>Projekt "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\BlobbyWarriors\BlobbyWarriors.vcxproj" auf Knoten "2", build Ziel(e).
@@ -8,10 +12,15 @@
 ﻿Der Buildvorgang wurde am 20.11.2010 04:22:36 gestartet.
 >>>>>>> .r28
      1>Projekt "D:\Babeltech\Projects\BoW\trunk\BlobbyWarriors\Build\BlobbyWarriors\BlobbyWarriors.vcxproj" auf Knoten "2", build Ziel(e).
+>>>>>>> .r29
 >>>>>>> .r27
      1>InitializeBuildStatus:
          "BlobbyWarriors.dir\Debug\BlobbyWarriors.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
        ClCompile:
+<<<<<<< .mine
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D XML_OPTIONAL_WIN32 /D _DEBUG /D _WINDOWS /D FREEGLUT_STATIC /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"BlobbyWarriors.dir\Debug\\" /Fd"BlobbyWarriors.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\BlobbyWarriors\Logic\Drawer.cpp ..\..\Source\BlobbyWarriors\Logic\Simulator.cpp
+         Simulator.cpp
+=======
 <<<<<<< .mine
 <<<<<<< .mine
          C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D XML_OPTIONAL_WIN32 /D _DEBUG /D _WINDOWS /D FREEGLUT_STATIC /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"BlobbyWarriors.dir\Debug\\" /Fd"BlobbyWarriors.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\BlobbyWarriors\Logic\Level.cpp
@@ -20,9 +29,14 @@
          Alle Ausgaben sind aktuell.
 =======
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D XML_OPTIONAL_WIN32 /D _DEBUG /D _WINDOWS /D FREEGLUT_STATIC /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"BlobbyWarriors.dir\Debug\\" /Fd"BlobbyWarriors.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\BlobbyWarriors\Logic\Drawer.cpp
+>>>>>>> .r29
          Drawer.cpp
+<<<<<<< .mine
+         Code wird generiert...
+=======
 >>>>>>> .r28
 >>>>>>> .r27
+>>>>>>> .r29
        ManifestResourceCompile:
          Alle Ausgaben sind aktuell.
        Link:
@@ -213,6 +227,9 @@
 Das Erstellen war erfolgreich.
 
 <<<<<<< .mine
+Verstrichene Zeit 00:00:07.54
+=======
+<<<<<<< .mine
 <<<<<<< .mine
 Verstrichene Zeit 00:00:05.05
 =======
@@ -221,3 +238,4 @@ Verstrichene Zeit 00:00:00.65
 =======
 Verstrichene Zeit 00:00:05.39
 >>>>>>> .r28
+>>>>>>> .r29

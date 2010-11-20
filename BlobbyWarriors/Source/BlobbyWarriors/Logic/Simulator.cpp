@@ -11,14 +11,14 @@ Simulator::Simulator()
 
 	this->gameWorld = GameWorld::getInstance();
 
-	EntityFactory *entityFactory = new BlobbyFactory();
+	/*EntityFactory *entityFactory = new BlobbyFactory();
 	EntityProperties& properties = entityFactory->getDefaultProperties();
 	properties.x = 400;
 	properties.y = 400;
 	properties.special = true;
 	properties.color = new Color(255, 0, 0);
 	Blobby *cameraBlobby = static_cast<Blobby*>(entityFactory->create(properties));
-	//cameraBlobby->setController(new PlayerController());
+	cameraBlobby->setController(new PlayerController());
 
 	properties.special = false;
 	properties.x += 150;
@@ -38,7 +38,7 @@ Simulator::Simulator()
 	properties = entityFactory->getDefaultProperties();
 	properties.x = 300;
 	properties.y = 500;
-	entityFactory->create(properties);
+	entityFactory->create(properties);*/
 
 	
 
@@ -64,7 +64,7 @@ Simulator::Simulator()
 	jointDef.localAnchorB.Set(0.0f, 0.0f);
 	GameWorld::getInstance()->getPhysicsWorld()->CreateJoint(&jointDef);*/
 
-	this->gameWorld->setCameraBlobby(cameraBlobby);
+	//this->gameWorld->setCameraBlobby(cameraBlobby);
 
 	// TODO: Level setup, etc.
 	this->level = new Level();
