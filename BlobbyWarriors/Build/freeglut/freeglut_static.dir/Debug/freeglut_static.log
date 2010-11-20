@@ -1,4 +1,4 @@
-﻿Der Buildvorgang wurde am 20.11.2010 05:23:45 gestartet.
+﻿Der Buildvorgang wurde am 20.11.2010 05:44:59 gestartet.
      1>Projekt "D:\Babeltech\Projects\BoW\trunk\BlobbyWarriors\Build\freeglut\freeglut_static.vcxproj" auf Knoten "3", build Ziel(e).
      1>InitializeBuildStatus:
          "freeglut_static.dir\Debug\freeglut_static.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
@@ -14,4 +14,4 @@
 
 Das Erstellen war erfolgreich.
 
-Verstrichene Zeit 00:00:00.13
+Verstrichene Zeit 00:00:00.10
