@@ -3,7 +3,9 @@
 Simulator::Simulator()
 {
 	// shouldn't be here
-	this->texture = TextureLoader::createTexture(L"data/images/background/wall.jpg");
+	//this->texture = TextureLoader::createTexture(L"data/images/background/wall.jpg");
+	//this->texture = TextureLoader::createTexture(L"D:\\Babeltech\\Projects\\Bow\\branches\\BOW_as\\maps\\Diamond Mine\\vorne1.jpg");
+
 
 	KeyboardHandler::getInstance()->subscribe(this);
 
@@ -38,34 +40,7 @@ Simulator::Simulator()
 	properties.y = 500;
 	entityFactory->create(properties);
 
-	entityFactory = new GroundFactory();
-	properties = entityFactory->getDefaultProperties();
-	properties.x = 400;
-	properties.y = 100;
-	properties.width = 1600;
-	properties.height = 10;
-	entityFactory->create(properties);
-	properties.x = -395;
-	properties.y = 300;
-	properties.width = 10;
-	properties.height = 600;
-	entityFactory->create(properties);
-	properties.x = 1195;
-	properties.y = 300;
-	properties.width = 10;
-	properties.height = 600;
-	entityFactory->create(properties);
-	properties.x = 400;
-	properties.y = 590;
-	properties.width = 1600;
-	properties.height = 10;
-	entityFactory->create(properties);
-	properties.x = 400;
-	properties.y = 100;
-	properties.width = 800;
-	properties.height = 10;
-	properties.angle = 30;
-	entityFactory->create(properties);
+	
 
 	// Skateboard experiment... Something for the future...
 /*	entityFactory = new SkateboardFactory();

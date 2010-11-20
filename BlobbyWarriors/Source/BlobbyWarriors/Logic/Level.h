@@ -3,6 +3,8 @@
 
 #include "../System/xml.h"
 
+#include "../Model/Entity/Factory/GroundFactory.h"
+
 class Level
 {
 public:

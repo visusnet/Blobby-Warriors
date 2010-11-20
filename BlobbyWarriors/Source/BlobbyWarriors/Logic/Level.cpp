@@ -3,8 +3,8 @@
 Level::Level()
 {
 	 OleInitialize(0);
- char* f1 = "http://www.turboirc.com/xml/sample1.xml";
- char* f2 = ".\\sample2.xml";
+ char* f1 = "D:/Babeltech/Projects/Bow/branches/BOW_as/maps/Diamond Mine/level.xml";
+ //char* f2 = ".\\sample2.xml";
 
  XML* x = 0;
 
@@ -19,7 +19,7 @@ Level::Level()
  else
 	 {
 	 // Load from url
-	 x = new XML(f1,XML_LOAD_MODE_URL);
+	 x = new XML(f1,XML_LOAD_MODE_LOCAL_FILE);
 	 }
 
  // Parse status check
@@ -33,7 +33,11 @@ Level::Level()
 	 }
 
  // Sample export to stdout
- x->Export(stdout,XML_SAVE_MODE_ZERO);
+ x->Export(stdout,XML_SAVE_MODE_DEFAULT);
+
+ char y[100] = {0};
+
+
 
 
  // Sample XML functions
@@ -47,22 +51,58 @@ Level::Level()
  fprintf(stdout,"Memory used before/after compression: %u / %u bytes.\r\n",m1,m2);
  fprintf(stdout,"XML header: %s\r\n",x->GetHeader()->operator const char *());
 
- // Sample XMLElement functions
- fprintf(stdout,"\r\n\r\n---------- XMLElement test ----------\r\n");
- XMLElement* r = x->GetRootElement();
- int nC = r->GetChildrenNum();
- fprintf(stdout,"Root element has %u children.\r\n",nC);
- for(int i = 0 ; i < nC ; i++)
-	 {
-	 XMLElement* ch = r->GetChildren()[i];
-	 int nV = ch->GetVariableNum();
-	 int nMaxElName = ch->GetElementName(0);
-	 char* n = new char[nMaxElName + 1];
-	 ch->GetElementName(n);
+	// read all childs / level-elements
+	fprintf(stdout,"\r\n\r\n---------- XMLElement test ----------\r\n");
+	XMLElement* r = x->GetRootElement();
+	int nC = r->GetChildrenNum();
+	fprintf(stdout,"Root element has %u children.\r\n",nC);
 
-	 fprintf(stdout,"\t Child %u: Variables: %u , Name: %s\r\n",i,nV,n);
-	 delete[] n;
-	 }
+	// run through all elements
+	for(int i = 0 ; i < nC ; i++)
+	{
+		// do initialisation stuff
+		XMLElement* ch = r->GetChildren()[i];
+		int nV = ch->GetVariableNum();
+		int nP = ch->GetVariableNum();
+		int nMaxElName = ch->GetElementName(0);
+		char* n = new char[nMaxElName + 1];
+		ch->GetElementName(n);
+
+		 //XMLElement* el = ch->FindElementZ("x1");
+
+		 char y[100] = {0};
+
+		r->GetChildren()[i]->FindVariableZ("x1", true)->GetValue(y);
+
+
+		XMLVariable v = r->GetChildren()[i]->FindVariableZ("x1")[0];
+
+		XMLElement* ch2 = r->GetChildren()[i];
+		int nValueLen = ch2->FindVariableZ("TEXT")->GetValue(0, 0);
+		char* pValueBuf = new char[nValueLen + 1];
+		ch2->FindVariableZ("TEXT")->GetValue(pValueBuf, 0);
+
+
+
+
+		// check for the specific element
+		if(strncmp(n,"ground_line",sizeof(n))==0)
+		{
+			// ground
+			fprintf(stdout,"\t Ground %u: Variables: %u , Params: %u , Name: %s\r\n",i,nV,nP,n);
+		}
+		else
+		{
+			// anything else
+			fprintf(stdout,"\t Child %u: Variables: %u , Name: %s\r\n",i,nV,n);
+		}
+
+		// cleanup, always important
+		delete[] n;
+	}
+
+
+ /*
  // Add a children to the end
  r->AddElement(new XMLElement(r,(char*)"<testel x=\"1\" />"));
 
@@ -160,15 +200,50 @@ Level::Level()
 
  // XML object save
  // Manipulate export format
- XMLEXPORTFORMAT xf = {0};
+ /*XMLEXPORTFORMAT xf = {0};
  xf.UseSpace = true;
  xf.nId = 2;
  x->SetExportFormatting(&xf);
  if (x->Save(f2) == 1)
-	fprintf(stdout,"%s saved.\r\n",f2);
+	fprintf(stdout,"%s saved.\r\n",f2);*/
 
  // XML object bye bye
  delete x;
+
+
+
+
+ EntityFactory *entityFactory =  new GroundFactory();
+	EntityProperties& properties = entityFactory->getDefaultProperties();
+
+ entityFactory = new GroundFactory();
+	properties = entityFactory->getDefaultProperties();
+	properties.x = 400;
+	properties.y = 100;
+	properties.width = 1600;
+	properties.height = 10;
+	entityFactory->create(properties);
+	properties.x = -395;
+	properties.y = 300;
+	properties.width = 10;
+	properties.height = 600;
+	entityFactory->create(properties);
+	properties.x = 1195;
+	properties.y = 300;
+	properties.width = 10;
+	properties.height = 600;
+	entityFactory->create(properties);
+	properties.x = 400;
+	properties.y = 590;
+	properties.width = 1600;
+	properties.height = 10;
+	entityFactory->create(properties);
+	properties.x = 400;
+	properties.y = 100;
+	properties.width = 800;
+	properties.height = 10;
+	properties.angle = 30;
+	entityFactory->create(properties);
 }
 
 void Level::initialize()
