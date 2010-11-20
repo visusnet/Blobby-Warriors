@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<Level name="test" gravity="40">
+    <GroundLine x1="446" y1="774" x2="687" y2="774" friction="1"></GroundLine>
+    <GroundLine x1="687" y1="774" x2="740" y2="832" friction="1"></GroundLine>
+    <GroundLine x1="740" y1="832" x2="740" y2="920" friction="1"></GroundLine>
+    <GroundLine x1="740" y1="920" x2="762" y2="933" friction="1"></GroundLine>
+    <GroundLine x1="762" y1="933" x2="895" y2="933" friction="1"></GroundLine>
+    <GroundLine x1="895" y1="933" x2="961" y2="1041" friction="1"></GroundLine>
+    <GroundLine x1="961" y1="1041" x2="1009" y2="1084" friction="1"></GroundLine>
+    <GroundLine x1="1009" y1="1084" x2="1125" y2="1140" friction="1"></GroundLine>
+    <GroundLine x1="1125" y1="1140" x2="2020" y2="1134" friction="1"></GroundLine>
+    <GroundLine x1="2020" y1="1134" x2="2133" y2="1078" friction="1"></GroundLine>
+    <GroundLine x1="2133" y1="1078" x2="2129" y2="1034" friction="1"></GroundLine>
+    <GroundLine x1="2129" y1="1034" x2="2114" y2="1013" friction="1"></GroundLine>
+    <GroundLine x1="2114" y1="1013" x2="2175" y2="971" friction="1"></GroundLine>
+    <GroundLine x1="2175" y1="971" x2="2436" y2="971" friction="1"></GroundLine>
+    <GroundLine x1="2436" y1="971" x2="2520" y2="920" friction="1"></GroundLine>
+    <GroundLine x1="2520" y1="920" x2="2539" y2="880" friction="1"></GroundLine>
+    <GroundLine x1="2539" y1="880" x2="2548" y2="550" friction="1"></GroundLine>
+    <GroundLine x1="2548" y1="550" x2="2233" y2="457" friction="1"></GroundLine>
+    <GroundLine x1="2233" y1="457" x2="1815" y2="492" friction="1"></GroundLine>
+    <GroundLine x1="1815" y1="492" x2="1680" y2="550" friction="1"></GroundLine>
+    <GroundLine x1="1680" y1="550" x2="1718" y2="688" friction="1"></GroundLine>
+    <GroundLine x1="1718" y1="688" x2="1612" y2="892" friction="1"></GroundLine>
+    <GroundLine x1="1612" y1="892" x2="1547" y2="844" friction="1"></GroundLine>
+    <GroundLine x1="1547" y1="844" x2="1400" y2="900" friction="1"></GroundLine>
+    <GroundLine x1="1400" y1="900" x2="1334" y2="858" friction="1"></GroundLine>
+    <GroundLine x1="1334" y1="858" x2="1342" y2="662" friction="1"></GroundLine>
+    <GroundLine x1="1342" y1="662" x2="1248" y2="500" friction="1"></GroundLine>
+    <GroundLine x1="1248" y1="500" x2="1093" y2="560" friction="1"></GroundLine>
+    <GroundLine x1="1093" y1="560" x2="1054" y2="485" friction="1"></GroundLine>
+    <GroundLine x1="1054" y1="485" x2="973" y2="425" friction="1"></GroundLine>
+    <GroundLine x1="973" y1="425" x2="678" y2="473" friction="1"></GroundLine>
+    <GroundLine x1="678" y1="473" x2="324" y2="420" friction="1"></GroundLine>
+    <GroundLine x1="324" y1="420" x2="338" y2="557" friction="1"></GroundLine>
+    <GroundLine x1="338" y1="557" x2="386" y2="682" friction="1"></GroundLine>
+    <GroundLine x1="386" y1="682" x2="446" y2="774" friction="1"></GroundLine>
+    <Object type="Crate" posx="600" posy="500.00000000000006" rotation="0" ki="-1" content=""></Object>
+    <Object type="Crate" posx="600" posy="500.00000000000006" rotation="0" ki="-1" content=""></Object>
+    <Object type="Crate" posx="575" posy="500.00000000000006" rotation="0" ki="-1" content=""></Object>
+    <Object type="Ball" posx="2300" posy="800" rotation="0" ki="-1" content=""></Object>
+    <Object type="WeaponLaserGreen" posx="440" posy="440" rotation="0" ki="-1" content="255,255,255"></Object>
+    <Object type="WeaponGun" posx="1100" posy="900" rotation="0" ki="-1" content="255,255,255"></Object>
+    <Object type="WeaponLaserGreen" posx="440" posy="550" rotation="0" ki="-1" content="255,255,255"></Object>
+    <image posx="750" posy="900" src="lol.png" rotation="0" layer="1" width="290" height="264"></image>
+    <image posx="1200" posy="800" src="lol2.png" rotation="0" layer="1" width="290" height="264"></image>
+    <Waypoint id="0" posx="450" posy="750">
+        <WaypointConnection id="1" length="10"></WaypointConnection>
+    </Waypoint>
+    <Waypoint id="1" posx="650" posy="750">
+        <WaypointConnection id="0" length="10"></WaypointConnection>
+        <WaypointConnection id="2" length="10"></WaypointConnection>
+    </Waypoint>
+    <Waypoint id="2" posx="750" posy="800">
+        <WaypointConnection id="1" length="10"></WaypointConnection>
+        <WaypointConnection id="3" length="10"></WaypointConnection>
+    </Waypoint>
+    <Waypoint id="3" posx="830" posy="900">
+        <WaypointConnection id="2" length="10"></WaypointConnection>
+        <WaypointConnection id="4" length="10"></WaypointConnection>
+    </Waypoint>
+    <Waypoint id="4" posx="880" posy="900">
+        <WaypointConnection id="3" length="10"></WaypointConnection>
+        <WaypointConnection id="5" length="10"></WaypointConnection>
+    </Waypoint>
+    <Waypoint id="5" posx="950" posy="1000">
+        <WaypointConnection id="4" length="10"></WaypointConnection>
+        <WaypointConnection id="6" length="10"></WaypointConnection>
+    </Waypoint>
+    <Waypoint id="6" posx="1100" posy="1110">
+        <WaypointConnection id="5" length="10"></WaypointConnection>
+        <WaypointConnection id="7" length="10"></WaypointConnection>
+    </Waypoint>
+    <Waypoint id="7" posx="1250" posy="1120">
+        <WaypointConnection id="6" length="10"></WaypointConnection>
+        <WaypointConnection id="8" length="10"></WaypointConnection>
+    </Waypoint>
+    <Waypoint id="8" posx="1500" posy="1120">
+        <WaypointConnection id="7" length="10"></WaypointConnection>
+        <WaypointConnection id="9" length="10"></WaypointConnection>
+    </Waypoint>
+    <Waypoint id="9" posx="1700" posy="1120">
+        <WaypointConnection id="8" length="10"></WaypointConnection>
+        <WaypointConnection id="10" length="10"></WaypointConnection>
+    </Waypoint>
+    <Waypoint id="10" posx="1900" posy="1120">
+        <WaypointConnection id="9" length="10"></WaypointConnection>
+        <WaypointConnection id="11" length="10"></WaypointConnection>
+    </Waypoint>
+    <Waypoint id="11" posx="2120" posy="980">
+        <WaypointConnection id="10" length="10"></WaypointConnection>
+        <WaypointConnection id="12" length="10"></WaypointConnection>
+    </Waypoint>
+    <Waypoint id="12" posx="2300" posy="955">
+        <WaypointConnection id="11" length="10"></WaypointConnection>
+    </Waypoint>
+</Level>

@@ -36,8 +36,8 @@ void Drawer::draw()
 
 Drawer::Drawer()
 {
-	//this->texture = TextureLoader::createTexture(L"data/images/background/wall.jpg");
-	this->texture = TextureLoader::createTexture(L"D:\\Babeltech\\Projects\\Bow\\branches\\BOW_as\\maps\\Diamond Mine\\vorne1.jpg");
+	this->texture = TextureLoader::createTexture(L"data/images/background/wall.jpg");
+//	this->texture = TextureLoader::createTexture(L"D:\\Babeltech\\Projects\\Bow\\branches\\BOW_as\\maps\\Diamond Mine\\vorne1.jpg");
 
 }
 

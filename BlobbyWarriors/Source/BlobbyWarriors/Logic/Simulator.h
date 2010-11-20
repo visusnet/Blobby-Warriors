@@ -16,6 +16,7 @@ class Simulator;
 #include "../Model/Entity/Factory/GroundFactory.h"
 #include "../Model/Entity/Factory/MachineGunFactory.h"
 #include "../Model/Entity/Factory/FlamethrowerFactory.h"
+#include "../Model/Entity/Factory/GraphicFactory.h"
 #include "../Model/Entity/Factory/BoxFactory.h"
 #include "../UI/Graphics/KeyboardHandler.h"
 #include "../System/Timeable.h"

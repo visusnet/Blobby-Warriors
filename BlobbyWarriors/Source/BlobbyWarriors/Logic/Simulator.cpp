@@ -42,6 +42,14 @@ Simulator::Simulator()
 
 	
 
+
+	entityFactory = new GraphicFactory();
+	GraphicProperties& graphicProperties = (GraphicProperties&)entityFactory->getDefaultProperties();
+	graphicProperties.x = 0;
+	graphicProperties.y = 0;
+	graphicProperties.texture = TextureLoader::createTexture(L"D:/box.jpg");
+	entityFactory->create((EntityProperties&)graphicProperties);
+
 	// Skateboard experiment... Something for the future...
 /*	entityFactory = new SkateboardFactory();
 	properties = entityFactory->getDefaultProperties();

@@ -2,6 +2,7 @@
 #include <windows.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <iostream>
 
 #include "xml.h"
 
@@ -174,4 +175,5 @@ int main()
 
  // XML object bye bye
  delete x;
+    std::cin.get();
  }

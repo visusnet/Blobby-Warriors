@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!--This is a root comment 1 -->
+<!--This is a root comment 2 -->
+<!--Nice comment-->
+<root>
+  <!--This is a comment 1 -->
+  <!--This is a comment 2-->
+  <Cfg v="BooWy/" s="Bowlingy">
+    <Amplify v="1.0&amp;">
+      <Sect v="hahaha2"/>
+    </Amplify>
+    <Amplifyz v="&lt;&gt;&quot;=">
+      <Sect3z v="hahaha" s="hohoho"/>
+      <Sect2z v="hahaha&amp;&gt;&lt;" s="hohoho" v1="hahaha&amp;&gt;&lt;" v2="hahaha&amp;&gt;&lt;" v3="hahaha&amp;&gt;&lt;" v4="hahaha&amp;&gt;&lt;"/>
+    </Amplifyz>
+    <Boohas v="booz">
+      <Mandoline/>
+    </Boohas>
+    <MAX_SILENCE v="0.02"/>
+    <MAX_SILENCE_EFF v="10"/>
+    <MIN_SILENCE_DUR v="10000"/>
+    <VAR>
+      var2
+    </VAR>
+    <VAR>
+      var1
+    </VAR>
+    <VAR>
+      var3
+    </VAR>
+  </Cfg>
+  <!--This is a comment 3-->
+  <fonts>
+    <ListView v="9P///wAAAAAAAAAAAAAAALwCAAAAAAAAAwIBIlQAYQBoAG8AbQBhAAAAAAAAAAAAAAAAAAAA&#x0D;&#x0A;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="/>
+  </fonts>
+  <!--This is a comment 4-->
+  <!--This is a comment 5-->
+  <!--Nice comment-->
+  <testel x="1" somename="somevalue"/>
+  <elx varx="5" varx2="10"/>
+  <El1>
+    <El2>
+      <El3 var1="x" var2="AAAAAAAAAACgBQAAhAMAAA=="/>
+    </El2>
+  </El1>
+</root>
+<!--This is a root comment 3 -->
+<!--This is a root comment 4 -->
