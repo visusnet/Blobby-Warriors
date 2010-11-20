@@ -1,17 +1,26 @@
+<<<<<<< .mine
+﻿Der Buildvorgang wurde am 20.11.2010 05:32:18 gestartet.
+     1>Projekt "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\Box2D\Box2D.vcxproj" auf Knoten "2", build Ziel(e).
+=======
 ﻿Der Buildvorgang wurde am 20.11.2010 05:44:59 gestartet.
      1>Projekt "D:\Babeltech\Projects\BoW\trunk\BlobbyWarriors\Build\Box2D\Box2D.vcxproj" auf Knoten "2", build Ziel(e).
+>>>>>>> .r34
      1>InitializeBuildStatus:
          "Box2D.dir\Debug\Box2D.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
        ClCompile:
          Alle Ausgaben sind aktuell.
        Lib:
          Alle Ausgaben sind aktuell.
-         Box2D.vcxproj -> D:\Babeltech\Projects\BoW\trunk\BlobbyWarriors\Build\Box2D\..\..\Debug\Box2D.lib
+         Box2D.vcxproj -> C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\Box2D\..\..\Debug\Box2D.lib
        FinalizeBuildStatus:
          Die Datei "Box2D.dir\Debug\Box2D.unsuccessfulbuild" wird gelöscht.
          Aktualisieren des Timestamps von "Box2D.dir\Debug\Box2D.lastbuildstate".
-     1>Die Erstellung des Projekts "D:\Babeltech\Projects\BoW\trunk\BlobbyWarriors\Build\Box2D\Box2D.vcxproj" ist abgeschlossen, build Ziel(e).
+     1>Die Erstellung des Projekts "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\Box2D\Box2D.vcxproj" ist abgeschlossen, build Ziel(e).
 
 Das Erstellen war erfolgreich.
 
+<<<<<<< .mine
+Verstrichene Zeit 00:00:00.12
+=======
 Verstrichene Zeit 00:00:00.19
+>>>>>>> .r34
