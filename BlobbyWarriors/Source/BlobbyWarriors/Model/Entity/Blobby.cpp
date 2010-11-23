@@ -282,7 +282,6 @@ void Blobby::draw()
 			glVertex2f(x - 12.0f, y + 4.0f);
 		glEnd();
 	}
-
 	//	AbstractEntity::draw();
 }
 

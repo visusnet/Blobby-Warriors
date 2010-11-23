@@ -49,33 +49,15 @@ void GraphicsEngine::initialize(int argc, char **argv)
 	// Set clear color.
 	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 
-//	TextureManager::getInstance()->loadTexture("data/images/spot.jpg");
-
-/*	glEnable(GL_LIGHTING);
-	GLfloat global_ambient[] = { 1.f, 1.0f, 1.f, 1.0f };
-	glLightModelfv(GL_LIGHT_MODEL_AMBIENT, global_ambient);
-	//GLfloat specular[] = {1.0f, 1.0f, 1.0f , 1.0f};
-	//glLightfv(GL_LIGHT0, GL_SPECULAR, specular);
-	//GLfloat ambient[] = { 1.0f, 1.0f, 1.0f };
-	//glLightfv(GL_LIGHT0, GL_AMBIENT, ambient);
-	GLfloat diffuse[] = { 1.0f, 1.0f, 1.0f };
-	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
-	GLfloat position[] = { 400.0f, 300.0f, 1.0f, 0.0f };
-	glLightfv(GL_LIGHT0, GL_POSITION, position);
-	glLoadIdentity();
-	glPushMatrix();
-
-	glEnable(GL_LIGHT0);*/
-
 	glDepthFunc(GL_ALWAYS);
 
 	// Set shading model.
 	glShadeModel(GL_SMOOTH);
 
-	Camera::getInstance()->subscribe(this);
-
 	// Initialize texture loader.
 	TextureLoader::initialize();
+
+	Camera::getInstance()->subscribe(this);
 }
 
 void GraphicsEngine::start()
@@ -207,8 +189,6 @@ GraphicsEngine::~GraphicsEngine()
 
 void GraphicsEngine::onKeyDown(unsigned char key, int x, int y)
 {
-//	debug("%c %i %i", key, x, y);
-
 	KeyboardHandler::getInstance()->setKeyDown(key);
 
 	switch (key)
@@ -235,15 +215,11 @@ void GraphicsEngine::onKeyDown(unsigned char key, int x, int y)
 
 void GraphicsEngine::onKeyUp(unsigned char key, int x, int y)
 {
-//	debug("%c %i %i", key, x, y);
-	
 	KeyboardHandler::getInstance()->setKeyUp(key);
 }
 
 void GraphicsEngine::onSpecialKeyDown(int key, int x, int y)
 {
-//	debug("%i %i %i", key, x, y);
-
 	KeyboardHandler::getInstance()->setKeyDown(static_cast<unsigned char>(key));
 
 	switch (key)
@@ -277,23 +253,17 @@ void GraphicsEngine::onSpecialKeyDown(int key, int x, int y)
 
 void GraphicsEngine::onSpecialKeyUp(int key, int x, int y)
 {
-//	debug("%i %i %i", key, x, y);
-
 	KeyboardHandler::getInstance()->setKeyUp(static_cast<unsigned char>(key));
 }
 
 void GraphicsEngine::onMouseButton(int button, int state, int x, int y)
 {
-//	debug("%i %i %i %i", button, state, x, y);	
-
 	b2Vec2 position = Camera::convertScreenToWorld(x, y);
 	MouseHandler::getInstance()->onMouseButton(button, state, x, y);
 }
 
 void GraphicsEngine::onMouseWheel(int wheel, int direction, int x, int y)
 {
-//	debug("%i %i %i %i", wheel, direction, x, y);
-
 	if (direction > 0)
 	{
 		(*Camera::getInstance()) /= 1.1f;
@@ -308,42 +278,26 @@ void GraphicsEngine::onMouseWheel(int wheel, int direction, int x, int y)
 
 void GraphicsEngine::onMouseMotion(int x, int y)
 {
-	//debug("%i %i", x, y);
 }
 
 void GraphicsEngine::onMousePassiveMotion(int x, int y)
 {
-	//debug("%i %i", x, y);
 }
 
 void GraphicsEngine::onMouseMove(int x, int y)
 {
-//	debug("%i %i", x, y);
-
 	MouseHandler::getInstance()->onMouseMove(x, y);
-}
-
-// TODO: Remove me! This is just for debugging purposes
-inline void drawPolygonAt(int x, int y)
-{
-	glColor3f(1.0f, 1.0f, 1.0f);
-	glBegin(GL_POLYGON);
-		glVertex3f(x +  0.0f, y +  0.0f, 0.0f);
-		glVertex3f(x + 10.0f, y +  0.0f, 0.0f);
-		glVertex3f(x + 10.0f, y + 10.0f, 0.0f);
-		glVertex3f(x +  0.0f, y + 10.0f, 0.0f);
-	glEnd();
 }
 
 void GraphicsEngine::onDraw()
 {
-	float fps = 1000.0f / (glutGet(GLUT_ELAPSED_TIME) - this->previousTicks);
+/*	float fps = 1000.0f / (glutGet(GLUT_ELAPSED_TIME) - this->previousTicks);
 	this->previousTicks = glutGet(GLUT_ELAPSED_TIME);
 
 	this->fpsValues.push_back(fps);
 	if (this->fpsValues.size() > 10) {
 		this->fpsValues.pop_front();
-	}
+	}*/
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -359,12 +313,6 @@ void GraphicsEngine::onDraw()
 //	drawString(610, 55, "Bodies:    %i", GameWorld::getInstance()->getPhysicsWorld()->GetBodyCount());
 //	drawString(610, 70, "Entities:  %i", GameWorld::getInstance()->getEntityCount());
 
-	// TODO: Draw everything
-/*	drawPolygonAt(0, 0);
-	drawPolygonAt(790, 590);
-	drawPolygonAt(0, 590);
-	drawPolygonAt(790, 0);
-	drawPolygonAt(395, 295);*/
 //	debug("FPS %f Ticks %i Entities %i", fps, glutGet(GLUT_ELAPSED_TIME) - this->previousTicks, GameWorld::getInstance()->getEntityCount());
 //	drawString(610, 85, "Gen. Time: %i ms", glutGet(GLUT_ELAPSED_TIME) - this->previousTicks);
 

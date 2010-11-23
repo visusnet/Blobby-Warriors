@@ -218,11 +218,6 @@ xcopy ..\..\data $(OutDir)data /E /Y</Command>
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\BoxFactory.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\GraphicFactory.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Graphic.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\System\Lock.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\System\Mutex.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\System\Runnable.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\System\Thread.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\System\Timeable.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\System\xml.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\Camera.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\GraphicsEngine.cpp" />
@@ -270,11 +265,6 @@ xcopy ..\..\data $(OutDir)data /E /Y</Command>
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\BoxFactory.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\GraphicFactory.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Graphic.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\System\Lock.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\System\Mutex.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\System\Runnable.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\System\Thread.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\System\Timeable.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\System\xml.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\Camera.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\Color.h" />

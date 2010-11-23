@@ -51,6 +51,7 @@ ILubyte* Image::getData()
 bool Image::loadFromFile(wchar_t *filename)
 {
 	// Load the image from file.
+	wcout << filename << endl;
 	ILboolean retval = ilLoadImage(filename);
 	if (!retval) {
 		ILenum error;

@@ -14,6 +14,8 @@
 #include "Logic/Simulator.h"
 #include "Logic/Drawer.h"
 
+#define PHYSICS_TIMESTEP 20
+
 using namespace std;
 
 class Main : public Subscriber
@@ -24,6 +26,8 @@ public:
 private:
 	Simulator *simulator;
 	GraphicsEngine *graphicsEngine;
+	int accum;
+	int previousTicks;
 };
 
 #endif

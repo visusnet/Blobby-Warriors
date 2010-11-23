@@ -118,21 +118,6 @@
     <ClCompile Include="..\..\Source\BlobbyWarriors\Main.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Debug.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\PublishSubscribe.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\System\Lock.cpp">
-      <Filter>System</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\BlobbyWarriors\System\Mutex.cpp">
-      <Filter>System</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\BlobbyWarriors\System\Runnable.cpp">
-      <Filter>System</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\BlobbyWarriors\System\Thread.cpp">
-      <Filter>System</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\BlobbyWarriors\System\Timeable.cpp">
-      <Filter>System</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Drawer.cpp">
       <Filter>Logic</Filter>
     </ClCompile>
@@ -308,21 +293,6 @@
     <ClInclude Include="..\..\Source\BlobbyWarriors\Main.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Debug.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\PublishSubscribe.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\System\Lock.h">
-      <Filter>System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\BlobbyWarriors\System\Mutex.h">
-      <Filter>System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\BlobbyWarriors\System\Runnable.h">
-      <Filter>System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\BlobbyWarriors\System\Thread.h">
-      <Filter>System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\BlobbyWarriors\System\Timeable.h">
-      <Filter>System</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Drawer.h">
       <Filter>Logic</Filter>
     </ClInclude>

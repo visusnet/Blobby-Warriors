@@ -12,7 +12,6 @@ class GameWorld;
 #include "Entity/Blobby.h"
 #include "../Logic/ContactListener.h"
 #include "../Debug.h"
-#include "../System/Mutex.h"
 
 using namespace std;
 
@@ -22,14 +21,13 @@ public:
 	static GameWorld* getInstance();
 
 	b2World* getPhysicsWorld();
-	void step();
+	void step(float timestep);
 	void addEntity(IEntity *entity);
 	IEntity* getEntity(unsigned int i);
 	unsigned int getEntityCount();
 	void destroyEntity(IEntity *entity);
 	void setCameraBlobby(Blobby *blobby);
 	Blobby* getCameraBlobby();
-	Mutex* getMutex();
 private:
 	GameWorld();
 	GameWorld(const GameWorld&);
@@ -41,7 +39,6 @@ private:
 	list<IEntity*> entities;
 	list<IEntity*> destroyableEntities;
 	Blobby *cameraBlobby;
-	Mutex *mutex;
 
 	class Guard
 	{

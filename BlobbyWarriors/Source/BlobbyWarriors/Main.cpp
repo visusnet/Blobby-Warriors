@@ -9,13 +9,15 @@ int main(int argc, char **argv)
 
 Main::Main(int argc, char **argv)
 {
+	this->accum = 0;
+	this->previousTicks = glutGet(GLUT_ELAPSED_TIME);
+
 	this->graphicsEngine = GraphicsEngine::getInstance();
-	this->graphicsEngine->subscribe(this);
 	this->graphicsEngine->initialize(argc, argv);
 
 	this->simulator = new Simulator();
-	this->simulator->setInterval(16);
-	this->simulator->start();
+
+	this->graphicsEngine->subscribe(this);
 
 	SoundManager::getInstance()->getEngine()->play2D("data/sound/vaporrush.ogg", true);
 
@@ -24,7 +26,17 @@ Main::Main(int argc, char **argv)
 
 void Main::update(Publisher *who, UpdateData *what)
 {
-	// old:
-	//	this->simulator->step();
-	Drawer::getInstance()->draw();
+/*	int start = glutGet(GLUT_ELAPSED_TIME);
+
+	this->accum += this->previousTicks;
+	while (accum > PHYSICS_TIMESTEP) {
+		this->accum -= PHYSICS_TIMESTEP;*/
+//	}
+
+	this->simulator->step(float(glutGet(GLUT_ELAPSED_TIME) - this->previousTicks));
+//	Drawer::getInstance()->draw();
+
+	this->previousTicks = glutGet(GLUT_ELAPSED_TIME);
+
+//	debug("prevTicks: %d", this->previousTicks);
 }

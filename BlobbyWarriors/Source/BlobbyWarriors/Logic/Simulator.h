@@ -19,18 +19,16 @@ class Simulator;
 #include "../Model/Entity/Factory/GraphicFactory.h"
 #include "../Model/Entity/Factory/BoxFactory.h"
 #include "../UI/Graphics/KeyboardHandler.h"
-#include "../System/Timeable.h"
 
-class Simulator : public Subscriber, public Timeable
+class Simulator : public Subscriber
 {
 public:
 	Simulator();
 	~Simulator();
-	void step();
+	void step(float timestep);
 	void destroyEntities(list<IEntity*> entities);
 //	b2Vec2 getActorPosition();
 	void update(Publisher *who, UpdateData *what);
-	void tick();
 private:
 	Level *level;
 	GameWorld *gameWorld;

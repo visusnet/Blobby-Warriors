@@ -26,7 +26,7 @@ void Drawer::draw()
 	}
 
 	//Texturizer::draw(this->texture, pixel2meter(Camera::getInstance()->getViewCenter().x), pixel2meter(300), 0);
-	Texturizer::draw(this->texture, 0, 0);
+	//Texturizer::draw(this->texture, 0, 0);
 
 	for (unsigned int i = 0; i < gameWorld->getEntityCount(); i++) {
 		IEntity *entity = gameWorld->getEntity(i);
@@ -37,8 +37,7 @@ void Drawer::draw()
 Drawer::Drawer()
 {
 	//this->texture = TextureLoader::createTexture(L"data/images/background/wall.jpg");
-	this->texture = TextureLoader::createTexture(L"data/levels/Diamond Mine/vorne1.jpg");
-
+	this->texture = TextureLoader::createTexture(L"data/levels/DiamondMine/vorne1.jpg");
 }
 
 Drawer::~Drawer()
