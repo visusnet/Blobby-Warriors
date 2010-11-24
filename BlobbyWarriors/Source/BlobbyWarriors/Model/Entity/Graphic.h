@@ -14,6 +14,8 @@ public:
 	float getX();
 	void setY(float y);
 	float getY();
+	void setAngle(float angle);
+	float getAngle();
 	void setWidth(float width);
 	float getWidth();
 	void setHeight(float height);
@@ -23,6 +25,7 @@ public:
 private:
 	float x;
 	float y;
+	float angle;
 	float width;
 	float height;
 	float depth;

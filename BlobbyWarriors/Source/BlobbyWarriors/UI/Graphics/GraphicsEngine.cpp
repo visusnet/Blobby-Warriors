@@ -57,6 +57,7 @@ void GraphicsEngine::initialize(int argc, char **argv)
 	// Initialize texture loader.
 	TextureLoader::initialize();
 
+	// Subscribe to camera to change viewport ortho.
 	Camera::getInstance()->subscribe(this);
 }
 
@@ -72,49 +73,6 @@ void GraphicsEngine::update(Publisher *who, UpdateData *what)
 	if (cameraEventArgs != 0) {
 		this->onReshape();
 	}
-}
-
-float GraphicsEngine::getFps()
-{
-	float sum = 0;
-	for (list<float>::iterator it = this->fpsValues.begin(); it != this->fpsValues.end(); it++) {
-		sum += *it;
-	}
-	return sum / this->fpsValues.size();
-}
-
-void GraphicsEngine::drawString(int x, int y, const char *string, ...)
-{
-	char buffer[128];
-
-	va_list arg;
-	va_start(arg, string);
-	vsprintf(buffer, string, arg);
-	va_end(arg);
-
-	glMatrixMode(GL_PROJECTION);
-	glPushMatrix();
-	glLoadIdentity();
-	int w = glutGet(GLUT_WINDOW_WIDTH);
-	int h = glutGet(GLUT_WINDOW_HEIGHT);
-	gluOrtho2D(0, w, h, 0);
-	glMatrixMode(GL_MODELVIEW);
-	glPushMatrix();
-	glLoadIdentity();
-
-	glColor3f(1.0f, 1.0f, 1.0f);
-//	glColor3f(0.9f, 0.6f, 0.6f);
-	glRasterPos2i(x, y);
-	int32 length = (int32)strlen(buffer);
-	for (int32 i = 0; i < length; ++i)
-	{
-		glutBitmapCharacter(GLUT_BITMAP_8_BY_13, buffer[i]);
-	}
-
-	glPopMatrix();
-	glMatrixMode(GL_PROJECTION);
-	glPopMatrix();
-	glMatrixMode(GL_MODELVIEW);
 }
 
 void GraphicsEngine::onKeyDownCallback(unsigned char key, int x, int y)
@@ -180,7 +138,6 @@ GraphicsEngine::GraphicsEngine()
 	this->mainWindow = 0;
 	this->isFullScreen = false;
 	Camera::getInstance()->setWindowSize(WIDTH, HEIGHT);
-	this->previousTicks = glutGet(GLUT_ELAPSED_TIME);
 }
 
 GraphicsEngine::~GraphicsEngine()
@@ -291,30 +248,12 @@ void GraphicsEngine::onMouseMove(int x, int y)
 
 void GraphicsEngine::onDraw()
 {
-/*	float fps = 1000.0f / (glutGet(GLUT_ELAPSED_TIME) - this->previousTicks);
-	this->previousTicks = glutGet(GLUT_ELAPSED_TIME);
-
-	this->fpsValues.push_back(fps);
-	if (this->fpsValues.size() > 10) {
-		this->fpsValues.pop_front();
-	}*/
-
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
 	this->notify();
-
-	drawString(20, 540, "1 = Flamethrower | 2 = Machine Gun | B = Create Blobby | N = Create Box");
-	drawString(20, 555, "W,A,S,D = Move | Mouse = Aim and Fire");
-
-//	drawString(610, 40, "FPS:       %f", fps);
-//	drawString(610, 55, "Bodies:    %i", GameWorld::getInstance()->getPhysicsWorld()->GetBodyCount());
-//	drawString(610, 70, "Entities:  %i", GameWorld::getInstance()->getEntityCount());
-
-//	debug("FPS %f Ticks %i Entities %i", fps, glutGet(GLUT_ELAPSED_TIME) - this->previousTicks, GameWorld::getInstance()->getEntityCount());
-//	drawString(610, 85, "Gen. Time: %i ms", glutGet(GLUT_ELAPSED_TIME) - this->previousTicks);
 
 	glutSwapBuffers();
 }

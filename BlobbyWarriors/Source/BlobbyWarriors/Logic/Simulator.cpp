@@ -1,6 +1,6 @@
 #include "Simulator.h"
 
-Simulator::Simulator()
+Simulator::Simulator(Level *level)
 {
 	KeyboardHandler::getInstance()->subscribe(this);
 
@@ -93,7 +93,7 @@ Simulator::Simulator()
 	entityFactory->create(properties);
 
 	// TODO: Level setup, etc.
-//	this->level = new Level();
+	level->initialize();
 }
 
 Simulator::~Simulator()
@@ -105,7 +105,7 @@ void Simulator::step(float timestep)
 {
 	this->gameWorld->step(timestep);
 
-	b2Vec2 p = Camera::convertWorldToScreen(meter2pixel(this->gameWorld->getCameraBlobby()->getBody(0)->GetPosition().x), 300.0f);
+/*	b2Vec2 p = Camera::convertWorldToScreen(meter2pixel(this->gameWorld->getCameraBlobby()->getBody(0)->GetPosition().x), 300.0f);
 	if (p.x < 300) {
 		Camera::getInstance()->setViewCenter(Camera::convertScreenToWorld(400 - (300 - int(p.x)), 300));
 	} else if (p.x > 500) {
@@ -116,10 +116,10 @@ void Simulator::step(float timestep)
 
 	//Texturizer::draw(this->texture, pixel2meter(Camera::getInstance()->getViewCenter().x), pixel2meter(300), 0);
 
-	for (unsigned int i = 0; i < this->gameWorld->getEntityCount(); i++) {
+/*	for (unsigned int i = 0; i < this->gameWorld->getEntityCount(); i++) {
 		IEntity *entity = this->gameWorld->getEntity(i);
 		entity->draw();
-	}
+	}*/
 }
 
 /*b2Vec2 Simulator::getActorPosition()

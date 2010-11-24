@@ -10,6 +10,8 @@ class Drawer
 public:
 	static Drawer* getInstance();
 	void draw();
+
+	static void drawString(int x, int y, const char *string, ...);
 private:
 	Drawer();
 	Drawer(const Drawer&);

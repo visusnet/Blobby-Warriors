@@ -27,7 +27,6 @@ void GameWorld::step(float timestep)
 	this->destroyableEntities.clear();
 
 	this->world->Step(timestep, 10, 10);
-//	this->world->Step(1.0f / GraphicsEngine::getInstance()->getFps(), 10, 10);
 
 	for (list<IEntity*>::iterator it = this->entities.begin(); it != this->entities.end(); ++it) {
 		(*it)->step();

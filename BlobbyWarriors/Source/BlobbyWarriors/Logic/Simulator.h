@@ -23,7 +23,7 @@ class Simulator;
 class Simulator : public Subscriber
 {
 public:
-	Simulator();
+	Simulator(Level *level);
 	~Simulator();
 	void step(float timestep);
 	void destroyEntities(list<IEntity*> entities);

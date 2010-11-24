@@ -9,13 +9,13 @@ int main(int argc, char **argv)
 
 Main::Main(int argc, char **argv)
 {
-	this->accum = 0;
+	this->accumilator = 0;
 	this->previousTicks = glutGet(GLUT_ELAPSED_TIME);
 
 	this->graphicsEngine = GraphicsEngine::getInstance();
 	this->graphicsEngine->initialize(argc, argv);
 
-	this->simulator = new Simulator();
+	this->simulator = new Simulator(new Level());
 
 	this->graphicsEngine->subscribe(this);
 
@@ -26,17 +26,15 @@ Main::Main(int argc, char **argv)
 
 void Main::update(Publisher *who, UpdateData *what)
 {
-/*	int start = glutGet(GLUT_ELAPSED_TIME);
+	int deltaTime = min(max(glutGet(GLUT_ELAPSED_TIME) - this->previousTicks, 0), 1000);
+	this->accumilator += deltaTime / 1000.0f;
+	float timeStep = 1.0f / 62.5f;
+	while (accumilator > timeStep) {
+		this->simulator->step(timeStep);
+		this->accumilator -= timeStep;
+	}
 
-	this->accum += this->previousTicks;
-	while (accum > PHYSICS_TIMESTEP) {
-		this->accum -= PHYSICS_TIMESTEP;*/
-//	}
-
-	this->simulator->step(float(glutGet(GLUT_ELAPSED_TIME) - this->previousTicks));
-//	Drawer::getInstance()->draw();
+	Drawer::getInstance()->draw();
 
 	this->previousTicks = glutGet(GLUT_ELAPSED_TIME);
-
-//	debug("prevTicks: %d", this->previousTicks);
 }

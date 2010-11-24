@@ -2,7 +2,7 @@
 
 void Graphic::draw()
 {
-	Texturizer::draw(this->getTexture(0), this->x, this->y, this->getTexture(0)->getWidth(), this->getTexture(0)->getHeight());
+	Texturizer::draw(this->getTexture(0), this->x, this->y, this->angle, this->getTexture(0)->getWidth(), this->getTexture(0)->getHeight());
 }
 
 void Graphic::setX(float x)
@@ -23,6 +23,16 @@ void Graphic::setY(float y)
 float Graphic::getY()
 {
 	return this->y;
+}
+
+void Graphic::setAngle(float angle)
+{
+	this->angle = angle;
+}
+
+float Graphic::getAngle()
+{
+	return this->angle;
 }
 
 void Graphic::setWidth(float width)

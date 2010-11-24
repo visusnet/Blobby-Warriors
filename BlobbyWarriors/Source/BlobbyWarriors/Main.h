@@ -26,7 +26,7 @@ public:
 private:
 	Simulator *simulator;
 	GraphicsEngine *graphicsEngine;
-	int accum;
+	float accumilator;
 	int previousTicks;
 };
 
