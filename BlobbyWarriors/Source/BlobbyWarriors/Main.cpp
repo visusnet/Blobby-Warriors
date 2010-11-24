@@ -30,16 +30,17 @@ void Main::update(Publisher *who, UpdateData *what)
 	}
 
 	if (this->simulator != 0) {
-		int deltaTime = min(max(glutGet(GLUT_ELAPSED_TIME) - this->previousTicks, 0), 1000);
+        int currentTicks = glutGet(GLUT_ELAPSED_TIME);
+        int deltaTime = min(max(currentTicks - this->previousTicks, 0), 1000);
 		this->accumulator += deltaTime / 1000.0f;
-		float timeStep = 1.0f / 62.5f;
+		float timeStep = 1.0f / 60.5f;
 		while (this->accumulator > timeStep) {
 			this->simulator->step(timeStep);
 			this->accumulator -= timeStep;
 		}
 		Drawer::getInstance()->drawSimulation();
 
-		this->previousTicks = glutGet(GLUT_ELAPSED_TIME);
+		this->previousTicks = currentTicks;
 	} else if (this->isLoading) {
 		Drawer::getInstance()->drawLoadScreen();
 	} else {
