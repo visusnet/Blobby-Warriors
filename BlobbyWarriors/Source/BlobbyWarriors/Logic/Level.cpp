@@ -7,7 +7,7 @@ Level::Level()
 
 void Level::initialize()
 {
-	this->parseXMLFile("data/levels/Diamond Mine/level.xml");
+	this->parseXMLFile("data/levels/DiamondMine/level.xml");
 }
 
 void Level::parseXMLFile(const char *uri)
