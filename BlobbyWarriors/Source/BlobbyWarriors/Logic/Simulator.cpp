@@ -94,6 +94,9 @@ Simulator::Simulator(Level *level)
 
 	// TODO: Level setup, etc.
 	level->initialize();
+
+	// TODO: Shouldn't be here.
+	SoundManager::getInstance()->getEngine()->play2D("data/sound/vaporrush.ogg", true);
 }
 
 Simulator::~Simulator()
@@ -104,28 +107,7 @@ Simulator::~Simulator()
 void Simulator::step(float timestep)
 {
 	this->gameWorld->step(timestep);
-
-/*	b2Vec2 p = Camera::convertWorldToScreen(meter2pixel(this->gameWorld->getCameraBlobby()->getBody(0)->GetPosition().x), 300.0f);
-	if (p.x < 300) {
-		Camera::getInstance()->setViewCenter(Camera::convertScreenToWorld(400 - (300 - int(p.x)), 300));
-	} else if (p.x > 500) {
-		Camera::getInstance()->setViewCenter(Camera::convertScreenToWorld(400 + (int(p.x) - 500), 300));
-	}
-
-	Camera::getInstance()->setViewCenter(b2Vec2(meter2pixel(this->gameWorld->getCameraBlobby()->getBody(0)->GetPosition().x), 300.0f));
-
-	//Texturizer::draw(this->texture, pixel2meter(Camera::getInstance()->getViewCenter().x), pixel2meter(300), 0);
-
-/*	for (unsigned int i = 0; i < this->gameWorld->getEntityCount(); i++) {
-		IEntity *entity = this->gameWorld->getEntity(i);
-		entity->draw();
-	}*/
 }
-
-/*b2Vec2 Simulator::getActorPosition()
-{
-	return meter2pixel(this->cameraBlobby->getBody(0)->GetPosition());
-}*/
 
 void Simulator::update(Publisher *who, UpdateData *what)
 {

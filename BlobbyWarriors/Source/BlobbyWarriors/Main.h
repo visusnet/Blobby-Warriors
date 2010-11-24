@@ -24,10 +24,13 @@ public:
 	Main(int argc, char **argv);
 	void update(Publisher *who, UpdateData *what = 0);
 private:
+	void handleKeyEvent(KeyEventArgs *eventArgs);
+
 	Simulator *simulator;
 	GraphicsEngine *graphicsEngine;
-	float accumilator;
+	float accumulator;
 	int previousTicks;
+	bool isLoading;
 };
 
 #endif

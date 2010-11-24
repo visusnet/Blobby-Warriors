@@ -9,7 +9,7 @@ Drawer* Drawer::getInstance()
 	return Drawer::instance;
 }
 
-void Drawer::draw()
+void Drawer::drawSimulation()
 {
 	GameWorld *gameWorld = GameWorld::getInstance();
 	Blobby *cameraBlobby = gameWorld->getCameraBlobby();
@@ -37,6 +37,49 @@ void Drawer::draw()
 	drawString(20, 555, "W,A,S,D = Move | Mouse = Aim and Fire");
 }
 
+void Drawer::drawMenu()
+{
+	drawString(300, 295, new Color(0.0f, 0.0f, 0.0f), "Press any key to start...");
+}
+
+void Drawer::drawLoadScreen()
+{
+	drawString(375, 295, new Color(0.0f, 0.0f, 0.0f), "Loading...");
+}
+
+void Drawer::drawString(int x, int y, Color *color, const char *string, ...)
+{
+	char buffer[128];
+
+	va_list arg;
+	va_start(arg, string);
+	vsprintf(buffer, string, arg);
+	va_end(arg);
+
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+	glLoadIdentity();
+	int w = glutGet(GLUT_WINDOW_WIDTH);
+	int h = glutGet(GLUT_WINDOW_HEIGHT);
+	gluOrtho2D(0, w, h, 0);
+	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix();
+	glLoadIdentity();
+
+	glColor4f(color->r, color->g, color->b, color->a);
+	glRasterPos2i(x, y);
+	int32 length = (int32)strlen(buffer);
+	for (int32 i = 0; i < length; ++i)
+	{
+		glutBitmapCharacter(GLUT_BITMAP_8_BY_13, buffer[i]);
+	}
+
+	glPopMatrix();
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+	glMatrixMode(GL_MODELVIEW);
+}
+
 void Drawer::drawString(int x, int y, const char *string, ...)
 {
 	char buffer[128];
@@ -57,7 +100,6 @@ void Drawer::drawString(int x, int y, const char *string, ...)
 	glLoadIdentity();
 
 	glColor3f(1.0f, 1.0f, 1.0f);
-//	glColor3f(0.9f, 0.6f, 0.6f);
 	glRasterPos2i(x, y);
 	int32 length = (int32)strlen(buffer);
 	for (int32 i = 0; i < length; ++i)

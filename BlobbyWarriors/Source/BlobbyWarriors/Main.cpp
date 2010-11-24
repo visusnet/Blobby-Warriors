@@ -9,32 +9,51 @@ int main(int argc, char **argv)
 
 Main::Main(int argc, char **argv)
 {
-	this->accumilator = 0;
+	this->accumulator = 0;
 	this->previousTicks = glutGet(GLUT_ELAPSED_TIME);
+	this->simulator = 0;
+	this->isLoading = false;
+
+	KeyboardHandler::getInstance()->subscribe(this);
 
 	this->graphicsEngine = GraphicsEngine::getInstance();
 	this->graphicsEngine->initialize(argc, argv);
-
-	this->simulator = new Simulator(new Level());
-
 	this->graphicsEngine->subscribe(this);
-
-	SoundManager::getInstance()->getEngine()->play2D("data/sound/vaporrush.ogg", true);
-
 	this->graphicsEngine->start();
 }
 
 void Main::update(Publisher *who, UpdateData *what)
 {
-	int deltaTime = min(max(glutGet(GLUT_ELAPSED_TIME) - this->previousTicks, 0), 1000);
-	this->accumilator += deltaTime / 1000.0f;
-	float timeStep = 1.0f / 62.5f;
-	while (accumilator > timeStep) {
-		this->simulator->step(timeStep);
-		this->accumilator -= timeStep;
+	KeyEventArgs *keyEventArgs = dynamic_cast<KeyEventArgs*>(what);
+	if (keyEventArgs != 0) {
+		this->handleKeyEvent(keyEventArgs);
 	}
 
-	Drawer::getInstance()->draw();
+	if (this->simulator != 0) {
+		int deltaTime = min(max(glutGet(GLUT_ELAPSED_TIME) - this->previousTicks, 0), 1000);
+		this->accumulator += deltaTime / 1000.0f;
+		float timeStep = 1.0f / 62.5f;
+		while (this->accumulator > timeStep) {
+			this->simulator->step(timeStep);
+			this->accumulator -= timeStep;
+		}
+		Drawer::getInstance()->drawSimulation();
 
-	this->previousTicks = glutGet(GLUT_ELAPSED_TIME);
+		this->previousTicks = glutGet(GLUT_ELAPSED_TIME);
+	} else if (this->isLoading) {
+		Drawer::getInstance()->drawLoadScreen();
+	} else {
+		Drawer::getInstance()->drawMenu();
+	}
+}
+
+void Main::handleKeyEvent(KeyEventArgs *eventArgs)
+{
+	if (this->simulator == 0) {
+		this->isLoading = true;
+		// TODO: Put this into another thread, so we can wait
+		// until the simulator is initialized.
+		this->simulator = new Simulator(new Level());
+		this->isLoading = false;
+	}
 }

@@ -9,8 +9,11 @@ class Drawer
 {
 public:
 	static Drawer* getInstance();
-	void draw();
-
+	void drawSimulation();
+	void drawMenu();
+	void drawLoadScreen();
+	
+	static void drawString(int x, int y, Color *color, const char *string, ...);
 	static void drawString(int x, int y, const char *string, ...);
 private:
 	Drawer();
