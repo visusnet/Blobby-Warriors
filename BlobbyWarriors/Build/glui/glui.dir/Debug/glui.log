@@ -1,26 +1,17 @@
-<<<<<<< .mine
-﻿Der Buildvorgang wurde am 20.11.2010 05:32:18 gestartet.
-     1>Projekt "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\glui\glui.vcxproj" auf Knoten "3", build Ziel(e).
-=======
-﻿Der Buildvorgang wurde am 20.11.2010 05:44:59 gestartet.
-     1>Projekt "D:\Babeltech\Projects\BoW\trunk\BlobbyWarriors\Build\glui\glui.vcxproj" auf Knoten "3", build Ziel(e).
->>>>>>> .r34
+﻿Der Buildvorgang wurde am 25.11.2010 13:09:53 gestartet.
+     1>Projekt "C:\Users\visus\Documents\Visual Studio 2010\Projects\BlobbyWarriors\BlobbyWarriors\Build\glui\glui.vcxproj" auf Knoten "3", build Ziel(e).
      1>InitializeBuildStatus:
          "glui.dir\Debug\glui.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
        ClCompile:
          Alle Ausgaben sind aktuell.
        Lib:
          Alle Ausgaben sind aktuell.
-         glui.vcxproj -> C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\glui\..\..\Debug\glui.lib
+         glui.vcxproj -> C:\Users\visus\Documents\Visual Studio 2010\Projects\BlobbyWarriors\BlobbyWarriors\Build\glui\..\..\Debug\glui.lib
        FinalizeBuildStatus:
          Die Datei "glui.dir\Debug\glui.unsuccessfulbuild" wird gelöscht.
          Aktualisieren des Timestamps von "glui.dir\Debug\glui.lastbuildstate".
-     1>Die Erstellung des Projekts "C:\Users\visus\Desktop\Blobby\trunk\BlobbyWarriors\Build\glui\glui.vcxproj" ist abgeschlossen, build Ziel(e).
+     1>Die Erstellung des Projekts "C:\Users\visus\Documents\Visual Studio 2010\Projects\BlobbyWarriors\BlobbyWarriors\Build\glui\glui.vcxproj" ist abgeschlossen, build Ziel(e).
 
 Das Erstellen war erfolgreich.
 
-<<<<<<< .mine
-Verstrichene Zeit 00:00:00.09
-=======
-Verstrichene Zeit 00:00:00.15
->>>>>>> .r34
+Verstrichene Zeit 00:00:00.13
