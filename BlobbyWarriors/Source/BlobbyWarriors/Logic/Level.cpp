@@ -39,31 +39,24 @@ void Level::parseXMLFile(const char *uri)
 	xmlDoc->CompressMemory();
 
 	XMLElement *rootNode = xmlDoc->GetRootElement();
-	int numChildren = rootNode->GetChildrenNum();
 
-	// Iterate over all elements.
-	for(int i = 0; i < numChildren; i++) {
-		XMLElement* element = rootNode->GetChildren()[i];
+	this->parseElement(rootNode);
 
-		// Get element name.
-		char* elementName = new char[element->GetElementName(0) + 1];
-		element->GetElementName(elementName);
-
-		XMLVariable** variables = element->GetVariables();
-
-		this->parseElement(elementName, variables);
-
-		delete[] elementName;
-	}
 	delete xmlDoc;
 }
 
-void Level::parseElement(char *elementName, XMLVariable **variables)
+void Level::parseElement(XMLElement *element)
 {
 	EntityFactory *entityFactory = 0;
 	EntityProperties *properties = 0;
 
-	if(strncmp(elementName, "GroundLine", sizeof(elementName)) == 0) {
+	// Get element name.
+	char* elementName = new char[element->GetElementName(0) + 1];
+	element->GetElementName(elementName);
+
+	XMLVariable** variables = element->GetVariables();
+
+	if(strncmp(elementName, "Ground", sizeof(elementName)) == 0) {
 		// TODO: The position of the XML attribute shouldn't be relevant.
 		b2Vec2 position1 = b2Vec2(variables[0][0].GetValueFloat(), variables[1][0].GetValueFloat());
 		b2Vec2 position2 = b2Vec2(variables[2][0].GetValueFloat(), variables[3][0].GetValueFloat());
@@ -88,7 +81,17 @@ void Level::parseElement(char *elementName, XMLVariable **variables)
 		properties->width = length;
 		properties->height = 10;
 		properties->angle = angle;
+	} else {
+		int numChildren = element->GetChildrenNum();
+		// Iterate over all elements.
+		for(int i = 0; i < numChildren; i++) {
+			XMLElement* childElement = element->GetChildren()[i];
+
+			this->parseElement(childElement);
+		}
 	}
+
+	delete[] elementName;
 
 	if (entityFactory != 0 && properties != 0) {
 		entityFactory->create(*properties);

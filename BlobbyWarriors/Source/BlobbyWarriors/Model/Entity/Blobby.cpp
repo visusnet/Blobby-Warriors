@@ -234,18 +234,6 @@ void Blobby::update(Publisher *who, UpdateData *what)
 
 void Blobby::draw()
 {
-/*	int wallDirection = 0;
-	GraphicsEngine::drawString(35,  40, "isOnGround     = %s", this->isOnGround ? "true" : "false");
-	GraphicsEngine::drawString(35,  55, "inJumping      = %s", this->isJumping ? "true" : "false");
-	GraphicsEngine::drawString(35,  70, "isRotating     = %s", this->isRotating ? "true" : "false");
-	GraphicsEngine::drawString(35,  85, "isTouchingWall = %s (%i)", this->isTouchingWall ? "true" : "false", this->wallDirection);
-	GraphicsEngine::drawString(35, 100, "isWalking      = %s", this->isWalking ? "true" : "false");
-	GraphicsEngine::drawString(35, 115, "activeTexture  = %i", this->activeTexture);
-	GraphicsEngine::drawString(35, 130, "health         = %i / %i", this->health, this->maxHealth);
-	GraphicsEngine::drawString(35, 145, "isAwake        = %s", this->getBody(0)->IsAwake() ? "true" : "false");
-	GraphicsEngine::drawString(35, 160, "isActive       = %s", this->getBody(0)->IsActive() ? "true" : "false");
-	GraphicsEngine::drawString(35, 175, "isSleepingAll'd= %s", this->getBody(0)->IsSleepingAllowed() ? "true" : "false");
-	*/
 	float x = this->getBody(0)->GetPosition().x;
 	float y = this->getBody(0)->GetPosition().y;
 	float angle = this->getBody(0)->GetAngle();

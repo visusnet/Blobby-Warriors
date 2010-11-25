@@ -94,8 +94,8 @@ template <class InIter, class OutIter>
 class MimeCoder
 {
 public:
-	 virtual OutIter Filter( OutIter out, InIter inBeg, InIter inEnd ) = 0;
-    virtual OutIter Finish( OutIter out ) = 0;
+	virtual OutIter Filter( OutIter out, InIter inBeg, InIter inEnd ) = 0;
+	virtual OutIter Finish( OutIter out ) = 0;
 };
 
 /******************************************************************************
@@ -105,29 +105,29 @@ template <class InIter, class OutIter>
 class Base64Encoder : public MimeCoder<InIter, OutIter>
 {
 public:
-    Base64Encoder() : its3Len(0), itsLinePos(0) {}
-    virtual OutIter Filter( OutIter out, InIter inBeg, InIter inEnd );
-	 virtual OutIter Finish( OutIter out );
+	Base64Encoder() : its3Len(0), itsLinePos(0) {}
+	virtual OutIter Filter( OutIter out, InIter inBeg, InIter inEnd );
+	virtual OutIter Finish( OutIter out );
 private:
-    int             itsLinePos;
-	 unsigned char   itsCurr3[3];
-    int             its3Len;
-    void EncodeCurr3( OutIter& out );
+	int             itsLinePos;
+	unsigned char   itsCurr3[3];
+	int             its3Len;
+	void EncodeCurr3( OutIter& out );
 };
 
 template <class InIter, class OutIter>
 class Base64Decoder : public MimeCoder<InIter, OutIter>
 {
 public:
-    Base64Decoder() : its4Len(0), itsEnded(0) {}
-    virtual OutIter Filter( OutIter out, InIter inBeg, InIter inEnd );
-	 virtual OutIter Finish( OutIter out );
+	Base64Decoder() : its4Len(0), itsEnded(0) {}
+	virtual OutIter Filter( OutIter out, InIter inBeg, InIter inEnd );
+	virtual OutIter Finish( OutIter out );
 private:
-    int             itsEnded;
-    unsigned char   itsCurr4[4];
-    int             its4Len;
-	 int             itsErrNum;
-    void DecodeCurr4( OutIter& out );
+	int             itsEnded;
+	unsigned char   itsCurr4[4];
+	int             its4Len;
+	int             itsErrNum;
+	void DecodeCurr4( OutIter& out );
 };
 
 /******************************************************************************

@@ -34,12 +34,16 @@ struct EntityProperties
 	bool special;
 };
 
-class EntityFactory
+#include "IPreloadable.h"
+
+class EntityFactory : public IPreloadable
 {
 public:
 	IEntity* create();
 	virtual IEntity* create(const EntityProperties& properties) = 0;
 	virtual EntityProperties& getDefaultProperties() = 0;
+
+	virtual void preload(EntityProperties& properties);
 };
 
 #include "../../GameWorld.h"

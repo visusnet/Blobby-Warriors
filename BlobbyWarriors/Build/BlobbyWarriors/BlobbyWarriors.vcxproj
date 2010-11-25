@@ -214,10 +214,6 @@ xcopy ..\..\data $(OutDir)data /E /Y</Command>
     <ClCompile Include="..\..\Source\BlobbyWarriors\Debug.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Drawer.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Main.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Box.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\BoxFactory.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\GraphicFactory.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Graphic.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\System\xml.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\Camera.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\GraphicsEngine.cpp" />
@@ -228,6 +224,7 @@ xcopy ..\..\data $(OutDir)data /E /Y</Command>
     <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\TextureLoader.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\TextureManager.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Graphics\Texturizer.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Sound\SoundManager.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\ContactListener.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\AbstractController.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\BotController.cpp" />
@@ -235,6 +232,10 @@ xcopy ..\..\data $(OutDir)data /E /Y</Command>
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Controller\PlayerController.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Level.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Logic\Simulator.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Box.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\BoxFactory.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\GraphicFactory.cpp" />
+    <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Graphic.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\AbstractEntity.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\AbstractWeapon.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Blobby.cpp" />
@@ -255,16 +256,11 @@ xcopy ..\..\data $(OutDir)data /E /Y</Command>
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\Entity\Skateboard.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\Model\GameWorld.cpp" />
     <ClCompile Include="..\..\Source\BlobbyWarriors\PublishSubscribe.cpp" />
-    <ClCompile Include="..\..\Source\BlobbyWarriors\UI\Sound\SoundManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\BlobbyWarriors\Debug.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Drawer.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Main.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Box.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\BoxFactory.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\GraphicFactory.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Graphic.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\System\xml.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\Camera.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\Color.h" />
@@ -277,6 +273,7 @@ xcopy ..\..\data $(OutDir)data /E /Y</Command>
     <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\TextureLoader.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\TextureManager.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Graphics\Texturizer.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Sound\SoundManager.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\ContactListener.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\AbstractController.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\BotController.h" />
@@ -285,6 +282,11 @@ xcopy ..\..\data $(OutDir)data /E /Y</Command>
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Controller\PlayerController.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Level.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Logic\Simulator.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Box.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\BoxFactory.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\GraphicFactory.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Graphic.h" />
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\IPreloadable.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\AbstractEntity.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\AbstractWeapon.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Blobby.h" />
@@ -307,7 +309,6 @@ xcopy ..\..\data $(OutDir)data /E /Y</Command>
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\GameWorld.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\PhysicsUtils.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\PublishSubscribe.h" />
-    <ClInclude Include="..\..\Source\BlobbyWarriors\UI\Sound\SoundManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

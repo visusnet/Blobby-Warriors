@@ -9,6 +9,8 @@ class BlobbyFactory : public EntityFactory
 public:
 	IEntity* create(const EntityProperties& properties);
 	EntityProperties& getDefaultProperties();
+
+	void preload(EntityProperties& properties);
 };
 
 #endif

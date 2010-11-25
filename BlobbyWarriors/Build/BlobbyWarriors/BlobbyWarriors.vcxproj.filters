@@ -305,5 +305,8 @@
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\Factory\GraphicFactory.h">
       <Filter>Model\Entity\Factory</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\BlobbyWarriors\Model\Entity\IPreloadable.h">
+      <Filter>Model\Entity\Factory</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

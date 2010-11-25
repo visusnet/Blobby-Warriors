@@ -89,3 +89,12 @@ EntityProperties& BlobbyFactory::getDefaultProperties()
 	properties->y = 0;
 	return *properties;
 }
+
+void BlobbyFactory::preload(EntityProperties& properties)
+{
+	TextureManager::getInstance()->loadTexture(L"data/images/blobby/blobbym1.bmp", properties.color, new Color(0, 0, 0));
+	TextureManager::getInstance()->loadTexture(L"data/images/blobby/blobbym2.bmp", properties.color, new Color(0, 0, 0));
+	TextureManager::getInstance()->loadTexture(L"data/images/blobby/blobbym3.bmp", properties.color, new Color(0, 0, 0));
+	TextureManager::getInstance()->loadTexture(L"data/images/blobby/blobbym4.bmp", properties.color, new Color(0, 0, 0));
+	TextureManager::getInstance()->loadTexture(L"data/images/blobby/blobbym5.bmp", properties.color, new Color(0, 0, 0));
+}

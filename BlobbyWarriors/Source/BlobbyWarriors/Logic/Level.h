@@ -13,7 +13,7 @@ public:
 	void initialize();
 private:
 	void parseXMLFile(const char *uri);
-	void parseElement(char *elementName, XMLVariable **variables);
+	void parseElement(XMLElement *element);
 };
 
 #endif
