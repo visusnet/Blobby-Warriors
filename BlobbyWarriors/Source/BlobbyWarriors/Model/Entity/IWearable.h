@@ -3,7 +3,9 @@
 
 class IWearable
 {
-
+	public:
+	IWearable();
+	int* carrier;
 };
 
 #endif

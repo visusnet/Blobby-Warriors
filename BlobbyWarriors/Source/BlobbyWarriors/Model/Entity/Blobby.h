@@ -69,6 +69,9 @@ public:
 	int getHealth();
 	void setMaxHealth(int maxHealth);
 	int getMaxHealth();
+	void setDirection(int direction);
+	void setViewDirection(int viewDirection);
+	int getViewDirection();
 private:
 	bool checkIsOnGround();
 	bool checkIsTouchingWall(int *wallDirection);
@@ -86,6 +89,8 @@ private:
 	bool isTouchingWall;
 	float angle;
 	int direction;
+	int viewDirection;
+	int rotateDirection;
 	int wallDirection;
 	list<ContactPoint*> contactPoints;
 	int health;

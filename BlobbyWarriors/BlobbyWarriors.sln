@@ -1,6 +1,5 @@
-
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "freeglut_static", "Build\freeglut\freeglut_static.vcxproj", "{180C5F46-8A7A-4C66-93BF-A298FEB0097F}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glui", "Build\glui\glui.vcxproj", "{D32E9583-F136-46C5-9A24-B253C7C14DFD}"
@@ -8,17 +7,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Box2D", "Build\Box2D\Box2D.vcxproj", "{222F08E6-3A53-405C-86A7-66FF96DD42FF}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BlobbyWarriors", "Build\BlobbyWarriors\BlobbyWarriors.vcxproj", "{A6C39D4E-7F0F-4DFC-A82C-06B829B7704C}"
-	ProjectSection(ProjectDependencies) = postProject
-		{180C5F46-8A7A-4C66-93BF-A298FEB0097F} = {180C5F46-8A7A-4C66-93BF-A298FEB0097F}
-		{D32E9583-F136-46C5-9A24-B253C7C14DFD} = {D32E9583-F136-46C5-9A24-B253C7C14DFD}
-		{222F08E6-3A53-405C-86A7-66FF96DD42FF} = {222F08E6-3A53-405C-86A7-66FF96DD42FF}
-	EndProjectSection
 EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
 		Debug-static|Win32 = Debug-static|Win32
@@ -61,5 +51,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 EndGlobal

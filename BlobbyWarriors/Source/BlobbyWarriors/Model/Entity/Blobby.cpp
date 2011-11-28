@@ -13,6 +13,8 @@ Blobby::Blobby()
 	this->isTouchingWall = false;
 	this->angle = 0;
 	this->direction = DIRECTION_UNKNOWN;
+	this->viewDirection = DIRECTION_UNKNOWN;
+	this->rotateDirection = DIRECTION_UNKNOWN;
 	this->wallDirection = DIRECTION_UNKNOWN;
 	this->health = BLOBBY_DEFAULT_INITIAL_HEALTH;
 	this->maxHealth = BLOBBY_DEFAULT_MAX_HEALTH;
@@ -23,6 +25,19 @@ Blobby::Blobby()
 	this->controller = 0;
 
 	ContactListener::getInstance()->subscribe(this);
+}
+
+// set direction of blobby
+void Blobby::setViewDirection(int viewDirection)
+{
+	if(viewDirection == DIRECTION_LEFT || viewDirection == DIRECTION_RIGHT)
+		this->viewDirection = viewDirection;
+}
+
+// get direction of blobby
+int Blobby::getViewDirection()
+{
+	return viewDirection;
 }
 
 // Magic. Do not touch.
@@ -88,7 +103,7 @@ void Blobby::step()
 
 	// Rotate the body.
 	b2Body *body = this->bodies.at(0);
-	body->SetTransform(body->GetTransform().position, degree2radian(direction == DIRECTION_LEFT ? this->angle : 360 - this->angle));
+	body->SetTransform(body->GetTransform().position, degree2radian(rotateDirection == DIRECTION_LEFT ? this->angle : 360 - this->angle));
 
 	// Move the body if it is not touching a wall or is
 	// touching a wall but the movement points into the opposite
@@ -137,6 +152,16 @@ void Blobby::step()
 			if (shape->m_p.y == BLOBBY_CENTER_DISTANCE) {
 				this->isStandingUp = false;
 			}
+		}
+	}
+
+	// set direction to unknown again if blobby is not moving
+	if(this->isWalking == false && this->direction!=DIRECTION_UNKNOWN)
+	{
+		if(abs(this->getBody(0)->GetLinearVelocity().x) < 3.0f)
+		{
+			debug("set direction to unknown");
+			this->direction = DIRECTION_UNKNOWN;
 		}
 	}
 }
@@ -282,6 +307,7 @@ void Blobby::setController(IController *controller)
 void Blobby::addWearable(IWearable *wearable)
 {
 	this->wearables.push_back(wearable);
+	wearable->carrier = (int*)this; // wearable-item need access to his carrier for drawing-information like direction etc
 }
 
 IWearable* Blobby::getWearable(unsigned int i)
@@ -323,6 +349,18 @@ void Blobby::jump()
 		// Enable rotation on double jump (+ boost).
 		body->ApplyForce(b2Vec2(0.0f, BLOBBY_JUMP_BOOST_FORCE), body->GetPosition());
 		this->isRotating = true;
+
+		// if blobby is running, we rotate in running direction. if blobby is standing, we rotate in direction blobby is looking
+		if(this->direction != DIRECTION_UNKNOWN)
+		{
+			this->rotateDirection = this->direction;
+			debug("roate: use run direction");
+		}
+		else
+		{
+			this->rotateDirection = this->viewDirection;
+			debug("roate: use view direction");
+		}
 	}
 }
 

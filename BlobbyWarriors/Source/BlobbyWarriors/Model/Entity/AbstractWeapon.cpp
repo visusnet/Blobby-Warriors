@@ -41,8 +41,20 @@ void AbstractWeapon::onStopFire()
 
 void AbstractWeapon::draw()
 {
-	if (this->isActive) {
-		Texturizer::draw(this->getTexture(0), this->getBody(0)->GetPosition().x, this->getBody(0)->GetPosition().y, degree2radian(radian2degree(this->getBody(0)->GetTransform().GetAngle()) + 180), 40, 19);
+	if (this->isActive)
+	{
+		Blobby* carrier = (Blobby*)this->carrier;
+
+		if(carrier->getViewDirection()==DIRECTION_LEFT)
+			Texturizer::draw(this->getTexture(0), this->getBody(0)->GetPosition().x, this->getBody(0)->GetPosition().y, degree2radian(radian2degree(this->getBody(0)->GetTransform().GetAngle()) + 180), 40, 19);
+		else
+			Texturizer::draw(this->getTexture(0), this->getBody(0)->GetPosition().x, this->getBody(0)->GetPosition().y, degree2radian(radian2degree(this->getBody(0)->GetTransform().GetAngle()) + 180), 40, 19, false, 0, 0, true);
+	
+		/*char str[500];
+		sprintf(str, "%f %f %f", radian2degree(this->getBody(0)->GetTransform().GetAngle()) + 180, radian2degree(this->getBody(0)->GetTransform().GetAngle()), this->getBody(0)->GetTransform().GetAngle());
+		debug(str);*/
+
+		//Texturizer::draw(this->getTexture(0), this->getBody(0)->GetPosition().x, this->getBody(0)->GetPosition().y, 280, 40, 19);
 	}
 //	AbstractEntity::draw();
 }

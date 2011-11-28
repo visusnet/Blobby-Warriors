@@ -1,19 +1,70 @@
-﻿Der Buildvorgang wurde am 25.11.2010 13:09:54 gestartet.
-     1>Projekt "C:\Users\visus\Documents\Visual Studio 2010\Projects\BlobbyWarriors\BlobbyWarriors\Build\BlobbyWarriors\BlobbyWarriors.vcxproj" auf Knoten "2", build Ziel(e).
+﻿Der Buildvorgang wurde am 28.11.2011 19:01:53 gestartet.
+     1>Projekt "D:\blobby\BlobbyWarriors\Build\BlobbyWarriors\BlobbyWarriors.vcxproj" auf Knoten "2", build Ziel(e).
      1>InitializeBuildStatus:
          "BlobbyWarriors.dir\Debug\BlobbyWarriors.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
        ClCompile:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D XML_OPTIONAL_WIN32 /D _DEBUG /D _WINDOWS /D FREEGLUT_STATIC /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"BlobbyWarriors.dir\Debug\\" /Fd"BlobbyWarriors.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\BlobbyWarriors\Logic\Level.cpp ..\..\Source\BlobbyWarriors\Logic\Simulator.cpp ..\..\Source\BlobbyWarriors\Main.cpp
-         Level.cpp
-     1>c:\users\visus\documents\visual studio 2010\projects\blobbywarriors\blobbywarriors\source\blobbywarriors\logic\level.cpp(67): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'float', möglicher Datenverlust
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D XML_OPTIONAL_WIN32 /D _DEBUG /D _WINDOWS /D FREEGLUT_STATIC /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"BlobbyWarriors.dir\Debug\\" /Fd"BlobbyWarriors.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\BlobbyWarriors\Debug.cpp ..\..\Source\BlobbyWarriors\Logic\Drawer.cpp ..\..\Source\BlobbyWarriors\Main.cpp ..\..\Source\BlobbyWarriors\System\xml.cpp ..\..\Source\BlobbyWarriors\UI\Graphics\Camera.cpp ..\..\Source\BlobbyWarriors\UI\Graphics\GraphicsEngine.cpp ..\..\Source\BlobbyWarriors\UI\Graphics\Image.cpp ..\..\Source\BlobbyWarriors\UI\Graphics\KeyboardHandler.cpp ..\..\Source\BlobbyWarriors\UI\Graphics\MouseHandler.cpp ..\..\Source\BlobbyWarriors\UI\Graphics\Texture.cpp ..\..\Source\BlobbyWarriors\UI\Graphics\TextureLoader.cpp ..\..\Source\BlobbyWarriors\UI\Graphics\TextureManager.cpp ..\..\Source\BlobbyWarriors\UI\Graphics\Texturizer.cpp ..\..\Source\BlobbyWarriors\UI\Sound\SoundManager.cpp ..\..\Source\BlobbyWarriors\Logic\ContactListener.cpp ..\..\Source\BlobbyWarriors\Logic\Controller\AbstractController.cpp ..\..\Source\BlobbyWarriors\Logic\Controller\BotController.cpp ..\..\Source\BlobbyWarriors\Logic\Controller\NetworkController.cpp ..\..\Source\BlobbyWarriors\Logic\Controller\PlayerController.cpp ..\..\Source\BlobbyWarriors\Logic\Level.cpp ..\..\Source\BlobbyWarriors\Logic\Simulator.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Box.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\BoxFactory.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\GraphicFactory.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Graphic.cpp ..\..\Source\BlobbyWarriors\Model\Entity\AbstractEntity.cpp ..\..\Source\BlobbyWarriors\Model\Entity\AbstractWeapon.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Blobby.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\BlobbyFactory.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\EntityFactory.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\FlamethrowerBulletFactory.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\FlamethrowerFactory.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\GroundFactory.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\MachineGunBulletFactory.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\MachineGunFactory.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Factory\SkateboardFactory.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Flamethrower.cpp ..\..\Source\BlobbyWarriors\Model\Entity\FlamethrowerBullet.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Ground.cpp ..\..\Source\BlobbyWarriors\Model\Entity\IWearable.cpp ..\..\Source\BlobbyWarriors\Model\Entity\MachineGun.cpp ..\..\Source\BlobbyWarriors\Model\Entity\MachineGunBullet.cpp ..\..\Source\BlobbyWarriors\Model\Entity\Skateboard.cpp ..\..\Source\BlobbyWarriors\Model\GameWorld.cpp ..\..\Source\BlobbyWarriors\PublishSubscribe.cpp
+         PublishSubscribe.cpp
+         GameWorld.cpp
+         Skateboard.cpp
+         MachineGunBullet.cpp
+         MachineGun.cpp
+         IWearable.cpp
+         Ground.cpp
+         FlamethrowerBullet.cpp
+         Flamethrower.cpp
+         SkateboardFactory.cpp
+         MachineGunFactory.cpp
+         MachineGunBulletFactory.cpp
+         GroundFactory.cpp
+         FlamethrowerFactory.cpp
+         FlamethrowerBulletFactory.cpp
+         EntityFactory.cpp
+         BlobbyFactory.cpp
+         Blobby.cpp
+         AbstractWeapon.cpp
+         AbstractEntity.cpp
          Code wird generiert...
-         Überspringen... (keine relevanten Änderungen gefunden)
-         Main.cpp
+         Kompilieren...
+         Graphic.cpp
+         GraphicFactory.cpp
+         BoxFactory.cpp
+         Box.cpp
          Simulator.cpp
+         Level.cpp
+     1>d:\blobby\blobbywarriors\source\blobbywarriors\logic\level.cpp(67): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'float', möglicher Datenverlust
+         PlayerController.cpp
+         NetworkController.cpp
+         BotController.cpp
+         AbstractController.cpp
+         ContactListener.cpp
+         SoundManager.cpp
+         Texturizer.cpp
+         TextureManager.cpp
+         TextureLoader.cpp
+         Texture.cpp
+         MouseHandler.cpp
+         KeyboardHandler.cpp
+         Image.cpp
+         GraphicsEngine.cpp
+         Code wird generiert...
+         Kompilieren...
+         Camera.cpp
+         xml.cpp
+         Main.cpp
+         Drawer.cpp
+     1>d:\blobby\blobbywarriors\source\blobbywarriors\logic\drawer.cpp(42): warning C4244: 'Argument': Konvertierung von 'float' in 'GLubyte', möglicher Datenverlust
+     1>d:\blobby\blobbywarriors\source\blobbywarriors\logic\drawer.cpp(42): warning C4244: 'Argument': Konvertierung von 'float' in 'GLubyte', möglicher Datenverlust
+     1>d:\blobby\blobbywarriors\source\blobbywarriors\logic\drawer.cpp(42): warning C4244: 'Argument': Konvertierung von 'float' in 'GLubyte', möglicher Datenverlust
+     1>d:\blobby\blobbywarriors\source\blobbywarriors\logic\drawer.cpp(47): warning C4244: 'Argument': Konvertierung von 'float' in 'GLubyte', möglicher Datenverlust
+     1>d:\blobby\blobbywarriors\source\blobbywarriors\logic\drawer.cpp(47): warning C4244: 'Argument': Konvertierung von 'float' in 'GLubyte', möglicher Datenverlust
+     1>d:\blobby\blobbywarriors\source\blobbywarriors\logic\drawer.cpp(47): warning C4244: 'Argument': Konvertierung von 'float' in 'GLubyte', möglicher Datenverlust
+         Debug.cpp
+         Code wird generiert...
        ManifestResourceCompile:
-         Alle Ausgaben sind aktuell.
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"BlobbyWarriors.dir\Debug\BlobbyWarriors.exe.embed.manifest.res" BlobbyWarriors.dir\Debug\BlobbyWarriors_manifest.rc 
        Link:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\Debug\BlobbyWarriors.exe" /INCREMENTAL /NOLOGO irrKlang.lib DevIL.lib ILU.lib ILUT.lib Box2D.lib freeglut_static.lib glui.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"BlobbyWarriors.dir\Debug\BlobbyWarriors.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\visus\Documents\Visual Studio 2010\Projects\BlobbyWarriors\BlobbyWarriors\Debug\BlobbyWarriors.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\..\Debug\BlobbyWarriors.lib" /MACHINE:X86 /PROFILE BlobbyWarriors.dir\Debug\BlobbyWarriors.exe.embed.manifest.res
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\Debug\BlobbyWarriors.exe" /INCREMENTAL /NOLOGO irrKlang.lib DevIL.lib ILU.lib ILUT.lib Box2D.lib freeglut_static.lib glui.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"BlobbyWarriors.dir\Debug\BlobbyWarriors.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\blobby\BlobbyWarriors\Debug\BlobbyWarriors.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\..\Debug\BlobbyWarriors.lib" /MACHINE:X86 /PROFILE BlobbyWarriors.dir\Debug\BlobbyWarriors.exe.embed.manifest.res
          BlobbyWarriors.dir\Debug\Debug.obj
          BlobbyWarriors.dir\Debug\Drawer.obj
          BlobbyWarriors.dir\Debug\Main.obj
@@ -59,14 +110,17 @@
          BlobbyWarriors.dir\Debug\Skateboard.obj
          BlobbyWarriors.dir\Debug\GameWorld.obj
          BlobbyWarriors.dir\Debug\PublishSubscribe.obj
+         D:\blobby\BlobbyWarriors\Debug\Box2D.lib
+         D:\blobby\BlobbyWarriors\Debug\freeglut_static.lib
+         D:\blobby\BlobbyWarriors\Debug\glui.lib
      1>LINK : warning LNK4075: /INCREMENTAL wird aufgrund der Angabe von /PROFILE ignoriert.
      1>Debug.obj : warning LNK4075: /EDITANDCONTINUE wird aufgrund der Angabe von /OPT:REF ignoriert.
        Manifest:
-         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"BlobbyWarriors.dir\Debug\BlobbyWarriors.exe.embed.manifest" /manifest BlobbyWarriors.dir\Debug\BlobbyWarriors.exe.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"BlobbyWarriors.dir\Debug\BlobbyWarriors.exe.embed.manifest" /manifest BlobbyWarriors.dir\Debug\BlobbyWarriors.exe.intermediate.manifest
          Alle Ausgaben sind aktuell.
        LinkEmbedManifest:
          Alle Ausgaben sind aktuell.
-         BlobbyWarriors.vcxproj -> C:\Users\visus\Documents\Visual Studio 2010\Projects\BlobbyWarriors\BlobbyWarriors\Build\BlobbyWarriors\..\..\Debug\BlobbyWarriors.exe
+         BlobbyWarriors.vcxproj -> D:\blobby\BlobbyWarriors\Build\BlobbyWarriors\..\..\Debug\BlobbyWarriors.exe
        PostBuildEvent:
          copy ..\..\Contrib\DevIL\lib\unicode\DevIL.dll ..\..\Debug\
          copy ..\..\Contrib\DevIL\lib\unicode\ILU.dll ..\..\Debug\
@@ -123,8 +177,8 @@
        FinalizeBuildStatus:
          Die Datei "BlobbyWarriors.dir\Debug\BlobbyWarriors.unsuccessfulbuild" wird gelöscht.
          Aktualisieren des Timestamps von "BlobbyWarriors.dir\Debug\BlobbyWarriors.lastbuildstate".
-     1>Die Erstellung des Projekts "C:\Users\visus\Documents\Visual Studio 2010\Projects\BlobbyWarriors\BlobbyWarriors\Build\BlobbyWarriors\BlobbyWarriors.vcxproj" ist abgeschlossen, build Ziel(e).
+     1>Die Erstellung des Projekts "D:\blobby\BlobbyWarriors\Build\BlobbyWarriors\BlobbyWarriors.vcxproj" ist abgeschlossen, build Ziel(e).
 
 Das Erstellen war erfolgreich.
 
-Verstrichene Zeit 00:00:05.51
+Verstrichene Zeit 00:01:26.77

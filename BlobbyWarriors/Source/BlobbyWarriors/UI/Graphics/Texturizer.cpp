@@ -1,6 +1,6 @@
 #include "Texturizer.h"
 
-void Texturizer::draw(Texture *texture, float x, float y, float angle, int width, int height, bool keepProportion, BlendingInfo *blending, Color *color)
+void Texturizer::draw(Texture *texture, float x, float y, float angle, int width, int height, bool keepProportion, BlendingInfo *blending, Color *color, bool flip)
 {
 	// Enable texturing.
 	glEnable(GL_TEXTURE_2D);
@@ -42,10 +42,21 @@ void Texturizer::draw(Texture *texture, float x, float y, float angle, int width
 
 	// Create centered dimension vectors.
 	b2Vec2 vertices[4];
-	vertices[0] = 0.5f * b2Vec2(- float(width), - float(height));
-	vertices[1] = 0.5f * b2Vec2(+ float(width), - float(height));
-	vertices[2] = 0.5f * b2Vec2(+ float(width), + float(height));
-	vertices[3] = 0.5f * b2Vec2(- float(width), + float(height));
+
+	if(flip)
+	{
+		vertices[3] = 0.5f * b2Vec2(- float(width), - float(height));
+		vertices[2] = 0.5f * b2Vec2(+ float(width), - float(height));
+		vertices[1] = 0.5f * b2Vec2(+ float(width), + float(height));
+		vertices[0] = 0.5f * b2Vec2(- float(width), + float(height));
+	}
+	else
+	{
+		vertices[0] = 0.5f * b2Vec2(- float(width), - float(height));
+		vertices[1] = 0.5f * b2Vec2(+ float(width), - float(height));
+		vertices[2] = 0.5f * b2Vec2(+ float(width), + float(height));
+		vertices[3] = 0.5f * b2Vec2(- float(width), + float(height));
+	}
 
 	b2Mat22 matrix = b2Mat22();
 	matrix.Set(angle);
