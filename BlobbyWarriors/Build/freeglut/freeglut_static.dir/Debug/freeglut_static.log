@@ -1,62 +1,11 @@
-﻿Der Buildvorgang wurde am 28.11.2011 19:01:36 gestartet.
+﻿Der Buildvorgang wurde am 29.11.2011 17:51:54 gestartet.
      1>Projekt "D:\blobby\BlobbyWarriors\Build\freeglut\freeglut_static.vcxproj" auf Knoten "3", build Ziel(e).
      1>InitializeBuildStatus:
          "freeglut_static.dir\Debug\freeglut_static.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\..\Source\freeglut\ /Zi /nologo /W2 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D FREEGLUT_EXPORTS /D FREEGLUT_STATIC /D _CRT_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"freeglut_static.dir\Debug\\" /Fd"freeglut_static.dir\Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\Source\freeglut\freeglut_callbacks.c ..\..\Source\freeglut\freeglut_cursor.c ..\..\Source\freeglut\freeglut_display.c ..\..\Source\freeglut\freeglut_ext.c ..\..\Source\freeglut\freeglut_font_data.c ..\..\Source\freeglut\freeglut_font.c ..\..\Source\freeglut\freeglut_gamemode.c ..\..\Source\freeglut\freeglut_geometry.c ..\..\Source\freeglut\freeglut_glutfont_definitions.c ..\..\Source\freeglut\freeglut_init.c ..\..\Source\freeglut\freeglut_input_devices.c ..\..\Source\freeglut\freeglut_joystick.c ..\..\Source\freeglut\freeglut_main.c ..\..\Source\freeglut\freeglut_menu.c ..\..\Source\freeglut\freeglut_misc.c ..\..\Source\freeglut\freeglut_overlay.c ..\..\Source\freeglut\freeglut_spaceball.c ..\..\Source\freeglut\freeglut_state.c ..\..\Source\freeglut\freeglut_stroke_mono_roman.c ..\..\Source\freeglut\freeglut_stroke_roman.c ..\..\Source\freeglut\freeglut_structure.c ..\..\Source\freeglut\freeglut_teapot.c ..\..\Source\freeglut\freeglut_videoresize.c ..\..\Source\freeglut\freeglut_window.c  /Zm1000 
-         freeglut_callbacks.c
-         freeglut_cursor.c
-         freeglut_display.c
-         freeglut_ext.c
-         freeglut_font_data.c
-         freeglut_font.c
-         freeglut_gamemode.c
-         freeglut_geometry.c
-         freeglut_glutfont_definitions.c
-         freeglut_init.c
-         freeglut_input_devices.c
-         freeglut_joystick.c
-         freeglut_main.c
-         freeglut_menu.c
-         freeglut_misc.c
-         freeglut_overlay.c
-         freeglut_spaceball.c
-         freeglut_state.c
-         freeglut_stroke_mono_roman.c
-         freeglut_stroke_roman.c
-         Code wird generiert...
-         Kompilieren...
-         freeglut_structure.c
-         freeglut_teapot.c
-         freeglut_videoresize.c
-         freeglut_window.c
-         fgSetupPixelFormat(): there is still some work to do here!
-         Code wird generiert...
+         Alle Ausgaben sind aktuell.
        Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"..\..\Debug\freeglut_static.lib" /NOLOGO freeglut_static.dir\Debug\freeglut_callbacks.obj
-         freeglut_static.dir\Debug\freeglut_cursor.obj
-         freeglut_static.dir\Debug\freeglut_display.obj
-         freeglut_static.dir\Debug\freeglut_ext.obj
-         freeglut_static.dir\Debug\freeglut_font_data.obj
-         freeglut_static.dir\Debug\freeglut_font.obj
-         freeglut_static.dir\Debug\freeglut_gamemode.obj
-         freeglut_static.dir\Debug\freeglut_geometry.obj
-         freeglut_static.dir\Debug\freeglut_glutfont_definitions.obj
-         freeglut_static.dir\Debug\freeglut_init.obj
-         freeglut_static.dir\Debug\freeglut_input_devices.obj
-         freeglut_static.dir\Debug\freeglut_joystick.obj
-         freeglut_static.dir\Debug\freeglut_main.obj
-         freeglut_static.dir\Debug\freeglut_menu.obj
-         freeglut_static.dir\Debug\freeglut_misc.obj
-         freeglut_static.dir\Debug\freeglut_overlay.obj
-         freeglut_static.dir\Debug\freeglut_spaceball.obj
-         freeglut_static.dir\Debug\freeglut_state.obj
-         freeglut_static.dir\Debug\freeglut_stroke_mono_roman.obj
-         freeglut_static.dir\Debug\freeglut_stroke_roman.obj
-         freeglut_static.dir\Debug\freeglut_structure.obj
-         freeglut_static.dir\Debug\freeglut_teapot.obj
-         freeglut_static.dir\Debug\freeglut_videoresize.obj
-         freeglut_static.dir\Debug\freeglut_window.obj
+         Alle Ausgaben sind aktuell.
          freeglut_static.vcxproj -> D:\blobby\BlobbyWarriors\Build\freeglut\..\..\Debug\freeglut_static.lib
        FinalizeBuildStatus:
          Die Datei "freeglut_static.dir\Debug\freeglut_static.unsuccessfulbuild" wird gelöscht.
@@ -65,4 +14,4 @@
 
 Das Erstellen war erfolgreich.
 
-Verstrichene Zeit 00:00:08.98
+Verstrichene Zeit 00:00:00.11

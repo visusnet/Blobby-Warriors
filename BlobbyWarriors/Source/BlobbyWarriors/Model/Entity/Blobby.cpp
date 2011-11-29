@@ -27,17 +27,23 @@ Blobby::Blobby()
 	ContactListener::getInstance()->subscribe(this);
 }
 
-// set direction of blobby
+// set direction in which blobby is looking
 void Blobby::setViewDirection(int viewDirection)
 {
 	if(viewDirection == DIRECTION_LEFT || viewDirection == DIRECTION_RIGHT)
 		this->viewDirection = viewDirection;
 }
 
-// get direction of blobby
+// get direction in which blobby is looking
 int Blobby::getViewDirection()
 {
 	return viewDirection;
+}
+
+// is blobby ducking?
+bool Blobby::getIsDucking()
+{
+	return this->isDucking;
 }
 
 // Magic. Do not touch.
@@ -142,12 +148,12 @@ void Blobby::step()
 	// Duck and cover. ;-)
 	if (this->isDucking || this->isStandingUp) {
 		b2CircleShape *shape = (b2CircleShape*)this->bodies.at(0)->GetFixtureList()->GetNext()->GetShape();
-		if (this->isDucking) {
+		if (this->isDucking && shape->m_p.y != (BLOBBY_CENTER_DISTANCE / 2.0f)) {
 			shape->m_p.Set(shape->m_p.x, max(BLOBBY_CENTER_DISTANCE / 2.0f, shape->m_p.y - 0.02f));
-			if (shape->m_p.y == BLOBBY_CENTER_DISTANCE / 2.0f) {
+			/*if (shape->m_p.y == BLOBBY_CENTER_DISTANCE / 2.0f) {
 				this->isDucking = false;
-			}
-		} else {
+			}*/
+		} else if (this->isDucking == false) {
 			shape->m_p.Set(shape->m_p.x, min(BLOBBY_CENTER_DISTANCE, shape->m_p.y + 0.02f));
 			if (shape->m_p.y == BLOBBY_CENTER_DISTANCE) {
 				this->isStandingUp = false;

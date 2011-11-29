@@ -72,6 +72,7 @@ public:
 	void setDirection(int direction);
 	void setViewDirection(int viewDirection);
 	int getViewDirection();
+	bool getIsDucking();
 private:
 	bool checkIsOnGround();
 	bool checkIsTouchingWall(int *wallDirection);
