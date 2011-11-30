@@ -5,7 +5,12 @@ class IWearable
 {
 	public:
 	IWearable();
-	int* carrier;
+	void setCarrierIsDucking(bool carrierIsDucking);
+	void setCarrierViewingDirection(int carrierViewingDirection);
+
+	protected:
+	bool carrierIsDucking;
+	int carrierViewingDirection;
 };
 
 #endif

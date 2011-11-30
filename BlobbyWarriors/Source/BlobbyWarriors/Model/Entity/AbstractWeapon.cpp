@@ -43,24 +43,15 @@ void AbstractWeapon::draw()
 {
 	if (this->isActive)
 	{
-		// we have to know information about our carrier. which direction is he looking, is he ducking... etc
-		Blobby* carrier = (Blobby*)this->carrier;
-
 		// change y offset if blobby is ducking
-		float y_offset = 0;
-		if(carrier->getIsDucking() == true)
-			y_offset = WEAPON_OFFSET_DUCKED_BLOBBY;
+		float yOffset = 0;
+		if(this->carrierIsDucking == true)
+			yOffset = WEAPON_OFFSET_DUCKED_BLOBBY;
 
-		if(carrier->getViewDirection()==DIRECTION_LEFT)
-			Texturizer::draw(this->getTexture(0), this->getBody(0)->GetPosition().x, this->getBody(0)->GetPosition().y + y_offset, degree2radian(radian2degree(this->getBody(0)->GetTransform().GetAngle()) + 180), 40, 19);
+		if(this->carrierViewingDirection==DIRECTION_LEFT)
+			Texturizer::draw(this->getTexture(0), this->getBody(0)->GetPosition().x, this->getBody(0)->GetPosition().y + yOffset, degree2radian(radian2degree(this->getBody(0)->GetTransform().GetAngle()) + 180), 40, 19);
 		else
-			Texturizer::draw(this->getTexture(0), this->getBody(0)->GetPosition().x, this->getBody(0)->GetPosition().y + y_offset, degree2radian(radian2degree(this->getBody(0)->GetTransform().GetAngle()) + 180), 40, 19, false, 0, 0, true);
-	
-		// debug
-		/*char str[500];
-		//sprintf(str, "%f %f %f", radian2degree(this->getBody(0)->GetTransform().GetAngle()) + 180, radian2degree(this->getBody(0)->GetTransform().GetAngle()), this->getBody(0)->GetTransform().GetAngle());
-		sprintf(str, "%d", y_offset);
-		debug(str);*/
+			Texturizer::draw(this->getTexture(0), this->getBody(0)->GetPosition().x, this->getBody(0)->GetPosition().y + yOffset, degree2radian(radian2degree(this->getBody(0)->GetTransform().GetAngle()) + 180), 40, 19, true, false, 0, 0);
 	}
 	//	AbstractEntity::draw();
 }

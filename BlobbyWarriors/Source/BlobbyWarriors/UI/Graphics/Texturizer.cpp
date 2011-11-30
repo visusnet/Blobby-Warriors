@@ -1,6 +1,6 @@
 #include "Texturizer.h"
 
-void Texturizer::draw(Texture *texture, float x, float y, float angle, int width, int height, bool keepProportion, BlendingInfo *blending, Color *color, bool flip)
+void Texturizer::draw(Texture *texture, float x, float y, float angle, int width, int height, bool flip, bool keepProportion, BlendingInfo *blending, Color *color)
 {
 	// Enable texturing.
 	glEnable(GL_TEXTURE_2D);

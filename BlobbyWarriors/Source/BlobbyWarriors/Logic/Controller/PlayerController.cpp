@@ -69,9 +69,9 @@ bool PlayerController::handleMouseEvent(MouseEventArgs *mouseEventArgs)
 
 	// set direction in which blobby is looking
 	if (mousePosition.x > this->blobby->getBody(0)->GetPosition().x)
-		this->blobby->setViewDirection(DIRECTION_RIGHT);
+		this->blobby->setViewingDirection(DIRECTION_RIGHT);
 	else
-		this->blobby->setViewDirection(DIRECTION_LEFT);
+		this->blobby->setViewingDirection(DIRECTION_LEFT);
 
 
 	if (this->blobby->getWeapon() != 0) {
@@ -88,11 +88,6 @@ bool PlayerController::handleMouseEvent(MouseEventArgs *mouseEventArgs)
 			angle = b2_pi - angle;
 			angle += degree2radian(180);	// provides 0°-360° angle handling
 		}
-		
-		// debug output
-		/*char str[500];
-		sprintf(str, "%f %f", angle, radian2degree(angle));
-		debug(str);*/
 
 		if (fire) {
 			weapon->fire(a, false, true);

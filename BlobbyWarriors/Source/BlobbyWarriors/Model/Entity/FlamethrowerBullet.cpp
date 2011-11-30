@@ -30,7 +30,7 @@ void FlamethrowerBullet::draw()
 	GLubyte red = 100 + rand() % 155;
 	GLubyte green = min(GLubyte(rand() % 255), red);
 	Color *color = new Color(red, green, 0);
-	Texturizer::draw(this->getTexture(1), this->getBody(0)->GetPosition().x, this->getBody(0)->GetPosition().y, 0, 10 + rand() % 10, 10 + rand() % 10, false, blending, color);
+	Texturizer::draw(this->getTexture(1), this->getBody(0)->GetPosition().x, this->getBody(0)->GetPosition().y, 0, 10 + rand() % 10, 10 + rand() % 10, false, false, blending, color);
 	delete blending;
 }
 

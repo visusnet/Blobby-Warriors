@@ -12,9 +12,9 @@ Blobby::Blobby()
 	this->isOnGround = false;
 	this->isTouchingWall = false;
 	this->angle = 0;
-	this->direction = DIRECTION_UNKNOWN;
-	this->viewDirection = DIRECTION_UNKNOWN;
-	this->rotateDirection = DIRECTION_UNKNOWN;
+	this->movementDirection = DIRECTION_UNKNOWN;
+	this->viewingDirection = DIRECTION_UNKNOWN;
+	this->rotationDirection = DIRECTION_UNKNOWN;
 	this->wallDirection = DIRECTION_UNKNOWN;
 	this->health = BLOBBY_DEFAULT_INITIAL_HEALTH;
 	this->maxHealth = BLOBBY_DEFAULT_MAX_HEALTH;
@@ -27,20 +27,33 @@ Blobby::Blobby()
 	ContactListener::getInstance()->subscribe(this);
 }
 
-// set direction in which blobby is looking
-void Blobby::setViewDirection(int viewDirection)
+/**
+* set direction in which blobby is looking.
+* 
+* @Param int viewingDirection
+* @Return void
+*/
+void Blobby::setViewingDirection(int viewingDirection)
 {
-	if(viewDirection == DIRECTION_LEFT || viewDirection == DIRECTION_RIGHT)
-		this->viewDirection = viewDirection;
+	if (viewingDirection == DIRECTION_LEFT || viewingDirection == DIRECTION_RIGHT)
+		this->viewingDirection = viewingDirection;
 }
 
-// get direction in which blobby is looking
-int Blobby::getViewDirection()
+/**
+* get direction in which blobby is looking.
+* 
+* @Return int
+*/
+int Blobby::getViewingDirection()
 {
-	return viewDirection;
+	return this->viewingDirection;
 }
 
-// is blobby ducking?
+/**
+* get attribute isDucking
+* 
+* @Return bool
+*/
 bool Blobby::getIsDucking()
 {
 	return this->isDucking;
@@ -109,19 +122,19 @@ void Blobby::step()
 
 	// Rotate the body.
 	b2Body *body = this->bodies.at(0);
-	body->SetTransform(body->GetTransform().position, degree2radian(rotateDirection == DIRECTION_LEFT ? this->angle : 360 - this->angle));
+	body->SetTransform(body->GetTransform().position, degree2radian(rotationDirection == DIRECTION_LEFT ? this->angle : 360 - this->angle));
 
 	// Move the body if it is not touching a wall or is
 	// touching a wall but the movement points into the opposite
 	// direction.
-	if (this->isWalking && this->direction != DIRECTION_UNKNOWN) {
-		if (this->direction == DIRECTION_LEFT && (!this->isTouchingWall || this->isTouchingWall && this->wallDirection != DIRECTION_LEFT)) {
+	if (this->isWalking && this->movementDirection != DIRECTION_UNKNOWN) {
+		if (this->movementDirection == DIRECTION_LEFT && (!this->isTouchingWall || this->isTouchingWall && this->wallDirection != DIRECTION_LEFT)) {
 			if (this->isOnGround) {
 				body->SetLinearVelocity(b2Vec2(-BLOBBY_MOVE_VELOCITY, body->GetLinearVelocity().y));
 			} else {
 				body->ApplyForce(b2Vec2(-BLOBBY_MOVE_VELOCITY, 0), body->GetPosition());
 			}
-		} else if (this->direction == DIRECTION_RIGHT && (!this->isTouchingWall || this->isTouchingWall && this->wallDirection != DIRECTION_RIGHT)) {
+		} else if (this->movementDirection == DIRECTION_RIGHT && (!this->isTouchingWall || this->isTouchingWall && this->wallDirection != DIRECTION_RIGHT)) {
 			if (this->isOnGround) {
 				body->SetLinearVelocity(b2Vec2(BLOBBY_MOVE_VELOCITY, body->GetLinearVelocity().y));
 			} else {
@@ -162,13 +175,18 @@ void Blobby::step()
 	}
 
 	// set direction to unknown again if blobby is not moving
-	if(this->isWalking == false && this->direction!=DIRECTION_UNKNOWN)
+	if(this->isWalking == false && this->movementDirection!=DIRECTION_UNKNOWN && abs(this->getBody(0)->GetLinearVelocity().x) < 3.0f)
 	{
-		if(abs(this->getBody(0)->GetLinearVelocity().x) < 3.0f)
-		{
-			debug("set direction to unknown");
-			this->direction = DIRECTION_UNKNOWN;
-		}
+		debug("set direction to unknown");
+		this->movementDirection = DIRECTION_UNKNOWN;
+	}
+
+	// give carrier-information to all IWearables
+	for (int i=0; i < (signed)this->wearables.size(); i++)
+	{
+		IWearable* wearable = this->wearables.at(i);
+		wearable->setCarrierIsDucking(this->isDucking);
+		wearable->setCarrierViewingDirection(this->viewingDirection);
 	}
 }
 
@@ -271,9 +289,9 @@ void Blobby::draw()
 	int width = 0; // proportional scaling!
 	int height = int(meter2pixel(BLOBBY_CENTER_DISTANCE + BLOBBY_UPPER_RADIUS + BLOBBY_LOWER_RADIUS));
 	if (this->isDead) {
-		Texturizer::draw(this->getTexture(this->activeTexture), x, y + BLOBBY_UPPER_RADIUS / 2, angle, width, height, true, 0, new Color(255, 255, 255, this->opacity));
+		Texturizer::draw(this->getTexture(this->activeTexture), x, y + BLOBBY_UPPER_RADIUS / 2, angle, width, height, false, false, 0, new Color(255, 255, 255, this->opacity));
 	} else {
-		Texturizer::draw(this->getTexture(this->activeTexture), x, y + BLOBBY_UPPER_RADIUS / 2, angle, width, height, true);
+		Texturizer::draw(this->getTexture(this->activeTexture), x, y + BLOBBY_UPPER_RADIUS / 2, angle, width, height, false, true);
 	}
 
 	if (!this->isDead && this->getHealth() < this->getMaxHealth()) {
@@ -312,8 +330,9 @@ void Blobby::setController(IController *controller)
 
 void Blobby::addWearable(IWearable *wearable)
 {
+	wearable->setCarrierIsDucking(this->isDucking);
+	wearable->setCarrierViewingDirection(this->viewingDirection);
 	this->wearables.push_back(wearable);
-	wearable->carrier = (int*)this; // wearable-item need access to his carrier for drawing-information like direction etc
 }
 
 IWearable* Blobby::getWearable(unsigned int i)
@@ -357,14 +376,14 @@ void Blobby::jump()
 		this->isRotating = true;
 
 		// if blobby is running, we rotate in running direction. if blobby is standing, we rotate in direction blobby is looking
-		if(this->direction != DIRECTION_UNKNOWN)
+		if(this->movementDirection != DIRECTION_UNKNOWN)
 		{
-			this->rotateDirection = this->direction;
+			this->rotationDirection = this->movementDirection;
 			debug("roate: use run direction");
 		}
 		else
 		{
-			this->rotateDirection = this->viewDirection;
+			this->rotationDirection = this->viewingDirection;
 			debug("roate: use view direction");
 		}
 	}
@@ -372,13 +391,13 @@ void Blobby::jump()
 
 void Blobby::walkLeft()
 {
-	this->direction = DIRECTION_LEFT;
+	this->movementDirection = DIRECTION_LEFT;
 	this->isWalking = true;
 }
 
 void Blobby::walkRight()
 {
-	this->direction = DIRECTION_RIGHT;
+	this->movementDirection = DIRECTION_RIGHT;
 	this->isWalking = true;
 }
 
@@ -389,7 +408,7 @@ void Blobby::stopWalk()
 		// a low linear force to make it smooth.
 		b2Body *body = this->bodies.at(0);
 		body->SetLinearVelocity(b2Vec2(0.0f, body->GetLinearVelocity().y));
-		switch (this->direction) {
+		switch (this->movementDirection) {
 		case DIRECTION_RIGHT:
 			debug("stopping smooth");
 			body->ApplyForce(b2Vec2(BLOBBY_MOVE_STOP_FORCE, 0.0f), body->GetWorldCenter());

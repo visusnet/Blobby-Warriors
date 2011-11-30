@@ -1,0 +1,11 @@
+*.suo
+*.sdf
+*.user
+*.ipch
+*.pdb
+*.idb
+*.obj
+*.log
+*.tlog
+bin
+obj

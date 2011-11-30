@@ -2,5 +2,14 @@
 
 IWearable::IWearable()
 {
-	this->carrier = 0;
+}
+
+void IWearable::setCarrierIsDucking(bool carrierIsDucking)
+{
+	this->carrierIsDucking = carrierIsDucking;
+}
+
+void IWearable::setCarrierViewingDirection(int setCarrierViewingDirection)
+{
+	this->carrierViewingDirection = setCarrierViewingDirection;
 }
