@@ -56,7 +56,7 @@ void Level::parseElement(XMLElement *element)
 
 	XMLVariable** variables = element->GetVariables();
 
-	if(strncmp(elementName, "Ground", sizeof(elementName)) == 0) {
+	if (strncmp(elementName, "Ground", sizeof(elementName)) == 0) {
 		// TODO: The position of the XML attribute shouldn't be relevant.
 		b2Vec2 position1 = b2Vec2(variables[0][0].GetValueFloat(), variables[1][0].GetValueFloat());
 		b2Vec2 position2 = b2Vec2(variables[2][0].GetValueFloat(), variables[3][0].GetValueFloat());

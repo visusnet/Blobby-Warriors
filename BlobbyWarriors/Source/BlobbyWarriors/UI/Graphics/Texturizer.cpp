@@ -43,7 +43,7 @@ void Texturizer::draw(Texture *texture, float x, float y, float angle, int width
 	// Create centered dimension vectors.
 	b2Vec2 vertices[4];
 
-	if(flip)
+	if (flip)
 	{
 		vertices[3] = 0.5f * b2Vec2(- float(width), - float(height));
 		vertices[2] = 0.5f * b2Vec2(+ float(width), - float(height));

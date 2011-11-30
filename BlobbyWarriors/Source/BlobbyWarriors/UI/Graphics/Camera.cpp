@@ -3,7 +3,7 @@
 Camera* Camera::getInstance()
 {
 	static Guard guard;
-	if(Camera::instance == 0) {
+	if (Camera::instance == 0) {
 		Camera::instance = new Camera();
 	}
 	return Camera::instance;

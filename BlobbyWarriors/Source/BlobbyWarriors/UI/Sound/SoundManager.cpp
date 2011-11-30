@@ -3,7 +3,7 @@
 SoundManager* SoundManager::getInstance()
 {
 	static Guard guard;
-	if(SoundManager::instance == 0) {
+	if (SoundManager::instance == 0) {
 		SoundManager::instance = new SoundManager();
 	}
 	return SoundManager::instance;

@@ -3,7 +3,7 @@
 KeyboardHandler* KeyboardHandler::getInstance()
 {
 	static Guard guard;
-	if(KeyboardHandler::instance == 0) {
+	if (KeyboardHandler::instance == 0) {
 		KeyboardHandler::instance = new KeyboardHandler();
 	}
 	return KeyboardHandler::instance;

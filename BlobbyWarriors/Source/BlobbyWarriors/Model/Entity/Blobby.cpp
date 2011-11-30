@@ -159,7 +159,7 @@ void Blobby::step()
 	}
 
 	// set direction to unknown again if blobby is not moving
-	if(this->isWalking == false && this->movementDirection!=DIRECTION_UNKNOWN && abs(this->getBody(0)->GetLinearVelocity().x) < 3.0f)
+	if (this->isWalking == false && this->movementDirection!=DIRECTION_UNKNOWN && abs(this->getBody(0)->GetLinearVelocity().x) < 3.0f)
 	{
 		debug("set direction to unknown");
 		this->movementDirection = DIRECTION_UNKNOWN;
@@ -350,7 +350,7 @@ void Blobby::jump()
 		this->isRotating = true;
 
 		// if blobby is running, we rotate in running direction. if blobby is standing, we rotate in direction blobby is looking
-		if(this->movementDirection != DIRECTION_UNKNOWN)
+		if (this->movementDirection != DIRECTION_UNKNOWN)
 		{
 			this->rotationDirection = this->movementDirection;
 			debug("roate: use run direction");

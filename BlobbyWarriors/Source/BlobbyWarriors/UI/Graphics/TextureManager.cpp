@@ -3,7 +3,7 @@
 TextureManager* TextureManager::getInstance()
 {
 	static Guard guard;
-	if(TextureManager::instance == 0) {
+	if (TextureManager::instance == 0) {
 		TextureManager::instance = new TextureManager();
 	}
 	return TextureManager::instance;

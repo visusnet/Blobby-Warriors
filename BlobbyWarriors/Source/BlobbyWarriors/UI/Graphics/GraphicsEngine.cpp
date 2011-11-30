@@ -9,7 +9,7 @@
 GraphicsEngine* GraphicsEngine::getInstance()
 {
 	static Guard guard;
-	if(GraphicsEngine::instance == 0) {
+	if (GraphicsEngine::instance == 0) {
 		GraphicsEngine::instance = new GraphicsEngine();
 	}
 	return GraphicsEngine::instance;
