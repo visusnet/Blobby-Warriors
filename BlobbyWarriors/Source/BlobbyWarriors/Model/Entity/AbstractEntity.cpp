@@ -3,6 +3,7 @@
 AbstractEntity::AbstractEntity()
 {
 	this->isDestroyed = false;
+	this->viewingDirection = DIRECTION_RIGHT;
 	GameWorld::getInstance()->addEntity(this);
 }
 
@@ -16,6 +17,28 @@ void AbstractEntity::destroy()
 
 void AbstractEntity::step()
 {
+}
+
+/**
+* set direction in which entity is looking.
+* 
+* @param int viewingDirection
+* @return void
+*/
+void AbstractEntity::setViewingDirection(int viewingDirection)
+{
+	if (viewingDirection == DIRECTION_LEFT || viewingDirection == DIRECTION_RIGHT)
+		this->viewingDirection = viewingDirection;
+}
+
+/**
+* get direction in which entity is looking.
+* 
+* @return int
+*/
+int AbstractEntity::getViewingDirection()
+{
+	return this->viewingDirection;
 }
 
 void DrawSolidPolygon(b2Vec2 *vertices, int vertexCount)

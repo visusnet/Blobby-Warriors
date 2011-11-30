@@ -13,6 +13,10 @@
 
 using namespace std;
 
+#define DIRECTION_UNKNOWN 0
+#define DIRECTION_LEFT 1
+#define DIRECTION_RIGHT 2
+
 class AbstractEntity : public IEntity
 {
 public:
@@ -26,11 +30,14 @@ public:
 	void addTexture(Texture *texture);
 	Texture* getTexture(unsigned int i);
 	unsigned int getTextureCount();
+	void setViewingDirection(int viewingDirection);
+	int getViewingDirection();
 protected:
 	vector<b2Body*> bodies;
 	vector<Texture*> textures;
 private:
 	bool isDestroyed;
+	int viewingDirection;
 };
 
 #include "../GameWorld.h"

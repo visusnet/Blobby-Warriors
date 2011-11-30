@@ -13,7 +13,6 @@ Blobby::Blobby()
 	this->isTouchingWall = false;
 	this->angle = 0;
 	this->movementDirection = DIRECTION_UNKNOWN;
-	this->viewingDirection = DIRECTION_UNKNOWN;
 	this->rotationDirection = DIRECTION_UNKNOWN;
 	this->wallDirection = DIRECTION_UNKNOWN;
 	this->health = BLOBBY_DEFAULT_INITIAL_HEALTH;
@@ -28,31 +27,9 @@ Blobby::Blobby()
 }
 
 /**
-* set direction in which blobby is looking.
-* 
-* @Param int viewingDirection
-* @Return void
-*/
-void Blobby::setViewingDirection(int viewingDirection)
-{
-	if (viewingDirection == DIRECTION_LEFT || viewingDirection == DIRECTION_RIGHT)
-		this->viewingDirection = viewingDirection;
-}
-
-/**
-* get direction in which blobby is looking.
-* 
-* @Return int
-*/
-int Blobby::getViewingDirection()
-{
-	return this->viewingDirection;
-}
-
-/**
 * get attribute isDucking
 * 
-* @Return bool
+* @return bool
 */
 bool Blobby::getIsDucking()
 {
@@ -97,9 +74,16 @@ void Blobby::step()
 	}
 
 	// Reposition the weapon.
-	if (this->weapon != 0) {
-		this->weapon->getBody(0)->SetTransform(this->bodies.at(0)->GetTransform().position - b2Vec2(0, 0.1f), this->weapon->getBody(0)->GetTransform().GetAngle());
+	if (this->weapon != 0)
+	{
+		if (this->isDucking)
+			this->weapon->getBody(0)->SetTransform(this->bodies.at(0)->GetTransform().position - b2Vec2(0, 0.2f), this->weapon->getBody(0)->GetTransform().GetAngle());
+		else
+			this->weapon->getBody(0)->SetTransform(this->bodies.at(0)->GetTransform().position - b2Vec2(0, 0.1f), this->weapon->getBody(0)->GetTransform().GetAngle());
 	}
+
+	// set viewDirection of weapon
+	this->weapon->setViewingDirection(this->getViewingDirection());
 
 	if (this->isJumping && this->isRotating) {		
 		// If the blobby is rotating (i.e. doubly jumping), the angle has to
@@ -179,14 +163,6 @@ void Blobby::step()
 	{
 		debug("set direction to unknown");
 		this->movementDirection = DIRECTION_UNKNOWN;
-	}
-
-	// give carrier-information to all IWearables
-	for (int i=0; i < (signed)this->wearables.size(); i++)
-	{
-		IWearable* wearable = this->wearables.at(i);
-		wearable->setCarrierIsDucking(this->isDucking);
-		wearable->setCarrierViewingDirection(this->viewingDirection);
 	}
 }
 
@@ -330,8 +306,6 @@ void Blobby::setController(IController *controller)
 
 void Blobby::addWearable(IWearable *wearable)
 {
-	wearable->setCarrierIsDucking(this->isDucking);
-	wearable->setCarrierViewingDirection(this->viewingDirection);
 	this->wearables.push_back(wearable);
 }
 
@@ -383,7 +357,7 @@ void Blobby::jump()
 		}
 		else
 		{
-			this->rotationDirection = this->viewingDirection;
+			this->rotationDirection = this->getViewingDirection();
 			debug("roate: use view direction");
 		}
 	}
