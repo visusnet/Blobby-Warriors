@@ -19,7 +19,7 @@ struct BlendingInfo
 class Texturizer
 {
 public:
-	static void draw(Texture *texture, float x, float y, float angle = 0, int width = 0, int height = 0, bool keepProportion = false, BlendingInfo *blending = 0, Color *color = 0);
+	static void draw(Texture *texture, float x, float y, float angle = 0, int width = 0, int height = 0, bool flip = false, bool keepProportion = false, BlendingInfo *blending = 0, Color *color = 0);
 };
 
 #endif

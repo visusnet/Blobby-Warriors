@@ -66,6 +66,14 @@ bool PlayerController::handleMouseEvent(MouseEventArgs *mouseEventArgs)
 		b2Vec2 absoluteMousePosition = MouseHandler::getInstance()->getPosition();
 		mousePosition = pixel2meter(Camera::convertScreenToWorld(int(absoluteMousePosition.x), int(absoluteMousePosition.y)));
 	}
+
+	// set direction in which blobby is looking
+	if (mousePosition.x > this->blobby->getBody(0)->GetPosition().x)
+		this->blobby->setViewingDirection(DIRECTION_RIGHT);
+	else
+		this->blobby->setViewingDirection(DIRECTION_LEFT);
+
+
 	if (this->blobby->getWeapon() != 0) {
 		AbstractWeapon *weapon = this->blobby->getWeapon();
 		b2Vec2 weaponPosition = weapon->getBody(0)->GetPosition();
@@ -78,6 +86,7 @@ bool PlayerController::handleMouseEvent(MouseEventArgs *mouseEventArgs)
 
 		if (weaponPosition.y > mousePosition.y) {
 			angle = b2_pi - angle;
+			angle += degree2radian(180);	// provides 0°-360° angle handling
 		}
 
 		if (fire) {

@@ -12,7 +12,8 @@ Blobby::Blobby()
 	this->isOnGround = false;
 	this->isTouchingWall = false;
 	this->angle = 0;
-	this->direction = DIRECTION_UNKNOWN;
+	this->movementDirection = DIRECTION_UNKNOWN;
+	this->rotationDirection = DIRECTION_UNKNOWN;
 	this->wallDirection = DIRECTION_UNKNOWN;
 	this->health = BLOBBY_DEFAULT_INITIAL_HEALTH;
 	this->maxHealth = BLOBBY_DEFAULT_MAX_HEALTH;
@@ -23,6 +24,16 @@ Blobby::Blobby()
 	this->controller = 0;
 
 	ContactListener::getInstance()->subscribe(this);
+}
+
+/**
+* get attribute isDucking
+* 
+* @return bool
+*/
+bool Blobby::getIsDucking()
+{
+	return this->isDucking;
 }
 
 // Magic. Do not touch.
@@ -63,9 +74,16 @@ void Blobby::step()
 	}
 
 	// Reposition the weapon.
-	if (this->weapon != 0) {
-		this->weapon->getBody(0)->SetTransform(this->bodies.at(0)->GetTransform().position - b2Vec2(0, 0.1f), this->weapon->getBody(0)->GetTransform().GetAngle());
+	if (this->weapon != 0)
+	{
+		if (this->isDucking)
+			this->weapon->getBody(0)->SetTransform(this->bodies.at(0)->GetTransform().position - b2Vec2(0, 0.2f), this->weapon->getBody(0)->GetTransform().GetAngle());
+		else
+			this->weapon->getBody(0)->SetTransform(this->bodies.at(0)->GetTransform().position - b2Vec2(0, 0.1f), this->weapon->getBody(0)->GetTransform().GetAngle());
 	}
+
+	// set viewDirection of weapon
+	this->weapon->setViewingDirection(this->getViewingDirection());
 
 	if (this->isJumping && this->isRotating) {		
 		// If the blobby is rotating (i.e. doubly jumping), the angle has to
@@ -88,19 +106,19 @@ void Blobby::step()
 
 	// Rotate the body.
 	b2Body *body = this->bodies.at(0);
-	body->SetTransform(body->GetTransform().position, degree2radian(direction == DIRECTION_LEFT ? this->angle : 360 - this->angle));
+	body->SetTransform(body->GetTransform().position, degree2radian(rotationDirection == DIRECTION_LEFT ? this->angle : 360 - this->angle));
 
 	// Move the body if it is not touching a wall or is
 	// touching a wall but the movement points into the opposite
 	// direction.
-	if (this->isWalking && this->direction != DIRECTION_UNKNOWN) {
-		if (this->direction == DIRECTION_LEFT && (!this->isTouchingWall || this->isTouchingWall && this->wallDirection != DIRECTION_LEFT)) {
+	if (this->isWalking && this->movementDirection != DIRECTION_UNKNOWN) {
+		if (this->movementDirection == DIRECTION_LEFT && (!this->isTouchingWall || this->isTouchingWall && this->wallDirection != DIRECTION_LEFT)) {
 			if (this->isOnGround) {
 				body->SetLinearVelocity(b2Vec2(-BLOBBY_MOVE_VELOCITY, body->GetLinearVelocity().y));
 			} else {
 				body->ApplyForce(b2Vec2(-BLOBBY_MOVE_VELOCITY, 0), body->GetPosition());
 			}
-		} else if (this->direction == DIRECTION_RIGHT && (!this->isTouchingWall || this->isTouchingWall && this->wallDirection != DIRECTION_RIGHT)) {
+		} else if (this->movementDirection == DIRECTION_RIGHT && (!this->isTouchingWall || this->isTouchingWall && this->wallDirection != DIRECTION_RIGHT)) {
 			if (this->isOnGround) {
 				body->SetLinearVelocity(b2Vec2(BLOBBY_MOVE_VELOCITY, body->GetLinearVelocity().y));
 			} else {
@@ -127,17 +145,24 @@ void Blobby::step()
 	// Duck and cover. ;-)
 	if (this->isDucking || this->isStandingUp) {
 		b2CircleShape *shape = (b2CircleShape*)this->bodies.at(0)->GetFixtureList()->GetNext()->GetShape();
-		if (this->isDucking) {
+		if (this->isDucking && shape->m_p.y != (BLOBBY_CENTER_DISTANCE / 2.0f)) {
 			shape->m_p.Set(shape->m_p.x, max(BLOBBY_CENTER_DISTANCE / 2.0f, shape->m_p.y - 0.02f));
-			if (shape->m_p.y == BLOBBY_CENTER_DISTANCE / 2.0f) {
+			/*if (shape->m_p.y == BLOBBY_CENTER_DISTANCE / 2.0f) {
 				this->isDucking = false;
-			}
-		} else {
+			}*/
+		} else if (this->isDucking == false) {
 			shape->m_p.Set(shape->m_p.x, min(BLOBBY_CENTER_DISTANCE, shape->m_p.y + 0.02f));
 			if (shape->m_p.y == BLOBBY_CENTER_DISTANCE) {
 				this->isStandingUp = false;
 			}
 		}
+	}
+
+	// set direction to unknown again if blobby is not moving
+	if (this->isWalking == false && this->movementDirection!=DIRECTION_UNKNOWN && abs(this->getBody(0)->GetLinearVelocity().x) < 3.0f)
+	{
+		debug("set direction to unknown");
+		this->movementDirection = DIRECTION_UNKNOWN;
 	}
 }
 
@@ -240,9 +265,9 @@ void Blobby::draw()
 	int width = 0; // proportional scaling!
 	int height = int(meter2pixel(BLOBBY_CENTER_DISTANCE + BLOBBY_UPPER_RADIUS + BLOBBY_LOWER_RADIUS));
 	if (this->isDead) {
-		Texturizer::draw(this->getTexture(this->activeTexture), x, y + BLOBBY_UPPER_RADIUS / 2, angle, width, height, true, 0, new Color(255, 255, 255, this->opacity));
+		Texturizer::draw(this->getTexture(this->activeTexture), x, y + BLOBBY_UPPER_RADIUS / 2, angle, width, height, false, false, 0, new Color(255, 255, 255, this->opacity));
 	} else {
-		Texturizer::draw(this->getTexture(this->activeTexture), x, y + BLOBBY_UPPER_RADIUS / 2, angle, width, height, true);
+		Texturizer::draw(this->getTexture(this->activeTexture), x, y + BLOBBY_UPPER_RADIUS / 2, angle, width, height, false, true);
 	}
 
 	if (!this->isDead && this->getHealth() < this->getMaxHealth()) {
@@ -323,18 +348,30 @@ void Blobby::jump()
 		// Enable rotation on double jump (+ boost).
 		body->ApplyForce(b2Vec2(0.0f, BLOBBY_JUMP_BOOST_FORCE), body->GetPosition());
 		this->isRotating = true;
+
+		// if blobby is running, we rotate in running direction. if blobby is standing, we rotate in direction blobby is looking
+		if (this->movementDirection != DIRECTION_UNKNOWN)
+		{
+			this->rotationDirection = this->movementDirection;
+			debug("roate: use run direction");
+		}
+		else
+		{
+			this->rotationDirection = this->getViewingDirection();
+			debug("roate: use view direction");
+		}
 	}
 }
 
 void Blobby::walkLeft()
 {
-	this->direction = DIRECTION_LEFT;
+	this->movementDirection = DIRECTION_LEFT;
 	this->isWalking = true;
 }
 
 void Blobby::walkRight()
 {
-	this->direction = DIRECTION_RIGHT;
+	this->movementDirection = DIRECTION_RIGHT;
 	this->isWalking = true;
 }
 
@@ -345,7 +382,7 @@ void Blobby::stopWalk()
 		// a low linear force to make it smooth.
 		b2Body *body = this->bodies.at(0);
 		body->SetLinearVelocity(b2Vec2(0.0f, body->GetLinearVelocity().y));
-		switch (this->direction) {
+		switch (this->movementDirection) {
 		case DIRECTION_RIGHT:
 			debug("stopping smooth");
 			body->ApplyForce(b2Vec2(BLOBBY_MOVE_STOP_FORCE, 0.0f), body->GetWorldCenter());

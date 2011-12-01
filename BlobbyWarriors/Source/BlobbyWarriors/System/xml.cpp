@@ -497,7 +497,7 @@ public:
 		srcp += i;
 		len -= i;
 
-		if(len & 0x02 ) /* (i==2) 2 bytes left,pad one byte of '=' */
+		if (len & 0x02 ) /* (i==2) 2 bytes left,pad one byte of '=' */
 		{      
 			*dstp++ = *(base64_map + ((*srcp>>2)&0x3f));
 			*dstp++ = *(base64_map + ((*srcp<< 4)&0x30 | (
@@ -505,7 +505,7 @@ public:
 			*dstp++ = *(base64_map + ((*(srcp+1)<<2)&0x3C) );
 			*dstp++ = '=';
 		}
-		else if(len & 0x01 )  /* (i==1) 1 byte left,pad two bytes of '='  */
+		else if (len & 0x01 )  /* (i==1) 1 byte left,pad two bytes of '='  */
 		{ 
 			*dstp++ = *(base64_map + ((*srcp>>2)&0x3f));
 			*dstp++ = *(base64_map + ((*srcp<< 4)&0x30));
@@ -535,12 +535,12 @@ public:
 		}
 		srcp += i;
 		
-		if(*(srcp-2) == '=')  /* remove 2 bytes of '='  padded while encoding */
+		if (*(srcp-2) == '=')  /* remove 2 bytes of '='  padded while encoding */
 		{	 
 			*(dstp--) = '\0';
 			*(dstp--) = '\0';
 		}
-		else if(*(srcp-1) == '=') /* remove 1 byte of '='  padded while encoding */
+		else if (*(srcp-1) == '=') /* remove 1 byte of '='  padded while encoding */
 			*(dstp--) = '\0';
 
 		*dstp = '\0';
@@ -7437,7 +7437,7 @@ bool XMLEncryptDecryptData(bool Decrypt,const char*pwd,int pwdlen,const char* d,
 
 	// Acquire context
 	HCRYPTPROV hCryptProv = 0;
-	if(!CryptAcquireContext(&hCryptProv,NULL,MS_ENH_RSA_AES_PROV,PROV_RSA_AES,0))
+	if (!CryptAcquireContext(&hCryptProv,NULL,MS_ENH_RSA_AES_PROV,PROV_RSA_AES,0))
 		return 0;
 
 	// Generate hash
@@ -8444,7 +8444,7 @@ bool XMLElement :: SignElement(unsigned int ij,PCCERT_CONTEXT pCert)
 
 
 	// Get bytes
-	if(CryptSignMessage(
+	if (CryptSignMessage(
 		&SignMessagePara,
 		TRUE,
 		1,
@@ -8455,7 +8455,7 @@ bool XMLElement :: SignElement(unsigned int ij,PCCERT_CONTEXT pCert)
 		{
 		Z<char> enc(blob.cbData + 100);
 
-		if( CryptSignMessage(
+		if ( CryptSignMessage(
 			&SignMessagePara,
 			TRUE,
 			1,

@@ -3,7 +3,8 @@
 
 class IWearable
 {
-
+	public:
+	IWearable();
 };
 
 #endif

@@ -3,7 +3,7 @@
 Drawer* Drawer::getInstance()
 {
 	static Guard guard;
-	if(Drawer::instance == 0) {
+	if (Drawer::instance == 0) {
 		Drawer::instance = new Drawer();
 	}
 	return Drawer::instance;

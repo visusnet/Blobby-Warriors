@@ -1,6 +1,8 @@
 #ifndef ABSTRACTWEAPON_H
 #define ABSTRACTWEAPON_H
 
+#define WEAPON_OFFSET_DUCKED_BLOBBY -0.2f
+
 class AbstractWeapon;
 
 #include "AbstractEntity.h"

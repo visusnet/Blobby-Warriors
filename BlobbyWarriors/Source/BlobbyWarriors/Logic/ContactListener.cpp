@@ -3,7 +3,7 @@
 ContactListener* ContactListener::getInstance()
 {
 	static Guard guard;
-	if(ContactListener::instance == 0) {
+	if (ContactListener::instance == 0) {
 		ContactListener::instance = new ContactListener();
 	}
 	return ContactListener::instance;

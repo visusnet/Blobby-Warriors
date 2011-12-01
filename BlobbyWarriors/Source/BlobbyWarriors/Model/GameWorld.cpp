@@ -3,7 +3,7 @@
 GameWorld* GameWorld::getInstance()
 {
 	static Guard guard;
-	if(GameWorld::instance == 0) {
+	if (GameWorld::instance == 0) {
 		GameWorld::instance = new GameWorld();
 	}
 	return GameWorld::instance;

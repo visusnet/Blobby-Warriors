@@ -74,6 +74,9 @@
     <LibraryPath>..\..\Contrib\irrKlang\lib;..\..\Contrib\DevIL\lib\unicode;..\..\Debug;$(LibraryPath)</LibraryPath>
     <SourcePath>..\..\Source\BlobbyWarriors;$(SourcePath)</SourcePath>
     <IncludePath>..\..\Contrib\irrKlang\include;..\..\Contrib\DevIL\include;..\..\Source\glui;..\..\Source\freeglut;..\..\Source\Box2D\;..\..\Source\;$(IncludePath)</IncludePath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules />
+    <CodeAnalysisRuleAssemblies />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-static|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -83,6 +86,9 @@
     <LibraryPath>..\..\Contrib\irrKlang\lib;..\..\Contrib\DevIL\lib\unicode;..\..\Debug;$(LibraryPath)</LibraryPath>
     <SourcePath>..\..\Source\BlobbyWarriors;$(SourcePath)</SourcePath>
     <IncludePath>..\..\Contrib\irrKlang\include;..\..\Contrib\DevIL\include;..\..\Source\glui;..\..\Source\freeglut;..\..\Source\Box2D\;..\..\Source\;$(IncludePath)</IncludePath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules />
+    <CodeAnalysisRuleAssemblies />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -92,6 +98,9 @@
     <LibraryPath>..\..\Contrib\irrKlang\lib;..\..\Contrib\DevIL\lib\unicode;..\..\Release;$(LibraryPath)</LibraryPath>
     <SourcePath>..\..\Source\BlobbyWarriors;$(SourcePath)</SourcePath>
     <IncludePath>..\..\Contrib\irrKlang\include;..\..\Contrib\DevIL\include;..\..\Source\glui;..\..\Source\freeglut;..\..\Source\Box2D\;..\..\Source\;$(IncludePath)</IncludePath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules />
+    <CodeAnalysisRuleAssemblies />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-static|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -101,6 +110,9 @@
     <LibraryPath>..\..\Contrib\irrKlang\lib;..\..\Contrib\DevIL\lib\unicode;..\..\Release;$(LibraryPath)</LibraryPath>
     <SourcePath>..\..\Source\BlobbyWarriors;$(SourcePath)</SourcePath>
     <IncludePath>..\..\Contrib\irrKlang\include;..\..\Contrib\DevIL\include;..\..\Source\glui;..\..\Source\freeglut;..\..\Source\Box2D\;..\..\Source\;$(IncludePath)</IncludePath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules />
+    <CodeAnalysisRuleAssemblies />
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -309,6 +321,20 @@ xcopy ..\..\data $(OutDir)data /E /Y</Command>
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\GameWorld.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\Model\PhysicsUtils.h" />
     <ClInclude Include="..\..\Source\BlobbyWarriors\PublishSubscribe.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Box2D\Box2D.vcxproj">
+      <Project>{222f08e6-3a53-405c-86a7-66ff96dd42ff}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\freeglut\freeglut_static.vcxproj">
+      <Project>{180c5f46-8a7a-4c66-93bf-a298feb0097f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\glui\glui.vcxproj">
+      <Project>{d32e9583-f136-46c5-9a24-b253c7c14dfd}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

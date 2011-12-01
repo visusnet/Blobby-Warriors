@@ -3,7 +3,7 @@
 MouseHandler* MouseHandler::getInstance()
 {
 	static Guard guard;
-	if(MouseHandler::instance == 0) {
+	if (MouseHandler::instance == 0) {
 		MouseHandler::instance = new MouseHandler();
 	}
 	return MouseHandler::instance;
