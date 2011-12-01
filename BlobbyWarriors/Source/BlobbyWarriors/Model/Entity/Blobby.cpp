@@ -265,7 +265,7 @@ void Blobby::draw()
 	int width = 0; // proportional scaling!
 	int height = int(meter2pixel(BLOBBY_CENTER_DISTANCE + BLOBBY_UPPER_RADIUS + BLOBBY_LOWER_RADIUS));
 	if (this->isDead) {
-		Texturizer::draw(this->getTexture(this->activeTexture), x, y + BLOBBY_UPPER_RADIUS / 2, angle, width, height, false, false, 0, new Color(255, 255, 255, this->opacity));
+		Texturizer::draw(this->getTexture(this->activeTexture), x, y + BLOBBY_UPPER_RADIUS / 2, angle, width, height, false, true, 0, new Color(255, 255, 255, this->opacity));
 	} else {
 		Texturizer::draw(this->getTexture(this->activeTexture), x, y + BLOBBY_UPPER_RADIUS / 2, angle, width, height, false, true);
 	}
