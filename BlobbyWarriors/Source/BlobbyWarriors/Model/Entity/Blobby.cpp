@@ -94,17 +94,6 @@ void Blobby::step()
 		{
 			this->weapon->getBody(0)->SetTransform(this->bodies.at(0)->GetPosition() - b2Vec2(0, 0.1f), this->weapon->getBody(0)->GetAngle());
 		}
-
-		/*if(this->isRotating)
-		{
-			// provide 360° angle handling
-			int angleWeaponOffset = 0;
-			if(this->rotationDirection == DIRECTION_LEFT) {
-				angleWeaponOffset += degree2radian(180);
-			}
-
-			this->weapon->getBody(0)->SetTransform(this->bodies.at(0)->GetPosition() - b2Vec2(0, 0.1f), this->weapon->getBody(0)->GetAngle() + this->getBody(0)->GetAngle() + angleWeaponOffset);
-		}*/
 	}
 
 	// set viewDirection of weapon

@@ -78,9 +78,7 @@ bool PlayerController::handleMouseEvent(MouseEventArgs *mouseEventArgs)
 		AbstractWeapon *weapon = this->blobby->getWeapon();
 		b2Vec2 weaponPosition = weapon->getBody(0)->GetPosition();
 
-		//b2Vec2 a = mousePosition - weaponPosition + b2Vec2(cosf(this->blobby->getBody(0)->GetAngle()), sinf(this->blobby->getBody(0)->GetAngle()));
 		b2Vec2 a = mousePosition - weaponPosition;
-		//b2Vec2 a = weaponPosition;
 		b2Vec2 b = b2Vec2(1, 0);
 		a.Normalize();
 		b.Normalize();
