@@ -70,6 +70,7 @@ public:
 	void setMaxHealth(int maxHealth);
 	int getMaxHealth();
 	bool getIsDucking();
+	bool getIsRotating();
 private:
 	bool checkIsOnGround();
 	bool checkIsTouchingWall(int *wallDirection);

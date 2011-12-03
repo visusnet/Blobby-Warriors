@@ -36,6 +36,16 @@ bool Blobby::getIsDucking()
 	return this->isDucking;
 }
 
+/**
+* get attribute isRotating
+* 
+* @return bool
+*/
+bool Blobby::getIsRotating()
+{
+	return this->isRotating;
+}
+
 // Magic. Do not touch.
 void Blobby::step()
 {
@@ -84,6 +94,17 @@ void Blobby::step()
 		{
 			this->weapon->getBody(0)->SetTransform(this->bodies.at(0)->GetPosition() - b2Vec2(0, 0.1f), this->weapon->getBody(0)->GetAngle());
 		}
+
+		/*if(this->isRotating)
+		{
+			// provide 360° angle handling
+			int angleWeaponOffset = 0;
+			if(this->rotationDirection == DIRECTION_LEFT) {
+				angleWeaponOffset += degree2radian(180);
+			}
+
+			this->weapon->getBody(0)->SetTransform(this->bodies.at(0)->GetPosition() - b2Vec2(0, 0.1f), this->weapon->getBody(0)->GetAngle() + this->getBody(0)->GetAngle() + angleWeaponOffset);
+		}*/
 	}
 
 	// set viewDirection of weapon
@@ -264,7 +285,6 @@ void Blobby::update(Publisher *who, UpdateData *what)
 					{
 						this->isJumping = false;
 						this->isRotating = false;
-						debug("lol");
 					}
 				}
 			}
@@ -274,27 +294,16 @@ void Blobby::update(Publisher *who, UpdateData *what)
 
 void Blobby::draw()
 {
-	float x = this->getBody(0)->GetPosition().x;
-	float y = this->getBody(0)->GetPosition().y;
+	float x = this->getBody(0)->GetWorldCenter().x;
+	float y = this->getBody(0)->GetWorldCenter().y;
 	float angle = this->getBody(0)->GetAngle();
 	int width = 0; // proportional scaling!
 	int height = int(meter2pixel(BLOBBY_CENTER_DISTANCE + BLOBBY_UPPER_RADIUS + BLOBBY_LOWER_RADIUS));
 	if (this->isDead) {
-		Texturizer::draw(this->getTexture(this->activeTexture), x, y + BLOBBY_UPPER_RADIUS / 2, angle, width, height, false, true, 0, new Color(255, 255, 255, this->opacity));
+		Texturizer::draw(this->getTexture(this->activeTexture), x, y, angle, width, height, false, true, 0, new Color(255, 255, 255, this->opacity));
 	} else
 	{
-		// the error comes with "y + BLOBBY_UPPER_RADIUS / 2"... this offset is not anymore correct when blobby rotates
-		/*b2Vec2 angle_vec = b2Vec2(cos(angle), sin(angle));
-		b2Vec2 offset = b2Vec2(0, (BLOBBY_UPPER_RADIUS / 2));
-		//offset = offset * angle_vec;
-		
-		b2Vec2 offset2 = offset * angle_vec;
-
-		b2Vec2 pos_blobby = b2Vec2(x, y);
-		b2Vec2 pos_blobby_image = pos_blobby + offset;*/
-
-		//Texturizer::draw(this->getTexture(this->activeTexture), pos_blobby_image.x, pos_blobby_image.y, angle, width, height, false, true);
-		Texturizer::draw(this->getTexture(this->activeTexture), x, y + BLOBBY_UPPER_RADIUS / 2, angle, width, height, false, true);
+		Texturizer::draw(this->getTexture(this->activeTexture), x, y, angle, width, height, false, true);
 	}
 
 	if (!this->isDead && this->getHealth() < this->getMaxHealth()) {
@@ -323,7 +332,7 @@ void Blobby::draw()
 		glEnd();
 	}
 	
-	AbstractEntity::draw();
+	//AbstractEntity::draw();
 }
 
 void Blobby::setController(IController *controller)
