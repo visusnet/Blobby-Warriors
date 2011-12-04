@@ -9,9 +9,9 @@ Flamethrower::Flamethrower()
 void Flamethrower::onFire(b2Vec2 direction, bool constantFire, bool isPlayer)
 {
 	direction.Normalize();
-	b2Mat22 matrix1 = b2Mat22(degree2radian(float(rand() % 600) / 100.0f));
-	b2Mat22 matrix2 = b2Mat22(degree2radian(float(rand() % 600) / 100.0f));
-	b2Mat22 matrix3 = b2Mat22(degree2radian(float(rand() % 600 - 300) / 100.0f));
+	b2Rot matrix1 = b2Rot(degree2radian(float(rand() % 600) / 100.0f));
+	b2Rot matrix2 = b2Rot(degree2radian(float(rand() % 600) / 100.0f));
+	b2Rot matrix3 = b2Rot(degree2radian(float(rand() % 600 - 300) / 100.0f));
 	direction = b2Mul(matrix1, direction);
 	b2Vec2 direction2 = b2Mul(matrix2, direction);
 	b2Vec2 direction3 = b2Mul(matrix3, direction);

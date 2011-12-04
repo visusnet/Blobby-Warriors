@@ -28,7 +28,9 @@ void AbstractEntity::step()
 void AbstractEntity::setViewingDirection(int viewingDirection)
 {
 	if (viewingDirection == DIRECTION_LEFT || viewingDirection == DIRECTION_RIGHT)
+	{
 		this->viewingDirection = viewingDirection;
+	}
 }
 
 /**
@@ -120,11 +122,9 @@ void DrawShape(b2Fixture* fixture, const b2Transform& xf)
 	case b2Shape::e_circle:
 		{
 			b2CircleShape* circle = (b2CircleShape*)fixture->GetShape();
-			b2Transform xf2 = xf;
-			xf2.position = meter2pixel(xf2.position);
-			b2Vec2 center = b2Mul(xf2, SCALING_FACTOR * circle->m_p);
+			b2Vec2 center = meter2pixel(b2Mul(xf, circle->m_p));
 			float32 radius = circle->m_radius;
-			b2Vec2 axis = xf.R.col1;
+			b2Vec2 axis = b2Mul(xf.q, b2Vec2(1.0f, 0.0f));
 
 			DrawSolidCircle(center, radius, axis);
 		}

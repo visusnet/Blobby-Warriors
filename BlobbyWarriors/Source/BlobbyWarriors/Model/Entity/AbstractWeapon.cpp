@@ -44,9 +44,13 @@ void AbstractWeapon::draw()
 	if (this->isActive)
 	{
 		if (this->getViewingDirection()==DIRECTION_LEFT)
-			Texturizer::draw(this->getTexture(0), this->getBody(0)->GetPosition().x, this->getBody(0)->GetPosition().y, degree2radian(radian2degree(this->getBody(0)->GetTransform().GetAngle()) + 180), 40, 19);
+		{
+			Texturizer::draw(this->getTexture(0), this->getBody(0)->GetPosition().x, this->getBody(0)->GetPosition().y, degree2radian(radian2degree(this->getBody(0)->GetAngle()) + 180), 40, 19);
+		}
 		else
-			Texturizer::draw(this->getTexture(0), this->getBody(0)->GetPosition().x, this->getBody(0)->GetPosition().y, degree2radian(radian2degree(this->getBody(0)->GetTransform().GetAngle()) + 180), 40, 19, true, false, 0, 0);
+		{
+			Texturizer::draw(this->getTexture(0), this->getBody(0)->GetPosition().x, this->getBody(0)->GetPosition().y, degree2radian(radian2degree(this->getBody(0)->GetAngle()) + 180), 40, 19, true, false, 0, 0);
+		}
 	}
 	//	AbstractEntity::draw();
 }

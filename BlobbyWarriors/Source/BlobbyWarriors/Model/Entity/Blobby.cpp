@@ -77,9 +77,13 @@ void Blobby::step()
 	if (this->weapon != 0)
 	{
 		if (this->isDucking)
-			this->weapon->getBody(0)->SetTransform(this->bodies.at(0)->GetTransform().position - b2Vec2(0, 0.2f), this->weapon->getBody(0)->GetTransform().GetAngle());
+		{
+			this->weapon->getBody(0)->SetTransform(this->bodies.at(0)->GetPosition() - b2Vec2(0, 0.2f), this->weapon->getBody(0)->GetAngle());
+		}
 		else
-			this->weapon->getBody(0)->SetTransform(this->bodies.at(0)->GetTransform().position - b2Vec2(0, 0.1f), this->weapon->getBody(0)->GetTransform().GetAngle());
+		{
+			this->weapon->getBody(0)->SetTransform(this->bodies.at(0)->GetPosition() - b2Vec2(0, 0.1f), this->weapon->getBody(0)->GetAngle());
+		}
 	}
 
 	// set viewDirection of weapon
@@ -106,7 +110,7 @@ void Blobby::step()
 
 	// Rotate the body.
 	b2Body *body = this->bodies.at(0);
-	body->SetTransform(body->GetTransform().position, degree2radian(rotationDirection == DIRECTION_LEFT ? this->angle : 360 - this->angle));
+	body->SetTransform(body->GetPosition(), degree2radian(rotationDirection == DIRECTION_LEFT ? this->angle : 360 - this->angle));
 
 	// Move the body if it is not touching a wall or is
 	// touching a wall but the movement points into the opposite
@@ -159,7 +163,8 @@ void Blobby::step()
 	}
 
 	// set direction to unknown again if blobby is not moving
-	if (this->isWalking == false && this->movementDirection!=DIRECTION_UNKNOWN && abs(this->getBody(0)->GetLinearVelocity().x) < 3.0f)
+	if (this->isWalking == false && this->movementDirection != DIRECTION_UNKNOWN
+		&& abs(this->getBody(0)->GetLinearVelocity().x) < 3.0f)
 	{
 		debug("set direction to unknown");
 		this->movementDirection = DIRECTION_UNKNOWN;
@@ -173,7 +178,8 @@ void Blobby::update(Publisher *who, UpdateData *what)
 	}
 
 	ContactEventArgs *contactEventArgs = dynamic_cast<ContactEventArgs*>(what);
-	if (contactEventArgs != 0) {
+	if (contactEventArgs != 0)
+	{
 		// Did we hit or cease to hit the ground?
 		b2Fixture *blobbyFixture = 0;
 		b2Fixture *contactFixture = 0;
@@ -185,11 +191,14 @@ void Blobby::update(Publisher *who, UpdateData *what)
 			contactFixture = contactEventArgs->contact->GetFixtureA();
 			blobbyFixture = contactEventArgs->contact->GetFixtureB();
 		}
-		if (contactFixture != 0) {
+		if (contactFixture != 0)
+		{
 			// There is a fixture which might be a ground.
 			IEntity *entity = (IEntity*)contactFixture->GetBody()->GetUserData();
-			if (entity != 0) {
-				if (blobbyFixture == this->lowerFixture) {
+			if (entity != 0)
+			{
+				if (blobbyFixture == this->lowerFixture)
+				{
 					// It is the lower shape, so we need to cope with the
 					// contact point angle.
 					// Yes, it is really a ground.
@@ -232,7 +241,9 @@ void Blobby::update(Publisher *who, UpdateData *what)
 								this->contactPoints.push_back(contactPoint);
 							}
 						}
-					} else if (contactEventArgs->type == CONTACT_TYPE_END) {
+					} 
+					else if (contactEventArgs->type == CONTACT_TYPE_END)
+					{
 						// The contact has ended. We need to remove the ContactPoint.
 						list<ContactPoint*> destroyableContactPoints;
 						for (list<ContactPoint*>::iterator it = this->contactPoints.begin(); it != this->contactPoints.end(); ++it) {
@@ -245,11 +256,15 @@ void Blobby::update(Publisher *who, UpdateData *what)
 							this->contactPoints.remove(*it);
 						}
 					}
-				} else if (blobbyFixture == this->upperFixture) {
+				}
+				else if (blobbyFixture == this->upperFixture)
+				{
 					// It is the upper shape, so we just stop jumping.
-					if (contactEventArgs->type == CONTACT_TYPE_BEGIN) {
+					if (contactEventArgs->type == CONTACT_TYPE_BEGIN)
+					{
 						this->isJumping = false;
 						this->isRotating = false;
+						debug("lol");
 					}
 				}
 			}
@@ -265,8 +280,20 @@ void Blobby::draw()
 	int width = 0; // proportional scaling!
 	int height = int(meter2pixel(BLOBBY_CENTER_DISTANCE + BLOBBY_UPPER_RADIUS + BLOBBY_LOWER_RADIUS));
 	if (this->isDead) {
-		Texturizer::draw(this->getTexture(this->activeTexture), x, y + BLOBBY_UPPER_RADIUS / 2, angle, width, height, false, false, 0, new Color(255, 255, 255, this->opacity));
-	} else {
+		Texturizer::draw(this->getTexture(this->activeTexture), x, y + BLOBBY_UPPER_RADIUS / 2, angle, width, height, false, true, 0, new Color(255, 255, 255, this->opacity));
+	} else
+	{
+		// the error comes with "y + BLOBBY_UPPER_RADIUS / 2"... this offset is not anymore correct when blobby rotates
+		/*b2Vec2 angle_vec = b2Vec2(cos(angle), sin(angle));
+		b2Vec2 offset = b2Vec2(0, (BLOBBY_UPPER_RADIUS / 2));
+		//offset = offset * angle_vec;
+		
+		b2Vec2 offset2 = offset * angle_vec;
+
+		b2Vec2 pos_blobby = b2Vec2(x, y);
+		b2Vec2 pos_blobby_image = pos_blobby + offset;*/
+
+		//Texturizer::draw(this->getTexture(this->activeTexture), pos_blobby_image.x, pos_blobby_image.y, angle, width, height, false, true);
 		Texturizer::draw(this->getTexture(this->activeTexture), x, y + BLOBBY_UPPER_RADIUS / 2, angle, width, height, false, true);
 	}
 
@@ -295,7 +322,8 @@ void Blobby::draw()
 			glVertex2f(x - 12.0f, y + 4.0f);
 		glEnd();
 	}
-	//	AbstractEntity::draw();
+	
+	AbstractEntity::draw();
 }
 
 void Blobby::setController(IController *controller)
@@ -441,7 +469,7 @@ bool Blobby::checkIsOnGround()
 	// (negative y-axis direction).
 	for (list<ContactPoint*>::iterator it = this->contactPoints.begin(); it != this->contactPoints.end(); ++it) {
 		ContactPoint *contactPoint = *it;
-		float angle = correctAngle(contactPoint->angle, radian2degree(this->bodies.at(0)->GetTransform().GetAngle()));
+		float angle = correctAngle(contactPoint->angle, radian2degree(this->bodies.at(0)->GetAngle()));
 		if (90 - GROUND_ANGLE / 2 <= angle && angle <= 90 + GROUND_ANGLE / 2) {
 			return true;
 		}
@@ -457,7 +485,7 @@ bool Blobby::checkIsTouchingWall(int *wallDirection)
 	// its bottom (negative y-axis direction).
 	for (list<ContactPoint*>::iterator it = this->contactPoints.begin(); it != this->contactPoints.end(); ++it) {
 		ContactPoint *contactPoint = *it;
-		float angle = correctAngle(contactPoint->angle, radian2degree(this->bodies.at(0)->GetTransform().GetAngle()));
+		float angle = correctAngle(contactPoint->angle, radian2degree(this->bodies.at(0)->GetAngle()));
 		if (angle < 90 - GROUND_ANGLE / 2 || 90 + GROUND_ANGLE / 2 < angle) {
 			*wallDirection = angle > 90 + GROUND_ANGLE / 2 && angle < 270 ? DIRECTION_LEFT : DIRECTION_RIGHT;
 			return true;

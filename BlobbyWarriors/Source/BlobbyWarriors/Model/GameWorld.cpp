@@ -75,7 +75,8 @@ GameWorld::GameWorld()
 {
 	b2Vec2 gravity = b2Vec2(0.0f, -9.81f);
 	bool doSleep = false;
-	this->world = new b2World(gravity, doSleep);
+	this->world = new b2World(gravity);
+	this->world->SetAllowSleeping(doSleep);
 	this->world->SetContactListener(ContactListener::getInstance());
 	this->cameraBlobby = 0;
 }

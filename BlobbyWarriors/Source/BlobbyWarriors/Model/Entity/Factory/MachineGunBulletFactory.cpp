@@ -26,6 +26,7 @@ IEntity* MachineGunBulletFactory::create(const EntityProperties& properties)
 
 	body->CreateFixture(&fixtureDef);
 	body->ResetMassData();
+	//body->SetGravityScale(0);
 
 	MachineGunBullet *machineGunBullet = new MachineGunBullet();
 	machineGunBullet->addBody(body);
@@ -36,7 +37,7 @@ IEntity* MachineGunBulletFactory::create(const EntityProperties& properties)
 EntityProperties& MachineGunBulletFactory::getDefaultProperties()
 {
 	EntityProperties *properties = new EntityProperties();
-	properties->density = 0.1f;
+	properties->density = 1.5f;
 	properties->friction = 0.0f;
 	properties->restitution = 0.0f;
 	properties->angle = 0.0f;

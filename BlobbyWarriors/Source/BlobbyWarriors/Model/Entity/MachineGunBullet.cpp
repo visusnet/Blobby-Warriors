@@ -10,7 +10,7 @@ MachineGunBullet::MachineGunBullet()
 void MachineGunBullet::draw()
 {
 //	AbstractEntity::draw();
-	Texturizer::draw(this->texture, this->getBody(0)->GetPosition().x, this->getBody(0)->GetPosition().y, this->getBody(0)->GetTransform().GetAngle());
+	Texturizer::draw(this->texture, this->getBody(0)->GetPosition().x, this->getBody(0)->GetPosition().y, this->getBody(0)->GetAngle());
 }
 
 void MachineGunBullet::update(Publisher *who, UpdateData *what)

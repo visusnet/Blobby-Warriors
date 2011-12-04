@@ -15,5 +15,5 @@ void MachineGun::onFire(b2Vec2 direction, bool constantFire, bool isPlayer)
 	properties.y = meter2pixel(this->getBody(0)->GetPosition().y);
 	properties.special = true;
 	MachineGunBullet *machineGunBullet = (MachineGunBullet*)entityFactory->create(properties);
-	machineGunBullet->getBody(0)->ApplyForce(0.81f * direction, this->getBody(0)->GetPosition());
+	machineGunBullet->getBody(0)->ApplyForce(10.81f * direction, this->getBody(0)->GetPosition());
 }
