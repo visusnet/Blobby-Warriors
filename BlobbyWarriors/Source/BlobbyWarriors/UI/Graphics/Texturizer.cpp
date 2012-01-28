@@ -58,9 +58,7 @@ void Texturizer::draw(Texture *texture, float x, float y, float angle, int width
 		vertices[3] = 0.5f * b2Vec2(- float(width), + float(height));
 	}
 
-	//b2Mat22 matrix = b2Mat22();
 	b2Rot matrix = b2Rot(angle);
-	//matrix.Set(angle);
 
 	if (color != 0) {
 		glColor4ub(color->r, color->g, color->b, color->a);

@@ -89,26 +89,21 @@ bool PlayerController::handleMouseEvent(MouseEventArgs *mouseEventArgs)
 			angle += degree2radian(180);	// provides 0°-360° angle handling
 		}
 
-		if (fire)
-		{
+		if (fire) {
 			weapon->fire(b2Vec2(cosf(angle + this->blobby->getBody(0)->GetAngle()), sinf(angle + this->blobby->getBody(0)->GetAngle())), false, true);
 		}
-		else if (MouseHandler::getInstance()->isButtonPressed(MOUSE_BUTTON_LEFT))
-		{
+		else if (MouseHandler::getInstance()->isButtonPressed(MOUSE_BUTTON_LEFT)) {
 			weapon->fire(b2Vec2(cosf(angle + this->blobby->getBody(0)->GetAngle()), sinf(angle + this->blobby->getBody(0)->GetAngle())), false, true);
 		}
-		else if (stopFire)
-		{
+		else if (stopFire) {
 			weapon->stopFire();
 		}
 
 		// adjust weapon-angle to blobby if blobby is rotating
-		if(this->blobby->getIsRotating())
-		{
+		if(this->blobby->getIsRotating()) {
 			weapon->getBody(0)->SetTransform(weapon->getBody(0)->GetPosition(), this->blobby->getBody(0)->GetAngle() + angle);
 		}
-		else
-		{
+		else {
 			weapon->getBody(0)->SetTransform(weapon->getBody(0)->GetPosition(), angle);
 		}
 	}

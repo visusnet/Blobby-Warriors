@@ -86,12 +86,10 @@ void Blobby::step()
 	// Reposition the weapon.
 	if (this->weapon != 0)
 	{
-		if (this->isDucking)
-		{
+		if (this->isDucking) {
 			this->weapon->getBody(0)->SetTransform(this->bodies.at(0)->GetPosition() - b2Vec2(0, 0.2f), this->weapon->getBody(0)->GetAngle());
 		}
-		else
-		{
+		else {
 			this->weapon->getBody(0)->SetTransform(this->bodies.at(0)->GetPosition() - b2Vec2(0, 0.1f), this->weapon->getBody(0)->GetAngle());
 		}
 	}
@@ -161,9 +159,6 @@ void Blobby::step()
 		b2CircleShape *shape = (b2CircleShape*)this->bodies.at(0)->GetFixtureList()->GetNext()->GetShape();
 		if (this->isDucking && shape->m_p.y != (BLOBBY_CENTER_DISTANCE / 2.0f)) {
 			shape->m_p.Set(shape->m_p.x, max(BLOBBY_CENTER_DISTANCE / 2.0f, shape->m_p.y - 0.02f));
-			/*if (shape->m_p.y == BLOBBY_CENTER_DISTANCE / 2.0f) {
-				this->isDucking = false;
-			}*/
 		} else if (this->isDucking == false) {
 			shape->m_p.Set(shape->m_p.x, min(BLOBBY_CENTER_DISTANCE, shape->m_p.y + 0.02f));
 			if (shape->m_p.y == BLOBBY_CENTER_DISTANCE) {
@@ -267,11 +262,9 @@ void Blobby::update(Publisher *who, UpdateData *what)
 						}
 					}
 				}
-				else if (blobbyFixture == this->upperFixture)
-				{
+				else if (blobbyFixture == this->upperFixture) {
 					// It is the upper shape, so we just stop jumping.
-					if (contactEventArgs->type == CONTACT_TYPE_BEGIN)
-					{
+					if (contactEventArgs->type == CONTACT_TYPE_BEGIN) {
 						this->isJumping = false;
 						this->isRotating = false;
 					}
